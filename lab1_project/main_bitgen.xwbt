@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/avinash/cs141/labs/lab1/lab1_project/main.ncd
+OUTFILE=/home/avinash/cs141/labs/lab1/lab1_project/main.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=/home/avinash/cs141/labs/lab1/lab1_project
+LICENSE=WebPack
+USER_INFO=207362390_0_0_257
