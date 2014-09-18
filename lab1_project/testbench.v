@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+//timescale 1ns / 1ps
 
 `default_nettype none //forces xilinx to catch undeclared wires
 
@@ -17,13 +17,15 @@ module testbench;
 		.led(led)
 	);
 
+	integer i;
 	initial begin
 		// Insert the dumps here
-		$dumpfile("testbench.v")
-		$dumpvars(0,uut)
+		$dumpfile("testbench.vcd")
+		$dumpvars(0,testbench)
 
 		//set the switch to be one of every possible value
-		for(switch = 0; switch < 8'hff; switch = switch + 1) begin
+		for(i = 0; i < 8'hff; i = i + 1) begin
+			switch=i;
 			#10;
 		end
 		$finish;
