@@ -109,6 +109,5 @@ module mux_16to1_test;
 		end
 		$finish;
 	end
-      
 endmodule
 
