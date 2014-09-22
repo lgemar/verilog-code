@@ -15,12 +15,12 @@ module alu_add_16bit(A, B, CI, S, CO);
 	output wire CO;
 
 	// extra useful wires
-	wire temp_out_in; 
+	wire temp_out1, temp_out2, temp_out3; 
 
-	alu_add_4bit ADD_03 (.A(A[3:0]), .B(B[3:0]), .CI(CI), .S(S[3:0]), .CO(temp_out_in));
-	alu_add_4bit ADD_47 (.A(A[4:7]), .B(B[4:7]), .CI(temp_out_in), .S(S[4:7]), .CO(temp_out_in));
-	alu_add_4bit ADD_811 (.A(A[8:11]), .B(B[8:11]), .CI(temp_out_in), .S(S[8:11]), .CO(temp_out_in));
-	alu_add_4bit ADD_1215 (.A(A[12:15]), .B(B[12:15]), .CI(temp_out_in), .S(S[12:15]), .CO(CO));
+	alu_add_4bit ADD_03 (.A(A[3:0]), .B(B[3:0]), .CI(CI), .S(S[3:0]), .CO(temp_out1));
+	alu_add_4bit ADD_47 (.A(A[7:4]), .B(B[7:4]), .CI(temp_out1), .S(S[7:4]), .CO(temp_out2));
+	alu_add_4bit ADD_811 (.A(A[11:8]), .B(B[11:8]), .CI(temp_out2), .S(S[11:8]), .CO(temp_out3));
+	alu_add_4bit ADD_1215 (.A(A[15:12]), .B(B[15:12]), .CI(temp_out3), .S(S[15:12]), .CO(CO));
 
 endmodule
 `default_nettype wire
