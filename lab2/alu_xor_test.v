@@ -5,14 +5,14 @@
 // Engineer:
 //
 // Create Date:   15:44:43 09/18/2014
-// Design Name:   alu_and_test
-// Module Name:   C:/Documents and Settings/student/My Documents/final_project/Lab2-prelab/alu_and_test.v
+// Design Name:   alu_xor_test
+// Module Name:   C:/Documents and Settings/student/My Documents/final_project/Lab2-prelab/alu_xor_test.v
 // Project Name:  Lab2-prelab
 // Target Device:  
 // Tool versions:  
 // Description: 
 //
-// Verilog Test Fixture created by ISE for module: alu_and_test
+// Verilog Test Fixture created by ISE for module: alu_xor_test
 //
 // Dependencies:
 // 
@@ -22,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module alu_and_test;
+module alu_xor_test;
 
 	// parameter 
 	parameter WIDTH = 32;
@@ -36,7 +36,7 @@ module alu_and_test;
 	wire [WIDTH-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_and #(.N(WIDTH)) uut (
+	alu_xor #(.N(WIDTH)) uut (
 		.A(A), 
 		.B(B), 
 		.Z(Z)
@@ -44,8 +44,8 @@ module alu_and_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_and_test.vcd");
-		$dumpvars(0, alu_and_test);
+		$dumpfile("alu_xor_test.vcd");
+		$dumpvars(0, alu_xor_test);
 
 		// Initialize Inputs
 		i = 32'h0x0;
