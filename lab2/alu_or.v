@@ -1,0 +1,20 @@
+`timescale 1ns / 1ps
+`default_nettype none
+//////////////////////////////////////////////////////////////////////////////////
+// 
+// Module Name:    alu_or.v
+// Description: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module alu_or(A, B, Z);
+
+	parameter WIDTH = 32;
+
+	//port definitions
+	input wire [(WIDTH - 1):0] A, B;
+	output wire [(WIDTH - 1):0] Z;
+
+	assign Z = A | B;
+endmodule
