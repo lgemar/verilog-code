@@ -10,7 +10,8 @@ module alu_add_32bit(A, B, CI, S, CO);
 
 	//port definitions
 	input wire CI;
-	input wire [31:0] A, B;
+	input wire [31:0] A;
+	input wire [31:0] B;
 	output wire [31:0] S;
 	output wire CO;
 
