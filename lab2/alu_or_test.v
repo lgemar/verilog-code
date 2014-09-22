@@ -12,6 +12,10 @@ module alu_or_test;
 	alu_or #(.WIDTH(WIDTH)) uut( .A(i1), .B(i2), .Z(Z));
 
 	initial begin
+		// Insert the dumps here; for working with gtkwave
+		$dumpfile("alu_or_test.vcd");
+		$dumpvars(0, alu_or_test);
+
 		// Initialize Inputs
 		i1 = 32'h00000000;
 		i2 = 32'hffffffff;
