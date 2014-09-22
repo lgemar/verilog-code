@@ -13,17 +13,32 @@ module alu_add_2bit_test;
 
 	initial begin
 		// Initialize Inputs
-		A = 1'b11;
-		B = 1'b11;
-		CI = 1'b00;
+		A = 2'b11;
+		B = 2'b11;
+		CI = 2'b00;
 
 		// Wait 100 ns for global reset to finish
 		#100;
         
 		// Add stimulus here
-		A = 1'b11;
-		B = 1'b11;
-		CI = 1'b11;
+		A = 2'b11;
+		B = 2'b11;
+		CI = 2'b11;
+		#100;
+
+		A = 2'b00;
+		B = 2'b00;
+		CI = 2'b00;
+		#100;
+
+		A = 2'b01;
+		B = 2'b10;
+		CI = 2'b00;
+		#100;
+
+		A = 2'b11;
+		B = 2'b10;
+		CI = 2'b00;
 		#100;
 
 		$finish;
