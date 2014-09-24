@@ -24,8 +24,8 @@ module alu_add_4bit_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_add_16bit_test.vcd");
-		$dumpvars(0, alu_add_16bit_test);
+		$dumpfile("alu_add_4bit_test.vcd");
+		$dumpvars(0, alu_add_4bit_test);
 
 		// Initialize Inputs
 		A = 4'b0000;
