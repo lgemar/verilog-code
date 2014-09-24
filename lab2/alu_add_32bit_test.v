@@ -1,26 +1,33 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
+//////////////////////////////////////////////////////////////////////////////////
+// 
+// Module Name:    alu_add_32bit 
+// Description: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+
 module alu_add_32bit_test;
 
-	reg [31:0] A;
-	reg [31:0] B;
+	reg signed [31:0] A;
+	reg signed [31:0] B;
 	reg CI;
-	wire [31:0] S;
-	wire CO;
+	wire signed [31:0] S;
+	wire OF;
 
 	// testbench variables
-	reg [31:0] i;
-	reg [31:0] j;
-	reg [32:0] desired_sum;
+	reg signed [31:0] i;
+	reg signed [31:0] j;
+	reg signed [32:0] desired_sum;
 	wire [31:0] desired_output;
 	wire desired_carry_out;
  
-	alu_add_32bit uut( .A(A), .B(B), .CI(CI), .S(S), .CO(CO));
+	alu_add_32bit uut( .A(A), .B(B), .CI(CI), .S(S), .OF(OF));
 
 	// Caculate the desired output and carry out
 	assign desired_output = desired_sum[31:0];
-	assign desired_carry_out = desired_sum[32];
+	assign desired_carry_out = A > 0 && B > 0 && S < 0 || A < 0 && B < 0 && S > 0;
 
 	initial begin
 		// Insert the dumps here
@@ -38,7 +45,7 @@ module alu_add_32bit_test;
 		#100;
         
 		// Add stimulus here
-		for (i = 0; i < 2^16; i = i + 1776) begin
+		for (i = 0; i < 2^32-1; i = i - 500000) begin
 			// set A equal to i and B to j
 			A = i;
 			B = j;
@@ -47,14 +54,14 @@ module alu_add_32bit_test;
 			#100; // delay required after assignment
 
 			// Display the results
-			$display("CarryIn: %d; Inputs: %d, %d; Output: %d; CarryOut: %d", CI, A, B, S, CO);
+			$display("CarryIn: %d; Inputs: %d, %d; Output: %d; Overflow: %d", CI, A, B, S, OF);
 			$display("Sum: %d; Output should be %d; Carry should be: %d", desired_sum, desired_output,desired_carry_out);	
-			if (S == desired_output && CO == desired_carry_out) begin
+			if (S == desired_output && OF == desired_carry_out) begin
 				$display("ALL CLEAR");
 			end
 			$display("\n");
 			// Increment j counter
-			j = j + 500;
+			j = j - 500000;
 		end
 		$finish;
 	end
