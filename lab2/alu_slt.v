@@ -15,5 +15,14 @@ module alu_slt(A, B, Z);
 	input wire [(WIDTH - 1):0] A, B;
 	output wire [(WIDTH - 1):0] Z;
 
-	assign Z = ;
+	// logical less than
+	wire lt;
+
+	// Wires to compute the subtraction
+	wire [(WIDTH - 1):0] AminusB;
+	wire OF;
+	alu_sub_32bit SUB (.A(A), .B(B), .S(AminusB), .OF(OF));
+
+	assign lt = ~A[31] & ~B[31] & AminusB[31] | ~A[31] & B[31] | A[31] & B[31] & AminusB[31];
+	assign Z = {32{lt}};
 endmodule
