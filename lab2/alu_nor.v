@@ -8,11 +8,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 module alu_nor(A, B, Z);
 	// parameter definitions
-	parameter N = 32;
+	parameter WIDTH = 32;
 
 	//port definitions
-	input wire [N-1:0] A, B;
-	output wire [N-1:0] Z;
+	input wire [WIDTH-1:0] A, B;
+	output wire [WIDTH-1:0] Z;
 
 	// instantiate module's hardware
 	assign Z = ~(A | B);

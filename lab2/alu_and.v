@@ -8,11 +8,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 module alu_and(A, B, Z);
 	// parameter definitions
-	parameter N = 8;
+	parameter WIDTH = 8;
 
 	//port definitions
-	input wire [N-1:0] A, B;
-	output wire [N-1:0] Z;
+	input wire [WIDTH-1:0] A, B;
+	output wire [WIDTH-1:0] Z;
 
 	// instantiate module's hardware
 	assign Z = A & B;
