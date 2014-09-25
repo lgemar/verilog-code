@@ -20,15 +20,13 @@ module alu_sub_32bit_test;
 	// testbench variables
 	reg signed [31:0] i;
 	reg signed [31:0] j;
-	reg signed [32:0] desired_sum;
-	wire [31:0] desired_output;
-	wire desired_carry_out;
+	reg signed [31:0] desired_sum;
+	wire desired_overflow;
  
 	alu_sub_32bit uut( .A(A), .B(B), .S(S), .OF(OF));
 
 	// Caculate the desired output and carry out
-	assign desired_output = desired_sum[31:0];
-	assign desired_carry_out = A > 0 && B_INV > 0 && S < 0 || A < 0 && B_INV < 0 && S > 0;
+	assign desired_overflow = A > 0 && B_INV > 0 && S < 0 || A < 0 && B_INV < 0 && S > 0;
 	
 	initial begin
 		// Insert the dumps here
@@ -41,7 +39,6 @@ module alu_sub_32bit_test;
 		CI = 1'b0;
 		j = 32'h0;
 		i = 32'h0;
-		B_INV = ~B + 1'b1;
 
 		// Wait 100 ns for global reset to finish
 		#100;
@@ -51,14 +48,15 @@ module alu_sub_32bit_test;
 			// set A equal to i and B to j
 			A = i;
 			B = j;
+			B_INV = ~B + 1'b1;
 			// Calculate the desired sum
 			desired_sum = (i - j);
 			#100; // delay required after assignment
 
 			// Display the results
 			$display("CarryIn: %d; Inputs: %d, %d; Output: %d; Overflow: %d", CI, A, B, S, OF);
-			$display("Sum: %d; Output should be %d; Carry should be: %d", desired_sum, desired_output,desired_carry_out);	
-			if (S == desired_output && OF == desired_carry_out) begin
+			$display("Output should be %d; Overflow should be: %d", desired_sum, desired_overflow);	
+			if (S == desired_sum && OF == desired_overflow) begin
 				$display("ALL CLEAR");
 			end
 			$display("\n");
