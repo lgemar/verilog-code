@@ -7,15 +7,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module alu_srl(A, Z);
+module alu_sll(A, Z);
 	parameter WIDTH = 32;
 	parameter SHIFT = 0;
-	 
+ 
 	input wire [(WIDTH - 1):0] A;
 	output wire [(WIDTH - 1):0] Z;
-	reg B = 1'b0;
 	
-	reg [31:0] TEMP = 32'h00000000;
-	assign Z[(WIDTH-1):(WIDTH-1)-SHIFT] = TEMP[(WIDTH-1):(WIDTH-1)-SHIFT];
-	assign Z[(WIDTH-1)-SHIFT:0] = A[(WIDTH-1):SHIFT];
+	reg [(WIDTH-1):0] TEMP = 32'h00000000;
+	assign Z[(WIDTH-1)-SHIFT:0] = TEMP[(WIDTH-1)-SHIFT:0];
+	assign Z[(WDITH-1):SHIFT] = A[(WIDTH-1)-SHIFT:0];
 endmodule
