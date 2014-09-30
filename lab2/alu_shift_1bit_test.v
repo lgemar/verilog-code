@@ -29,7 +29,7 @@ module alu_shift_1bit_test;
 	parameter N = 4;
 
 	// testing variables
-	reg [N-1:0] i;
+	reg [N:0] i;
 
 	// Inputs
 	reg [N-1:0] A;
