@@ -17,6 +17,7 @@ module alu_barrel_32bit(A, S, Z);
     output wire [(N-1):0] Z;
     wire [(N-1):0] shifted2;
 
+	alu_shift_32bit #(.N(N)) MUX6 (.A(A), .S(S[5]), .Z(shifted2));
 	alu_shift_16bit #(.N(N)) MUX5 (.A(A), .S(S[4]), .Z(shifted2));
 	alu_shift_8bit #(.N(N)) MUX4 (.A(A), .S(S[3]), .Z(shifted2));
 	alu_shift_4bit #(.N(N)) MUX3 (.A(A), .S(S[2]), .Z(shifted2));

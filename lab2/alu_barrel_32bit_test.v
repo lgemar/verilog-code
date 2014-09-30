@@ -29,7 +29,7 @@ module alu_barrel_32bit_test;
 
 	// testing variables
 	reg [N:0] i;
-	reg [6:0] j;
+	reg [N:0] j;
 
 	// Inputs
 	reg [N-1:0] A;
@@ -51,20 +51,19 @@ module alu_barrel_32bit_test;
 		$dumpvars(0, alu_barrel_32bit_test);
 
 		// Initialize Inputs
-		i = 0;
-		A = 4'b0000;
+		A = 32'h00000000;
 		S = 5'b00000;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 
 		// Add stimulus here
-		for (j = 0; j < 32; j = j + 1) begin
-			for (i = 0; i < 16; i = i + 1) begin
+		for (j = 0; j <= 32; j = j + 1) begin
+			for (i = 0; i <= 32; i = i + 1) begin
 				A = i;
 				S = j;
 				#100;
-				$display("Input: %d; Shift: %d; Output: %d;", A, S, Z);
+				$display("Input: %b; Shift: %b; Output: %b;", A, S, Z);
 			end
 		end
 
