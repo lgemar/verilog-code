@@ -33,7 +33,7 @@ module alu_shift_1bit_test;
 
 	// Inputs
 	reg [N-1:0] A;
-	reg [N-1:0] S;
+	reg S;
 
 	// Outputs
 	wire [N-1:0] Z;
