@@ -25,18 +25,21 @@
 
 module alu_shift_1bit_test;
 
+	// parameter width
+	parameter N = 4;
+
 	// testing variables
-	reg [1:0] i;
+	reg [N-1:0] i;
 
 	// Inputs
-	reg A;
-	reg S;
+	reg [N-1:0] A;
+	reg [N-1:0] S;
 
 	// Outputs
-	wire Z;
+	wire [N-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_shift_1bit uut (
+	alu_shift_1bit #(.N(N)) uut (
 		.A(A), 
 		.S(S), 
 		.Z(Z)
@@ -49,18 +52,21 @@ module alu_shift_1bit_test;
 
 		// Initialize Inputs
 		i = 0;
-		A = 1'b0;
-		S = 1'b0;
+		A = 4'b0000;
+		S = 0;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 
 		// Add stimulus here
-		for (i = 0; i < 2; i = i + 1) begin
-			S = i;
-			#100;
-			$display("Input: %b; Shift: %b; Output: %b;", A, S, Z);
+		for (S = 0; S < 2; S = S + 1) begin
+			for (i = 0; i < 16; i = i + 1) begin
+				A = i;
+				#100;
+				$display("Input: %b; Shift: %b; Output: %b;", A, S, Z);
+			end
 		end
+
 		$finish;
 	end
 endmodule
