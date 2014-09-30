@@ -33,7 +33,7 @@ module alu_shift_1bit_test;
 
 	// Inputs
 	reg [N-1:0] A;
-	reg [N-1:0] S;
+	reg S;
 
 	// Outputs
 	wire [N-1:0] Z;
@@ -48,7 +48,7 @@ module alu_shift_1bit_test;
 	initial begin
 		// Insert the dumps here
 		$dumpfile("alu_shift_1bit_test.vcd");
-		$dumpvars(0, alu_shift_1bit);
+		$dumpvars(0, alu_shift_1bit_test);
 
 		// Initialize Inputs
 		i = 0;
