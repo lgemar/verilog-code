@@ -1,4 +1,3 @@
-
 `timescale 1ns / 1ps
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -23,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module alu_shift_2bit_test;
+module alu_barrel_2bit_test;
 
 	// parameter width
 	parameter N = 4;
@@ -34,13 +33,13 @@ module alu_shift_2bit_test;
 
 	// Inputs
 	reg [N-1:0] A;
-	reg S;
+	reg [2:0] S;
 
 	// Outputs
 	wire [N-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_shift_2bit #(.N(N)) uut (
+	alu_barrel_2bit #(.N(N)) uut (
 		.A(A), 
 		.S(S), 
 		.Z(Z)
@@ -48,19 +47,19 @@ module alu_shift_2bit_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_shift_2bit_test.vcd");
-		$dumpvars(0, alu_shift_2bit_test);
+		$dumpfile("alu_barrel_2bit_test.vcd");
+		$dumpvars(0, alu_barrel_2bit_test);
 
 		// Initialize Inputs
 		i = 0;
 		A = 4'b0000;
-		S = 0;
+		S = 2'b00;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 
 		// Add stimulus here
-		for (j = 0; j < 2; j = j + 1) begin
+		for (j = 0; j < 4; j = j + 1) begin
 			for (i = 0; i < 16; i = i + 1) begin
 				A = i;
 				S = j;
