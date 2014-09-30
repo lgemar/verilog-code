@@ -13,8 +13,8 @@ module alu_shift_1bit(A, S, Z);
 	//port definitions
 
 	input wire [(N-1):0] A;
-	input S;
-    output [(N-1):0] Z;
+	input wire S;
+    output wire [(N-1):0] Z;
     wire [(N-1):0] B;
 
     assign B[(N-2):0] = A[N:1];
