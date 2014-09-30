@@ -30,10 +30,11 @@ module alu_shift_1bit_test;
 
 	// testing variables
 	reg [N:0] i;
+	reg [1:0] j;
 
 	// Inputs
 	reg [N-1:0] A;
-	reg [1:0] S;
+	reg S;
 
 	// Outputs
 	wire [N-1:0] Z;
@@ -59,9 +60,10 @@ module alu_shift_1bit_test;
 		#100;
 
 		// Add stimulus here
-		for (S = 0; S < 2; S = S + 1) begin
+		for (j = 0; j < 2; j = j + 1) begin
 			for (i = 0; i < 16; i = i + 1) begin
 				A = i;
+				S = j;
 				#100;
 				$display("Input: %b; Shift: %b; Output: %b;", A, S, Z);
 			end
