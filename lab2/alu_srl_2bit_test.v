@@ -22,24 +22,24 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module alu_shift_2bit_test;
+module alu_srl_32bit_test;
 
 	// parameter width
-	parameter N = 4;
+	parameter N = 32;
 
 	// testing variables
 	reg [N:0] i;
-	reg [1:0] j;
+	reg [6:0] j;
 
 	// Inputs
 	reg [N-1:0] A;
-	reg S;
+	reg [5:0] S;
 
 	// Outputs
 	wire [N-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_shift_2bit #(.N(N)) uut (
+	alu_srl_32bit #(.N(N)) uut (
 		.A(A), 
 		.S(S), 
 		.Z(Z)
@@ -47,24 +47,24 @@ module alu_shift_2bit_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_shift_2bit_test.vcd");
-		$dumpvars(0, alu_shift_2bit_test);
+		$dumpfile("alu_srl_32bit_test.vcd");
+		$dumpvars(0, alu_srl_32bit_test);
 
 		// Initialize Inputs
 		i = 0;
 		A = 4'b0000;
-		S = 0;
+		S = 5'b00000;
 
 		// Wait 100 ns for global reset to finish
 		#100;
 
 		// Add stimulus here
-		for (j = 0; j < 2; j = j + 1) begin
+		for (j = 0; j < 32; j = j + 1) begin
 			for (i = 0; i < 16; i = i + 1) begin
 				A = i;
 				S = j;
 				#100;
-				$display("Input: %b; Shift: %b; Output: %b;", A, S, Z);
+				$display("Input: %d; Shift: %d; Output: %d;", A, S, Z);
 			end
 		end
 

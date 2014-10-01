@@ -1,4 +1,3 @@
-
 `timescale 1ns / 1ps
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -6,14 +5,14 @@
 // Engineer:
 //
 // Create Date:   18:08:19 09/18/2014
-// Design Name:   alu_shift_1bit
-// Module Name:   C:/Documents and Settings/student/My Documents/final_project/Lab2-prelab/alu_shift_1bit_test.v
+// Design Name:   alu_sr_1bit
+// Module Name:   C:/Documents and Settings/student/My Documents/final_project/Lab2-prelab/alu_sr_1bit_test.v
 // Project Name:  Lab2-prelab
 // Target Device:  
 // Tool versions:  
 // Description: 
 //
-// Verilog Test Fixture created by ISE for module: alu_shift_1bit
+// Verilog Test Fixture created by ISE for module: alu_sr_1bit
 //
 // Dependencies:
 // 
@@ -23,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module alu_shift_2bit_test;
+module alu_sr_2bit_test;
 
 	// parameter width
 	parameter N = 4;
@@ -40,7 +39,7 @@ module alu_shift_2bit_test;
 	wire [N-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_shift_2bit #(.N(N)) uut (
+	alu_sr_2bit #(.N(N)) uut (
 		.A(A), 
 		.S(S), 
 		.Z(Z)
@@ -48,8 +47,8 @@ module alu_shift_2bit_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_shift_2bit_test.vcd");
-		$dumpvars(0, alu_shift_2bit_test);
+		$dumpfile("alu_sr_2bit_test.vcd");
+		$dumpvars(0, alu_sr_2bit_test);
 
 		// Initialize Inputs
 		i = 0;

@@ -22,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module alu_barrel_32bit_test;
+module alu_srl_32bit_test;
 
 	// parameter width
 	parameter N = 32;
@@ -39,7 +39,7 @@ module alu_barrel_32bit_test;
 	wire [N-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_barrel_32bit #(.N(N)) uut (
+	alu_srl_32bit #(.N(N)) uut (
 		.A(A), 
 		.S(S), 
 		.Z(Z)
@@ -47,8 +47,8 @@ module alu_barrel_32bit_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_barrel_32bit_test.vcd");
-		$dumpvars(0, alu_barrel_32bit_test);
+		$dumpfile("alu_srl_32bit_test.vcd");
+		$dumpvars(0, alu_srl_32bit_test);
 
 		// Initialize Inputs
 		A = 32'h00000000;

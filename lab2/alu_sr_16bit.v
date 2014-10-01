@@ -2,11 +2,11 @@
 `default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // 
-// Module Name:    alu_shift_32bit
+// Module Name:    alu_sr_16bit
 // Description: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alu_shift_32bit(A, S, Z);
+module alu_sr_16bit(A, S, Z);
 
     parameter N = 2;
 
@@ -17,7 +17,8 @@ module alu_shift_32bit(A, S, Z);
     output wire [(N-1):0] Z;
     wire [(N-1):0] B;
 
-    assign B[N-1:0] = 32'd0;
+    assign B[N-17:0] = A[N-1:16];
+    assign B[N-1:N-16] = 16'b0;
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule

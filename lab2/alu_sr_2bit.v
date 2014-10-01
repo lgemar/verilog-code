@@ -2,14 +2,13 @@
 `default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // 
-// Module Name:    shifter
+// Module Name:    alu_sr_2bit
 // Description: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module shifter(A, S, Z);
+module alu_sr_2bit(A, S, Z);
 
-    parameter WIDTH = 2;
-	parameter SHIFT = 1;
+    parameter N = 2;
 
 	//port definitions
 

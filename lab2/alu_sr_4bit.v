@@ -2,11 +2,11 @@
 `default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // 
-// Module Name:    alu_shift_2bit
+// Module Name:    alu_sr_4bit
 // Description: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alu_shift_2bit(A, S, Z);
+module alu_sr_4bit(A, S, Z);
 
     parameter N = 2;
 
@@ -17,8 +17,8 @@ module alu_shift_2bit(A, S, Z);
     output wire [(N-1):0] Z;
     wire [(N-1):0] B;
 
-    assign B[N-3:0] = A[N-1:2];
-    assign B[N-1:N-2] = 2'b0;
+    assign B[N-5:0] = A[N-1:4];
+    assign B[N-1:N-4] = 4'b0;
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule
