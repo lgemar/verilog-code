@@ -18,7 +18,7 @@ module alu_sra_2bit(A, S, Z);
     wire [(N-1):0] B;
 
     assign B[N-3:0] = A[N-1:2];
-    assign B[N-1:N-2] = 2'b1;
+    assign B[N-1:N-2] = 2'b11;
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule

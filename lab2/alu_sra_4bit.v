@@ -18,7 +18,7 @@ module alu_sra_4bit(A, S, Z);
     wire [(N-1):0] B;
 
     assign B[N-5:0] = A[N-1:4];
-    assign B[N-1:N-4] = 4'b1;
+    assign B[N-1:N-4] = 4'hf;
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule

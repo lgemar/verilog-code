@@ -2,7 +2,7 @@
 `default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // 
-// Module Name:    alu_shift_16bit
+// Module Name:    alu_sr_16bit
 // Description: 
 //
 //////////////////////////////////////////////////////////////////////////////////
@@ -18,7 +18,7 @@ module alu_sra_16bit(A, S, Z);
     wire [(N-1):0] B;
 
     assign B[N-17:0] = A[N-1:16];
-    assign B[N-1:N-16] = 16'b1;
+    assign B[N-1:N-16] = 16'hffff;
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule
