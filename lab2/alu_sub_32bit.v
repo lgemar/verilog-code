@@ -9,7 +9,6 @@
 module alu_sub_32bit(A, B, S, OF);
 
 	//port definitions
-	input wire CI;
 	input wire [31:0] A;
 	input wire [31:0] B;
 	output wire [31:0] S;
