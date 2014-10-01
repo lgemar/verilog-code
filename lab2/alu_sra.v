@@ -7,15 +7,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-module alu_sra(A, Z);
-    	parameter N = 32;
+module alu_sra(A, S, Z);
+    parameter N = 32;
 
 	//port definitions
 
 	input wire [(N-1):0] A;
 	input wire [5:0]S;
-    	output wire [(N-1):0] Z;
-    	wire [(N-1):0] shifted2, shifted4, shifted8, shifted16, shifted32;
+    output wire [(N-1):0] Z;
+    wire [(N-1):0] shifted2, shifted4, shifted8, shifted16, shifted32;
 
 	alu_sra_32bit #(.N(N)) MUX6 (.A(A), .S(S[5]), .Z(shifted32));
 	alu_sra_16bit #(.N(N)) MUX5 (.A(shifted32), .S(S[4]), .Z(shifted16));
