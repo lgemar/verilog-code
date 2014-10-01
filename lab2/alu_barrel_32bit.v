@@ -15,14 +15,14 @@ module alu_barrel_32bit(A, S, Z);
 	input wire [(N-1):0] A;
 	input wire [5:0]S;
     output wire [(N-1):0] Z;
-    wire [(N-1):0] shifted2;
+    wire [(N-1):0] shifted2, shifted4, shifted8, shifted16, shifted32;
 
-	alu_shift_32bit #(.N(N)) MUX6 (.A(A), .S(S[5]), .Z(shifted2));
-	alu_shift_16bit #(.N(N)) MUX5 (.A(A), .S(S[4]), .Z(shifted2));
-	alu_shift_8bit #(.N(N)) MUX4 (.A(A), .S(S[3]), .Z(shifted2));
-	alu_shift_4bit #(.N(N)) MUX3 (.A(A), .S(S[2]), .Z(shifted2));
+	alu_shift_32bit #(.N(N)) MUX6 (.A(A), .S(S[5]), .Z(shifted32));
+	alu_shift_16bit #(.N(N)) MUX5 (.A(shifted32), .S(S[4]), .Z(shifted16));
+	alu_shift_8bit #(.N(N)) MUX4 (.A(shifted16), .S(S[3]), .Z(shifted8));
+	alu_shift_4bit #(.N(N)) MUX3 (.A(shifted8), .S(S[2]), .Z(shifted4));
 
-	alu_shift_2bit #(.N(N)) MUX2 (.A(A), .S(S[1]), .Z(shifted2));
+	alu_shift_2bit #(.N(N)) MUX2 (.A(shifted4), .S(S[1]), .Z(shifted2));
 	alu_shift_1bit #(.N(N)) MUX1 (.A(shifted2), .S(S[0]), .Z(Z));
 endmodule
 `default_nettype wire

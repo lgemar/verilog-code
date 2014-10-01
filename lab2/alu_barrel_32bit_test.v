@@ -63,7 +63,7 @@ module alu_barrel_32bit_test;
 				A = i;
 				S = j;
 				#100;
-				$display("Input: %b; Shift: %b; Output: %b;", A, S, Z);
+				$display("Input: %d; Shift: %d; Output: %d;", A, S, Z);
 			end
 		end
 
