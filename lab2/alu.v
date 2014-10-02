@@ -6,15 +6,15 @@
 // Description: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alu(X, Y, S, Z, OF, EQUAL, ZERO);
+module alu(X, Y, Z, op_code, overflow, equal, zero);
 	parameter N = 32;
 	input wire [31:0] X;
 	input wire [31:0] Y;
-	input wire [3:0] S;
+	input wire [3:0] op_code;
 	output wire [31:0] Z;
-	output wire OF;
-	output wire EQUAL;
-	output wire ZERO;
+	output wire overflow;
+	output wire equal;
+	output wire zero;
 	
 	// AND module
 	wire [31:0] and_out;
@@ -63,7 +63,7 @@ module alu(X, Y, S, Z, OF, EQUAL, ZERO);
 	alu_sra SRA (.A(X), .S(Y[5:0]), .Z(sra_out));
     
     wire reserved;
-    alu_res RES (.S(S), .Z(reserved));
+    alu_res RES (.S(op_code), .Z(reserved));
 
 	mux_16to1 #(.WIDTH(N)) MUX (.A(and_out), 
 				   .B(or_out), 
@@ -81,12 +81,12 @@ module alu(X, Y, S, Z, OF, EQUAL, ZERO);
 				   .N(32'b0), 
 				   .O(32'b0),
 				   .P(32'b0), 
-				   .S(S), 
+				   .S(op_code), 
 				   .Z(Z)
 				);
 
-	assign ZERO = ~(|Z[31:0]) & ~reserved;
-	assign EQUAL = &(~slt_out & ~slt_out2);
-	assign OF = &(~(S ^ 4'b0101)) & add_overflow | &(~(S ^ 4'b0110)) & sub_overflow;
+	assign zero = ~(|Z[31:0]) & ~reserved;
+	assign equal = &(~slt_out & ~slt_out2);
+	assign overflow = &(~(op_code ^ 4'b0101)) & add_overflow | &(~(op_code ^ 4'b0110)) & sub_overflow;
 endmodule
 `default_nettype wire
