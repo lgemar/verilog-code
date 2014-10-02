@@ -2,24 +2,23 @@
 `default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // 
-// Module Name:    alu_sl_2bit
+// Module Name:    alu_sll_4bit
 // Description: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module alu_sl_2bit(A, S, Z);
 
-    parameter N = 2;
+module alu_sll_4bit(A, S, Z);
+    parameter N = 32;
 
 	//port definitions
 
 	input wire [(N-1):0] A;
-	input wire S;
+	input wire [2:0] S;
     output wire [(N-1):0] Z;
-    wire [(N-1):0] B;
+    wire [(N-1):0] sl2, sl4, sl8, sl16;
 
-    assign B[1:0] = 2'b0;
-    assign B[N-1:2] = A[N-3:0];
-    
-	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
+	alu_sl_4bit #(.N(N)) MUX3 (.A(A), .S(S[2]), .Z(sl4));
+
+	alu_sl_2bit #(.N(N)) MUX2 (.A(sl4), .S(S[1]), .Z(sl2));
+	alu_sl_1bit #(.N(N)) MUX1 (.A(sl2), .S(S[0]), .Z(Z));
 endmodule
-`default_nettype wire

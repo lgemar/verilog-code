@@ -17,8 +17,8 @@ module alu_sl_8bit(A, S, Z);
     output wire [(N-1):0] Z;
     wire [(N-1):0] B;
 
-    assign B[N-9:0] = 8'b0;
-    assign B[N-1:N-8] = A[N-1:8];
+    assign B[7:0] = 8'b0;
+    assign B[N-1:8] = A[N-9:0];
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule
