@@ -52,15 +52,15 @@ module alu(X, Y, S, Z, OF, EQUAL, ZERO);
 
 	// srl module
 	wire [31:0] srl_out;
-	//alu_srl SRL (.A(X), .B(Y), .Z(srl_out));
+	alu_srl SRL (.A(X), .S(Y[5:0], .Z(srl_out));
 
 	// sll module
 	wire [31:0] sll_out;
-	//alu_sll SLL (.A(X), .B(Y), .Z(sll_out));
+	alu_sll SLL (.A(X), .S(Y[5:0]), .Z(sll_out));
 
 	// sra module
 	wire [31:0] sra_out;
-	//alu_sra SRA (.A(X), .B(Y), .Z(sra_out));
+	alu_sra SRA (.A(X), .S(Y[5:0]), .Z(sra_out));
     
     wire reserved;
     alu_res RES (.S(S), .Z(reserved));
