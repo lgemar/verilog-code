@@ -17,8 +17,8 @@ module alu_sl_16bit(A, S, Z);
     output wire [(N-1):0] Z;
     wire [(N-1):0] B;
 
-    assign B[N-17:0] = 16'b0;
-    assign B[N-1:N-16] = A[N-1:16];
+    assign B[15:0] = 16'b0;
+    assign B[N-1:16] = A[N-17:0];
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule

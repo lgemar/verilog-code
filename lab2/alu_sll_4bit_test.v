@@ -22,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module alu_sll_test;
+module alu_sll_4bit_test;
 
 	// parameter width
 	parameter N = 32;
@@ -33,13 +33,13 @@ module alu_sll_test;
 
 	// Inputs
 	reg [N-1:0] A;
-	reg [5:0] S;
+	reg [2:0] S;
 
 	// Outputs
 	wire [N-1:0] Z;
 
 	// Instantiate the Unit Under Test (UUT)
-	alu_sll #(.N(N)) uut (
+	alu_sll_4bit #(.N(N)) uut (
 		.A(A), 
 		.S(S), 
 		.Z(Z)
@@ -47,8 +47,8 @@ module alu_sll_test;
 
 	initial begin
 		// Insert the dumps here
-		$dumpfile("alu_sll_test.vcd");
-		$dumpvars(0, alu_sll_test);
+		$dumpfile("alu_sll_4bit_test.vcd");
+		$dumpvars(0, alu_sll_4bit_test);
 
 		// Initialize Inputs
 		A = 32'h00000000;
@@ -58,8 +58,8 @@ module alu_sll_test;
 		#100;
 
 		// Add stimulus here
-		for (j = 0; j <= 32; j = j + 1) begin
-			for (i = 0; i <= 32; i = i + 1) begin
+		for (j = 0; j <= 8; j = j + 1) begin
+			for (i = 0; i <= 8; i = i + 1) begin
 				A = i;
 				S = j;
 				#100;

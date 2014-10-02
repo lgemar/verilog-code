@@ -17,8 +17,8 @@ module alu_sl_4bit(A, S, Z);
     output wire [(N-1):0] Z;
     wire [(N-1):0] B;
 
-    assign B[N-5:0] = 4'b0;
-    assign B[N-1:N-4] = A[N-1:4];
+    assign B[3:0] = 4'b0000;
+    assign B[N-1:4] = A[N-5:0];
     
 	mux_2to1 #(.N(N)) MUX (.X(A), .Y(B), .S(S), .Z(Z));
 endmodule
