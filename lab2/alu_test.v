@@ -41,8 +41,8 @@ module alu_test;
         
 		// Add stimulus here
 		for (S = 0; S < 4'hf; S = S + 1) begin
-			for (i = -100; i < 100; i = i + 50) begin
-				j = j + 50;
+			for (i = -128; i < 127; i = i + 32) begin
+				j = j + 16;
 				#100; // wait for j to increment
 				// set A equal to i and B to j
 				A = i;

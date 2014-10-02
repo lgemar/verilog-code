@@ -13,7 +13,7 @@ module alu_srl(A, S, Z);
 	//port definitions
 
 	input wire [(N-1):0] A;
-	input wire [5:0]S;
+	input wire [5:0] S;
     output wire [(N-1):0] Z;
     wire [(N-1):0] sr2, sr4, sr8, sr16, sr32;
 

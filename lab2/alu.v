@@ -52,7 +52,7 @@ module alu(X, Y, Z, op_code, overflow, equal, zero);
 
 	// srl module
 	wire [31:0] srl_out;
-	alu_srl SRL (.A(X), .S(Y[5:0], .Z(srl_out));
+	alu_srl SRL (.A(X), .S(Y[5:0]), .Z(srl_out));
 
 	// sll module
 	wire [31:0] sll_out;
@@ -73,9 +73,9 @@ module alu(X, Y, Z, op_code, overflow, equal, zero);
 				   .F(add_out), 
 				   .G(sub_out), 
 				   .H(slt_out), 
-				   .I(32'b0), 
-				   .J(32'b0), 
-				   .K(32'b0),
+				   .I(srl_out), 
+				   .J(sll_out), 
+				   .K(sra_out),
 				   .L(32'b0), 
 				   .M(32'b0), 
 				   .N(32'b0), 
