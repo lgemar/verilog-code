@@ -86,7 +86,7 @@ module alu(X, Y, Z, op_code, overflow, equal, zero);
 				);
 
 	assign zero = ~(|Z[31:0]) & ~reserved;
-	assign equal = &(~slt_out & ~slt_out2);
+	assign equal = &(~slt_out & ~slt_out2) & ~reserved;
 	assign overflow = &(~(op_code ^ 4'b0101)) & add_overflow | &(~(op_code ^ 4'b0110)) & sub_overflow;
 endmodule
 `default_nettype wire
