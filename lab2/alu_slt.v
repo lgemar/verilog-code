@@ -23,6 +23,6 @@ module alu_slt(A, B, Z);
 	wire OF;
 	alu_sub_32bit SUB (.A(A), .B(B), .S(AminusB), .OF(OF));
 
-	assign lt = ~A[31] & ~B[31] & AminusB[31] | ~A[31] & B[31] | A[31] & B[31] & AminusB[31];
+	assign lt = ~A[31] & ~B[31] & AminusB[31] | A[31] & ~B[31] | A[31] & B[31] & AminusB[31];
 	assign Z = {32{lt}};
 endmodule
