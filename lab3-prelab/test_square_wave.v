@@ -5,7 +5,7 @@ module test_square_wave;
         // Inputs
         reg clk;
         reg rstb;
-        reg [7:0] duty_cycle;
+        reg [31:0] duty_cycle;
         wire[31:0] freq_div  = 32'd10; 
  
         // Outputs
@@ -28,13 +28,15 @@ module test_square_wave;
 
             clk = 0;
             rstb = 0;
-            duty_cycle = 10;
+            duty_cycle = 8;
 
-            @(posedge clk);
-            rstb = 1;
+			#50;
+			rstb = 1;
+			#50;
 
-            repeat (256) @(posedge clk);
-            $display("%d", out);
+            repeat (256) @(posedge clk) begin
+				$display("%d", out);
+			end
 
             $finish;
         end
