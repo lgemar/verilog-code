@@ -1,0 +1,236 @@
+#NET "cclk" IOSTANDARD = LVCMOS33;
+NET "unbuf_clk" LOC = L15;
+NET "rstb" LOC = T15;
+
+NET "button_up"     LOC = "N4"; 
+NET "button_left"   LOC = "P4"; 
+NET "button_down"   LOC = "P3"; 
+NET "button_right"  LOC = "F6"; 
+NET "button_center" LOC = "F5"; 
+
+# PMOD Connector
+NET "JB[0]"  LOC = "T3"; # Bank = 2,  Pin name = IO_L62N_D6,     Sch name = JA-D0_N
+NET "JB[1]"  LOC = "R3"; # Bank = 2,  Pin name = IO_L62P_D5,     Sch name = JA-D0_P
+NET "JB[2]"  LOC = "P6"; # Bank = 2,  Pin name = IO_L64N_D9,     Sch name = JA-D2_N
+NET "JB[3]"  LOC = "N5"; # Bank = 2,  Pin name = IO_L64P_D8,     Sch name = JA-D2_P
+NET "JB[4]"  LOC = "V9"; # Bank = 2,  Pin name = IO_L32N_GCLK28, Sch name = JA-CLK_N
+NET "JB[5]"  LOC = "T9"; # Bank = 2,  Pin name = IO_L32P_GCLK29, Sch name = JA-CLK_P
+NET "JB[6]"  LOC = "V4"; # Bank = 2,  Pin name = IO_L63N,        Sch name = JA-D1_N
+NET "JB[7]"  LOC = "T4"; # Bank = 2,  Pin name = IO_L63P,        Sch name = JA-D1_P
+
+NET "JB[0]" IOSTANDARD = LVCMOS33;
+NET "JB[1]" IOSTANDARD = LVCMOS33;
+NET "JB[2]" IOSTANDARD = LVCMOS33;
+NET "JB[3]" IOSTANDARD = LVCMOS33;
+NET "JB[4]" IOSTANDARD = LVCMOS33;
+NET "JB[5]" IOSTANDARD = LVCMOS33;
+NET "JB[6]" IOSTANDARD = LVCMOS33;
+NET "JB[7]" IOSTANDARD = LVCMOS33;
+
+NET "JB[0]" DRIVE = 12;
+NET "JB[1]" DRIVE = 12;
+NET "JB[2]" DRIVE = 12;
+NET "JB[3]" DRIVE = 12;
+NET "JB[4]" DRIVE = 12;
+NET "JB[5]" DRIVE = 12;
+NET "JB[6]" DRIVE = 12;
+NET "JB[7]" DRIVE = 12;
+
+NET "JB[0]" SLEW = FAST;
+NET "JB[1]" SLEW = FAST;
+NET "JB[2]" SLEW = FAST;
+NET "JB[3]" SLEW = FAST;
+NET "JB[4]" SLEW = FAST;
+NET "JB[5]" SLEW = FAST;
+NET "JB[6]" SLEW = FAST;
+NET "JB[7]" SLEW = FAST;
+
+NET "switch[0]" LOC = A10;
+NET "switch[1]" LOC = D14;
+NET "switch[2]" LOC = C14;
+NET "switch[3]" LOC = P15;
+NET "switch[4]" LOC = P12;
+NET "switch[5]" LOC = R5;
+NET "switch[6]" LOC = T5;
+NET "switch[7]" LOC = E4;
+
+NET "switch[0]" IOSTANDARD = LVCMOS33;
+NET "switch[1]" IOSTANDARD = LVCMOS33;
+NET "switch[2]" IOSTANDARD = LVCMOS33;
+NET "switch[3]" IOSTANDARD = LVCMOS33;
+NET "switch[4]" IOSTANDARD = LVCMOS33;
+NET "switch[5]" IOSTANDARD = LVCMOS33;
+NET "switch[6]" IOSTANDARD = LVCMOS33;
+NET "switch[7]" IOSTANDARD = LVCMOS33;
+
+NET "led[0]" LOC = U18;
+NET "led[1]" LOC = M14;
+NET "led[2]" LOC = N14;
+NET "led[3]" LOC = L14;
+NET "led[4]" LOC = M13;
+NET "led[5]" LOC = D4;
+NET "led[6]" LOC = P16;
+NET "led[7]" LOC = N12;
+
+NET "led[0]" IOSTANDARD = LVCMOS33;
+NET "led[1]" IOSTANDARD = LVCMOS33;
+NET "led[2]" IOSTANDARD = LVCMOS33;
+NET "led[3]" IOSTANDARD = LVCMOS33;
+NET "led[4]" IOSTANDARD = LVCMOS33;
+NET "led[5]" IOSTANDARD = LVCMOS33;
+NET "led[6]" IOSTANDARD = LVCMOS33;
+NET "led[7]" IOSTANDARD = LVCMOS33;
+
+//vmodtft section:
+#TFT pins  
+NET "tft_backlight" LOC = P7;
+NET "tft_blue[0]" LOC = N10;
+NET "tft_blue[1]" LOC = P11;
+NET "tft_blue[2]" LOC = T12;
+NET "tft_blue[3]" LOC = V12;
+NET "tft_blue[4]" LOC = R11;
+NET "tft_blue[5]" LOC = M11;
+NET "tft_blue[6]" LOC = T11;
+NET "tft_blue[7]" LOC = N11;
+NET "tft_clk" LOC = U10;
+NET "tft_data_ena" LOC = T7;
+NET "tft_display" LOC = R7;
+NET "tft_green[0]" LOC = M8;
+NET "tft_green[1]" LOC = R8;
+NET "tft_green[2]" LOC = N8;
+NET "tft_green[3]" LOC = T8;
+NET "tft_green[4]" LOC = V11;
+NET "tft_green[5]" LOC = U11;
+NET "tft_green[6]" LOC = M10;
+NET "tft_green[7]" LOC = N9;
+NET "tft_red[0]" LOC = V6;
+NET "tft_red[1]" LOC = T6;
+NET "tft_red[2]" LOC = N7;
+NET "tft_red[3]" LOC = P8;
+NET "tft_red[4]" LOC = U7;
+NET "tft_red[5]" LOC = V7;
+NET "tft_red[6]" LOC = U8;
+NET "tft_red[7]" LOC = V8;
+NET "tft_vdd" LOC = N6;
+
+# PlanAhead Generated IO constraints 
+
+NET "tft_backlight" IOSTANDARD = LVCMOS33;
+NET "tft_blue[0]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[1]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[2]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[3]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[4]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[5]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[6]" IOSTANDARD = LVCMOS33;
+NET "tft_blue[7]" IOSTANDARD = LVCMOS33;
+NET "tft_clk"     IOSTANDARD = LVCMOS33;
+NET "tft_data_ena" IOSTANDARD = LVCMOS33;
+NET "tft_display" IOSTANDARD = LVCMOS33;
+NET "tft_green[0]" IOSTANDARD = LVCMOS33;
+NET "tft_green[1]" IOSTANDARD = LVCMOS33;
+NET "tft_green[2]" IOSTANDARD = LVCMOS33;
+NET "tft_green[3]" IOSTANDARD = LVCMOS33;
+NET "tft_green[4]" IOSTANDARD = LVCMOS33;
+NET "tft_green[5]" IOSTANDARD = LVCMOS33;
+NET "tft_green[6]" IOSTANDARD = LVCMOS33;
+NET "tft_green[7]" IOSTANDARD = LVCMOS33;
+NET "tft_red[0]" IOSTANDARD = LVCMOS33;
+NET "tft_red[1]" IOSTANDARD = LVCMOS33;
+NET "tft_red[2]" IOSTANDARD = LVCMOS33;
+NET "tft_red[3]" IOSTANDARD = LVCMOS33;
+NET "tft_red[4]" IOSTANDARD = LVCMOS33;
+NET "tft_red[5]" IOSTANDARD = LVCMOS33;
+NET "tft_red[6]" IOSTANDARD = LVCMOS33;
+NET "tft_red[7]" IOSTANDARD = LVCMOS33;
+NET "tft_vdd" IOSTANDARD = LVCMOS33;
+NET "tft_backlight" DRIVE = 12;
+NET "tft_blue[0]" DRIVE = 12;
+NET "tft_blue[1]" DRIVE = 12;
+NET "tft_blue[2]" DRIVE = 12;
+NET "tft_blue[3]" DRIVE = 12;
+NET "tft_blue[4]" DRIVE = 12;
+NET "tft_blue[5]" DRIVE = 12;
+NET "tft_blue[6]" DRIVE = 12;
+NET "tft_blue[7]" DRIVE = 12;
+NET "tft_clk" DRIVE = 12;
+NET "tft_data_ena" DRIVE = 12;
+NET "tft_display" DRIVE = 12;
+NET "tft_green[0]" DRIVE = 12;
+NET "tft_green[1]" DRIVE = 12;
+NET "tft_green[2]" DRIVE = 12;
+NET "tft_green[3]" DRIVE = 12;
+NET "tft_green[4]" DRIVE = 12;
+NET "tft_green[5]" DRIVE = 12;
+NET "tft_green[6]" DRIVE = 12;
+NET "tft_green[7]" DRIVE = 12;
+NET "tft_red[0]" DRIVE = 12;
+NET "tft_red[1]" DRIVE = 12;
+NET "tft_red[2]" DRIVE = 12;
+NET "tft_red[3]" DRIVE = 12;
+NET "tft_red[4]" DRIVE = 12;
+NET "tft_red[5]" DRIVE = 12;
+NET "tft_red[6]" DRIVE = 12;
+NET "tft_red[7]" DRIVE = 12;
+NET "tft_vdd" DRIVE = 12;
+NET "tft_backlight" SLEW = FAST;
+NET "tft_blue[0]" SLEW = FAST;
+NET "tft_blue[1]" SLEW = FAST;
+NET "tft_blue[2]" SLEW = FAST;
+NET "tft_blue[3]" SLEW = FAST;
+NET "tft_blue[4]" SLEW = FAST;
+NET "tft_blue[5]" SLEW = FAST;
+NET "tft_blue[6]" SLEW = FAST;
+NET "tft_blue[7]" SLEW = FAST;
+NET "tft_clk" SLEW = FAST;
+NET "tft_data_ena" SLEW = FAST;
+NET "tft_display" SLEW = FAST;
+NET "tft_green[0]" SLEW = FAST;
+NET "tft_green[1]" SLEW = FAST;
+NET "tft_green[2]" SLEW = FAST;
+NET "tft_green[3]" SLEW = FAST;
+NET "tft_green[4]" SLEW = FAST;
+NET "tft_green[5]" SLEW = FAST;
+NET "tft_green[6]" SLEW = FAST;
+NET "tft_green[7]" SLEW = FAST;
+NET "tft_red[0]" SLEW = FAST;
+NET "tft_red[1]" SLEW = FAST;
+NET "tft_red[2]" SLEW = FAST;
+NET "tft_red[3]" SLEW = FAST;
+NET "tft_red[4]" SLEW = FAST;
+NET "tft_red[5]" SLEW = FAST;
+NET "tft_red[6]" SLEW = FAST;
+NET "tft_red[7]" SLEW = FAST;
+NET "tft_vdd" SLEW = FAST;
+
+
+##touchpad
+#NET "touch_busy" LOC = U16; #input
+#NET "touch_csb" LOC = U13;
+#NET "touch_clk" LOC = R10;
+#NET "touch_data_in" LOC = U15; #output of fpga
+#NET "touch_data_out" LOC = V15; #input for fpga
+##
+#NET "touch_busy" IOSTANDARD = LVCMOS33;
+#NET "touch_csb" IOSTANDARD = LVCMOS33;
+#NET "touch_clk" IOSTANDARD = LVCMOS33;
+#NET "touch_data_in" IOSTANDARD = LVCMOS33;
+#NET "touch_data_out" IOSTANDARD = LVCMOS33;
+##NET "touch_contactb" IOSTANDARD = LVCMOS33;
+##
+#NET "touch_busy" DRIVE = 12;
+#NET "touch_csb" DRIVE = 12;
+#NET "touch_clk" DRIVE = 12;
+#NET "touch_data_in" DRIVE = 12;
+#NET "touch_data_out" DRIVE = 12;
+##NET "touch_contactb" DRIVE = 12;
+##
+#NET "touch_busy" SLEW = FAST;
+#NET "touch_csb" SLEW = FAST;
+#NET "touch_clk" SLEW = FAST;
+#NET "touch_data_in" SLEW = FAST;
+#NET "touch_data_out" SLEW = FAST;
+##NET "touch_contactb" SLEW = FAST;
+
+
+NET "tft_clk" CLOCK_DEDICATED_ROUTE = FALSE;
