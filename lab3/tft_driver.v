@@ -16,6 +16,8 @@ module tft_driver(
 	input wire cclk, // Not needed yet, but will need later.
     input wire rstb,
 	input wire tft_clk,
+	input wire [31:0] frequency_division, 
+	input wire [7:0] duty_cycle,
 	output wire tft_backlight, tft_data_ena,
 	output reg tft_display,tft_vdd,
 	output wire [7:0] tft_red, tft_green, tft_blue,
@@ -68,13 +70,11 @@ assign g = is_blue ? (active & 3'd0) : (is_orange & 3'd5);
 assign new_frame = frame_end;
 
 // Make pwm generator
-wire [7:0] duty_cycle = 32'd5;
-wire[31:0] freq_div  = 32'd10; 
 wire pwm_output;
 pwm_generator PWM_MACHINE (
 				   .cclk(tft_clk), 
 				   .rstb(rstb), 
-				   .frequency_division(freq_div), 
+				   .frequency_division(frequency_division), 
 				   .duty_cycle(duty_cycle), 
 				   .pwm(pwm_output)
 			  );
