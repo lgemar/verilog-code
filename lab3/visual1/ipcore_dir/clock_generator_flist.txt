@@ -1,3 +1,0 @@
-# Output products list for <clock_generator>
-clock_generator.xco
-clock_generator_flist.txt
