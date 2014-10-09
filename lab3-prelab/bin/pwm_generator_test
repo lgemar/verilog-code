@@ -1,0 +1,95 @@
+#! /usr/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x858f5f8 .scope module, "pwm_generator_test" "pwm_generator_test" 2 4;
+ .timescale -9 -12;
+v0x85d5958_0 .var "clk", 0 0;
+v0x85d59b8_0 .var "duty_cycle", 7 0;
+v0x85d5a28_0 .net "freq_div", 31 0, C4<00000000000000000000000000001010>; 1 drivers
+v0x85d5a98_0 .net "out", 0 0, L_0x85d5e30; 1 drivers
+v0x85d5b08_0 .var "rstb", 0 0;
+S_0x858da08 .scope module, "uut" "pwm_generator" 2 15, 3 10, S_0x858f5f8;
+ .timescale -9 -12;
+L_0x85d5e30 .functor AND 1, L_0x85d5bd8, L_0x85d5d70, C4<1>, C4<1>;
+v0x858da88_0 .net *"_s0", 0 0, L_0x85d5bd8; 1 drivers
+v0x85d5578_0 .net *"_s2", 31 0, L_0x85d5c48; 1 drivers
+v0x85d55d8_0 .net *"_s5", 23 0, C4<000000000000000000000000>; 1 drivers
+v0x85d5638_0 .net *"_s6", 0 0, L_0x85d5d70; 1 drivers
+v0x85d56a0_0 .net "cclk", 0 0, v0x85d5958_0; 1 drivers
+v0x85d5700_0 .var "count", 31 0;
+v0x85d5780_0 .net "duty_cycle", 7 0, v0x85d59b8_0; 1 drivers
+v0x85d57e0_0 .alias "frequency_division", 31 0, v0x85d5a28_0;
+v0x85d5868_0 .alias "pwm", 0 0, v0x85d5a98_0;
+v0x85d58c8_0 .net "rstb", 0 0, v0x85d5b08_0; 1 drivers
+E_0x858f678 .event posedge, v0x85d56a0_0;
+L_0x85d5bd8 .cmp/gt 32, C4<00000000000000000000000000001010>, v0x85d5700_0;
+L_0x85d5c48 .concat [ 8 24 0 0], v0x85d59b8_0, C4<000000000000000000000000>;
+L_0x85d5d70 .cmp/gt 32, L_0x85d5c48, v0x85d5700_0;
+    .scope S_0x858da08;
+T_0 ;
+    %wait E_0x858f678;
+    %load/v 8, v0x85d58c8_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x85d5700_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0x85d5700_0, 32;
+    %mov 40, 0, 1;
+    %load/v 41, v0x85d57e0_0, 32;
+    %mov 73, 0, 1;
+    %subi 41, 1, 33;
+    %cmp/u 8, 41, 33;
+    %jmp/0xz  T_0.2, 4;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x85d5700_0, 0, 0;
+    %jmp T_0.3;
+T_0.2 ;
+    %ix/load 0, 1, 0;
+    %load/vp0 8, v0x85d5700_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x85d5700_0, 0, 8;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x858f5f8;
+T_1 ;
+    %delay 5000, 0;
+    %load/v 8, v0x85d5958_0, 1;
+    %inv 8, 1;
+    %set/v v0x85d5958_0, 8, 1;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x858f5f8;
+T_2 ;
+    %vpi_call 2 26 "$dumpfile", "pwm_generator_test.vcd";
+    %vpi_call 2 27 "$dumpvars", 1'sb0, S_0x858f5f8;
+    %set/v v0x85d5958_0, 0, 1;
+    %set/v v0x85d5b08_0, 0, 1;
+    %movi 8, 7, 8;
+    %set/v v0x85d59b8_0, 8, 8;
+    %delay 50000, 0;
+    %set/v v0x85d5b08_0, 1, 1;
+    %delay 50000, 0;
+    %movi 8, 256, 10;
+T_2.0 %cmp/s 0, 8, 10;
+    %jmp/0xz T_2.1, 5;
+    %add 8, 1, 10;
+    %wait E_0x858f678;
+    %vpi_call 2 38 "$display", "%d", v0x85d5a98_0;
+    %jmp T_2.0;
+T_2.1 ;
+    %vpi_call 2 41 "$finish";
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "pwm_generator_test.v";
+    ".//pwm_generator.v";
