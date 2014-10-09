@@ -67,7 +67,18 @@ assign g = is_blue ? (active & 3'd0) : (is_orange & 3'd5);
 // Signal that a new frame is coming when y has finished counting to the end of the vertical porch region.
 assign new_frame = frame_end;
 
-assign tft_backlight = 1; // Apply your PWM output here for dimness.
+// Make pwm generator
+wire [7:0] duty_cycle = 32'd5;
+wire[31:0] freq_div  = 32'd10; 
+wire pwm_output;
+pwm_generator PWM_MACHINE (
+				   .cclk(tft_clk), 
+				   .rstb(rstb), 
+				   .frequency_division(freq_div), 
+				   .duty_cycle(duty_cycle), 
+				   .pwm(pwm_output)
+			  );
+assign tft_backlight = pwm_output; // Apply your PWM output here for dimness.
 
 // Use combinational logic here to determine when this enable signal should be high and low.
 // It should be based the values of x and y. Behavioral Verilog can and should be used here too.
