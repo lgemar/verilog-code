@@ -18,8 +18,8 @@ reg tft_backlight, tft_data_ena;
 reg [7:0] switch;
 // Boring variables that are 0 during reset and 1 otherwise
 reg tft_display,tft_vdd,
-// reg 
-reg iter;
+// register counters and enables
+reg iter, prev_enable;
 
 //tft signals
 reg [9:0] tft_x;
@@ -77,7 +77,7 @@ tft_driver TFT(
 		color = 0;
 		// Clocking inputs
 		cclk = 0; 
-		rstb = 0; 
+		rstb = 1; 
 		tft_clk = 0;
 		// Clocking counters
 		px_count = 0;
@@ -92,6 +92,14 @@ tft_driver TFT(
 		// reg 
 		iter = 0;
 		// Wait 100 ns for global reset to finish
+		#100;
+		// Reset the device
+		rstb = 0;
+		#100;
+		rstb = 1;
+		// Set the previous enable to 1
+		prev_enable = 1;
+		// Wait for global reset
 		#100;
 		// Add stimulus here
 		for (i = 0; i < 16; i = i + 1) begin
