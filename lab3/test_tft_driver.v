@@ -51,6 +51,25 @@ tft_driver TFT(
 	.x(tft_x), .y(tft_y),
 	.new_frame(tft_new_frame)
 );
+	initial begin 
+		// Insert the dumps here
+		$dumpfile("alu_and_test.vcd");
+		$dumpvars(0, alu_and_test);
+		// Initialize Inputs
+		i = 32'h0x0;
+		A = 32'h0x0;
+		B = 32'h0x0;
+		// Wait 100 ns for global reset to finish
+		#100;
+		// Add stimulus here
+		for (i = 0; i < 16; i = i + 1) begin
+			#100;
+			A = i;
+			B = ~i;
+			$display("Inputs: %b, %b ; Output: %b", A, B, Z);
+		end
+		$finish;
+	end
 endmodule
 
 `default_nettype wire //disable default_nettype so non-user modules work properly
