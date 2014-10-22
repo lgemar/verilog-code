@@ -52,6 +52,27 @@ tft_driver TFT(
 	.new_frame(tft_new_frame)
 );
 	initial begin 
+		/** Variables that we need to specify in order to run the test: 
+		 * Initializers: 
+		 *	    cclk -> unused in the module so value can be anything
+		 *	    rstb -> set from 1 to 0 to 1 right before test
+		 * 	    frequency_division -> should be 255
+		 * 	    duty cycle -> probably set this to to 126
+		 * Active variables: 
+		 * 	    tft_clk -> can run at any frequency
+		 * for each color: 
+		 * 	for 2 iterations: 
+		 * 		while( ~new_frame ): 
+		 * 			if( tft_clk % 10 == 0 )
+		 * 				if(R)
+		 * 					print R
+		 *				elif(G)
+		 * 					print G
+		 * 				else
+		 * 					print B
+		 * 			if( prev_enable == tft_data_ena )
+		 * 				print '\n'
+		 */
 		// Insert the dumps here
 		$dumpfile("alu_and_test.vcd");
 		$dumpvars(0, alu_and_test);
