@@ -33,6 +33,9 @@ tft_driver TFT(
 	.new_frame(tft_new_frame)
 );
 	initial begin 
+		// Insert the dumps here
+		$dumpfile("test_tft_driver.vcd");
+		$dumpvars(0, test_tft_driver);
 		/** Variables that we need to specify in order to run the test: 
 		 * Initializers: 
 		 *	    cclk -> unused in the module so value can be anything
@@ -54,23 +57,30 @@ tft_driver TFT(
 		 * 			if( prev_enable == tft_data_ena )
 		 * 				print '\n'
 		 */
-		// Insert the dumps here
-		$dumpfile("alu_and_test.vcd");
-		$dumpvars(0, alu_and_test);
-		// Initialize Inputs
-		i = 32'h0x0;
-		A = 32'h0x0;
-		B = 32'h0x0;
-		// Wait 100 ns for global reset to finish
+        
 		#100;
-		// Add stimulus here
-		for (i = 0; i < 16; i = i + 1) begin
-			#100;
-			A = i;
-			B = ~i;
-			$display("Inputs: %b, %b ; Output: %b", A, B, Z);
-		end
+        for (color = 0; color < 3; color = color + 1) begin
+            for (iter = 0; iter < 2; iter = iter + 1) begin
+                for (px_count = 0; px_count < 525*288; px_count = px_count + 1) begin
+                    tft_clk = ~tft_clk;
+                    if (px_count % 10 == 0) begin
+                        if (color == 0) begin
+                            $display("%d ", tft_red);
+                        else if (color == 1)
+                            $display("%d ", tft_green);
+                        else if (color == 2)
+                            $display("%d ", tft_blue);
+                        end
+                    end
+                    if (tft_data_ena == 1 && prev_enable == 0) begin
+                        $display("\n");
+                    end
+                    prev_enable = tft_data_ena;
+                end 
+            end
+        end;
 		$finish;
+        
 	end
 endmodule
 
