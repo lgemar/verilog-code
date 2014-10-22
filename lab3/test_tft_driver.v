@@ -4,12 +4,22 @@
 
 module test_tft_driver;
 
-reg [7:0] tft_red, tft_green, tft_blue
-reg tft_backlight, tft_clk, tft_data_ena,
+// Color outputs
+reg [7:0] tft_red, tft_green, tft_blue;
+// Color flags
+reg [1:0] color;
+// Clocking inputs
+reg cclk, rstb, tft_clk;
+// Clocking counters
+reg [31:0] px_count;
+// Screen / Backlight variables
+reg tft_backlight, tft_data_ena;
+// Unused input variable for backlight
+reg [7:0] switch;
+// Boring variables that are 0 during reset and 1 otherwise
 reg tft_display,tft_vdd,
-
-//clocking signals
-reg cclk, cclk_n, tft_clk_buf, tft_clk_buf_n, clocks_locked;
+// reg 
+reg iter;
 
 //tft signals
 reg [9:0] tft_x;
@@ -55,12 +65,32 @@ tft_driver TFT(
 		 * 				print '\n'
 		 */
 		// Insert the dumps here
-		$dumpfile("alu_and_test.vcd");
-		$dumpvars(0, alu_and_test);
+		$dumpfile("test_tft_driver.vcd");
+		$dumpvars(0, test_tft_driver);
 		// Initialize Inputs
-		i = 32'h0x0;
-		A = 32'h0x0;
-		B = 32'h0x0;
+		cclk = 0;
+		// Color outputs
+		tft_red = 0; 
+		tft_green = 0; 
+		tft_blue = 0;
+		// Color flags
+		color = 0;
+		// Clocking inputs
+		cclk = 0; 
+		rstb = 0; 
+		tft_clk = 0;
+		// Clocking counters
+		px_count = 0;
+		// Screen / Backlight variables
+		tft_backlight = 0;
+		tft_data_ena = 0;
+		// Unused input variable for backlight
+		switch = 0;
+		// Boring variables that are 0 during reset and 1 otherwise
+		tft_display = 0;
+		tft_vdd = 0;
+		// reg 
+		iter = 0;
 		// Wait 100 ns for global reset to finish
 		#100;
 		// Add stimulus here
