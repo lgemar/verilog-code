@@ -19,7 +19,8 @@ reg [7:0] switch;
 // Boring variables that are 0 during reset and 1 otherwise
 wire tft_display,tft_vdd;
 // register counters and enables
-reg iter, prev_enable;
+reg [1:0] iter;
+reg prev_enable;
 
 //tft signals
 wire [9:0] tft_x;
@@ -43,9 +44,6 @@ tft_driver TFT(
 	.new_frame(tft_new_frame)
 );
 	initial begin 
-		// Insert the dumps here
-		$dumpfile("test_tft_driver.vcd");
-		$dumpvars(0, test_tft_driver);
 		/** Variables that we need to specify in order to run the test: 
 		 * Initializers: 
 		 *	    cclk -> unused in the module so value can be anything
@@ -95,8 +93,11 @@ tft_driver TFT(
 		// Wait for global reset
 		#100;
         for (color = 0; color < 3; color = color + 1) begin
+                #10;
             for (iter = 0; iter < 2; iter = iter + 1) begin
+                #10;
                 for (px_count = 0; px_count < 525*288; px_count = px_count + 1) begin
+                    #10;
                     tft_clk = ~tft_clk;
                     if (px_count % 10 == 0) begin
                         if (color == 0) begin
@@ -113,11 +114,11 @@ tft_driver TFT(
                         $display("\n");
                     end
                     prev_enable = tft_data_ena;
+                    $display("%d\n ", tft_data_ena);
                 end 
             end
         end
 		$finish;
-        
 	end
 endmodule
 
