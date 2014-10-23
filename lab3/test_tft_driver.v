@@ -5,7 +5,7 @@
 module test_tft_driver;
 
 // Color outputs
-reg [7:0] tft_red, tft_green, tft_blue;
+wire [7:0] tft_red, tft_green, tft_blue;
 // Color flags
 reg [1:0] color;
 // Clocking inputs
@@ -13,24 +13,24 @@ reg cclk, rstb, tft_clk;
 // Clocking counters
 reg [31:0] px_count;
 // Screen / Backlight variables
-reg tft_backlight, tft_data_ena;
+wire tft_backlight, tft_data_ena;
 // Unused input variable for backlight
 reg [7:0] switch;
 // Boring variables that are 0 during reset and 1 otherwise
-reg tft_display,tft_vdd,
+wire tft_display,tft_vdd;
 // register counters and enables
 reg iter, prev_enable;
 
 //tft signals
-reg [9:0] tft_x;
-reg [8:0] tft_y;
-reg tft_new_frame;
+wire [9:0] tft_x;
+wire [8:0] tft_y;
+wire tft_new_frame;
 
 tft_driver TFT(
 	.cclk(cclk),
 	.rstb(rstb),
 	.tft_backlight(tft_backlight),
-	.tft_clk(tft_clk_buf),
+	.tft_clk(tft_clk),
 	.tft_data_ena(tft_data_ena),
 	.tft_display(tft_display),
 	.tft_vdd(tft_vdd),
@@ -72,10 +72,6 @@ tft_driver TFT(
 		$dumpvars(0, test_tft_driver);
 		// Initialize Inputs
 		cclk = 0;
-		// Color outputs
-		tft_red = 0; 
-		tft_green = 0; 
-		tft_blue = 0;
 		// Color flags
 		color = 0;
 		// Clocking inputs
@@ -84,14 +80,8 @@ tft_driver TFT(
 		tft_clk = 0;
 		// Clocking counters
 		px_count = 0;
-		// Screen / Backlight variables
-		tft_backlight = 0;
-		tft_data_ena = 0;
 		// Unused input variable for backlight
 		switch = 0;
-		// Boring variables that are 0 during reset and 1 otherwise
-		tft_display = 0;
-		tft_vdd = 0;
 		// reg 
 		iter = 0;
 		// Wait 100 ns for global reset to finish
@@ -104,14 +94,6 @@ tft_driver TFT(
 		prev_enable = 1;
 		// Wait for global reset
 		#100;
-		// Add stimulus here
-		for (i = 0; i < 16; i = i + 1) begin
-			#100;
-			A = i;
-			B = ~i;
-			$display("Inputs: %b, %b ; Output: %b", A, B, Z);
-		end
-		#100;
         for (color = 0; color < 3; color = color + 1) begin
             for (iter = 0; iter < 2; iter = iter + 1) begin
                 for (px_count = 0; px_count < 525*288; px_count = px_count + 1) begin
@@ -119,11 +101,13 @@ tft_driver TFT(
                     if (px_count % 10 == 0) begin
                         if (color == 0) begin
                             $display("%d ", tft_red);
-                        else if (color == 1)
+						end
+                        else if (color == 1) begin
                             $display("%d ", tft_green);
-                        else if (color == 2)
+						end
+                        else if (color == 2) begin
                             $display("%d ", tft_blue);
-                        end
+						end
                     end
                     if (tft_data_ena == 1 && prev_enable == 0) begin
                         $display("\n");
@@ -131,7 +115,7 @@ tft_driver TFT(
                     prev_enable = tft_data_ena;
                 end 
             end
-        end;
+        end
 		$finish;
         
 	end
