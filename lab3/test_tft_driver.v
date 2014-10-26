@@ -73,6 +73,7 @@ tft_driver TFT(
 		iter = 0;
 		// Wait for global reset
 		#100;
+<<<<<<< HEAD
         for (iter = 0; iter < (288*525*10); iter = iter + 1) begin
 			#10;
 			cclk = ~cclk;
@@ -88,7 +89,6 @@ tft_driver TFT(
 			end
         end
 		$finish;
-        
 	end
 endmodule
 
