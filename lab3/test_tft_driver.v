@@ -19,7 +19,9 @@ reg [7:0] switch;
 // Boring variables that are 0 during reset and 1 otherwise
 wire tft_display,tft_vdd;
 // register counters and enables
-reg iter, prev_enable;
+reg [31:0] iter; 
+reg prev_enable;
+// iterator 
 
 //tft signals
 wire [9:0] tft_x;
@@ -46,42 +48,17 @@ tft_driver TFT(
 		// Insert the dumps here
 		$dumpfile("test_tft_driver.vcd");
 		$dumpvars(0, test_tft_driver);
-		/** Variables that we need to specify in order to run the test: 
-		 * Initializers: 
-		 *	    cclk -> unused in the module so value can be anything
-		 *	    rstb -> set from 1 to 0 to 1 right before test
-		 * 	    frequency_division -> should be 255
-		 * 	    duty cycle -> probably set this to to 126
-		 * Active variables: 
-		 * 	    tft_clk -> can run at any frequency
-		 * for each color: 
-		 * 	for 2 iterations: 
-		 * 		while( ~new_frame ): 
-		 * 			if( tft_clk % 10 == 0 )
-		 * 				if(R)
-		 * 					print R
-		 *				elif(G)
-		 * 					print G
-		 * 				else
-		 * 					print B
-		 * 			if( prev_enable == tft_data_ena )
-		 * 				print '\n'
-		 */
-		// Insert the dumps here
-		$dumpfile("test_tft_driver.vcd");
-		$dumpvars(0, test_tft_driver);
 		// Initialize Inputs
 		cclk = 0;
+		switch = 123;
 		// Color flags
 		color = 0;
 		// Clocking inputs
-		cclk = 0; 
 		rstb = 1; 
 		tft_clk = 0;
 		// Clocking counters
 		px_count = 0;
 		// Unused input variable for backlight
-		switch = 0;
 		// reg 
 		iter = 0;
 		// Wait 100 ns for global reset to finish
@@ -92,29 +69,23 @@ tft_driver TFT(
 		rstb = 1;
 		// Set the previous enable to 1
 		prev_enable = 1;
+		// Set loop counters to 0
+		iter = 0;
 		// Wait for global reset
 		#100;
-        for (color = 0; color < 3; color = color + 1) begin
-            for (iter = 0; iter < 2; iter = iter + 1) begin
-                for (px_count = 0; px_count < 525*288; px_count = px_count + 1) begin
-                    tft_clk = ~tft_clk;
-                    if (px_count % 10 == 0) begin
-                        if (color == 0) begin
-                            $display("%d ", tft_red);
-						end
-                        else if (color == 1) begin
-                            $display("%d ", tft_green);
-						end
-                        else if (color == 2) begin
-                            $display("%d ", tft_blue);
-						end
-                    end
-                    if (tft_data_ena == 1 && prev_enable == 0) begin
-                        $display("\n");
-                    end
-                    prev_enable = tft_data_ena;
-                end 
-            end
+        for (iter = 0; iter < (288*525*10); iter = iter + 1) begin
+			#10;
+			cclk = ~cclk;
+			if(iter % 10 == 0) begin
+				tft_clk = ~tft_clk;
+				$display("%b, %d", tft_clk, iter);
+			end
+			if(iter == 10) begin
+				rstb = 0;
+			end
+			if(iter == 30) begin
+				rstb = 1;
+			end
         end
 		$finish;
         
