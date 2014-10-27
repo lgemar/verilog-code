@@ -77,15 +77,17 @@ tft_driver TFT(
             for (iter = 0; iter < (288*525*10); iter = iter + 1) begin
                 #10;
                 cclk = ~cclk;
-                if(iter % 10 == 0 && tft_data_ena == 1) begin
+                if(iter % 10 == 0 ) begin
                     tft_clk = ~tft_clk;
                     //$write("%b, %d ", tft_clk, iter);
-                    if (color == 0) begin
-                        $write("%d ", tft_red);
-                    end else if (color == 1) begin
-                        $write("%d ", tft_green);
-                    end else if (color == 2) begin
-                        $write("%d ", tft_blue);
+                    if(iter % 250 == 0 && tft_data_ena == 1) begin
+                        if (color == 0) begin
+                            $write("%d ", tft_red);
+                        end else if (color == 1) begin
+                            $write("%d ", tft_green);
+                        end else if (color == 2) begin
+                            $write("%d ", tft_blue);
+                        end
                     end
                 end
                 if(iter == 10) begin
