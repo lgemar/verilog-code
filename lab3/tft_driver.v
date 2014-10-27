@@ -35,7 +35,7 @@ wire [9:0] rect_x_min, rect_x_max, rect_y_min, rect_y_max;
 wire [9:0] rect_x, rect_y, rect_width;
 
 assign rect_x = 10'd150; // Pick a value for this.
-assign rect_y = 10'd150; // Pick a value for this too.
+assign rect_y = 10'd75; // Pick a value for this too.
 assign rect_width = 10'd50;
 // Fill in this code. The min and max values should extend RECT_SIZE pixels above, below, 
 // left, and right of the center. You can use some behavioral Verilog here.
@@ -49,7 +49,8 @@ assign rect_y_max = 10'd288;
 wire valid_x, valid_y, is_blue, is_orange, row_end, column_end;
 assign valid_x = (x < `TFT_X_RES) && (x > rect_x_min);
 assign valid_y = (y < `TFT_Y_RES) && (y > rect_y_min);
-assign is_blue = (x > (rect_x - rect_width)) && (x < rect_y + rect_width);
+assign is_blue = (x > (rect_x - rect_width)) && (x < rect_x + rect_width)
+			     && (y > rect_y - rect_width) && (y < rect_y + rect_width);
 assign is_orange = valid_x && valid_y && ~is_blue;
 assign row_end = (x == rect_x_max);
 assign column_end = (y == rect_y_max);
