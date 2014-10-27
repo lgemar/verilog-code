@@ -73,20 +73,33 @@ tft_driver TFT(
 		iter = 0;
 		// Wait for global reset
 		#100;
-<<<<<<< HEAD
-        for (iter = 0; iter < (288*525*10); iter = iter + 1) begin
-			#10;
-			cclk = ~cclk;
-			if(iter % 10 == 0) begin
-				tft_clk = ~tft_clk;
-				$display("%b, %d", tft_clk, iter);
-			end
-			if(iter == 10) begin
-				rstb = 0;
-			end
-			if(iter == 30) begin
-				rstb = 1;
-			end
+        for (color = 0; color < 3; color = color +1) begin
+            for (iter = 0; iter < (288*525*10); iter = iter + 1) begin
+                #10;
+                cclk = ~cclk;
+                if(iter % 10 == 0 && tft_data_ena == 1) begin
+                    tft_clk = ~tft_clk;
+                    //$write("%b, %d ", tft_clk, iter);
+                    if (color == 0) begin
+                        $write("%d ", tft_red);
+                    end else if (color == 1) begin
+                        $write("%d ", tft_green);
+                    end else if (color == 2) begin
+                        $write("%d ", tft_blue);
+                    end
+                end
+                if(iter == 10) begin
+                    rstb = 0;
+                end
+                if(iter == 30) begin
+                    rstb = 1;
+                end
+                if (prev_enable == 0 && tft_data_ena == 1) begin
+                    $display("\n");
+                end
+                prev_enable = tft_data_ena;
+            end
+            $display("\n\n");
         end
 		$finish;
 	end
