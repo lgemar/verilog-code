@@ -34,7 +34,7 @@ wire [9:0] rect_x_min, rect_x_max, rect_y_min, rect_y_max;
 // These are the center coordinates of the rectangle.
 wire [9:0] rect_x, rect_y, rect_width;
 
-assign rect_x = 10'd150; // Pick a value for this.
+assign rect_x = 10'd250; // Pick a value for this.
 assign rect_y = 10'd75; // Pick a value for this too.
 assign rect_width = 10'd50;
 // Fill in this code. The min and max values should extend RECT_SIZE pixels above, below, 
