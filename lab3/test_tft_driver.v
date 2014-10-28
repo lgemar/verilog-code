@@ -73,7 +73,16 @@ tft_driver TFT(
 		iter = 0;
 		// Wait for global reset
 		#100;
+		// Reset modules to put them in a known state
         for (color = 0; color < 3; color = color +1) begin
+			// Print out which color is being displayed
+			if (color == 0) begin
+				$write("RED pixels\n");
+			end else if (color == 1) begin
+				$write("GREEN pixels\n");
+			end else if (color == 2) begin
+				$write("BLUE pixels\n");
+			end
             for (iter = 0; iter < (288*525); iter = iter + 1) begin
                 #10;
 				tft_clk = ~tft_clk;
@@ -87,19 +96,19 @@ tft_driver TFT(
 						$write("%d ", tft_blue);
 					end
 				end
-
-                if(iter == 10) begin
-                    rstb = 0;
-                end
-                if(iter == 30) begin
-                    rstb = 1;
-                end
+				if(iter == 10) begin
+					rstb = 0;
+				end
+				if(iter == 30) begin
+					rstb = 1;
+				end
+				// Catch the edge of the tft_data_ena wire
                 if (prev_enable == 0 && tft_data_ena == 1 && tft_y % 25 == 0) begin
-                    $display("\n");
+                    $write("\n");
                 end
                 prev_enable = tft_data_ena;
             end
-            $display("\n\n");
+            $write("\n");
         end
 		$finish;
 	end
