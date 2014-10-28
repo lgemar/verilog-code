@@ -83,7 +83,7 @@ assign locked_touch_z = ((touch_z >> 9) != 12'b0000_0000_0000);
 always @(tft_new_frame) begin
 	if(locked_touch_z) begin
 		locked_touch_x <= touch_x >> 2;
-		locked_touch_y <= touch_y >> 4;
+		locked_touch_y <= touch_y >> 2;
 	end
 end
 
