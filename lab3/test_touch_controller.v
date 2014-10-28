@@ -4,7 +4,8 @@
 
 module test_touch_controller;
 
-    reg cclk, rstb, touch_clk, touch_busy, touch_data_in, touch_data_out, touch_csb;
+    reg cclk, rstb, touch_busy, touch_data_out;
+    wire touch_clk, touch_data_in, touch_csb;
     //touchpad signals
     wire [11:0] touch_x, touch_y, touch_z;
 
@@ -22,28 +23,23 @@ module test_touch_controller;
         .z(touch_z)
     );
 
-    always @(*) begin
-        reset = 0;
-        cclk = 0; 
-        touch_busy = 0;
-        touch_data_out = 0;
-    end
+    integer seed = 0;
+    always @(posedge touch_clk) touch_data_out = $random(seed);
+    always #5 cclk = ~cclk;
 
 	initial begin 
 		// Insert the dumps here
 		$dumpfile("test_touch_controller.vcd");
 		$dumpvars(0, test_touch_controller);
 
-		reg data_in;
-		reg touch_clk;
+        rstb = 0;
+        cclk = 0; 
+        touch_busy = 0;
+        touch_data_out = 0;
 
-		always @(posedge touch_clk) begin
-			data_in = $random();
-		end		
-		repeat(10000) begin
-			cclk = ~cclk;
-			#5;
-		end
+        repeat(100000) begin 
+            @(posedge cclk);
+        end
 
 		$finish;
 	end

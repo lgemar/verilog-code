@@ -34,7 +34,7 @@ wire receiving; // True if a message is being received from the touchpad
 wire active;
 wire transaction_end; // Equal to one when a transaction has ended after 20 clks
 assign sending = (progress_count >= 0) && (progress_count < 8);
-assign receiving = (progress_count >= 8) && (progress_count < 20);
+assign receiving = (progress_count >= 9) && (progress_count < 21);
 assign active = sending | receiving;
 assign transaction_end = (progress_count == 24); // True if transaction is over
 
@@ -60,7 +60,7 @@ reg [11:0] data_in_mask;
 `define Y_SELECT 3'b00
 `define Z_SELECT 3'b01
 
-always @(*) begin
+always @(posedge cclk) begin
 	x <= 12'd1000;
 	y <= 12'd1000;
 	z <= 12'b111000000000;
@@ -98,6 +98,7 @@ always @(posedge cclk) begin
                             input_message <= input_message | data_in_mask;
                         end
                         data_in_mask <= (data_in_mask >> 1);
+                    end
                 end
 
 				if (transaction_end) begin
