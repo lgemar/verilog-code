@@ -60,6 +60,11 @@ reg [11:0] data_in_mask;
 `define Y_SELECT 3'b00
 `define Z_SELECT 3'b01
 
+always @(*) begin
+	x <= 12'd1000;
+	y <= 12'd1000;
+	z <= 12'b111000000000;
+end
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
@@ -78,9 +83,6 @@ always @(posedge cclk) begin
 			clk_div_counter <= 0;
 			touch_clk <= ~touch_clk;
             
-            x <= 1000;
-            y <= 1000;
-            z <= 12'b111000000000;
 			if(touch_clk) begin  //negative edge logic
 				/* PUT ALL CODE HERE FOR NEGATIVE EDGE FSM LOGIC! */
                 if(active) begin
