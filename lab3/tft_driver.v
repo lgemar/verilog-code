@@ -18,6 +18,7 @@ module tft_driver(
 	input wire tft_clk,
 	input wire [31:0] frequency_division, 
 	input wire [7:0] duty_cycle,
+    input wire [11:0] touch_x, touch_y,
 	output wire tft_backlight, tft_data_ena,
 	output reg tft_display,tft_vdd,
 	output wire [7:0] tft_red, tft_green, tft_blue,
@@ -32,11 +33,11 @@ wire [(`TFT_BITS_PER_COLOR-1):0] r, g, b;
 // These will define the boundaries of the rectangle you will display.
 wire [9:0] rect_x_min, rect_x_max, rect_y_min, rect_y_max;
 // These are the center coordinates of the rectangle.
-wire [9:0] rect_x, rect_y, rect_width;
+wire [11:0] rect_x, rect_y, rect_width;
 
-assign rect_x = 10'd250; // Pick a value for this.
-assign rect_y = 10'd75; // Pick a value for this too.
-assign rect_width = 10'd50;
+assign rect_x = touch_x; // Pick a value for this.
+assign rect_y = touch_y; // Pick a value for this too.
+assign rect_width = 12'd50;
 // Fill in this code. The min and max values should extend RECT_SIZE pixels above, below, 
 // left, and right of the center. You can use some behavioral Verilog here.
 // Take care that they don't go negative!
@@ -64,8 +65,8 @@ assign next_row = row_end && ~column_end;
 // Pick your colors. Remember that you have to draw a blue square on an orange background. 
 // You can use some behavioral Verilog here. Hint: the >, <, and ? operators will be very handy.
 assign b = is_blue ? (active & 3'd7) : (is_orange & 3'd0);
-//assign r = is_blue ? (active & 3'd0) : (is_orange & 3'd7);
-assign r = is_blue ? (active & {3{tft_button}}) : (is_orange & 3'd7);
+assign r = is_blue ? (active & 3'd0) : (is_orange & 3'd7);
+//assign r = is_blue ? (active & {3{tft_button}}) : (is_orange & 3'd7);
 assign g = is_blue ? (active & 3'd0) : (is_orange & 3'd5);
 
 // Signal that a new frame is coming when y has finished counting to the end of the vertical porch region.
