@@ -36,7 +36,7 @@ wire transaction_end; // Equal to one when a transaction has ended after 20 clks
 assign sending = (progress_count >= 0) && (progress_count < 8);
 assign receiving = (progress_count >= 8) && (progress_count < 20);
 assign active = sending | receiving;
-assign transaction_end = (progress_count == 20); // True if transaction is over
+assign transaction_end = (progress_count == 24); // True if transaction is over
 
 /** Repetition signals and channel selection */
 wire switch_channel;
@@ -65,6 +65,7 @@ always @(*) begin
 	y <= 12'd1000;
 	z <= 12'b111000000000;
 end
+
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
@@ -97,14 +98,14 @@ always @(posedge cclk) begin
                             input_message <= input_message | data_in_mask;
                         end
                         data_in_mask <= (data_in_mask >> 1);
-                        progress_count <= progress_count + 1;
-                    end
-                    else if (transaction_end) begin
-                        data_out_mask <= 8'b0000_0001;
-                        data_in_mask <= 12'b1000_0000_0000;
-                        repetition_count <= repetition_count + 1;
-                    end
                 end
+
+				if (transaction_end) begin
+					data_out_mask <= 8'b0000_0001;
+					data_in_mask <= 12'b1000_0000_0000;
+					repetition_count <= repetition_count + 1;
+					progress_count <= 0;
+				end
 
                 if(switch_channel) begin
                     case (channel_selector)
@@ -126,6 +127,7 @@ always @(posedge cclk) begin
                     endcase
                     repetition_count <= 0;
                 end
+				progress_count <= progress_count + 1;
 			end
 		end
 	end
