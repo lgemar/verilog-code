@@ -31,13 +31,20 @@ module test_touch_controller;
 		// Insert the dumps here
 		$dumpfile("test_touch_controller.vcd");
 		$dumpvars(0, test_touch_controller);
+		$display("hello world");
 
-        rstb = 0;
+        rstb = 1;
         cclk = 0; 
         touch_busy = 0;
         touch_data_out = 0;
 
-        repeat(100000) begin 
+		// Reset the modules
+		#50;
+		rstb = 0;
+		#50
+		rstb = 1;
+
+        repeat(1000000) begin 
             @(posedge cclk);
         end
 

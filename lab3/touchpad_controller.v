@@ -24,8 +24,8 @@ module touchpad_controller(
 	output reg [11:0] x,y,z
 );
 
-reg [5:0] clk_div_counter;
-reg [3:0] repetition_count;
+reg [31:0] clk_div_counter;
+reg [7:0] repetition_count;
 reg [4:0] progress_count; // Tracks the progress of a transaction
 
 /** Transaction signals for a single transaction */
@@ -56,15 +56,9 @@ assign selector_message[7:4] = 4'b0;
 reg [11:0] input_message;
 reg [11:0] data_in_mask;
 
-`define X_SELECT 3'b10
-`define Y_SELECT 3'b00
-`define Z_SELECT 3'b01
-
-always @(posedge cclk) begin
-	x <= 12'd1000;
-	y <= 12'd1000;
-	z <= 12'b111000000000;
-end
+`define X_SELECT 2'b10
+`define Y_SELECT 2'b00
+`define Z_SELECT 2'b01
 
 always @(posedge cclk) begin
 	if(~rstb) begin
@@ -74,6 +68,9 @@ always @(posedge cclk) begin
 		data_in_mask <= 12'b1000_0000_0000;
         data_out <= 0;
         touch_clk <= 0;
+		progress_count <= 0;
+		channel_selector <= `X_SELECT;
+		repetition_count <= 0;
 	end
 	else begin
 		touch_csb <= 0;
@@ -101,29 +98,33 @@ always @(posedge cclk) begin
                     end
                 end
 
-				if (transaction_end) begin
+				if (transaction_end & repetition_count != 14) begin
 					data_out_mask <= 8'b0000_0001;
 					data_in_mask <= 12'b1000_0000_0000;
+					input_message <= 12'b0000_0000_0000;
 					repetition_count <= repetition_count + 1;
 					progress_count <= 0;
+				end
+				else if (transaction_end) begin
+					repetition_count <= repetition_count + 1;
 				end
 
                 if(switch_channel) begin
                     case (channel_selector)
                         `X_SELECT: begin
                             channel_selector <= `Y_SELECT;
-                            x <= 1000;
-                            //x <= input_message;
+                            // x <= 1000;
+                            x <= input_message;
                         end
                         `Y_SELECT: begin
                             channel_selector <= `Z_SELECT;
-                            y <= 1000;
-                            //y <= input_message;
+                            // y <= 1000;
+                            y <= input_message;
                         end
                         `Z_SELECT: begin
                             channel_selector <= `X_SELECT;
-                            z <= 12'b111000000000;
-                            //z <= input_message;
+                            // z <= 12'b111000000000;
+                            z <= input_message;
                         end
                     endcase
                     repetition_count <= 0;
