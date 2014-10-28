@@ -64,7 +64,8 @@ assign next_row = row_end && ~column_end;
 // Pick your colors. Remember that you have to draw a blue square on an orange background. 
 // You can use some behavioral Verilog here. Hint: the >, <, and ? operators will be very handy.
 assign b = is_blue ? (active & 3'd7) : (is_orange & 3'd0);
-assign r = is_blue ? (active & 3'd0) : (is_orange & 3'd7);
+//assign r = is_blue ? (active & 3'd0) : (is_orange & 3'd7);
+assign r = is_blue ? (active & {3{tft_button}}) : (is_orange & 3'd7);
 assign g = is_blue ? (active & 3'd0) : (is_orange & 3'd5);
 
 // Signal that a new frame is coming when y has finished counting to the end of the vertical porch region.

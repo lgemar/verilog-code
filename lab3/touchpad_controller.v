@@ -21,10 +21,9 @@ module touchpad_controller(
 	input wire touch_busy,data_in,
 	output reg touch_clk, data_out,
 	output reg touch_csb,
-	output reg [8:0] x,y,z
+	output reg [11:0] x,y,z
 );
 
-reg touch_csb, data_out, touch_clk; // not sure if I need these declarations
 reg [4:0] clk_div_counter;
 reg [3:0] repetition_count;
 reg [4:0] progress_count; // Tracks the progress of a transaction
@@ -61,6 +60,10 @@ reg [11:0] data_in_mask;
 `define Y_SELECT 3'b00
 `define Z_SELECT 3'b01
 
+always @(*) begin
+    touch_clk = (cclk >> 7);
+end
+
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
@@ -78,35 +81,44 @@ always @(posedge cclk) begin
 			touch_clk <= ~touch_clk;
 			if(touch_clk) begin  //negative edge logic
 				/* PUT ALL CODE HERE FOR NEGATIVE EDGE FSM LOGIC! */
-				/** Pseudocode: 
-				 *  if(active) 
-						if(sending)
-							// do something with data_out
-							data_out <= selector_message & data_out_mask;
-							data_out_mask <= (data_out_mask << 1);
-						elif(receiving)
-							// do something with data_in
-							if(data_in)
-								input_message <= input_message | data_in_mask;
-							data_in_mask <= (data_in_mask >> 1);
-						progress_count <= progress_count + 1;
-					elif(transaction_end)
-						data_out_mask <= 8'b0000_0001;
-						data_in_mask <= 12'b1000_0000_0000;
-				    	++repetition_count;
+                if(active) begin
+                    if(sending) begin
+                        // do something with data_out
+                        data_out <= selector_message & data_out_mask;
+                        data_out_mask <= (data_out_mask << 1);
+                    end
+                    else if (receiving) begin
+                        // do something with data_in
+                        if(data_in) begin
+                            input_message <= input_message | data_in_mask;
+                        end
+                        data_in_mask <= (data_in_mask >> 1);
+                        progress_count <= progress_count + 1;
+                    end
+                    else if (transaction_end) begin
+                        data_out_mask <= 8'b0000_0001;
+                        data_in_mask <= 12'b1000_0000_0000;
+                        repetition_count = repetition_count + 1;
+                    end
+                end
 
-					if(switch_channel)
-						case X: 
-							// do something with x output
-							channel_selector <= Y;
-						case Y: 
-							// do something with y output
-							channel_selector <= Z;
-						case Z: 
-							// do something with z output
-							channel_selector <= X;
-						repetition_count <= 0;
-				*/
+                if(switch_channel) begin
+                    case (channel_selector)
+                        `X_SELECT: begin
+                            channel_selector <= `Y_SELECT;
+                            x <= input_message;
+                        end
+                        `Y_SELECT: begin
+                            channel_selector <= `Z_SELECT;
+                            y <= input_message;
+                        end
+                        `Z_SELECT: begin
+                            channel_selector <= `X_SELECT;
+                            z <= input_message;
+                        end
+                    endcase
+                    repetition_count <= 0;
+                end
 			end
 		end
 	end
