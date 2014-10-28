@@ -8,15 +8,13 @@ module test_touch_controller;
     //touchpad signals
     wire [11:0] touch_x, touch_y, touch_z;
 
-    wire reset;
-    assign reset = ~rstb;
-
     touchpad_controller TFT(
         .cclk(cclk), 
         .rstb(rstb), 
-        .touch_clk(touch_clk),
         .touch_busy(touch_busy),
         .data_in(touch_data_out),
+
+        .touch_clk(touch_clk),
         .data_out(touch_data_in),
         .touch_csb(touch_csb),
         .x(touch_x),
@@ -24,18 +22,24 @@ module test_touch_controller;
         .z(touch_z)
     );
 
+    always @(*) begin
+        reset = 0;
+        cclk = 0; 
+        touch_busy = 0;
+        touch_data_out = 0;
+    end
 
 	initial begin 
-        // Insert the dumps here
-        $dumpfile("test_touch_controller.vcd");
-        $dumpvars(0, test_touch_controller);
+		// Insert the dumps here
+		$dumpfile("test_touch_controller.vcd");
+		$dumpvars(0, test_touch_controller);
 
-        @always #5 cclk = ~cclk;
-        @always touch_data_out = $random();
+		always@(posedge touch_clk) data_in = $random();
+		repeat(10000) begin
+			cclk = ~cclk;
+			#5;
+		end
 
-        
-		// Initialize Inputs
-        
 		$finish;
 	end
 endmodule
