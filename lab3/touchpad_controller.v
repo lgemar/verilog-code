@@ -21,7 +21,7 @@ module touchpad_controller(
 	input wire touch_busy,data_in,
 	output reg touch_clk, data_out,
 	output reg touch_csb,
-	output reg [8:0] x,y,z
+	output reg [11:0] x,y,z
 );
 
 reg [4:0] clk_div_counter;
