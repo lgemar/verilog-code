@@ -24,7 +24,7 @@ wire reset;
 assign reset = ~rstb;
 
 //touchpad signals
-wire [8:0] touch_x, touch_y, touch_z;
+wire [11:0] touch_x, touch_y, touch_z;
 //tft signals
 wire [9:0] tft_x;
 wire [8:0] tft_y;
@@ -43,8 +43,10 @@ ODDR2 tft_clk_fixer (.D0(1'b1), .D1(1'b0), .C0(tft_clk_buf), .C1(tft_clk_buf_n),
 assign led = 0;
 assign JB = 8'b0; //feel free to connect signals here so that you can probe them
 
-//intantiate the TFT driver
+// Is the user touching the touchpad or not?
+wire locked_touch_z;
 
+//intantiate the TFT driver
 tft_driver TFT(
 	.cclk(cclk),
 	.rstb(rstb),
@@ -74,6 +76,19 @@ touchpad_controller TOUCH(
 	.y(touch_y),
 	.z(touch_z)
 );
+
+always @(*) begin
+	locked_touch_x = touch_x >> 2;
+	locked_touch_y = touch_y >> 4;
+	locked_touch_z = ((touch_z >> 9) != 12'b0000_0000_0000);
+end
+always @(tft_new_frame) begin
+	if(locked_touch_z) begin
+		locked_touch_x <= touch_x;
+		locked_touch_y <= touch_y;
+	end
+end
+
 endmodule
 
 `default_nettype wire //disable default_nettype so non-user modules work properly
