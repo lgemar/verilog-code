@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
-`define TOUCH_CLK_DIV_COUNT 25
+`define TOUCH_CLK_DIV_COUNT 100
 
 // Maybe useful defines
 `define TOUCH_X_ADJ_MIN 12'h090
@@ -24,7 +24,7 @@ module touchpad_controller(
 	output reg [11:0] x,y,z
 );
 
-reg [4:0] clk_div_counter;
+reg [5:0] clk_div_counter;
 reg [3:0] repetition_count;
 reg [4:0] progress_count; // Tracks the progress of a transaction
 
@@ -60,16 +60,14 @@ reg [11:0] data_in_mask;
 `define Y_SELECT 3'b00
 `define Z_SELECT 3'b01
 
-always @(*) begin
-    touch_clk = (cclk >> 7);
-end
-
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
 		data_out_mask <= 8'b0000_0001;
 		input_message <= 12'b0000_0000_0000;
 		data_in_mask <= 12'b1000_0000_0000;
+        data_out <= 0;
+        touch_clk <= 0;
 	end
 	else begin
 		touch_csb <= 0;
@@ -79,6 +77,10 @@ always @(posedge cclk) begin
 		else begin
 			clk_div_counter <= 0;
 			touch_clk <= ~touch_clk;
+            
+            x <= 1000;
+            y <= 1000;
+            z <= 12'b111000000000;
 			if(touch_clk) begin  //negative edge logic
 				/* PUT ALL CODE HERE FOR NEGATIVE EDGE FSM LOGIC! */
                 if(active) begin
@@ -98,7 +100,7 @@ always @(posedge cclk) begin
                     else if (transaction_end) begin
                         data_out_mask <= 8'b0000_0001;
                         data_in_mask <= 12'b1000_0000_0000;
-                        repetition_count = repetition_count + 1;
+                        repetition_count <= repetition_count + 1;
                     end
                 end
 
@@ -106,15 +108,18 @@ always @(posedge cclk) begin
                     case (channel_selector)
                         `X_SELECT: begin
                             channel_selector <= `Y_SELECT;
-                            x <= input_message;
+                            x <= 1000;
+                            //x <= input_message;
                         end
                         `Y_SELECT: begin
                             channel_selector <= `Z_SELECT;
-                            y <= input_message;
+                            y <= 1000;
+                            //y <= input_message;
                         end
                         `Z_SELECT: begin
                             channel_selector <= `X_SELECT;
-                            z <= input_message;
+                            z <= 12'b111000000000;
+                            //z <= input_message;
                         end
                     endcase
                     repetition_count <= 0;
