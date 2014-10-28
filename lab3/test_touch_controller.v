@@ -32,7 +32,7 @@ module test_touch_controller;
 		$dumpfile("test_touch_controller.vcd");
 		$dumpvars(0, test_touch_controller);
 
-        rstb = 0;
+        rstb = 1;
         cclk = 0; 
         touch_busy = 0;
         touch_data_out = 0;
