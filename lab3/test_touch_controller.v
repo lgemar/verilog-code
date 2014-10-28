@@ -11,7 +11,12 @@ touchpad_controller TFT(
 		$dumpfile("test_touch_controller.vcd");
 		$dumpvars(0, test_touch_controller);
 
-		always@(posedge touch_clk) data_in = $random();
+		reg data_in;
+		reg touch_clk;
+
+		always @(posedge touch_clk) begin
+			data_in = $random();
+		end		
 		repeat(10000) begin
 			cclk = ~cclk;
 			#5;
