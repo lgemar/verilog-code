@@ -86,7 +86,7 @@ always @(posedge cclk) begin
                 if(active) begin
                     if(sending) begin
                         // do something with data_out
-                        data_out <= selector_message & data_out_mask;
+                        data_out <= |(selector_message & data_out_mask);
                         data_out_mask <= (data_out_mask << 1);
                     end
                     else if (receiving) begin
@@ -113,17 +113,17 @@ always @(posedge cclk) begin
                     case (channel_selector)
                         `X_SELECT: begin
                             channel_selector <= `Y_SELECT;
-                            // x <= 1000;
+                            //x <= 1000;
                             x <= input_message;
                         end
                         `Y_SELECT: begin
                             channel_selector <= `Z_SELECT;
-                            // y <= 1000;
+                            //y <= 1000;
                             y <= input_message;
                         end
                         `Z_SELECT: begin
                             channel_selector <= `X_SELECT;
-                            // z <= 12'b111000000000;
+                            //z <= 12'b111000000000;
                             z <= input_message;
                         end
                     endcase
