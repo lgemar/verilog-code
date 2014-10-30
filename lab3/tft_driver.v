@@ -9,7 +9,7 @@
 `define TFT_BITS_PER_COLOR 3  //512 colors
 `define TFT_BITS_PER_PIXEL 8
 `define TFT_X_NUM_BITS 10
-`define TFT_Y_NUM_BITS 9
+`define TFT_Y_NUM_BITS 10
 `define RECT_SIZE 25
 
 module tft_driver(
@@ -37,7 +37,7 @@ wire [11:0] rect_x, rect_y, rect_width;
 
 assign rect_x = touch_x; // Pick a value for this.
 assign rect_y = touch_y; // Pick a value for this too.
-assign rect_width = 12'd50;
+assign rect_width = 12'd25;
 // Fill in this code. The min and max values should extend RECT_SIZE pixels above, below, 
 // left, and right of the center. You can use some behavioral Verilog here.
 // Take care that they don't go negative!

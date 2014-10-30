@@ -89,13 +89,6 @@ always @(posedge cclk) begin
                         data_out <= |(selector_message & data_out_mask);
                         data_out_mask <= (data_out_mask << 1);
                     end
-                    else if (receiving) begin
-                        // do something with data_in
-                        if(data_in) begin
-                            input_message <= input_message | data_in_mask;
-                        end
-                        data_in_mask <= (data_in_mask >> 1);
-                    end
                 end
 
 				if (transaction_end & repetition_count != 14) begin
@@ -130,6 +123,16 @@ always @(posedge cclk) begin
                     repetition_count <= 0;
                 end
 				progress_count <= progress_count + 1;
+			end
+			else begin 
+				// positive edge logic
+				if (receiving) begin
+					// do something with data_in
+					if(data_in) begin
+						input_message <= input_message | data_in_mask;
+					end
+					data_in_mask <= (data_in_mask >> 1);
+				end
 			end
 		end
 	end
