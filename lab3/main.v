@@ -24,11 +24,15 @@ wire reset;
 assign reset = ~rstb;
 
 //touchpad signals
-wire [11:0] touch_x, touch_y, touch_z;
+wire [11:0] touch_x, touch_x_adj, touch_y, touch_y_adj, touch_z, touch_z_adj;
 //tft signals
 wire [9:0] tft_x;
 wire [8:0] tft_y;
 wire tft_new_frame;
+
+// Adjusted touchpad values
+assign touch_x_adj = (touch_x - 150);
+assign touch_y_adj = (touch_y - 300);
 
 // missing wires
 reg [8:0] locked_touch_x;
@@ -78,12 +82,12 @@ touchpad_controller TOUCH(
 );
 
 
-assign locked_touch_z = ((touch_z >> 9) != 12'b0000_0000_0000);
+assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
 
 always @(tft_new_frame) begin
 	if(locked_touch_z) begin
-		locked_touch_x <= touch_x >> 2;
-		locked_touch_y <= touch_y >> 2;
+		locked_touch_x <= (touch_x_adj >> 2);
+		locked_touch_y <= (touch_y_adj >> 2);
 	end
 end
 

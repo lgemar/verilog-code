@@ -86,7 +86,7 @@ always @(posedge cclk) begin
                 if(active) begin
                     if(sending) begin
                         // do something with data_out
-                        data_out <= selector_message & data_out_mask;
+                        data_out <= |(selector_message & data_out_mask);
                         data_out_mask <= (data_out_mask << 1);
                     end
                     else if (receiving) begin
