@@ -26,8 +26,8 @@ assign reset = ~rstb;
 //touchpad signals
 wire [11:0] touch_x, touch_x_adj, touch_y, touch_y_adj, touch_z, touch_z_adj;
 //tft signals
-wire [9:0] tft_x;
-wire [8:0] tft_y;
+wire [11:0] tft_x;
+wire [11:0] tft_y;
 wire tft_new_frame;
 
 // Adjusted touchpad values
@@ -35,8 +35,8 @@ assign touch_x_adj = (touch_x - 150);
 assign touch_y_adj = (touch_y - 300);
 
 // missing wires
-reg [8:0] locked_touch_x;
-reg [8:0] locked_touch_y;
+reg [11:0] locked_touch_x;
+reg [11:0] locked_touch_y;
 
 //generate all the clocks
 clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(reset), .LOCKED(clocks_locked));

@@ -8,8 +8,8 @@
 `define TFT_CLK_DIV_COUNT 5 
 `define TFT_BITS_PER_COLOR 3  //512 colors
 `define TFT_BITS_PER_PIXEL 8
-`define TFT_X_NUM_BITS 10
-`define TFT_Y_NUM_BITS 10
+`define TFT_X_NUM_BITS 12
+`define TFT_Y_NUM_BITS 12
 `define RECT_SIZE 25
 
 module tft_driver(
@@ -31,7 +31,7 @@ module tft_driver(
 wire [(`TFT_BITS_PER_COLOR-1):0] r, g, b;
 
 // These will define the boundaries of the rectangle you will display.
-wire [9:0] rect_x_min, rect_x_max, rect_y_min, rect_y_max;
+wire [11:0] rect_x_min, rect_x_max, rect_y_min, rect_y_max;
 // These are the center coordinates of the rectangle.
 wire [11:0] rect_x, rect_y, rect_width;
 
@@ -41,10 +41,10 @@ assign rect_width = 12'd25;
 // Fill in this code. The min and max values should extend RECT_SIZE pixels above, below, 
 // left, and right of the center. You can use some behavioral Verilog here.
 // Take care that they don't go negative!
-assign rect_x_min = 10'd0;
-assign rect_x_max = 10'd525;
-assign rect_y_min = 10'd0;
-assign rect_y_max = 10'd288;
+assign rect_x_min = 12'd0;
+assign rect_x_max = 12'd525;
+assign rect_y_min = 12'd0;
+assign rect_y_max = 12'd288;
 
 // Combinational logic
 wire valid_x, valid_y, is_blue, is_orange, row_end, column_end;
