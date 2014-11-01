@@ -83,8 +83,8 @@ touchpad_controller TOUCH(
 
 
 // Adjusted touchpad values
-assign touch_x_adj = (touch_x - 150);
-assign touch_y_adj = (touch_y - 300);
+assign touch_x_adj = (touch_x - 12'd150);
+assign touch_y_adj = (touch_y - 12'd300);
 assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
 
 
