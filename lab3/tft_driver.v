@@ -115,18 +115,18 @@ always @(posedge tft_clk) begin
 		tft_display <= 0;
 	end
 	else begin
-		tft_vdd <= 1;
-		tft_display <= 1;
+		tft_vdd <= 1'd1;
+		tft_display <= 1'd1;
 		case ({frame_end, next_row, active})
-			`PORCH: x <= x + 1;
-			`ACTIVE: x <= x + 1;
+			`PORCH: x <= x + 12'd1;
+			`ACTIVE: x <= x + 12'd1;
 			`ROW_ENDING: begin
-				x <= 0;
-				y <= y + 1;
+				x <= 12'd0;
+				y <= y + 12'd1;
 			end
 			`COLUMN_ENDING: begin
-				x <= 0;
-				y <= 0;
+				x <= 12'd0;
+				y <= 12'd0;
 			end
 		endcase
 	end
