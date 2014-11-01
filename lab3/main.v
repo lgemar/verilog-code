@@ -46,9 +46,6 @@ assign JB = 8'b0; //feel free to connect signals here so that you can probe them
 
 // Is the user touching the touchpad or not?
 wire locked_touch_z;
-wire debug1, debug2;
-assign debug1 = tft_x;
-assign debug2 = tft_y;
 
 //intantiate the TFT driver
 tft_driver TFT(
