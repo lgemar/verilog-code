@@ -10,7 +10,7 @@
 `define TFT_BITS_PER_PIXEL 8
 `define TFT_X_NUM_BITS 12
 `define TFT_Y_NUM_BITS 12
-`define RECT_SIZE 25
+`define RECT_SIZE 50
 
 module tft_driver(
 	input wire cclk, // Not needed yet, but will need later.

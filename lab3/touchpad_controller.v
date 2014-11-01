@@ -9,6 +9,8 @@
 
 `define TOUCH_Y_ADJ_MIN 12'h060
 `define TOUCH_Y_POST_ADJ_MAX 12'h6F0
+`define INPUT_MESSAGE_SZ 12
+`define OUTPUT_MESSAGE_SZ 8
 
 // Important!  The data_in pin here corresponds to the spi_data_out pin on the lab handout.
 // Likewise, the spi_data_in pin on the handout corresponds to the data_out port here!
@@ -21,7 +23,7 @@ module touchpad_controller(
 	input wire touch_busy,data_in,
 	output reg touch_clk, data_out,
 	output reg touch_csb,
-	output reg [11:0] x,y,z
+	output reg [`INPUT_MESSAGE_SZ-1:0] x,y,z
 );
 
 reg [31:0] clk_div_counter;
@@ -45,16 +47,16 @@ assign switch_channel = (repetition_count == 15);
 /** Touchpad selector message */
 /** Selects channel: (x is 10, y is 00, and z is 01) */
 reg [1:0] channel_selector; // Selects between channels x, y, z
-wire [7:0] selector_message;
-reg [7:0] data_out_mask;
+wire [`OUTPUT_MESSAGE_SZ-1:0] selector_message;
+reg [`OUTPUT_MESSAGE_SZ-1:0] data_out_mask;
 assign selector_message[0] = 1'b1;
 assign selector_message[2:1] = channel_selector;
 assign selector_message[3] = 1'b1;
 assign selector_message[7:4] = 4'b0;
 
 /** Touchpad data inputs */
-reg [11:0] input_message;
-reg [11:0] data_in_mask;
+reg [`INPUT_MESSAGE_SZ-1:0] input_message;
+reg [`INPUT_MESSAGE_SZ-1:0] data_in_mask;
 
 `define X_SELECT 2'b10
 `define Y_SELECT 2'b00
