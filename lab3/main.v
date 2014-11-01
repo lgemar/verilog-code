@@ -25,14 +25,11 @@ assign reset = ~rstb;
 
 //touchpad signals
 wire [11:0] touch_x, touch_x_adj, touch_y, touch_y_adj, touch_z, touch_z_adj;
+
 //tft signals
 wire [11:0] tft_x;
 wire [11:0] tft_y;
 wire tft_new_frame;
-
-// Adjusted touchpad values
-assign touch_x_adj = (touch_x - 150);
-assign touch_y_adj = (touch_y - 300);
 
 // missing wires
 reg [11:0] locked_touch_x;
@@ -49,6 +46,9 @@ assign JB = 8'b0; //feel free to connect signals here so that you can probe them
 
 // Is the user touching the touchpad or not?
 wire locked_touch_z;
+wire debug1, debug2;
+assign debug1 = tft_x;
+assign debug2 = tft_y;
 
 //intantiate the TFT driver
 tft_driver TFT(
@@ -82,12 +82,16 @@ touchpad_controller TOUCH(
 );
 
 
+// Adjusted touchpad values
+assign touch_x_adj = (touch_x - 150);
+assign touch_y_adj = (touch_y - 300);
 assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
 
-always @(tft_new_frame) begin
+
+always @(posedge tft_new_frame) begin
 	if(locked_touch_z) begin
-		locked_touch_x <= (touch_x_adj >> 3);
-		locked_touch_y <= (touch_y_adj >> 3);
+		locked_touch_x <= (touch_x_adj >> 2);
+		locked_touch_y <= (touch_y_adj >> 2);
 	end
 end
 

@@ -25,8 +25,8 @@ module touchpad_controller(
 );
 
 reg [31:0] clk_div_counter;
-reg [7:0] repetition_count;
-reg [5:0] progress_count; // Tracks the progress of a transaction
+reg [31:0] repetition_count;
+reg [31:0] progress_count; // Tracks the progress of a transaction
 
 /** Transaction signals for a single transaction */
 wire sending; // True if a message is being sent to the touchpad
