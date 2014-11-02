@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-ggdb3 -Wall -Werror -std=c++11 -q
+CFLAGS=-ggdb3 -Wall -Werror -std=c++11
 
 lukas: 
 	$(CC) $(CFLAGS) -o assemble lukas.cpp

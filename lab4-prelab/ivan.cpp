@@ -26,10 +26,7 @@ bool is_label(string field);
 pair<string, int> process_label(string const line);
 set<pair<string, int> > get_labels(ifstream& asmfile);
 string extract_code(string const line);
-
-bool has_only_spaces(const string& str) {
-    return str.find_first_not_of(WHITESPACE) == string::npos;
-}
+bool has_only_spaces(const string& str);
 
 int main(int argc, char *argv[]) {
     (void)first_addr;
@@ -103,8 +100,12 @@ void assemble(set<pair<string, int> >& table, ifstream& asmfile, ofstream& machi
 
 inst make_inst(string const line) {
     string extracted = extract_code(line);
-    if (extracted.empty()) { 
+    if (extracted.empty() ) { 
         cout << "empty" << endl;
+        return 0;
+    }
+    if (has_only_spaces(extracted)) {
+        cout << "comment" << endl;
         return 0;
     }
 
@@ -130,6 +131,10 @@ string extract_code(string const line) {
         ln = ln.substr(0, comment_idx);
     
     return ln;
+}
+
+bool has_only_spaces(const string& str) {
+    return str.find_first_not_of(WHITESPACE) == string::npos;
 }
 
 inst process_instr(string instr, string rest) {
