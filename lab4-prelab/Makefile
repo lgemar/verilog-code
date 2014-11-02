@@ -1,5 +1,8 @@
 CC=clang++
-CFLAGS=-g -Wall -std=c++11
+CFLAGS=-ggdb3 -Wall -Werror -std=c++11 -q
 
-make: 
+lukas: 
 	$(CC) $(CFLAGS) -o assemble lukas.cpp
+
+ivan:: 
+	$(CC) $(CFLAGS) -o assemble ivan.cpp
