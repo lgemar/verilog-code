@@ -7,10 +7,9 @@
 #include <assert.h>
 
 typedef typename std::map<std::string, unsigned> string_map;
-typedef string_map label_table;
 typedef typename std::vector<std::string> string_array;
 typedef typename std::vector<string_array> instruction_table;
-static label_table labels;
+static string_map labels;
 static instruction_table instructions;
 static unsigned PC = 0;
 
@@ -34,13 +33,13 @@ static string_map Registers = {{"$0", 0}, {"$zero", 0}, {"$at", 1}, {"$v0", 2},
 static string_map R_commands = {{"add", 32}, {"sub", 34}, {"and", 36}, 
 								{"or", 37}, {"xor", 38}, {"nor", 39}, 
 								{"slt", 42}, {"sll", 0}, {"sra", 3}, 
-								{"srl", 2}, {"jr", 8}};
+								{"srl", 2}};
 
 static string_map I_commands = {{"addi", 8}, {"andi", 12}, {"ori", 13}, 
 								{"xori", 14}, {"slti", 10}, {"beq", 4}, 
 								{"bne", 5}, {"lw", 35}, {"sw", 43}, {"nop", 0}};
 
-static string_map J_commands = {{"j", 2}, {"jal", 3}};
+static string_map J_commands = {{"j", 2}, {"jal", 3}, {"jr", 8}};
 
 int main(int argc, char** argv) {
 	if(argc != 3)
@@ -95,9 +94,9 @@ string_array parse_command(std::string line) {
 		std::cout << pch << std::endl;
 		if( is_label( pch ) ) {
 			std::cout << "Adding a new label" << std::endl;
-			const std::string s (pch);
-			string_map m;
-			m[s] = PC;
+			std::string s (pch);
+			s.erase( s.end() - 1 );
+			labels[s] = PC;
 			std::cout << "Size of labels " << labels.size() << std::endl;
 		}
 		else {
@@ -110,15 +109,18 @@ string_array parse_command(std::string line) {
 }
 
 unsigned lookup(std::string s) {
+	std::cout << "looking up " << s << std::endl;
 	if( Registers.find(s) != Registers.end() ) {
 		return Registers[s];
 	}
 	else if ( labels.find(s) != labels.end() ) {
 		return labels[s];
 	}
-	else 
-		std::cout << "Unknown string: " << s << std::endl;
-	return 0;
+	else {
+		unsigned ret = std::stoi(s);
+		ret |= 1 << 15;
+		return ret;
+	}
 }
 
 unsigned lookup(unsigned u) {return u;};
@@ -129,10 +131,14 @@ bool is_shift(std::string s) {
 
 void flush_commands(std::ofstream& output) {
 	std::cout << "I am flushing commands" << std::endl;
+	std::cout <<  "There are " << instructions.size() << " instructions" << std::endl;
 	for(auto it = instructions.begin(); it != instructions.end(); ++it) {
 		string_map::iterator pos;
 		unsigned result = 0;
-		if( (pos = R_commands.find((*it)[0])) != R_commands.end() ) {
+		std::string the_command = (*it)[0];
+		if( the_command == "nop" )
+			continue;
+		else if( (pos = R_commands.find(the_command)) != R_commands.end() ) {
 			assert( (*it).size() == 4 );
 			std::string the_command = (*it)[0];
 			result |= (*pos).second << 26;
@@ -146,26 +152,25 @@ void flush_commands(std::ofstream& output) {
 			result |= 32;
 
 		}
-		else if( (pos = I_commands.find((*it)[0])) != I_commands.end() ) {
+		else if( (pos = I_commands.find(the_command)) != I_commands.end() ) {
 			result |= (*pos).second << 26;
-			std::string the_command = (*it)[0];
-			result |= lookup((*it)[1]) << 21;
-			result |= lookup((*it)[2]) << 16;
-			int address = (int) lookup((*it)[3]);
-			if( address < 0 ) {
-				result |= 1 << 16;
-				result |= address;
+			if( the_command == "lw" || the_command == "sw") {
+				;// do nothing
 			}
-			else
-				result |= address;
+			else {
+				result |= lookup((*it)[1]) << 21;
+				result |= lookup((*it)[2]) << 16;
+				result = (int) lookup((*it)[3]);
+			}
 		}
-		else if( (pos = J_commands.find((*it)[0])) != J_commands.end() ) {
+		else if( (pos = J_commands.find(the_command)) != J_commands.end() ) {
 			result |= (*pos).second << 26;
 			std::string the_command = (*it)[0];
 		}
 		else {
 			output << "There was an error in the assembly" << std::endl;
 		}
+		std::cout << "A new instruction: ";
 		std::cout << std::hex << result << std::endl;
 	}
 }
