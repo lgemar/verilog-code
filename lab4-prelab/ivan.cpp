@@ -12,6 +12,7 @@
 #define WHITESPACE " \t\n"
 #define fhex(_v) std::setw(_v) << std::hex << std::setfill('0')
 #define JMASK 0x03ffffff
+#define TEXT_START 0x400000
 
 using namespace std;
 
@@ -67,7 +68,7 @@ static map<string, int> symbol_table;
 static int error;
 
 //static const unsigned first_addr = 4194304;
-static unsigned pc = 0;
+static unsigned pc = TEXT_START;
 
 int main(int argc, char *argv[]) {
     if (argc != 3) return 1;
@@ -86,7 +87,7 @@ int main(int argc, char *argv[]) {
         return 3;
     }
 
-    pc = 0;
+    pc = TEXT_START;
     for(auto it = symbol_table.cbegin(); it != symbol_table.cend(); ++it)
         std::cout << "\t" << it->first << " " << it->second << "\n";
 
@@ -282,7 +283,7 @@ int make_jtype(string instr, string rest) {
     map<string, int>::iterator label = symbol_table.find(rest);
     if (label == symbol_table.end()) error = 6;
     
-    int target = (label->second >> 2) & JMASK;
+    int target = ((TEXT_START + label->second) >> 2) & JMASK;
     int opcode = jtype[instr];
 
     return (opcode << SHIFT_OP) | target;
