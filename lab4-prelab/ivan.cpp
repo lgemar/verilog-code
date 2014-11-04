@@ -39,8 +39,6 @@ string extract_comma(string reg);
 vector<string> split(string rest);
 set<string> get_keys(map<string, int> m);
 string trim(const string& str, const string& whitespace = WHITESPACE);
-string reverse(std::string to_reverse);
-string int_to_bin(int number);
 
 static string nop = "nop";
 
@@ -355,4 +353,3 @@ string trim(const string& str, const string& whitespace) {
 
     return str.substr(strBegin, strRange);
 }
-
