@@ -57,8 +57,7 @@ static map<string, int> str_to_reg {
 static map<string, int> rtype { {"add", 32}, {"sub", 34}, {"and", 36}, {"or", 37}, 
                                 {"xor", 38}, {"nor", 39}, {"slt", 42}, {"jr", 0x8} };
 static map<string, int> itype { {"addi", 0x8}, {"slti", 0xa}, {"andi", 0xc}, 
-                                {"ori", 0xd}, {"xori", 0xe} };
-//{"lui", 0xf}, 
+                                {"ori", 0xd}, {"xori", 0xe}, {"lui", 0xf} };
 static map<string, int> jtype { {"j", 0x2}, {"jal", 0x3} };
 static map<string, int> load_store { {"lw", 0x23}, {"sw", 0x2b} };
 static map<string, int> shift_type { {"sll", 0x0}, {"srl", 0x2}, {"sra", 0x3} };
@@ -66,8 +65,6 @@ static map<string, int> branch_type { {"beq", 0x4}, {"bne", 0x5} };
 
 static map<string, int> symbol_table;
 static int error;
-
-//static const unsigned first_addr = 4194304;
 static unsigned pc = TEXT_START;
 
 int main(int argc, char *argv[]) {
@@ -93,7 +90,7 @@ int main(int argc, char *argv[]) {
 
     int err = assemble(asmfile, machine);
     if (err) {
-        cout << "error: " << err << " PC: " << pc << " size: " << symbol_table.size() << endl;
+        cout << "error: " << err << " PC: " << pc << endl;
         machine.close();
         machine.open(argv[2], ofstream::trunc);
         machine.close();
@@ -293,13 +290,21 @@ int make_jtype(string instr, string rest) {
 int make_itype(string instr, string rest) {
     int opcode = itype[instr];
     vector<string> regs = split(rest);
-    if (regs.size() != 3) error = 7;
-
-    int rt = get_reg(regs[0]);
-    int rs = get_reg(regs[1]);
+    if (regs.size() == 3) {
+        int rt = get_reg(regs[0]);
+        int rs = get_reg(regs[1]);
+        unsigned short imm = stoi(regs[2], nullptr, 10);
+        return (opcode << SHIFT_OP) | (rs << SHIFT_RS) | (rt << SHIFT_RT) | imm;
+    } 
     
-    unsigned short imm = stoi(regs[2], nullptr, 10);
-    return (opcode << SHIFT_OP) | (rs << SHIFT_RS) | (rt << SHIFT_RT) | imm;
+    if (regs.size() == 2) {
+        int rt = get_reg(regs[0]);
+        unsigned short imm = stoi(regs[1], nullptr, 10);
+        return (opcode << SHIFT_OP) | (rt << SHIFT_RT) | imm;
+    }
+    
+    error = 7;
+    return -1;
 }
 
 /* beq bnq */
