@@ -26,12 +26,9 @@ module tft_driver(
 	output reg [(`TFT_Y_NUM_BITS-1):0] y,
 	output wire new_frame
 );
-/*
-*
-	.touch_x(locked_touch_x), .touch_y(locked_touch_y),
-    */
+
 // RGB pixel values.
-wire [(`TFT_BITS_PR_COLOR-1):0] r, g, b;
+wire [(`TFT_BITS_PER_COLOR-1):0] r, g, b;
 
 // These will define the boundaries of the rectangle you will display.
 wire [11:0] rect_x_min, rect_x_max, rect_y_min, rect_y_max;
