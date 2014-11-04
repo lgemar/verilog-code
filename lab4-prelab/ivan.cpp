@@ -6,13 +6,17 @@
 #include <cstring>
 #include <sstream>
 #include <algorithm>
+#include <bitset>
+#include <iomanip>
 
 #define WHITESPACE " \t\n"
+#define fhex(_v) std::setw(_v) << std::hex << std::setfill('0')
+#define JMASK 0x03ffffff
 
 using namespace std;
 
 enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, 
-       SHIFT_RD = 15, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };
+       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };
 
 int make_inst(string const line);
 int assemble(ifstream& asmfile, ofstream& machine);
@@ -21,7 +25,7 @@ int make_rtype(string intr, string rest);
 int make_itype(string intr, string rest);
 int make_jtype(string intr, string rest);
 int make_shift_type(string intr, string rest);
-int make_itype_reduced(string intr, string rest);
+int make_load_store(string intr, string rest);
 int make_branch(string instr, string rest);
 int get_reg(string reg);
 bool is_comment(string field);
@@ -33,6 +37,9 @@ string extract_code(string const line);
 string extract_comma(string reg);
 vector<string> split(string rest);
 set<string> get_keys(map<string, int> m);
+string trim(const string& str, const string& whitespace = WHITESPACE);
+string reverse(std::string to_reverse);
+string int_to_bin(int number);
 
 static string nop = "nop";
 
@@ -47,13 +54,14 @@ static map<string, int> str_to_reg {
 };
 
 static map<string, int> rtype { {"add", 32}, {"sub", 34}, {"and", 36}, {"or", 37}, 
-                                {"xor", 38}, {"nor", 39}, {"slt", 42}, {"jr", 8} };
-static map<string, int> itype { {"addi", 8}, {"slti", 10}, {"andi", 12}, 
-                                {"ori", 13}, {"xori", 14} };
-static map<string, int> itype_reduced { {"lui", 15}, {"lw", 35}, {"sw", 43} };
-static map<string, int> jtype { {"j", 2}, {"jal", 3}, };
-static map<string, int> shift_type { {"sll", 0}, {"srl", 2}, {"sra", 3} };
-static map<string, int> branch_type { {"beq", 4}, {"bne", 5} };
+                                {"xor", 38}, {"nor", 39}, {"slt", 42}, {"jr", 0x8} };
+static map<string, int> itype { {"addi", 0x8}, {"slti", 0xa}, {"andi", 0xc}, 
+                                {"ori", 0xd}, {"xori", 0xe} };
+//{"lui", 0xf}, 
+static map<string, int> jtype { {"j", 0x2}, {"jal", 0x3} };
+static map<string, int> load_store { {"lw", 0x23}, {"sw", 0x2b} };
+static map<string, int> shift_type { {"sll", 0x0}, {"srl", 0x2}, {"sra", 0x3} };
+static map<string, int> branch_type { {"beq", 0x4}, {"bne", 0x5} };
 
 static map<string, int> symbol_table;
 static int error;
@@ -72,14 +80,16 @@ int main(int argc, char *argv[]) {
     asmfile.clear();
     asmfile.seekg(0, ios::beg);
 
-    ofstream machine (argv[2], ofstream::binary);
+    ofstream machine (argv[2]);
     if (!machine.is_open()) { 
         asmfile.close(); 
         return 3;
     }
 
     pc = 0;
-    cout << "assembling" << endl;
+    for(auto it = symbol_table.cbegin(); it != symbol_table.cend(); ++it)
+        std::cout << "\t" << it->first << " " << it->second << "\n";
+
     int err = assemble(asmfile, machine);
     if (err) {
         cout << "error: " << err << " PC: " << pc << " size: " << symbol_table.size() << endl;
@@ -116,8 +126,10 @@ pair<string, int> process_label(string const line) {
     strcpy(ln, cln);
     
     char *field = strtok(ln, WHITESPACE); 
-    if (is_label(string(field)))
+    if (is_label(string(field))) {
+        field[strlen(field)-1] = '\0';
         return make_pair(string(field), pc);
+    }
     return make_pair("", pc);
 }
 
@@ -137,17 +149,15 @@ int assemble(ifstream& asmfile, ofstream& machine) {
     while (getline(asmfile, line)) {
         int inst = make_inst(line);
         if (error) return error;
+        if (inst == -1) continue;
+        cout << line << " => 0x" << fhex(8) << inst << endl;
         machine.write((const char *)(&inst), sizeof(inst));
     }
     return 0;
 }
 
 int make_inst(string const line) {
-    if (line.empty() || is_comment(line) || has_only_spaces(line)) {
-        cout << "comment or empty " << pc << endl;
-        return -1;
-    }
-
+    if (line.empty() || is_comment(line) || has_only_spaces(line)) return -1;
     pc = pc + 4;
 
     string extracted = extract_code(line);
@@ -186,22 +196,22 @@ int process_instr(string instr, string rest) {
     }
 
     set<string> keys = get_keys(rtype);
-    if (keys.find(instr) != keys.end()) return make_rtype(instr, rest); 
+    if (keys.find(instr) != keys.end()) return make_rtype(instr, trim(rest));
 
     keys = get_keys(itype);
-    if (keys.find(instr) != keys.end()) return make_itype(instr, rest); 
+    if (keys.find(instr) != keys.end()) return make_itype(instr, trim(rest));
     
     keys = get_keys(jtype);
-    if (keys.find(instr) != keys.end()) return make_jtype(instr, rest); 
+    if (keys.find(instr) != keys.end()) return make_jtype(instr, trim(rest));
 
-    keys = get_keys(itype_reduced);
-    if (keys.find(instr) != keys.end()) return make_itype_reduced(instr, rest); 
+    keys = get_keys(load_store);
+    if (keys.find(instr) != keys.end()) return make_load_store(instr, trim(rest));
     
     keys = get_keys(shift_type);
-    if (keys.find(instr) != keys.end()) return make_shift_type(instr, rest); 
+    if (keys.find(instr) != keys.end()) return make_shift_type(instr, trim(rest));
 
     keys = get_keys(branch_type);
-    if (keys.find(instr) != keys.end()) return make_branch(instr, rest); 
+    if (keys.find(instr) != keys.end()) return make_branch(instr, trim(rest));
 
     // if pseudo return
     error = 2;  /* rest is not empty, but not a valid instr */
@@ -231,17 +241,11 @@ string extract_comma(string reg) {
 int get_reg(string reg) {
     reg = extract_comma(reg);
     map<string, int>::iterator r = str_to_reg.find(reg);
-    if (r == str_to_reg.end()) {
-        cout << "get_reg: " << reg << endl;
-        error = 3;  /* reg not found */
-        return -1;
-    } 
-    
+    if (r == str_to_reg.end()) error = 3;  /* reg not found */
     return r->second;
 }
 
 int make_rtype(string instr, string rest) {
-    cout << "rtype: " << instr << endl;
     int fn = rtype[instr];
     
     vector<string> regs = split(rest);
@@ -250,36 +254,35 @@ int make_rtype(string instr, string rest) {
         int rs = get_reg(regs[1]);
         int rt = get_reg(regs[2]);
         return (rs << SHIFT_RS) | (rt << SHIFT_RT) | (rd << SHIFT_RD) | fn;
-    } else if (regs.size() == 1) {  /* jr */
+    }  
+
+    if (regs.size() == 1) {  /* jr */
         int rs = get_reg(rest);
         return (rs << SHIFT_RS) | fn;
     } 
 
-    error = 6;
-    return 0;
+    error = 4;
+    return -1;
 }
 
 int make_shift_type(string instr, string rest) {
-    cout << "rtype: " << instr << endl;
-    int fn = rtype[instr];
+    int fn = shift_type[instr];
     
     vector<string> regs = split(rest);
-    if (regs.size() != 3) error = 8;
+    if (regs.size() != 3) error = 5;
 
     int rd = get_reg(regs[0]);
     int rt = get_reg(regs[1]);
     int shamt = stoi(regs[2], nullptr, 10);
-    // TODO check shamt limits */
     return (rd << SHIFT_RD) | (rt << SHIFT_RT) | (shamt << SHIFT_SHMT) | fn;
 }
 
 /* jal, j */
 int make_jtype(string instr, string rest) {
-    cout << "jtype: " << instr << endl;
     map<string, int>::iterator label = symbol_table.find(rest);
-    if (label == symbol_table.end()) error = 5;
+    if (label == symbol_table.end()) error = 6;
     
-    int target = label->second;
+    int target = (label->second >> 2) & JMASK;
     int opcode = jtype[instr];
 
     return (opcode << SHIFT_OP) | target;
@@ -287,47 +290,63 @@ int make_jtype(string instr, string rest) {
 
 /* addi, ori, etc */
 int make_itype(string instr, string rest) {
-    cout << "itype: " << instr << endl;
     int opcode = itype[instr];
     vector<string> regs = split(rest);
-    if (regs.size() != 3) error = 4;
+    if (regs.size() != 3) error = 7;
 
     int rt = get_reg(regs[0]);
     int rs = get_reg(regs[1]);
     
-    int imm = stoi(regs[2], nullptr, 10);
-    /* TODO: check imm limits */
+    unsigned short imm = stoi(regs[2], nullptr, 10);
     return (opcode << SHIFT_OP) | (rs << SHIFT_RS) | (rt << SHIFT_RT) | imm;
 }
 
 /* beq bnq */
 int make_branch(string instr, string rest) {
-    cout << "branch: " << instr << endl;
-    int opcode = itype[instr];
+    int opcode = branch_type[instr];
 
     vector<string> regs = split(rest);
-    if (regs.size() != 3) error = 4;
+    if (regs.size() != 3) error = 8;
 
     int rs = get_reg(regs[0]);
     int rt = get_reg(regs[1]);
     
     map<string, int>::iterator label = symbol_table.find(regs[2]);
-    if (label == symbol_table.end()) error = 5;
-    int offset = (label->second << SHIFT_OFFSET) >> SHIFT_OFFSET;
-    
+
+    if (label == symbol_table.end()) error = 9;
+    unsigned short offset = (label->second - pc) >> 2;
     return (opcode << SHIFT_OP) | (rs << SHIFT_RS) | (rt << SHIFT_RT) | offset;
 }
 
-/* lui, lw, sw */
-int make_itype_reduced(string instr, string rest) {
-    cout << "lw,sw,lui: " << instr << endl;
-    int opcode = itype_reduced[instr];
+/* only lw, sw */
+int make_load_store(string instr, string rest) {
     vector<string> regs = split(rest);
-    if (regs.size() != 2) error = 7;
+    if (regs.size() != 2) error = 10;
 
     int rt = get_reg(regs[0]);
-    int imm = stoi(regs[1], nullptr, 10);
+    size_t idx = -1;
+    unsigned short imm = stoi(regs[1], &idx, 10);
 
-    return (opcode << SHIFT_OP) | (rt << SHIFT_RT) | imm;
+    if (idx == -1) error = 11;
+    int open_paren = regs[1].find('$');
+    int close_paren = regs[1].find(')');
+    if (open_paren == regs[1].npos || close_paren == regs[1].npos) error = 11;
+ 
+    int rs = get_reg(regs[1].substr(open_paren, close_paren - open_paren));
+
+    int opcode = load_store[instr];
+
+    return (opcode << SHIFT_OP) | (rs << SHIFT_RS) | (rt << SHIFT_RT) | imm;
+}
+
+string trim(const string& str, const string& whitespace) {
+    const auto strBegin = str.find_first_not_of(whitespace);
+    if (strBegin == std::string::npos)
+        return ""; // no content
+
+    const auto strEnd = str.find_last_not_of(whitespace);
+    const auto strRange = strEnd - strBegin + 1;
+
+    return str.substr(strBegin, strRange);
 }
 
