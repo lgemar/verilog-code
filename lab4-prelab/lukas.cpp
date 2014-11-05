@@ -33,11 +33,11 @@ static string_map Str2Reg = {
 			{"$sp", 29}, {"$fp", 30}, {"$ra", 31}}; 
 static string_map Rtype = {
 			{"add", 32}, {"sub", 34}, {"and", 36}, {"or", 37}, {"xor", 38}, 
-			{"nor", 39}, {"slt", 42},};
+			{"nor", 39}, {"slt", 42}, {"jr", 8}};
 static string_map Shifttype =  { {"sll", 0}, {"sra", 3}, {"srl", 2} };
 static string_map Itype = {{"addi", 8}, {"andi", 12}, {"ori", 13}, 
 								{"xori", 14}, {"slti", 10},{"nop", 0}};
-static string_map Jtype = {{"j", 2}, {"jal", 3}, {"jr", 8}};
+static string_map Jtype = {{"j", 2}, {"jal", 3}};
 static string_map MemoryOps = { {"lw", 35}, {"sw", 43} };
 static string_map Branchtype = { {"beq", 4}, {"bne", 5} };
 
@@ -55,9 +55,6 @@ int main(int argc, char** argv) {
 		if(!command.empty())
 			instructions.push_back(command);
 	}
-	std::cout << "There are " << instructions.size() << " instructions" << std::endl;
-	std::cout << "There are " << labels.size() << " labels" << std::endl;
-	std::cout << "Program counter is at " << std::hex << PC << std::endl;
 	flush_commands(output_file);
 	input_file.close();
 	output_file.close();
@@ -91,13 +88,10 @@ string_array parse_command(std::string line) {
 		return command_array; // return an empty command array
 
 	while( pch != NULL && *pch != '#') {
-		std::cout << pch << std::endl;
 		if( is_label( pch ) ) {
-			std::cout << "Adding a new label" << std::endl;
 			std::string s (pch);
 			s.erase( s.end() - 1 );
 			labels[s] = PC;
-			std::cout << "Size of labels " << labels.size() << std::endl;
 		}
 		else {
 			command_array.push_back(std::string(pch));
@@ -108,47 +102,73 @@ string_array parse_command(std::string line) {
 	return command_array;
 }
 
+void (unsigned& num) {
+	num <<= 16;
+	num >>= 16;
+}
+
 unsigned lookup(std::string s) {
-	std::cout << "looking up " << s << std::endl;
+	unsigned ret = 0;
 	if( Str2Reg.find(s) != Str2Reg.end() ) {
-		return Str2Reg[s];
+		ret = Str2Reg[s];
+		return ret;
 	}
 	else if ( labels.find(s) != labels.end() ) {
-		return labels[s];
+		ret = labels[s];
+		return ret;
 	}
 	else {
-		int ret = 0;
+		unsigned ret = 0;
 		ret = std::stoi(s);
-		if( ret < 0 )
-			ret |= 1 << 15;
+		ret <<= 16;
+		ret >>= 16;
 		return ret;
 	}
 }
 
+/** Returns the 32-bit r-type command specifier built from a command array
+ * @pre The size of @a s, the command array, must be 2 or 4, corresponding
+ * 	to 1 instruction plus 1 or 3 arguments
+ * @pre The r-type command is in the form [<fn>, <rd>, <rs>, <rt>]
+ */
 unsigned build_r(string_array s) {
 	unsigned result = 0;
 	std::string command = s[0];
-	result |= Rtype[command] << SHIFT_OP;
-	unsigned rd = lookup(s[1]);
-	unsigned rs = lookup(s[2]);
-	unsigned rt = lookup(s[3]);
-	return result | (rs << SHIFT_RS) | (rt << SHIFT_RT) | (rd << SHIFT_RD);
+	result |= Rtype[command];
+	// If this is a jr command
+	if( s.size() == 2 ) {
+		unsigned rs = lookup(s[1]);
+		return result | rs << SHIFT_RS; 
+	}
+	else {
+		assert(s.size() == 4);
+		unsigned rd = lookup(s[1]);
+		unsigned rs = lookup(s[2]);
+		unsigned rt = lookup(s[3]);
+		return result|(rs << SHIFT_RS)|(rt << SHIFT_RT)|(rd << SHIFT_RD);
+	}
 }
 
+/** Returns the 32-bit i-type command specifier built from a command array
+ * @pre The size of @a s, the command array, must be 4, corresponding
+ * 	to 1 instruction plus 3 arguments
+ * @pre The i-type command is in the form [<fn>, <rt>, <rs>, <imm>]
+ */
 unsigned build_i(string_array s) {
+	assert( s.size() == 4 );
 	unsigned result = 0;
 	std::string command = s[0];
 	result |= Itype[command] << SHIFT_OP;
 	result |= lookup(s[1]) << SHIFT_RT;
 	result |= lookup(s[2]) << SHIFT_RS;
-	result |= (int) lookup(s[3]);
+	result |= lookup(s[3]);
 	return result;
 }
 
 unsigned build_shift(string_array s) {
 	unsigned result = 0;
 	std::string command = s[0];
-	result |= Shifttype[command] << SHIFT_OP;
+	result |= Shifttype[command];
 	unsigned rd = lookup(s[1]);
 	unsigned rt = lookup(s[2]);
 	unsigned shamt = lookup(s[3]);
@@ -162,6 +182,8 @@ unsigned build_branch(string_array s) {
 	unsigned rt = lookup(s[2]);
 	unsigned label_code = lookup(s[3]);
 	unsigned offset = (label_code - PC) >> 2;
+	offset <<= 16;
+	offset >>= 16;
 	return result | (rs << SHIFT_RS) | (rt << SHIFT_RT) | offset;
 }
 unsigned build_memoryop(string_array s) {
@@ -204,29 +226,34 @@ unsigned build_jump(string_array s) {
 }
 
 void flush_commands(std::ofstream& output) {
-	std::cout << "I am flushing commands" << std::endl;
-	std::cout <<  "There are " << instructions.size() << " instructions" << std::endl;
+	PC = 0;
 	for(auto it = instructions.begin(); it != instructions.end(); ++it) {
 		unsigned result = 0;
 		std::string command = (*it)[0];
+		PC += 4;
 		if( command == "nop" ) {
-			continue;
+			output << "nop-type: "; result = 0;
 		}
-		else if( Rtype.find(command) != Rtype.end() )
-			result = build_r( *it );
-		else if( Shifttype.find(command) != Shifttype.end() )
-			result = build_shift( *it );
-		else if( Itype.find(command) != Itype.end() )
-			result = build_i( *it );
-		else if( MemoryOps.find(command) != MemoryOps.end() )
-			result = build_memoryop( *it );
-		else if ( Branchtype.find(command) != Branchtype.end() )
-			result = build_branch( *it );
-		else if( Jtype.find(command) != Jtype.end() )
-			result = build_jump( *it );
+		else if( Rtype.find(command) != Rtype.end() ) {
+			output << "r-type: "; result = build_r( *it );
+		}
+		else if( Shifttype.find(command) != Shifttype.end() ) {
+			output << "shift-type: "; result = build_shift( *it );
+		}
+		else if( Itype.find(command) != Itype.end() ) {
+			output << "i-type: "; result = build_i( *it );
+		}
+		else if( MemoryOps.find(command) != MemoryOps.end() ) {
+			output << "memory-type: "; result = build_memoryop( *it );
+		}
+		else if ( Branchtype.find(command) != Branchtype.end() ) {
+			output << "branch-type: "; result = build_branch( *it );
+		}
+		else if( Jtype.find(command) != Jtype.end() ) {
+			output << "j-type: "; result = build_jump( *it );
+		}
 		else
 			output << "There was an error in the assembly" << std::endl;
-		std::cout << "A new instruction: ";
-		std::cout << std::hex << result << std::endl;
+		output << std::dec << PC << ": " << std::hex << result << std::endl;
 	}
 }
