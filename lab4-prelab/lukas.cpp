@@ -102,7 +102,7 @@ string_array parse_command(std::string line) {
 	return command_array;
 }
 
-void (unsigned& num) {
+void shorten(unsigned& num) {
 	num <<= 16;
 	num >>= 16;
 }
