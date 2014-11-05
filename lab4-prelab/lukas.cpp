@@ -24,19 +24,20 @@ bool has_only_whitespace(const std::string& str);
 void flush_commands(std::ofstream& output);
 
 static string_map Str2Reg = {
-			{"$0", 0}, {"$zero", 0}, {"$at", 1}, {"$v0", 2}, {"$v1", 3}, 
-			{"$a0", 4}, {"$a1", 5}, {"$a2", 6}, {"$a3", 7}, {"$t0", 8}, 
-			{"$t1", 9}, {"$t2", 10}, {"$t3", 11}, {"$t4", 12}, {"$t5", 13}, 
-			{"$t6", 14}, {"$t7", 15}, {"$s0", 16}, {"$s1", 17}, {"$s2", 18}, 
-			{"$s3", 19}, {"$s4", 20}, {"$s5", 21}, {"$s6", 22}, {"$s7", 23}, 
-			{"$t8", 24}, {"$t9", 25}, {"$k0", 26}, {"$k1", 27}, {"$gp", 28}, 
-			{"$sp", 29}, {"$fp", 30}, {"$ra", 31}}; 
+	{"$0", 0}, {"$zero", 0}, {"$at", 1}, {"$v0", 2}, {"$v1", 3}, 
+	{"$a0", 4}, {"$a1", 5}, {"$a2", 6}, {"$a3", 7}, {"$t0", 8}, 
+	{"$t1", 9}, {"$t2", 10}, {"$t3", 11}, {"$t4", 12}, {"$t5", 13}, 
+	{"$t6", 14}, {"$t7", 15}, {"$s0", 16}, {"$s1", 17}, {"$s2", 18}, 
+	{"$s3", 19}, {"$s4", 20}, {"$s5", 21}, {"$s6", 22}, {"$s7", 23}, 
+	{"$t8", 24}, {"$t9", 25}, {"$k0", 26}, {"$k1", 27}, {"$gp", 28}, 
+	{"$sp", 29}, {"$fp", 30}, {"$ra", 31}}; 
 static string_map Rtype = {
-			{"add", 32}, {"sub", 34}, {"and", 36}, {"or", 37}, {"xor", 38}, 
-			{"nor", 39}, {"slt", 42}, {"jr", 8}};
+	{"add", 32}, {"sub", 34}, {"and", 36}, {"or", 37}, {"xor", 38}, 
+	{"nor", 39}, {"slt", 42}, {"jr", 8}};
 static string_map Shifttype =  { {"sll", 0}, {"sra", 3}, {"srl", 2} };
-static string_map Itype = {{"addi", 8}, {"andi", 12}, {"ori", 13}, 
-								{"xori", 14}, {"slti", 10},{"nop", 0}};
+static string_map Itype = {
+	{"addi", 8}, {"andi", 12}, {"ori", 13}, {"xori", 14}, {"slti", 10},
+	{"nop", 0}, {"lui", 15}};
 static string_map Jtype = {{"j", 2}, {"jal", 3}};
 static string_map MemoryOps = { {"lw", 35}, {"sw", 43} };
 static string_map Branchtype = { {"beq", 4}, {"bne", 5} };
@@ -154,13 +155,18 @@ unsigned build_r(string_array s) {
  * @pre The i-type command is in the form [<fn>, <rt>, <rs>, <imm>]
  */
 unsigned build_i(string_array s) {
-	assert( s.size() == 4 );
 	unsigned result = 0;
 	std::string command = s[0];
 	result |= Itype[command] << SHIFT_OP;
-	result |= lookup(s[1]) << SHIFT_RT;
-	result |= lookup(s[2]) << SHIFT_RS;
-	result |= lookup(s[3]);
+	if( command == "lui" ) {
+		result |= lookup(s[1]) << SHIFT_RT;
+		result |= lookup(s[2]);
+	}
+	else {
+		result |= lookup(s[1]) << SHIFT_RT;
+		result |= lookup(s[2]) << SHIFT_RS;
+		result |= lookup(s[3]);
+	}
 	return result;
 }
 

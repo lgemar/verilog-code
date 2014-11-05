@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <bitset>
 #include <iomanip>
+#include <iterator>
 
 #define WHITESPACE " \t\n"
 #define fhex(_v) std::setw(_v) << std::hex << std::setfill('0')
