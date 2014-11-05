@@ -120,8 +120,7 @@ unsigned lookup(std::string s) {
 	else {
 		unsigned ret = 0;
 		ret = std::stoi(s);
-		ret <<= 16;
-		ret >>= 16;
+		shorten(ret);
 		return ret;
 	}
 }
@@ -182,8 +181,7 @@ unsigned build_branch(string_array s) {
 	unsigned rt = lookup(s[2]);
 	unsigned label_code = lookup(s[3]);
 	unsigned offset = (label_code - PC) >> 2;
-	offset <<= 16;
-	offset >>= 16;
+	shorten(offset);
 	return result | (rs << SHIFT_RS) | (rt << SHIFT_RT) | offset;
 }
 unsigned build_memoryop(string_array s) {
