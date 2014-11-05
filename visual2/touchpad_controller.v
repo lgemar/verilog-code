@@ -36,7 +36,6 @@ module touchpad_controller(
 
 reg [4:0] clk_div_counter;
 
-
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;

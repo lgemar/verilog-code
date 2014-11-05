@@ -30,6 +30,9 @@ wire [9:0] tft_x;
 wire [8:0] tft_y;
 wire tft_new_frame;
 
+// locked_touch signal, not provided
+reg [11:0] locked_touch_x, locked_touch_y;
+
 //generate all the clocks
 clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(reset), .LOCKED(clocks_locked));
 //pass the tft_clk through a DDR2 output buffer (so that it can drive external loads and so that internal loads are unaffected by large skew routing)
