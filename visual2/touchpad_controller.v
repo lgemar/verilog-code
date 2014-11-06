@@ -52,11 +52,11 @@ module touchpad_controller(
 );
 
 reg [4:0] clk_div_counter;
-reg [1:0] current_dimention;
+reg [1:0] current_dimension;
 wire [7:0] transaction_message;
 
-assign trasaction_message[0] = 1'b1;
-assign transaction_message[2:1] = currect_dimension;
+assign transaction_message[0] = 1'b1;
+assign transaction_message[2:1] = current_dimension;
 assign transaction_message[3] = 1'b1;
 assign transaction_message[7:4] = 4'b0;
 
@@ -107,7 +107,7 @@ counter TRANSACTION_COUNTER (
 );
 
 // Repetition counter
-wire [31:0] repetiion_counter;
+wire [31:0] repetition_counter;
 wire repetition_counter_rst;
 reg repetition_counter_ena;
 
@@ -115,7 +115,7 @@ counter REPETITION_COUNTER (
 	.clk(counter_rst), 
 	.rstb(repetition_counter_rst),
 	.en(repetition_counter_ena), 
-	.out(repetiion_counter)
+	.out(repetition_counter)
 );
 
 // Make the shift in and shift out counter enables dependent on the transaction
@@ -128,17 +128,17 @@ assign shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
 assign repetition_counter_rst = (repetition_counter == `REPETITION_END);
 
 always @(posedge repetition_counter_rst) begin
-	case(current_demension)
+	case(current_dimension)
 		`TOUCH_READ_X: begin
-			current_demension <= `TOUCH_READ_Y;
+			current_dimension <= `TOUCH_READ_Y;
 			x <= touchpad_message;
 		end
 		`TOUCH_READ_Y: begin
-			current_demension <= `TOUCH_READ_Z;
+			current_dimension <= `TOUCH_READ_Z;
 			y <= touchpad_message;
 		end
 		`TOUCH_READ_Z: begin
-			current_demension <= `TOUCH_READ_X;
+			current_dimension <= `TOUCH_READ_X;
 			z <= touchpad_message;
 		end
 	endcase
@@ -147,7 +147,7 @@ end
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
-		data_out <= 0;
+		//data_out <= 0;
 		touch_csb <= 1;
         current_dimension <= `TOUCH_READ_X;
 		repetition_counter_ena = 1;
