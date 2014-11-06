@@ -71,12 +71,11 @@ end
 
 // Shift out module
 wire shift_out_ena;
-reg [7:0] touch_message;
 reg shift_out_rst;
 
 shift_out SHIFT_OUT (
 	.clk(touch_clk), 
-	.data_in(touch_message),
+	.data_in(transaction_message),
 	.ena(shift_out_ena),
 	.rst(shift_out_rst), 
 	.data_out(data_out)
@@ -97,7 +96,7 @@ shift_in SHIFT_IN (
 
 // Transaction counter
 wire [31:0] transaction_counter;
-wire counter_ena;
+reg counter_ena;
 reg counter_rst;
 counter TRANSACTION_COUNTER (
 	.clk(touch_clk), 
@@ -162,6 +161,11 @@ always @(posedge cclk) begin
 		shift_out_rst <= 0;
 		shift_in_rst <= 0;
 		touch_clk <= 0;
+		counter_ena <= 1;
+		// Initialize x,y,z values
+		x <= 0;
+		y <= 0;
+		z <= 0;
 		/*
 		incoming_data <= 0;
 		channel <= `TOUCH_READ_X;
