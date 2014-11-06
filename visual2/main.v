@@ -71,6 +71,12 @@ touchpad_controller TOUCH(
 	.y(touch_y),
 	.z(touch_z)
 );
+
+always @(*) begin
+	locked_touch_x = (touch_x >> 2);
+	locked_touch_y = (touch_y >> 2);
+end
+
 endmodule
 
 `default_nettype wire //disable default_nettype so non-user modules work properly

@@ -36,6 +36,13 @@ module touchpad_controller(
 
 reg [4:0] clk_div_counter;
 
+// Hardcode in values for x, y, and z
+always @(*) begin
+	x = 12'd1000;
+	y = 12'd1000;
+	z = 12'b1110_0000_0000;
+end
+
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;

@@ -9,7 +9,7 @@ module test_counter;
 	reg en;
 	wire [7:0] out;
 
-	reg [10: 0] i;
+	reg [10:0] i;
 
 	counter UTT ( 
 		.clk(clk), 
@@ -19,14 +19,9 @@ module test_counter;
 		.out(out) 
 	);
 
-	always #10 clk = ~clk;
-
-	always @(posedge clk) begin
-		en = (i % 10 == 0);
-		i = i + 1;
+	always @(*) begin
+		data <= out;
 	end
-
-	assign data = out;
 
 	initial begin
 		// Insert the dumps here
