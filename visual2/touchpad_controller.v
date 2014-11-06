@@ -129,8 +129,8 @@ always @(posedge cclk) begin
 		tx_count <= 0;
 		rx_count <= 0;
 		channel_switch_count <= 0;
+		data_out <= 0;
 		*/
-		//data_out <= 0;
 		touch_clk <= 0;
 		touch_csb <= 1;
 
