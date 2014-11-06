@@ -48,7 +48,7 @@ module touchpad_controller(
 	output reg touch_clk,
 	output wire data_out,
 	output reg touch_csb,
-	output reg [8:0] x,y,z
+	output reg [11:0] x,y,z
 );
 
 reg [4:0] clk_div_counter;
@@ -72,7 +72,7 @@ end
 // Shift out module
 wire shift_out_ena;
 reg [7:0] touch_message;
-wire shift_out_rst;
+reg shift_out_rst;
 
 shift_out SHIFT_OUT (
 	.clk(touch_clk), 
@@ -85,7 +85,7 @@ shift_out SHIFT_OUT (
 // Shift in module
 wire shift_in_ena;
 wire [11:0] touchpad_message;
-wire shift_in_rst;
+reg shift_in_rst;
 
 shift_in SHIFT_IN (
 	.clk(touch_clk),
@@ -97,8 +97,8 @@ shift_in SHIFT_IN (
 
 // Transaction counter
 wire [31:0] transaction_counter;
-wire counter_rst;
 wire counter_ena;
+reg counter_rst;
 counter TRANSACTION_COUNTER (
 	.clk(touch_clk), 
 	.rstb(counter_rst),
@@ -108,8 +108,8 @@ counter TRANSACTION_COUNTER (
 
 // Repetition counter
 wire [31:0] repetition_counter;
-wire repetition_counter_rst;
 reg repetition_counter_ena;
+reg repetition_counter_rst;
 
 counter REPETITION_COUNTER (
 	.clk(counter_rst), 
@@ -122,10 +122,15 @@ counter REPETITION_COUNTER (
 // counter
 assign shift_out_ena = (transaction_counter >= `CALL_START && transaction_counter < `CALL_END);
 assign shift_in_ena = (transaction_counter >= `RESPONSE_START && transaction_counter < `RESPONSE_END);
-assign counter_rst = (transaction_counter == `TRANSACTION_END);
-assign shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low
-assign shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
-assign repetition_counter_rst = (repetition_counter == `REPETITION_END);
+
+always @(*) begin
+	if(rstb) begin
+		counter_rst = (transaction_counter == `TRANSACTION_END);
+		shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low
+		shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
+		repetition_counter_rst = (repetition_counter == `REPETITION_END);
+	end
+end
 
 always @(posedge repetition_counter_rst) begin
 	case(current_dimension)
@@ -151,6 +156,12 @@ always @(posedge cclk) begin
 		touch_csb <= 1;
         current_dimension <= `TOUCH_READ_X;
 		repetition_counter_ena = 1;
+		
+		// Make sure all the modules are reset
+		counter_rst <= 1;
+		repetition_counter_rst <= 1;
+		shift_out_rst <= 0;
+		shift_in_rst <= 0;
 		/*
 		channel <= `TOUCH_READ_X;
 		touch_tx_done <= 0;
@@ -166,7 +177,9 @@ always @(posedge cclk) begin
         */
 	end
 	else begin
+		// Ensure that the touchpad controller gets a low csb signal
 		touch_csb <= 0;
+
 		if(clk_div_counter != (`TOUCH_CLK_DIV_COUNT-1)) begin
 			clk_div_counter <= clk_div_counter + 6'd1;
 		end
