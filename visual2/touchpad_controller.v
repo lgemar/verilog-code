@@ -126,26 +126,6 @@ counter REPETITION_COUNTER (
 assign shift_out_ena = (transaction_counter >= `CALL_START && transaction_counter < `CALL_END);
 assign shift_in_ena = (transaction_counter >= `RESPONSE_START && transaction_counter < `RESPONSE_END);
 
-always @(posedge repetition_counter_rst) begin
-	case(current_dimension)
-		`TOUCH_READ_X: begin
-			current_dimension <= `TOUCH_READ_Y;
-			// x <= touchpad_message;
-			x <= 12'd1000;
-		end
-		`TOUCH_READ_Y: begin
-			current_dimension <= `TOUCH_READ_Z;
-			// y <= touchpad_message;
-			y <= 12'd1000;
-		end
-		`TOUCH_READ_Z: begin
-			current_dimension <= `TOUCH_READ_X;
-			// z <= touchpad_message;
-			x <= 12'd1000;
-		end
-	endcase
-end
-
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
@@ -184,6 +164,25 @@ always @(posedge cclk) begin
 			touch_clk <= ~touch_clk;
 			if(touch_clk) begin  //negative edge logic
 				/* put all of your negative edge logic here */
+				if( repetition_counter_rst ) begin
+					case(current_dimension)
+						`TOUCH_READ_X: begin
+							current_dimension <= `TOUCH_READ_Y;
+							// x <= touchpad_message;
+							x <= 12'd1000;
+						end
+						`TOUCH_READ_Y: begin
+							current_dimension <= `TOUCH_READ_Z;
+							// y <= touchpad_message;
+							y <= 12'd1000;
+						end
+						`TOUCH_READ_Z: begin
+							current_dimension <= `TOUCH_READ_X;
+							// z <= touchpad_message;
+							x <= 12'd1000;
+						end
+					endcase
+				end
 			end
 			if(~touch_clk) begin //positive edge logic
 				/* put all of your positive edge logic here */
