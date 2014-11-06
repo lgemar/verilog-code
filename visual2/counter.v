@@ -11,11 +11,11 @@ module counter (
 
 	assign out = count;
 
-	always @(posedge rstb) begin
-		count = 31'b0;
-	end
-	always @(posedge clk) begin
-		if (en & ~rstb) begin
+	always @(posedge clk, posedge rstb) begin
+		if(~rstb) begin
+			count = 31'b0;
+		end
+		else if (en & ~rstb) begin
 			count = count + 1'b1; 
 		end
 	end

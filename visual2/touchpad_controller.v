@@ -98,6 +98,7 @@ shift_in SHIFT_IN (
 wire [31:0] transaction_counter;
 reg counter_ena;
 reg counter_rst;
+
 counter TRANSACTION_COUNTER (
 	.clk(touch_clk), 
 	.rstb(counter_rst),
@@ -137,7 +138,7 @@ always @(posedge repetition_counter_rst) begin
 		`TOUCH_READ_Z: begin
 			current_dimension <= `TOUCH_READ_X;
 			// z <= touchpad_message;
-			z <= 12'd1000;
+			x <= 12'd1000;
 		end
 	endcase
 end
@@ -150,33 +151,22 @@ always @(posedge cclk) begin
         current_dimension <= `TOUCH_READ_X;
 		repetition_counter_ena = 1;
 		// Make sure all the modules are reset
-		counter_rst <= 1;
-		repetition_counter_rst <= 1;
-		shift_out_rst <= 0;
-		shift_in_rst <= 0;
+		counter_rst = 1;
+		repetition_counter_rst = 1;
+		shift_out_rst = 0;
+		shift_in_rst = 0;
+
 		touch_clk <= 0;
 		counter_ena <= 1;
 		// Initialize x,y,z values
 		x <= 0;
 		y <= 0;
 		z <= 0;
-		/*
-		incoming_data <= 0;
-		channel <= `TOUCH_READ_X;
-		touch_tx_done <= 0;
-		touch_rx_done <= 0;
-		x_raw <= 0;
-		y_raw <= 0;
-		z_raw <= 0;
-		state <= `TOUCH_STATE_RESET;
-		tx_count <= 0;
-		rx_count <= 0;
-		channel_switch_count <= 0;
-        */
 	end
 	else begin
 		// Ensure that the touchpad controller gets a low csb signal
 		touch_csb <= 0;
+
 		// Set reset signals
 		counter_rst = (transaction_counter == `TRANSACTION_END);
 		shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low

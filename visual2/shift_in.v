@@ -14,12 +14,13 @@ module shift_in(clk, data_in, ena, rst, data_out);
 	input wire clk, data_in, ena, rst;
 	output reg [11:0] data_out;
 	reg [11:0] mask;
-	always @(negedge rst) begin
-		data_out <= 12'b0;
-		mask <= 12'b1000_0000_0000;
-	end
-	always @(posedge clk) begin
-		if(ena & rst) begin
+
+	always @(posedge clk, negedge rst) begin
+		if(~rst) begin
+			data_out <= 12'b0;
+			mask <= 12'b1000_0000_0000;
+		end
+		else if(ena & rst) begin
 			if(data_in) begin
 				data_out <= data_out | mask;
 			end
