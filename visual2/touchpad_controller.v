@@ -74,7 +74,8 @@ wire shift_out_ena;
 reg shift_out_rst;
 
 shift_out SHIFT_OUT (
-	.clk(touch_clk), 
+	.clk(cclk),
+	.touch_clk(touch_clk), 
 	.data_in(transaction_message),
 	.ena(shift_out_ena),
 	.rst(shift_out_rst), 
@@ -87,7 +88,8 @@ wire [11:0] touchpad_message;
 reg shift_in_rst;
 
 shift_in SHIFT_IN (
-	.clk(touch_clk),
+	.clk(cclk),
+	.touch_clk(touch_clk),
 	.data_in(data_in), 
 	.ena(shift_in_ena), 
 	.rst(shift_in_rst), 
@@ -100,7 +102,8 @@ reg counter_ena;
 reg counter_rst;
 
 counter TRANSACTION_COUNTER (
-	.clk(touch_clk), 
+	.clk(cclk),
+	.touch_clk(touch_clk), 
 	.rstb(counter_rst),
 	.en(counter_ena), 
 	.out(transaction_counter)
@@ -159,9 +162,9 @@ always @(posedge cclk) begin
 		touch_clk <= 0;
 		counter_ena <= 1;
 		// Initialize x,y,z values
-		x <= 0;
-		y <= 0;
-		z <= 0;
+		x <= 12'd1000;
+		y <= 12'd1000;
+		z <= 12'd1000;
 	end
 	else begin
 		// Ensure that the touchpad controller gets a low csb signal
