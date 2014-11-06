@@ -25,6 +25,11 @@
 `define RESPONSE_END 22
 `define TRANSACTION_END 24
 
+// Dimension identifiers
+`define X_ID 2'b01
+`define Y_ID 2'b10
+`define Z_ID 2'b01
+
 // Repetition States
 `define REPETITION_END 16
 
@@ -47,15 +52,6 @@ module touchpad_controller(
 );
 
 reg [4:0] clk_div_counter;
-
-/**
-// Hardcode in values for x, y, and z
-always @(*) begin
-	x = 12'd1000;
-	y = 12'd1000;
-	z = 12'b1110_0000_0000;
-end
-*/
 
 // Shift out module
 wire shift_out_ena;
@@ -98,6 +94,7 @@ counter TRANSACTION_COUNTER (
 wire [31:0] repetiion_counter;
 wire repetition_counter_rst;
 reg repetition_counter_ena;
+
 counter REPETITION_COUNTER (
 	.clk(counter_rst), 
 	.rstb(repetition_counter_rst),
@@ -112,7 +109,24 @@ assign shift_in_ena = (transaction_counter >= `RESPONSE_START && transaction_cou
 assign counter_rst = (transaction_counter == `TRANSACTION_END);
 assign shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low
 assign shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
-assign repetition_counter_rst = (repetiion_counter == RESPONSE_END);
+assign repetition_counter_rst = (repetition_counter == `REPETITION_END);
+
+always @(posedge repetition_counter_rst) begin
+	case(current_demension)
+		`X_ID: begin
+			current_demension <= `Y_ID;
+			x <= touchpad_message;
+		end
+		`Y_ID: begin
+			current_demension <= `Z_ID;
+			y <= touchpad_message;
+		end
+		`Z_ID: begin
+			current_demension <= `X_ID;
+			z <= touchpad_message;
+		end
+	endcase
+end
 
 always @(posedge cclk) begin
 	if(~rstb) begin
@@ -150,8 +164,6 @@ always @(posedge cclk) begin
 			end
 			if(~touch_clk) begin //positive edge logic
 				/* put all of your positive edge logic here */
-				if(repetition_counter == 10) begin
-				end
 			end
 		end
 	end
