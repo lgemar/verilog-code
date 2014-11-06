@@ -122,28 +122,22 @@ counter REPETITION_COUNTER (
 assign shift_out_ena = (transaction_counter >= `CALL_START && transaction_counter < `CALL_END);
 assign shift_in_ena = (transaction_counter >= `RESPONSE_START && transaction_counter < `RESPONSE_END);
 
-always @(*) begin
-	if(rstb) begin
-		counter_rst = (transaction_counter == `TRANSACTION_END);
-		shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low
-		shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
-		repetition_counter_rst = (repetition_counter == `REPETITION_END);
-	end
-end
-
 always @(posedge repetition_counter_rst) begin
 	case(current_dimension)
 		`TOUCH_READ_X: begin
 			current_dimension <= `TOUCH_READ_Y;
-			x <= touchpad_message;
+			// x <= touchpad_message;
+			x <= 12'd1000;
 		end
 		`TOUCH_READ_Y: begin
 			current_dimension <= `TOUCH_READ_Z;
-			y <= touchpad_message;
+			// y <= touchpad_message;
+			y <= 12'd1000;
 		end
 		`TOUCH_READ_Z: begin
 			current_dimension <= `TOUCH_READ_X;
-			z <= touchpad_message;
+			// z <= touchpad_message;
+			z <= 12'd1000;
 		end
 	endcase
 end
@@ -183,6 +177,11 @@ always @(posedge cclk) begin
 	else begin
 		// Ensure that the touchpad controller gets a low csb signal
 		touch_csb <= 0;
+		// Set reset signals
+		counter_rst = (transaction_counter == `TRANSACTION_END);
+		shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low
+		shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
+		repetition_counter_rst = (repetition_counter == `REPETITION_END);
 
 		if(clk_div_counter != (`TOUCH_CLK_DIV_COUNT-1)) begin
 			clk_div_counter <= clk_div_counter + 6'd1;
