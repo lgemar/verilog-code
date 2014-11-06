@@ -23,11 +23,11 @@ module shift_out(clk, data_in, ena, rst, data_out);
 	assign masked_data = mask & data_in;
 	assign data_out = |(masked_data) & rst;
 
+	always @(negedge rst) begin
+		mask <= 8'b0000_0001;
+	end
 	always @(negedge clk) begin
-		if(~rst) begin
-			mask <= 8'b0000_0001;
-		end
-		else if(ena) begin
+		if(ena & rst) begin
 			mask <= (mask << 1);
 		end
 	end

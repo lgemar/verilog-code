@@ -156,20 +156,20 @@ always @(posedge cclk) begin
 		touch_csb <= 1;
         current_dimension <= `TOUCH_READ_X;
 		repetition_counter_ena = 1;
-		
 		// Make sure all the modules are reset
 		counter_rst <= 1;
 		repetition_counter_rst <= 1;
 		shift_out_rst <= 0;
 		shift_in_rst <= 0;
+		touch_clk <= 0;
 		/*
+		incoming_data <= 0;
 		channel <= `TOUCH_READ_X;
 		touch_tx_done <= 0;
 		touch_rx_done <= 0;
 		x_raw <= 0;
 		y_raw <= 0;
 		z_raw <= 0;
-		incoming_data <= 0;
 		state <= `TOUCH_STATE_RESET;
 		tx_count <= 0;
 		rx_count <= 0;
