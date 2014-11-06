@@ -9,7 +9,7 @@ module test_counter;
 	reg en;
 	wire [7:0] out;
 
-	reg [10: 0] i;
+	reg [10:0] i;
 
 	counter utt ( 
 		.clk(clk), 
@@ -19,7 +19,9 @@ module test_counter;
 		.out(out) 
 	);
 
-	assign data = out;
+	always @(*) begin
+		data <= out;
+	end
 
 	initial begin
 		clk = 0;
