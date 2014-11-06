@@ -46,6 +46,7 @@ end
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
+        /*
 		channel <= `TOUCH_READ_X;
 		touch_tx_done <= 0;
 		touch_rx_done <= 0;
@@ -57,8 +58,9 @@ always @(posedge cclk) begin
 		state <= `TOUCH_STATE_RESET;
 		tx_count <= 0;
 		rx_count <= 0;
-		data_out <= 0;
 		channel_switch_count <= 0;
+        */
+		data_out <= 0;
 		touch_csb <= 1;
 	end
 	else begin

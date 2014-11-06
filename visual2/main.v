@@ -53,6 +53,8 @@ tft_driver TFT(
 	.tft_display(tft_display),
 	.tft_vdd(tft_vdd),
 	.tft_red(tft_red),
+    .frequency_division(32'd255),
+    .duty_cycle(switch),
 	.tft_green(tft_green),
 	.tft_blue(tft_blue),
 	.x(tft_x), .y(tft_y),
