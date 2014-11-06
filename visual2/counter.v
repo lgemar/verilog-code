@@ -5,15 +5,15 @@ module counter (
 	input wire clk,
 	input wire rstb,
 	input wire en,
-	output wire [7:0] out
+	output wire [31:0] out
 );
-	reg [7:0] count;
+	reg [31:0] count;
 
 	assign out = count;
 
 	always @(posedge clk) begin
 		if (rstb) begin 
-			count = 8'b0;
+			count = 0;
 		end 
 		else if (en) begin
 			count = count + 1'b1; 
