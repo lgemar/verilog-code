@@ -4,7 +4,6 @@
 module test_counter;
 
 	reg clk;
-	wire [7:0] data = 0;
 	reg rstb;
 	reg en;
 	wire [7:0] out;
@@ -13,15 +12,10 @@ module test_counter;
 
 	counter UTT ( 
 		.clk(clk), 
-		.data(data), 
 		.rstb(rstb), 
 		.en(en), 
 		.out(out) 
 	);
-
-	always @(*) begin
-		data <= out;
-	end
 
 	initial begin
 		// Insert the dumps here
@@ -30,9 +24,11 @@ module test_counter;
 
 		clk = 0;
 		rstb = 1;
-
+        i = 0;
 		repeat(1000) begin
 			@(posedge clk);
+            #10;
+            i = i + 1;
             $display("i = %d, out = %d\n", i, out);
 		end
         $finish

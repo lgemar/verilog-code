@@ -3,7 +3,6 @@
 
 module counter (
 	input wire clk,
-	input wire [7:0] data,
 	input wire rstb,
 	input wire en,
 	output wire [7:0] out
