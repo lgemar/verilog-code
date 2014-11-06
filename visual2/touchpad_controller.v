@@ -60,15 +60,6 @@ assign transaction_message[2:1] = current_dimension;
 assign transaction_message[3] = 1'b1;
 assign transaction_message[7:4] = 4'b0;
 
-/**
-// Hardcode in values for x, y, and z
-always @(*) begin
-	x = 12'd1000;
-	y = 12'd1000;
-	z = 12'b1110_0000_0000;
-end
-*/
-
 // Shift out module
 wire shift_out_ena;
 reg shift_out_rst;
@@ -110,16 +101,7 @@ counter TRANSACTION_COUNTER (
 );
 
 // Repetition counter
-wire [31:0] repetition_counter;
-reg repetition_counter_ena;
-reg repetition_counter_rst;
-
-counter REPETITION_COUNTER (
-	.clk(counter_rst), 
-	.rstb(repetition_counter_rst),
-	.en(repetition_counter_ena), 
-	.out(repetition_counter)
-);
+reg [31:0] repetition_counter;
 
 // Make the shift in and shift out counter enables dependent on the transaction
 // counter
@@ -129,18 +111,19 @@ assign shift_in_ena = (transaction_counter >= `RESPONSE_START && transaction_cou
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
+
 		//data_out <= 0;
 		touch_csb <= 1;
         current_dimension <= `TOUCH_READ_X;
-		repetition_counter_ena = 1;
 		// Make sure all the modules are reset
 		counter_rst = 1;
-		repetition_counter_rst = 1;
 		shift_out_rst = 0;
 		shift_in_rst = 0;
 
 		touch_clk <= 0;
 		counter_ena <= 1;
+		repetition_counter <= 1;
+
 		// Initialize x,y,z values
 		x <= 12'd1000;
 		y <= 12'd1000;
@@ -154,7 +137,32 @@ always @(posedge cclk) begin
 		counter_rst = (transaction_counter == `TRANSACTION_END);
 		shift_out_rst = ~(transaction_counter == `TRANSACTION_END); // active low
 		shift_in_rst = ~(transaction_counter == `TRANSACTION_END); // active low
-		repetition_counter_rst = (repetition_counter == `REPETITION_END);
+
+		if(counter_rst) begin
+			if( repetition_counter == `REPETITION_END ) begin
+				case(current_dimension)
+					`TOUCH_READ_X: begin
+						current_dimension <= `TOUCH_READ_Y;
+						x <= touchpad_message;
+						//x <= 12'd1000;
+					end
+					`TOUCH_READ_Y: begin
+						current_dimension <= `TOUCH_READ_Z;
+						y <= touchpad_message;
+						//y <= 12'd1000;
+					end
+					`TOUCH_READ_Z: begin
+						current_dimension <= `TOUCH_READ_X;
+						z <= touchpad_message;
+						//x <= 12'd1000;
+					end
+				endcase
+				repetition_counter <= 0;
+			end
+			else begin
+				repetition_counter = repetition_counter + 1;
+			end
+		end
 
 		if(clk_div_counter != (`TOUCH_CLK_DIV_COUNT-1)) begin
 			clk_div_counter <= clk_div_counter + 6'd1;
@@ -164,25 +172,6 @@ always @(posedge cclk) begin
 			touch_clk <= ~touch_clk;
 			if(touch_clk) begin  //negative edge logic
 				/* put all of your negative edge logic here */
-				if( repetition_counter_rst ) begin
-					case(current_dimension)
-						`TOUCH_READ_X: begin
-							current_dimension <= `TOUCH_READ_Y;
-							// x <= touchpad_message;
-							x <= 12'd1000;
-						end
-						`TOUCH_READ_Y: begin
-							current_dimension <= `TOUCH_READ_Z;
-							// y <= touchpad_message;
-							y <= 12'd1000;
-						end
-						`TOUCH_READ_Z: begin
-							current_dimension <= `TOUCH_READ_X;
-							// z <= touchpad_message;
-							x <= 12'd1000;
-						end
-					endcase
-				end
 			end
 			if(~touch_clk) begin //positive edge logic
 				/* put all of your positive edge logic here */
