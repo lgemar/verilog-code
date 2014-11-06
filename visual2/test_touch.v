@@ -12,7 +12,7 @@ module test_touch;
 	wire touch_clk;
 	wire touch_csb;
 	wire data_out;
-	wire [8:0] x, y, z;
+	wire [11:0] x, y, z;
 
 	// Instantiate the Unit Under Test (UUT)
 	touchpad_controller uut (
