@@ -22,6 +22,10 @@ module test_counter;
 	assign data = out;
 
 	initial begin
+		// Insert the dumps here
+		$dumpfile("test_counter.vcd");
+		$dumpvars(0, test_counter);
+
 		clk = 0;
 		rstb = 0;	
 
