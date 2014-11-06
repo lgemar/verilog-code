@@ -4,20 +4,27 @@
 module test_counter;
 
 	reg clk;
-	reg [7:0] data;
+	wire [7:0] data = 0;
 	reg rstb;
 	reg en;
 	wire [7:0] out;
 
 	reg [10: 0] i;
 
-	counter utt ( 
+	counter UTT ( 
 		.clk(clk), 
 		.data(data), 
 		.rstb(rstb), 
 		.en(en), 
 		.out(out) 
 	);
+
+	always #10 clk = ~clk;
+
+	always @(posedge clk) begin
+		en = (i % 10 == 0);
+		i = i + 1;
+	end
 
 	assign data = out;
 
@@ -27,17 +34,13 @@ module test_counter;
 		$dumpvars(0, test_counter);
 
 		clk = 0;
-		rstb = 0;	
+		rstb = 1;
 
-		for (i = 0; i < 2045; i = i + 1) begin
-			clk = ~clk;
-			if (i % 4 == 0) 
-				en = 1;
-			else 
-				en = 0;
-			$display("i = %d, out = %d\n", i, out);
+		repeat(1000) begin
+			@(posedge clk);
+            $display("i = %d, out = %d\n", i, out);
 		end
-		$finish;
+        $finish
 	end
 
 endmodule
