@@ -36,6 +36,14 @@ module touchpad_controller(
 
 reg [4:0] clk_div_counter;
 
+reg [1:0] current_dimention;
+wire [7:0] transaction_message;
+
+assign trasaction_message[0] = 1'b1;
+assign transaction_message[2:1] = currect_dimension;
+assign transaction_message[3] = 1'b1;
+assign transaction_message[7:4] = 4'b0;
+
 // Hardcode in values for x, y, and z
 always @(*) begin
 	x = 12'd1000;
@@ -46,6 +54,9 @@ end
 always @(posedge cclk) begin
 	if(~rstb) begin
 		clk_div_counter <= 0;
+		data_out <= 0;
+		touch_csb <= 1;
+        current_dimension <= `TOUCH_READ_X;
         /*
 		channel <= `TOUCH_READ_X;
 		touch_tx_done <= 0;
@@ -60,8 +71,6 @@ always @(posedge cclk) begin
 		rx_count <= 0;
 		channel_switch_count <= 0;
         */
-		data_out <= 0;
-		touch_csb <= 1;
 	end
 	else begin
 		touch_csb <= 0;
