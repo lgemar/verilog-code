@@ -129,16 +129,16 @@ assign repetition_counter_rst = (repetition_counter == `REPETITION_END);
 
 always @(posedge repetition_counter_rst) begin
 	case(current_demension)
-		`X_ID: begin
-			current_demension <= `Y_ID;
+		`TOUCH_READ_X: begin
+			current_demension <= `TOUCH_READ_Y;
 			x <= touchpad_message;
 		end
-		`Y_ID: begin
-			current_demension <= `Z_ID;
+		`TOUCH_READ_Y: begin
+			current_demension <= `TOUCH_READ_Z;
 			y <= touchpad_message;
 		end
-		`Z_ID: begin
-			current_demension <= `X_ID;
+		`TOUCH_READ_Z: begin
+			current_demension <= `TOUCH_READ_X;
 			z <= touchpad_message;
 		end
 	endcase
