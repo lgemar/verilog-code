@@ -4,9 +4,9 @@
 
 `define TOUCH_DEFINES
 `define TOUCH_CLK_DIV_COUNT 25
-`define TOUCH_READ_X       2'b00
-`define TOUCH_READ_Y       2'b01
-`define TOUCH_READ_Z       2'b10
+`define TOUCH_READ_X       2'b10
+`define TOUCH_READ_Y       2'b00
+`define TOUCH_READ_Z       2'b01
 `define TOUCH_READ_INVALID 2'b11
 
 //fsm states
@@ -20,15 +20,11 @@
 
 // Transaction states
 `define CALL_START 0
-`define CALL_END 9
+`define CALL_END 8
 `define RESPONSE_START 10
 `define RESPONSE_END 23
-`define TRANSACTION_END 25
+`define TRANSACTION_END 24
 
-// Dimension identifiers
-`define X_ID 2'b01
-`define Y_ID 2'b10
-`define Z_ID 2'b01
 
 // Repetition States
 `define REPETITION_END 16
@@ -58,7 +54,8 @@ wire [7:0] transaction_message;
 assign transaction_message[0] = 1'b1;
 assign transaction_message[2:1] = current_dimension;
 assign transaction_message[3] = 1'b1;
-assign transaction_message[7:4] = 4'b0;
+assign transaction_message[5:4] = 2'b00;
+assign transaction_message[7:6] = 2'b11;
 
 // Shift out module
 wire shift_out_ena;
