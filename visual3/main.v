@@ -30,16 +30,13 @@ wire [11:0] touch_x, touch_y, touch_z;
 wire [9:0] tft_x;
 wire [8:0] tft_y;
 
-wire [8:0] tft_wr_x, tft_wr_y;
 wire tft_wr_ena, tft_clear;
 wire [8:0] tft_wr_data;
 
-/*
-	wire tft_new_frame;
-	// locked_touch signal, not provided
-	reg [11:0] locked_touch_x, locked_touch_y;
-	wire [11:0] locked_touch_z;
-*/
+// locked_touch signal, not provided
+wire tft_new_frame;
+reg [11:0] locked_touch_x, locked_touch_y;
+wire locked_touch_z;
 
 //generate all the clocks
 clock_generator CLOCK_GEN (.clk_100M_in(unbuf_clk), .CLK_100M(cclk), .CLK_100M_n(cclk_n), .CLK_9M(tft_clk_buf), .CLK_9M_n(tft_clk_buf_n), .RESET(reset), .LOCKED(clocks_locked));
@@ -64,18 +61,17 @@ tft_driver TFT(
 	.tft_red(tft_red),
 	.tft_green(tft_green),
 	.tft_blue(tft_blue),
+	.wr_x(locked_touch_x),
+	.wr_y(locked_touch_y),
+	.wr_ena(locked_touch_z),
+	.new_frame(tft_new_frame)
+	.x(tft_x), .y(tft_y),
+	.clear_screen(tft_clear)
 	/*
 	.frequency_division(32'd255),
 	.duty_cycle(switch),
-	.touch_x(locked_touch_x), .touch_y(locked_touch_y),
-	.new_frame(tft_new_frame)
 	*/
-	.wr_ena(tft_wr_ena),
-	.wr_x(tft_wr_x),
-	.wr_y(tft_wr_y),
 	.wr_data(tft_wr_data),
-	.x(tft_x), .y(tft_y),
-	.clear_screen(tft_clear)
 );
 
 //instantiate the touchpad controller
@@ -90,7 +86,7 @@ touchpad_controller TOUCH(
 	.z(touch_z)
 );
 
-	assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
+	assign locked_touch_z = |((touch_z >> 8) != 12'b0000_0000_0000);
 
 	always @(*) begin
 		if (tft_new_frame) begin 
