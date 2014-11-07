@@ -50,7 +50,7 @@ assign rect_y_max = 12'd288;
 wire valid_x, valid_y, is_blue, is_orange, row_end, column_end;
 assign valid_x = (x < `TFT_X_RES) && (x > rect_x_min);
 assign valid_y = (y < `TFT_Y_RES) && (y > rect_y_min);
-assign is_blue = (x > (rect_x - rect_width)) && (x < rect_y + rect_width)
+assign is_blue = (x > (rect_x - rect_width)) && (x < rect_x + rect_width)
                     && (y > rect_y - rect_width) && (y < rect_y + rect_width);
 assign is_orange = valid_x && valid_y && ~is_blue;
 assign row_end = (x == rect_x_max);
