@@ -75,6 +75,7 @@ touchpad_controller TOUCH(
 	.y(touch_y),
 	.z(touch_z)
 );
+
 endmodule
 
 `default_nettype wire //disable default_nettype so non-user modules work properly
