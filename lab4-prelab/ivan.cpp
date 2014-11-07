@@ -279,7 +279,7 @@ int make_jtype(string instr, string rest) {
     map<string, int>::iterator label = symbol_table.find(rest);
     if (label == symbol_table.end()) error = 6;
     
-    int target = ((TEXT_START + label->second) >> 2) & JMASK;
+    int target = (label->second >> 2) & JMASK;
     int opcode = jtype[instr];
 
     return (opcode << SHIFT_OP) | target;

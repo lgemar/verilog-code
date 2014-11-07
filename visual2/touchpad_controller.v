@@ -21,8 +21,8 @@
 // Transaction states
 `define CALL_START 0
 `define CALL_END 8
-`define RESPONSE_START 10
-`define RESPONSE_END 23
+`define RESPONSE_START 9
+`define RESPONSE_END 22
 `define TRANSACTION_END 24
 
 
