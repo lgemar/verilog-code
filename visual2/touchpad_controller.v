@@ -122,9 +122,9 @@ always @(posedge cclk) begin
 		repetition_counter <= 1;
 
 		// Initialize x,y,z values
-		x <= 12'd1000;
-		y <= 12'd1000;
-		z <= 12'd1000;
+		x <= 12'd0;
+		y <= 12'd0;
+		z <= 12'd0;
 	end
 	else begin
 		// Ensure that the touchpad controller gets a low csb signal
@@ -141,17 +141,14 @@ always @(posedge cclk) begin
 					`TOUCH_READ_X: begin
 						current_dimension <= `TOUCH_READ_Y;
 						x <= touchpad_message;
-						//x <= 12'd1000;
 					end
 					`TOUCH_READ_Y: begin
 						current_dimension <= `TOUCH_READ_Z;
 						y <= touchpad_message;
-						//y <= 12'd1000;
 					end
 					`TOUCH_READ_Z: begin
 						current_dimension <= `TOUCH_READ_X;
 						z <= touchpad_message;
-						//x <= 12'd1000;
 					end
 				endcase
 				repetition_counter <= 0;
