@@ -44,9 +44,15 @@ tft_address_generator TFT_ADDR_1 (.x(x[8:0]), .y(y), .addr(video_ram_rd_addr));
 // You need to separate the RGB components from color and assign values to tft_red/green/blue accordingly.
 wire [(`TFT_BITS_PER_PIXEL-1):0] color;
 
+assign tft_red  [`TFT_BITS_PER_PIXEL - 1:`TFT_BITS_PER_PIXEL - 3] = color[8:6];
+assign tft_red [`TFT_BITS_PER_PIXEL - 4:0] = 0;
+assign tft_green [`TFT_BITS_PER_PIXEL - 1:`TFT_BITS_PER_PIXEL - 3] = color[5:3];
+assign tft_green [`TFT_BITS_PER_PIXEL - 4:0] = 0;
+assign tft_blue [`TFT_BITS_PER_PIXEL - 1:`TFT_BITS_PER_PIXEL - 3] = color[2:0];
+assign tft_blue [`TFT_BITS_PER_PIXEL - 4:0] = 0;
+
 // This value will be written to the video RAM. It needs to be set based on whether we are clearing the screen or if we are writing a new value to the RAM.
 wire [(`TFT_BITS_PER_PIXEL-1):0] video_ram_wr_data;
-
 
 coregen_video_ram VRAM(
 	.clka(cclk), .clkb(tft_clk),
@@ -66,6 +72,7 @@ The clear_screen button may be released before the screen is actually fully clea
 */
 
 /* Insert the relevant pieces of your code from Lab 3 Visual 2 here. */
+
 
 endmodule
 `default_nettype wire
