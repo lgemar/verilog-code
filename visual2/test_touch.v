@@ -53,7 +53,7 @@ module test_touch;
 		rstb = 1;
 	
 		//let the simulation run
-		repeat (100_000) @(posedge touch_clk); //you need to wait a looong time to properly test your averager
+		repeat (10_000) @(posedge touch_clk); //you need to wait a looong time to properly test your averager
 		$finish;
 		
 	end
