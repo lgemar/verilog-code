@@ -28,8 +28,8 @@ module main(
         //tft signals
         wire [9:0] tft_x;
         wire [8:0] tft_y;
-        wire tft_new_frame;
 
+        wire tft_new_frame;
         // locked_touch signal, not provided
         reg [11:0] locked_touch_x, locked_touch_y;
         wire [11:0] locked_touch_z;
@@ -73,6 +73,7 @@ module main(
             .y(touch_y),
             .z(touch_z)
         );
+
         assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
 
         always @(*) begin
