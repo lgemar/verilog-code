@@ -24,7 +24,7 @@ module main(
             assign reset = ~rstb;
 
             //touchpad signals
-            wire [8:0] touch_x, touch_y, touch_z;
+            wire [11:0] touch_x, touch_y, touch_z;
             //tft signals
             wire [9:0] tft_x;
             wire [8:0] tft_y;
@@ -75,8 +75,8 @@ module main(
             );
             assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
 
-            always @(negedge tft_new_frame) begin
-                if (locked_touch_z) begin
+            always @(*) begin
+                if (locked_touch_z && tft_new_frame) begin
                     locked_touch_x = (touch_x >> 2);
                     locked_touch_y = (touch_y >> 2);
                 end

@@ -8,8 +8,8 @@
 `define TFT_CLK_DIV_COUNT 5 
 `define TFT_BITS_PER_COLOR 3  //512 colors
 `define TFT_BITS_PER_PIXEL 8
-`define TFT_X_NUM_BITS 10
-`define TFT_Y_NUM_BITS 9
+`define TFT_X_NUM_BITS 12
+`define TFT_Y_NUM_BITS 12
 `define RECT_SIZE 25
 
 module tft_driver(
