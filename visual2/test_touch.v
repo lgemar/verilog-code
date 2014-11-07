@@ -42,6 +42,9 @@ module test_touch;
 	always #5 cclk = ~cclk;
 
 	initial begin
+		$dumpfile("test_touch.vcd");
+		$dumpvars(0, test_touch);
+		$display("hello world");
 		// Initialize Inputs
 		cclk = 0;
 		rstb = 0;		
