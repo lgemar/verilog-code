@@ -47,7 +47,7 @@ module touchpad_controller(
 	output reg [11:0] x,y,z
 );
 
-reg [4:0] clk_div_counter;
+reg [5:0] clk_div_counter;
 reg [1:0] current_dimension;
 wire [7:0] transaction_message;
 
