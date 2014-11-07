@@ -55,12 +55,9 @@ assign tft_blue [`TFT_BITS_PER_PIXEL - 4:0] = 0;
 // This value will be written to the video RAM. It needs to be set based on whether we are clearing the screen or if we are writing a new value to the RAM.
 reg [(`TFT_BITS_PER_PIXEL-1):0] video_ram_wr_data;
 
-<<<<<<< HEAD
 assign video_ram_wr_addr = wr_addr;
 assign video_ram_wr_ena = wr_ena && (current_state == `ACTIVE);
 
-=======
->>>>>>> 70029fea25a7023868973482f1b150d8a4c1641b
 coregen_video_ram VRAM(
 	.clka(cclk), .clkb(tft_clk),
 	.wea(video_ram_wr_ena), 
