@@ -45,12 +45,22 @@ tft_address_generator TFT_ADDR_1 (.x(x[8:0]), .y(y), .addr(video_ram_rd_addr));
 // You need to separate the RGB components from color and assign values to tft_red/green/blue accordingly.
 wire [(`TFT_BITS_PER_PIXEL-1):0] color;
 
+assign tft_red  [`TFT_BITS_PER_PIXEL - 1:`TFT_BITS_PER_PIXEL - 3] = color[8:6];
+assign tft_red [`TFT_BITS_PER_PIXEL - 4:0] = 0;
+assign tft_green [`TFT_BITS_PER_PIXEL - 1:`TFT_BITS_PER_PIXEL - 3] = color[5:3];
+assign tft_green [`TFT_BITS_PER_PIXEL - 4:0] = 0;
+assign tft_blue [`TFT_BITS_PER_PIXEL - 1:`TFT_BITS_PER_PIXEL - 3] = color[2:0];
+assign tft_blue [`TFT_BITS_PER_PIXEL - 4:0] = 0;
+
 // This value will be written to the video RAM. It needs to be set based on whether we are clearing the screen or if we are writing a new value to the RAM.
 reg [(`TFT_BITS_PER_PIXEL-1):0] video_ram_wr_data;
 
+<<<<<<< HEAD
 assign video_ram_wr_addr = wr_addr;
 assign video_ram_wr_ena = wr_ena && (current_state == `ACTIVE);
 
+=======
+>>>>>>> 70029fea25a7023868973482f1b150d8a4c1641b
 coregen_video_ram VRAM(
 	.clka(cclk), .clkb(tft_clk),
 	.wea(video_ram_wr_ena), 
@@ -147,6 +157,7 @@ always @(posedge tft_clk) begin
 end
 
 /* Insert the relevant pieces of your code from Lab 3 Visual 2 here. */
+
 
 endmodule
 `default_nettype wire
