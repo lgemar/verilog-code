@@ -152,7 +152,6 @@ always @(posedge cclk) begin
 					end
 				endcase
 				repetition_counter <= 0;
-				touchpad_message <= 12'b0;
 			end
 			else begin
 				repetition_counter <= repetition_counter + 1;

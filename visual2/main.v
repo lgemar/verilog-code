@@ -76,14 +76,16 @@ module main(
             assign locked_touch_z = ((touch_z >> 8) != 12'b0000_0000_0000);
 
             always @(*) begin
-                if (locked_touch_z && tft_new_frame) begin
-                    locked_touch_x = ((touch_x - 12'd150) >> 3);
-                    locked_touch_y = ((touch_y - 12'd300) >> 4);
-                end
-				else begin
-					locked_touch_x = 12'd1000;
-					locked_touch_y = 12'd1000;
-				end
+					if (tft_new_frame) begin 
+						if (locked_touch_z) begin
+							locked_touch_x = ((touch_x - 12'd150) >> 3);
+							locked_touch_y = ((touch_y - 12'd300) >> 4);
+						end
+						else begin
+							locked_touch_x = 12'd1000;
+							locked_touch_y = 12'd1000;
+						end
+					end
             end
             endmodule
 
