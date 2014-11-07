@@ -4,9 +4,9 @@
 
 `define TOUCH_DEFINES
 `define TOUCH_CLK_DIV_COUNT 25
-`define TOUCH_READ_X       2'b10
+`define TOUCH_READ_X       2'b01
 `define TOUCH_READ_Y       2'b00
-`define TOUCH_READ_Z       2'b01
+`define TOUCH_READ_Z       2'b10
 `define TOUCH_READ_INVALID 2'b11
 
 //fsm states
