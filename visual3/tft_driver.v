@@ -113,6 +113,11 @@ assign frame_end = column_end;
 assign next_row = row_end && ~column_end;
 assign current_state = {frame_end, next_row, active};
 
+`define PORCH 3'b000
+`define ACTIVE 3'b001
+`define ROW_ENDING 3'b010
+`define COLUMN_ENDING 3'b100
+
 always @(posedge tft_clk) begin
 	if (~rstb) begin
 		x <= 0;
