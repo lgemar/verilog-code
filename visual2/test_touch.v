@@ -12,7 +12,7 @@ module test_touch;
 	wire touch_clk;
 	wire touch_csb;
 	wire data_out;
-	wire [8:0] x, y, z;
+	wire [11:0] x, y, z;
 
 	// Instantiate the Unit Under Test (UUT)
 	touchpad_controller uut (
@@ -42,6 +42,9 @@ module test_touch;
 	always #5 cclk = ~cclk;
 
 	initial begin
+		$dumpfile("test_touch.vcd");
+		$dumpvars(0, test_touch);
+		$display("hello world");
 		// Initialize Inputs
 		cclk = 0;
 		rstb = 0;		

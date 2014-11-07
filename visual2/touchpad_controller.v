@@ -21,9 +21,9 @@
 // Transaction states
 `define CALL_START 0
 `define CALL_END 9
-`define RESPONSE_START 9
-`define RESPONSE_END 22
-`define TRANSACTION_END 24
+`define RESPONSE_START 10
+`define RESPONSE_END 23
+`define TRANSACTION_END 25
 
 // Dimension identifiers
 `define X_ID 2'b01
@@ -44,7 +44,7 @@
 
 module touchpad_controller(
 	input wire cclk, rstb,
-	input wire touch_busy,data_in,
+	input wire touch_busy, data_in,
 	output reg touch_clk,
 	output wire data_out,
 	output reg touch_csb,
