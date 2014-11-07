@@ -157,7 +157,7 @@ always @(posedge cclk) begin
 				repetition_counter <= 0;
 			end
 			else begin
-				repetition_counter = repetition_counter + 1;
+				repetition_counter <= repetition_counter + 1;
 			end
 		end
 
