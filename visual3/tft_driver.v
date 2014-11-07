@@ -9,7 +9,13 @@
 `define TFT_BITS_PER_COLOR 3  //512 colors
 `define TFT_BITS_PER_PIXEL 9
 `define TFT_X_NUM_BITS 12
-`define TFT_Y_NUM_BITS 12
+`
+`define PORCH 3'b000
+`define ACTIVE 3'b001
+`define ROW_ENDING 3'b010
+`define COLUMN_ENDING 3'b100
+
+define TFT_Y_NUM_BITS 12
 
 // wr_ena should be the old locked_touch_z in main
 module tft_driver(
@@ -107,17 +113,11 @@ assign row_end = (x == rect_x_max);
 assign column_end = (y == rect_y_max);
 
 // State Flags
-wire active, frame_end, next_row;
+wire active, frame_end, next_row,, current;
 assign active = valid_x && valid_y;
 assign frame_end = column_end;
 assign next_row = row_end && ~column_end;
 assign current_state = {frame_end, next_row, active};
-
-`define PORCH 3'b000
-`define ACTIVE 3'b001
-`define ROW_ENDING 3'b010
-`define COLUMN_ENDING 3'b100
-
 always @(posedge tft_clk) begin
 	if (~rstb) begin
 		x <= 0;
