@@ -1,0 +1,161 @@
+#! /usr/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x82af350 .scope module, "test_mips" "test_mips" 2 3;
+ .timescale -9 -12;
+v0x82f9e90_0 .net "PC", 31 0, v0x82dfd78_0; 1 drivers
+v0x82f9f00_0 .var "clk", 0 0;
+v0x82f9f50_0 .net "mem_addr", 31 0, C4<00000000000000000000000000000000>; 1 drivers
+v0x82f9fd8_0 .net "mem_rd_data", 31 0, v0x82dfc98_0; 1 drivers
+v0x82fa060_0 .net "mem_wr_data", 31 0, C4<00000000000000000000000000000000>; 1 drivers
+v0x82fa0e8_0 .net "mem_wr_ena", 0 0, v0x82f9db0_0; 1 drivers
+v0x82fa170_0 .var "rstb", 0 0;
+S_0x82dfcf8 .scope module, "uut" "mips" 2 17, 3 5, S_0x82af350;
+ .timescale -9 -12;
+v0x82dfd78_0 .var "PC", 31 0;
+v0x82dfde8_0 .net "clk", 0 0, v0x82f9f00_0; 1 drivers
+v0x82f9c60_0 .alias "mem_addr", 31 0, v0x82f9f50_0;
+v0x82f9cd0_0 .alias "mem_rd_data", 31 0, v0x82f9fd8_0;
+v0x82f9d40_0 .alias "mem_wr_data", 31 0, v0x82fa060_0;
+v0x82f9db0_0 .var "mem_wr_ena", 0 0;
+v0x82f9e40_0 .net "rstb", 0 0, v0x82fa170_0; 1 drivers
+S_0x82a9e68 .scope module, "MEMORY" "memory" 2 28, 4 5, S_0x82af350;
+ .timescale -9 -12;
+P_0x82ac12c .param/str "in_file" 4 9, "in.machine";
+P_0x82ac140 .param/str "out_file" 4 10, "out.machine";
+v0x82af3f0_0 .alias "cpu_clk", 0 0, v0x82dfde8_0;
+v0x82df6d0_0 .alias "cpu_mem_addr", 31 0, v0x82f9f50_0;
+v0x82df730_0 .alias "cpu_mem_rd_data", 31 0, v0x82f9fd8_0;
+v0x82df790_0 .alias "cpu_mem_wr_data", 31 0, v0x82fa060_0;
+v0x82df7f8_0 .alias "cpu_mem_wr_ena", 0 0, v0x82fa0e8_0;
+v0x82df858_0 .var/i "file", 31 0;
+v0x82df8d8_0 .net "gpu_clk", 0 0, C4<z>; 0 drivers
+v0x82df938_0 .net "gpu_mem_addr", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
+v0x82df9c0_0 .net "gpu_mem_rd_data", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
+v0x82dfa20_0 .net "gpu_mem_wr_data", 31 0, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>; 0 drivers
+v0x82dfab0_0 .net "gpu_mem_wr_ena", 0 0, C4<z>; 0 drivers
+v0x82dfb10_0 .var/i "ii", 31 0;
+v0x82dfba8_0 .net "physical_address", 11 0, L_0x82fa238; 1 drivers
+v0x82dfc08 .array "physical_memory", 4095 0, 31 0;
+v0x82dfc98_0 .var "read_data_reg", 31 0;
+E_0x82a9f90 .event posedge, v0x82af3f0_0;
+L_0x82fa238 .part C4<00000000000000000000000000000000>, 2, 12;
+S_0x82aaf48 .scope task, "dump" "dump" 4 52, 4 52, S_0x82a9e68;
+ .timescale -9 -12;
+TD_test_mips.MEMORY.dump ;
+    %vpi_func 4 54 "$fopen", 8, 32, P_0x82ac140, "w";
+    %set/v v0x82df858_0, 8, 32;
+    %set/v v0x82dfb10_0, 0, 32;
+T_0.0 ;
+    %load/v 8, v0x82dfb10_0, 32;
+   %cmpi/s 8, 4096, 32;
+    %jmp/0xz T_0.1, 5;
+    %vpi_call 4 56 "$fwrite", v0x82df858_0, "%h\012", &A<v0x82dfc08, v0x82dfb10_0 >;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v0x82dfb10_0, 32;
+    %set/v v0x82dfb10_0, 8, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %vpi_call 4 58 "$fclose", v0x82df858_0;
+    %end;
+    .scope S_0x82dfcf8;
+T_1 ;
+    %wait E_0x82a9f90;
+    %load/v 8, v0x82f9e40_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_1.0, 8;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x82f9db0_0, 0, 0;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x82dfd78_0, 0, 0;
+T_1.0 ;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x82a9e68;
+T_2 ;
+    %set/v v0x82dfb10_0, 0, 32;
+T_2.0 ;
+    %load/v 8, v0x82dfb10_0, 32;
+   %cmpi/s 8, 4096, 32;
+    %jmp/0xz T_2.1, 5;
+    %ix/getv/s 3, v0x82dfb10_0;
+   %jmp/1 t_0, 4;
+   %ix/load 1, 0, 0;
+   %set/av v0x82dfc08, 0, 32;
+t_0 ;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v0x82dfb10_0, 32;
+    %set/v v0x82dfb10_0, 8, 32;
+    %jmp T_2.0;
+T_2.1 ;
+    %vpi_call 4 39 "$readmemh", P_0x82ac12c, v0x82dfc08;
+    %end;
+    .thread T_2;
+    .scope S_0x82a9e68;
+T_3 ;
+    %wait E_0x82a9f90;
+    %load/v 8, v0x82df7f8_0, 1;
+    %jmp/0xz  T_3.0, 8;
+    %load/v 8, v0x82df790_0, 32;
+    %ix/getv 3, v0x82dfba8_0;
+    %jmp/1 t_1, 4;
+    %ix/load 0, 32, 0; word width
+    %ix/load 1, 0, 0; part off
+    %assign/av v0x82dfc08, 0, 8;
+t_1 ;
+    %load/v 8, v0x82df790_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x82dfc98_0, 0, 8;
+    %jmp T_3.1;
+T_3.0 ;
+    %ix/getv 3, v0x82dfba8_0;
+    %load/av 8, v0x82dfc08, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x82dfc98_0, 0, 8;
+T_3.1 ;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0x82af350;
+T_4 ;
+    %vpi_call 2 33 "$dumpfile", "test_mips.vcd";
+    %vpi_call 2 34 "$dumpvars", 1'sb0, S_0x82af350;
+    %set/v v0x82f9f00_0, 0, 1;
+    %set/v v0x82fa170_0, 0, 1;
+    %movi 8, 5, 4;
+T_4.0 %cmp/s 0, 8, 4;
+    %jmp/0xz T_4.1, 5;
+    %add 8, 1, 4;
+    %wait E_0x82a9f90;
+    %jmp T_4.0;
+T_4.1 ;
+    %set/v v0x82fa170_0, 1, 1;
+    %movi 8, 100, 8;
+T_4.2 %cmp/s 0, 8, 8;
+    %jmp/0xz T_4.3, 5;
+    %add 8, 1, 8;
+    %wait E_0x82a9f90;
+    %jmp T_4.2;
+T_4.3 ;
+    %fork TD_test_mips.MEMORY.dump, S_0x82aaf48;
+    %join;
+    %vpi_call 2 47 "$finish";
+    %end;
+    .thread T_4;
+    .scope S_0x82af350;
+T_5 ;
+    %delay 5000, 0;
+    %load/v 8, v0x82f9f00_0, 1;
+    %inv 8, 1;
+    %set/v v0x82f9f00_0, 8, 1;
+    %jmp T_5;
+    .thread T_5;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "test_mips.v";
+    ".//mips.v";
+    ".//memory.v";

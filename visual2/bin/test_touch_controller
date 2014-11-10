@@ -1,0 +1,382 @@
+#! /usr/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x94a01b0 .scope module, "test_touch_controller" "test_touch_controller" 2 5;
+ .timescale -9 -12;
+v0x94cf690_0 .var "cclk", 0 0;
+v0x94cf860_0 .var "rstb", 0 0;
+v0x94cf8b0_0 .var/i "seed", 31 0;
+v0x94cf900_0 .var "touch_busy", 0 0;
+v0x94cf950_0 .net "touch_clk", 0 0, v0x94cf330_0; 1 drivers
+v0x94cfa08_0 .net "touch_csb", 0 0, v0x94cf4a8_0; 1 drivers
+v0x94cfa98_0 .net "touch_data_in", 0 0, L_0x94d0010; 1 drivers
+v0x94cfae8_0 .var "touch_data_out", 0 0;
+v0x94cfb38_0 .net "touch_x", 11 0, v0x94cf640_0; 1 drivers
+v0x94cfb88_0 .net "touch_y", 11 0, v0x94cf5c0_0; 1 drivers
+v0x94cfbd8_0 .net "touch_z", 11 0, v0x94cf718_0; 1 drivers
+E_0x94a0c68 .event posedge, v0x94cde98_0;
+S_0x94a0be8 .scope module, "TFT" "touchpad_controller" 2 12, 3 45, S_0x94a01b0;
+ .timescale -9 -12;
+L_0x94d0280 .functor AND 1, L_0x94d03f0, L_0x94d04e8, C4<1>, C4<1>;
+L_0x94d0898 .functor AND 1, L_0x94d06f0, L_0x94d07c8, C4<1>, C4<1>;
+v0x94ce968_0 .net *"_s10", 0 0, C4<1>; 1 drivers
+v0x94ce9d8_0 .net *"_s14", 3 0, C4<0000>; 1 drivers
+v0x94cea38_0 .net *"_s16", 31 0, C4<00000000000000000000000000000000>; 1 drivers
+v0x94cea98_0 .net *"_s18", 0 0, L_0x94d03f0; 1 drivers
+v0x94ceae8_0 .net *"_s2", 0 0, C4<1>; 1 drivers
+v0x94ceb48_0 .net *"_s20", 31 0, C4<00000000000000000000000000001001>; 1 drivers
+v0x94ceba8_0 .net *"_s22", 0 0, L_0x94d04e8; 1 drivers
+v0x94cec08_0 .net *"_s26", 31 0, C4<00000000000000000000000000001001>; 1 drivers
+v0x94cec68_0 .net *"_s28", 0 0, L_0x94d06f0; 1 drivers
+v0x94cecc8_0 .net *"_s30", 31 0, C4<00000000000000000000000000010110>; 1 drivers
+v0x94ced28_0 .net *"_s32", 0 0, L_0x94d07c8; 1 drivers
+v0x94ced88_0 .net *"_s7", 1 0, v0x94ceff8_0; 1 drivers
+v0x94cee20_0 .net "cclk", 0 0, v0x94cf690_0; 1 drivers
+v0x94cee70_0 .var "clk_div_counter", 4 0;
+v0x94cef10_0 .var "counter_ena", 0 0;
+v0x94cef60_0 .var "counter_rst", 0 0;
+v0x94ceff8_0 .var "current_dimension", 1 0;
+v0x94cf048_0 .net "data_in", 0 0, v0x94cfae8_0; 1 drivers
+v0x94cf0e8_0 .alias "data_out", 0 0, v0x94cfa98_0;
+v0x94cf138_0 .var "repetition_counter", 31 0;
+v0x94cf098_0 .net "rstb", 0 0, v0x94cf860_0; 1 drivers
+v0x94cf1e0_0 .net "shift_in_ena", 0 0, L_0x94d0898; 1 drivers
+v0x94cf290_0 .var "shift_in_rst", 0 0;
+v0x94cf2e0_0 .net "shift_out_ena", 0 0, L_0x94d0280; 1 drivers
+v0x94cf398_0 .var "shift_out_rst", 0 0;
+v0x94cf3e8_0 .net "touch_busy", 0 0, v0x94cf900_0; 1 drivers
+v0x94cf330_0 .var "touch_clk", 0 0;
+v0x94cf4a8_0 .var "touch_csb", 0 0;
+v0x94cf438_0 .net "touchpad_message", 11 0, v0x94ce0d8_0; 1 drivers
+v0x94cf570_0 .net "transaction_counter", 31 0, v0x94cdc68_0; 1 drivers
+RS_0x94ad7d4 .resolv tri, L_0x94cfc48, L_0x94cfcf0, L_0x94cfdb0, L_0x94cfe88;
+v0x94cf4f8_0 .net8 "transaction_message", 7 0, RS_0x94ad7d4; 4 drivers
+v0x94cf640_0 .var "x", 11 0;
+v0x94cf5c0_0 .var "y", 11 0;
+v0x94cf718_0 .var "z", 11 0;
+L_0x94cfc48 .part/pv C4<1>, 0, 1, 8;
+L_0x94cfcf0 .part/pv v0x94ceff8_0, 1, 2, 8;
+L_0x94cfdb0 .part/pv C4<1>, 3, 1, 8;
+L_0x94cfe88 .part/pv C4<0000>, 4, 4, 8;
+L_0x94d03f0 .cmp/ge 32, v0x94cdc68_0, C4<00000000000000000000000000000000>;
+L_0x94d04e8 .cmp/gt 32, C4<00000000000000000000000000001001>, v0x94cdc68_0;
+L_0x94d06f0 .cmp/ge 32, v0x94cdc68_0, C4<00000000000000000000000000001001>;
+L_0x94d07c8 .cmp/gt 32, C4<00000000000000000000000000010110>, v0x94cdc68_0;
+S_0x94ce380 .scope module, "SHIFT_OUT" "shift_out" 3 67, 4 13, S_0x94a0be8;
+ .timescale -9 -12;
+L_0x94cff10 .functor AND 8, v0x94ce6f8_0, RS_0x94ad7d4, C4<11111111>, C4<11111111>;
+L_0x94d0010 .functor AND 1, L_0x94cff68, v0x94cf398_0, C4<1>, C4<1>;
+L_0x94d00b8 .functor NOT 1, v0x94ce7b8_0, C4<0>, C4<0>, C4<0>;
+L_0x94d00f0 .functor AND 1, v0x94cf330_0, L_0x94d00b8, C4<1>, C4<1>;
+v0x94ce430_0 .net *"_s3", 0 0, L_0x94cff68; 1 drivers
+v0x94ce4a0_0 .net *"_s6", 0 0, L_0x94d00b8; 1 drivers
+v0x94ce500_0 .alias "clk", 0 0, v0x94cee20_0;
+v0x94ce588_0 .net "clk_edge", 0 0, L_0x94d00f0; 1 drivers
+v0x94ce5d8_0 .alias "data_in", 7 0, v0x94cf4f8_0;
+v0x94ce638_0 .alias "data_out", 0 0, v0x94cfa98_0;
+v0x94ce698_0 .alias "ena", 0 0, v0x94cf2e0_0;
+v0x94ce6f8_0 .var "mask", 7 0;
+v0x94ce758_0 .net "masked_data", 7 0, L_0x94cff10; 1 drivers
+v0x94ce7b8_0 .var "previous_touch_clk", 0 0;
+v0x94ce848_0 .net "rst", 0 0, v0x94cf398_0; 1 drivers
+v0x94ce8a8_0 .alias "touch_clk", 0 0, v0x94cf950_0;
+E_0x94ce400 .event negedge, v0x94cdba8_0;
+L_0x94cff68 .reduce/or L_0x94cff10;
+S_0x94cdef8 .scope module, "SHIFT_IN" "shift_in" 3 81, 5 13, S_0x94a0be8;
+ .timescale -9 -12;
+L_0x94d0160 .functor NOT 1, v0x94ce218_0, C4<0>, C4<0>, C4<0>;
+L_0x94d01b8 .functor AND 1, v0x94cf330_0, L_0x94d0160, C4<1>, C4<1>;
+v0x94cdf78_0 .net *"_s0", 0 0, L_0x94d0160; 1 drivers
+v0x94cdfe8_0 .alias "clk", 0 0, v0x94cee20_0;
+v0x94ce038_0 .net "clk_edge", 0 0, L_0x94d01b8; 1 drivers
+v0x94ce088_0 .alias "data_in", 0 0, v0x94cf048_0;
+v0x94ce0d8_0 .var "data_out", 11 0;
+v0x94ce138_0 .alias "ena", 0 0, v0x94cf1e0_0;
+v0x94ce1b8_0 .var "mask", 11 0;
+v0x94ce218_0 .var "previous_touch_clk", 0 0;
+v0x94ce2a0_0 .net "rst", 0 0, v0x94cf290_0; 1 drivers
+v0x94ce300_0 .alias "touch_clk", 0 0, v0x94cf950_0;
+S_0x949f1d8 .scope module, "TRANSACTION_COUNTER" "counter" 3 95, 6 4, S_0x94a0be8;
+ .timescale -9 -12;
+L_0x94d02b8 .functor NOT 1, v0x94cddb0_0, C4<0>, C4<0>, C4<0>;
+L_0x94d0310 .functor AND 1, v0x94cf330_0, L_0x94d02b8, C4<1>, C4<1>;
+v0x9478e90_0 .net *"_s2", 0 0, L_0x94d02b8; 1 drivers
+v0x94cdba8_0 .alias "clk", 0 0, v0x94cee20_0;
+v0x94cdc08_0 .net "clk_edge", 0 0, L_0x94d0310; 1 drivers
+v0x94cdc68_0 .var "count", 31 0;
+v0x94cdcd0_0 .net "en", 0 0, v0x94cef10_0; 1 drivers
+v0x94cdd30_0 .alias "out", 31 0, v0x94cf570_0;
+v0x94cddb0_0 .var "previous_touch_clk", 0 0;
+v0x94cde10_0 .net "rstb", 0 0, v0x94cef60_0; 1 drivers
+v0x94cde98_0 .alias "touch_clk", 0 0, v0x94cf950_0;
+E_0x949ee18 .event posedge, v0x94cdba8_0;
+    .scope S_0x94ce380;
+T_0 ;
+    %wait E_0x94ce400;
+    %load/v 8, v0x94ce848_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_0.0, 8;
+    %movi 8, 1, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v0x94ce6f8_0, 0, 8;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0x94ce698_0, 1;
+    %load/v 9, v0x94ce588_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_0.2, 8;
+    %load/v 8, v0x94ce6f8_0, 8;
+    %ix/load 0, 1, 0;
+    %mov 4, 0, 1;
+    %shiftl/i0  8, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v0x94ce6f8_0, 0, 8;
+T_0.2 ;
+T_0.1 ;
+    %load/v 8, v0x94ce8a8_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94ce7b8_0, 0, 8;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0x94cdef8;
+T_1 ;
+    %wait E_0x949ee18;
+    %load/v 8, v0x94ce2a0_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_1.0, 8;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94ce0d8_0, 0, 0;
+    %movi 8, 2048, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94ce1b8_0, 0, 8;
+    %jmp T_1.1;
+T_1.0 ;
+    %load/v 8, v0x94ce138_0, 1;
+    %load/v 9, v0x94ce038_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_1.2, 8;
+    %load/v 8, v0x94ce088_0, 1;
+    %jmp/0xz  T_1.4, 8;
+    %load/v 8, v0x94ce0d8_0, 12;
+    %load/v 20, v0x94ce1b8_0, 12;
+    %or 8, 20, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94ce0d8_0, 0, 8;
+T_1.4 ;
+    %load/v 8, v0x94ce1b8_0, 12;
+    %ix/load 0, 1, 0;
+    %mov 4, 0, 1;
+    %shiftr/i0  8, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94ce1b8_0, 0, 8;
+T_1.2 ;
+T_1.1 ;
+    %load/v 8, v0x94ce300_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94ce218_0, 0, 8;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0x949f1d8;
+T_2 ;
+    %wait E_0x949ee18;
+    %load/v 8, v0x94cde10_0, 1;
+    %jmp/0xz  T_2.0, 8;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x94cdc68_0, 0, 0;
+    %jmp T_2.1;
+T_2.0 ;
+    %load/v 8, v0x94cdcd0_0, 1;
+    %load/v 9, v0x94cdc08_0, 1;
+    %and 8, 9, 1;
+    %jmp/0xz  T_2.2, 8;
+    %ix/load 0, 1, 0;
+    %load/vp0 8, v0x94cdc68_0, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x94cdc68_0, 0, 8;
+T_2.2 ;
+T_2.1 ;
+    %load/v 8, v0x94cde98_0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94cddb0_0, 0, 8;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_0x94a0be8;
+T_3 ;
+    %wait E_0x949ee18;
+    %load/v 8, v0x94cf098_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_3.0, 8;
+    %ix/load 0, 5, 0;
+    %assign/v0 v0x94cee70_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94cf4a8_0, 0, 1;
+    %ix/load 0, 2, 0;
+    %assign/v0 v0x94ceff8_0, 0, 0;
+    %set/v v0x94cef60_0, 1, 1;
+    %set/v v0x94cf398_0, 0, 1;
+    %set/v v0x94cf290_0, 0, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94cf330_0, 0, 0;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94cef10_0, 0, 1;
+    %movi 8, 1, 32;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x94cf138_0, 0, 8;
+    %movi 8, 1000, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94cf640_0, 0, 8;
+    %movi 8, 1000, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94cf5c0_0, 0, 8;
+    %movi 8, 1000, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94cf718_0, 0, 8;
+    %jmp T_3.1;
+T_3.0 ;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94cf4a8_0, 0, 0;
+    %load/v 8, v0x94cf570_0, 32;
+    %cmpi/u 8, 24, 32;
+    %mov 8, 4, 1;
+    %set/v v0x94cef60_0, 8, 1;
+    %load/v 8, v0x94cf570_0, 32;
+    %cmpi/u 8, 24, 32;
+    %mov 8, 4, 1;
+    %inv 8, 1;
+    %set/v v0x94cf398_0, 8, 1;
+    %load/v 8, v0x94cf570_0, 32;
+    %cmpi/u 8, 24, 32;
+    %mov 8, 4, 1;
+    %inv 8, 1;
+    %set/v v0x94cf290_0, 8, 1;
+    %load/v 8, v0x94cef60_0, 1;
+    %jmp/0xz  T_3.2, 8;
+    %load/v 8, v0x94cf138_0, 32;
+    %cmpi/u 8, 16, 32;
+    %jmp/0xz  T_3.4, 4;
+    %load/v 8, v0x94ceff8_0, 2;
+    %cmpi/u 8, 0, 2;
+    %jmp/1 T_3.6, 6;
+    %cmpi/u 8, 1, 2;
+    %jmp/1 T_3.7, 6;
+    %cmpi/u 8, 2, 2;
+    %jmp/1 T_3.8, 6;
+    %jmp T_3.9;
+T_3.6 ;
+    %movi 8, 1, 2;
+    %ix/load 0, 2, 0;
+    %assign/v0 v0x94ceff8_0, 0, 8;
+    %load/v 8, v0x94cf438_0, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94cf640_0, 0, 8;
+    %jmp T_3.9;
+T_3.7 ;
+    %movi 8, 2, 2;
+    %ix/load 0, 2, 0;
+    %assign/v0 v0x94ceff8_0, 0, 8;
+    %load/v 8, v0x94cf438_0, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94cf5c0_0, 0, 8;
+    %jmp T_3.9;
+T_3.8 ;
+    %ix/load 0, 2, 0;
+    %assign/v0 v0x94ceff8_0, 0, 0;
+    %load/v 8, v0x94cf438_0, 12;
+    %ix/load 0, 12, 0;
+    %assign/v0 v0x94cf718_0, 0, 8;
+    %jmp T_3.9;
+T_3.9 ;
+    %ix/load 0, 32, 0;
+    %assign/v0 v0x94cf138_0, 0, 0;
+    %jmp T_3.5;
+T_3.4 ;
+    %load/v 8, v0x94cf138_0, 32;
+    %mov 40, 0, 1;
+    %addi 8, 1, 33;
+    %set/v v0x94cf138_0, 8, 32;
+T_3.5 ;
+T_3.2 ;
+    %load/v 8, v0x94cee70_0, 5;
+    %mov 13, 0, 3;
+    %cmpi/u 8, 24, 8;
+    %inv 4, 1;
+    %jmp/0xz  T_3.10, 4;
+    %load/v 8, v0x94cee70_0, 5;
+    %mov 13, 0, 1;
+    %addi 8, 1, 6;
+    %ix/load 0, 5, 0;
+    %assign/v0 v0x94cee70_0, 0, 8;
+    %jmp T_3.11;
+T_3.10 ;
+    %ix/load 0, 5, 0;
+    %assign/v0 v0x94cee70_0, 0, 0;
+    %load/v 8, v0x94cf330_0, 1;
+    %inv 8, 1;
+    %ix/load 0, 1, 0;
+    %assign/v0 v0x94cf330_0, 0, 8;
+    %load/v 8, v0x94cf330_0, 1;
+    %jmp/0xz  T_3.12, 8;
+T_3.12 ;
+    %load/v 8, v0x94cf330_0, 1;
+    %inv 8, 1;
+    %jmp/0xz  T_3.14, 8;
+T_3.14 ;
+T_3.11 ;
+T_3.1 ;
+    %jmp T_3;
+    .thread T_3;
+    .scope S_0x94a01b0;
+T_4 ;
+    %set/v v0x94cf8b0_0, 0, 32;
+    %end;
+    .thread T_4;
+    .scope S_0x94a01b0;
+T_5 ;
+    %wait E_0x94a0c68;
+    %vpi_func 2 27 "$random", 8, 32, v0x94cf8b0_0;
+    %set/v v0x94cfae8_0, 8, 1;
+    %jmp T_5;
+    .thread T_5;
+    .scope S_0x94a01b0;
+T_6 ;
+    %delay 5000, 0;
+    %load/v 8, v0x94cf690_0, 1;
+    %inv 8, 1;
+    %set/v v0x94cf690_0, 8, 1;
+    %jmp T_6;
+    .thread T_6;
+    .scope S_0x94a01b0;
+T_7 ;
+    %vpi_call 2 32 "$dumpfile", "test_touch_controller.vcd";
+    %vpi_call 2 33 "$dumpvars", 1'sb0, S_0x94a01b0;
+    %vpi_call 2 34 "$display", "hello world";
+    %set/v v0x94cf860_0, 1, 1;
+    %set/v v0x94cf690_0, 0, 1;
+    %set/v v0x94cf900_0, 0, 1;
+    %set/v v0x94cfae8_0, 0, 1;
+    %delay 50000, 0;
+    %set/v v0x94cf860_0, 0, 1;
+    %delay 50000, 0;
+    %set/v v0x94cf860_0, 1, 1;
+    %movi 8, 10000000, 25;
+T_7.0 %cmp/s 0, 8, 25;
+    %jmp/0xz T_7.1, 5;
+    %add 8, 1, 25;
+    %wait E_0x949ee18;
+    %jmp T_7.0;
+T_7.1 ;
+    %vpi_call 2 51 "$finish";
+    %end;
+    .thread T_7;
+# The file index is used to find the file name in the following table.
+:file_names 7;
+    "N/A";
+    "<interactive>";
+    "test_touch_controller.v";
+    ".//touchpad_controller.v";
+    ".//shift_out.v";
+    ".//shift_in.v";
+    ".//counter.v";

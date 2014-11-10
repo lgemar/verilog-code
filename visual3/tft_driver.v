@@ -137,13 +137,13 @@ always @(posedge tft_clk) begin
 			`ACTIVE: begin 
 				x <= x + 12'd1
 				if( x == wr_x && y == wr_y) begin
-					video_ram_wr_data <= 12'hffffff;
+					video_ram_wr_data <= 9'h111100001;
 				end
 				else if (~clear_screen) begin
-					video_ram_wr_data <= 12'hff0000;
+					video_ram_wr_data <= 9'h110011111;
 				end
 				else begin
-					video_ram_wr_data <= 12'h0000ff;
+					video_ram_wr_data <= 9'h000011111;
 				end
 			end
 			`ROW_ENDING: begin
