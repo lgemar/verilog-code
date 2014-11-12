@@ -1,0 +1,25 @@
+// Shift out module
+reg shift_out_ena;
+reg [7:0] touch_message;
+reg shift_out_rst;
+
+shift_out SHIFT_OUT (
+	.clk(touch_clk), 
+	.data_in(touch_message),
+	.ena(shift_out_ena),
+	.rst(shift_out_rst), 
+	.data_out(data_out)
+);
+
+// Shift in module
+reg shift_in_ena;
+reg [11:0] touchpad_message;
+reg shift_in_rst;
+
+shift_in SHIFT_IN (
+	.clk(touch_clk),
+	.data_in(data_in), 
+	.ena(shift_in_ena), 
+	.rst(shift_in_rst), 
+	.data_out(touchpad_message)
+);

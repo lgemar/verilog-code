@@ -1,0 +1,9 @@
+#!/bin/sh
+
+FILENAME=`echo $1 | cut -d "." -f1`
+iverilog -y./ -o "./bin/$FILENAME" $@ 
+echo "finish" | ./bin/$FILENAME &&
+mv "$FILENAME.vcd" ./vcd
+
+#export DISPLAY=:0
+#gtkwave ./vcd/"$FILENAME.vcd"

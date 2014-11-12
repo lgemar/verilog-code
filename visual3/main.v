@@ -86,8 +86,6 @@ touchpad_controller TOUCH(
 	.z(touch_z)
 );
 
-<<<<<<< HEAD
-=======
 	assign locked_touch_z = |((touch_z >> 8) != 12'b0000_0000_0000);
 
 	always @(*) begin
@@ -103,7 +101,6 @@ touchpad_controller TOUCH(
 		end
 	end
 
->>>>>>> 70029fea25a7023868973482f1b150d8a4c1641b
 endmodule
 
 `default_nettype wire //disable default_nettype so non-user modules work properly
