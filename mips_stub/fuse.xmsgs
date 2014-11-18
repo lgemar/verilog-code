@@ -5,14 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"C:/Users/brownell/Downloads/mips_stub/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 27: Port <arg fmt="%s" index="1">gpu_clk</arg> is not connected to this instance
-</msg>
-
-<msg type="error" file="Simulator" num="904" delta="unknown" >Unable to remove previous simulation file <arg fmt="%s" index="1">isim/test_mips_isim_beh.exe.sim/test_mips_isim_beh.exe</arg>. Please check if you have another instance of this simulation running on your system, terminate it and then recompile your design. System Error Message: <arg fmt="%s" index="2">boost::filesystem::remove: Access is denied: &quot;isim\test_mips_isim_beh.exe.sim\test_mips_isim_beh.exe&quot;</arg>
-</msg>
-
-<msg type="error" file="Simulator" num="861" delta="unknown" >Failed to link the design
-</msg>
-
 </messages>
 

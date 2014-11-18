@@ -9,7 +9,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	output reg mem_wr_ena;
 	output wire [31:0] mem_wr_data, mem_addr;
 	output reg [31:0] PC;
-	
+		
 	// Instantiate the Memory Unit and its inputs and outputs
 	// Memory inputs
 	// Memory outputs

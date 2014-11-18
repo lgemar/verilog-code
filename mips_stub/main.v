@@ -22,10 +22,19 @@ module main(
 	wire gpu_mem_wr_ena;
 
 	memory MEMORY (
-		.cpu_clk(cpu_clk), .cpu_mem_addr(cpu_mem_addr), .cpu_mem_wr_ena(cpu_mem_wr_ena), .cpu_mem_wr_data(cpu_mem_wr_data), .cpu_mem_rd_data(cpu_mem_rd_data),
-		.gpu_clk(gpu_clk),    .gpu_mem_addr(gpu_mem_addr), .gpu_mem_wr_ena(gpu_mem_wr_ena), .gpu_mem_wr_data(gpu_mem_wr_data), .gpu_mem_rd_data(gpu_mem_rd_data)
+		.cpu_clk(cpu_clk), 
+		.cpu_mem_addr(cpu_mem_addr), 
+	        .cpu_mem_wr_ena(cpu_mem_wr_ena), 
+		.cpu_mem_wr_data(cpu_mem_wr_data), 
+		.cpu_mem_rd_data(cpu_mem_rd_data),
+
+		.gpu_clk(gpu_clk), 
+		.gpu_mem_addr(gpu_mem_addr), 
+		.gpu_mem_wr_ena(gpu_mem_wr_ena), 
+		.gpu_mem_wr_data(gpu_mem_wr_data), 
+		.gpu_mem_rd_data(gpu_mem_rd_data)
 	);
-	wire [31:0] PC;
+	wire [31:0] PC;	// TODO initialize PC to some start value
 	mips CPU (
 		.clk(cpu_clk), .rstb(rstb), .PC(PC),
 		.mem_addr(cpu_mem_addr),
