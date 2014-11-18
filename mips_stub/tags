@@ -1,0 +1,686 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+::fpga_ram_xmdf::xmdfApplyParams	ipcore_dir/fpga_ram_xmdf.tcl	/^proc ::fpga_ram_xmdf::xmdfApplyParams { instance } {$/;"	p
+::fpga_ram_xmdf::xmdfInit	ipcore_dir/fpga_ram_xmdf.tcl	/^proc ::fpga_ram_xmdf::xmdfInit { instance } {$/;"	p
+::hex_font_rom_xmdf::xmdfApplyParams	ipcore_dir/hex_font_rom_xmdf.tcl	/^proc ::hex_font_rom_xmdf::xmdfApplyParams { instance } {$/;"	p
+::hex_font_rom_xmdf::xmdfInit	ipcore_dir/hex_font_rom_xmdf.tcl	/^proc ::hex_font_rom_xmdf::xmdfInit { instance } {$/;"	p
+::test_case_rom_xmdf::xmdfApplyParams	ipcore_dir/test_case_rom_xmdf.tcl	/^proc ::test_case_rom_xmdf::xmdfApplyParams { instance } {$/;"	p
+::test_case_rom_xmdf::xmdfInit	ipcore_dir/test_case_rom_xmdf.tcl	/^proc ::test_case_rom_xmdf::xmdfInit { instance } {$/;"	p
+A0	register.v	/^`define A0 5'd3$/;"	c
+A1	register.v	/^`define A1 5'd4$/;"	c
+A2	register.v	/^`define A2 5'd5$/;"	c
+A3	register.v	/^`define A3 5'd6$/;"	c
+ADDR0	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR0  = 4'b0000;$/;"	c
+ADDR1	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR1  = 4'b0001;$/;"	c
+ADDR10	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR10 = 4'b1010;$/;"	c
+ADDR11	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR11 = 4'b1011;$/;"	c
+ADDR12	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR12 = 4'b1100;$/;"	c
+ADDR13	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR13 = 4'b1101;$/;"	c
+ADDR14	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR14 = 4'b1110;$/;"	c
+ADDR15	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR15 = 4'b1111;$/;"	c
+ADDR2	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR2  = 4'b0010;$/;"	c
+ADDR3	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR3  = 4'b0011;$/;"	c
+ADDR4	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR4  = 4'b0100;$/;"	c
+ADDR5	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR5  = 4'b0101;$/;"	c
+ADDR6	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR6  = 4'b0110;$/;"	c
+ADDR7	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR7  = 4'b0111;$/;"	c
+ADDR8	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR8  = 4'b1000;$/;"	c
+ADDR9	rtl/tx/convert_30to15_fifo.v	/^  parameter ADDR9  = 4'b1001;$/;"	c
+ADDRESS	rtl/common/DRAM16XN.v	/^input [3:0] ADDRESS;$/;"	p
+ADDRESS_DP	rtl/common/DRAM16XN.v	/^input [3:0] ADDRESS_DP;$/;"	p
+ADDR_GEN	ipcore_dir/fpga_ram/simulation/addr_gen.vhd	/^ENTITY ADDR_GEN IS$/;"	e
+ADDR_GEN	ipcore_dir/hex_font_rom/simulation/addr_gen.vhd	/^ENTITY ADDR_GEN IS$/;"	e
+ADDR_GEN	ipcore_dir/test_case_rom/simulation/addr_gen.vhd	/^ENTITY ADDR_GEN IS$/;"	e
+ALUControl	cpu.v	/^	reg [3:0] ALUControl;$/;"	r
+ALUControl	cpu_rtl/mips.v	/^	reg [3:0] ALUControl;$/;"	r
+ALUResult	cpu.v	/^	wire [31:0] ALUResult;$/;"	n
+ALUResult	cpu_rtl/mips.v	/^	wire [31:0] ALUResult;$/;"	n
+ALU_OP_CODE_DEFINES	alu_op_codes.v	/^`define ALU_OP_CODE_DEFINES$/;"	c
+Always_16_1	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	/^static void Always_16_1(char *t0)$/;"	f	file:
+Always_41_3	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static void Always_41_3(char *t0)$/;"	f	file:
+Always_46_1	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static void Always_46_1(char *t0)$/;"	f	file:
+Always_46_1	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static void Always_46_1(char *t0)$/;"	f	file:
+BMG_STIM_GEN	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^ENTITY BMG_STIM_GEN IS$/;"	e
+BMG_STIM_GEN	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^ENTITY BMG_STIM_GEN IS$/;"	e
+BMG_STIM_GEN	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^ENTITY BMG_STIM_GEN IS$/;"	e
+BMG_TB	ipcore_dir/fpga_ram/simulation/bmg_tb_synth.vhd	/^ENTITY BMG_TB IS$/;"	e
+BMG_TB	ipcore_dir/hex_font_rom/simulation/bmg_tb_synth.vhd	/^ENTITY BMG_TB IS$/;"	e
+BMG_TB	ipcore_dir/test_case_rom/simulation/bmg_tb_synth.vhd	/^ENTITY BMG_TB IS$/;"	e
+BMG_TB_PKG	ipcore_dir/fpga_ram/simulation/bmg_tb_pkg.vhd	/^PACKAGE BMG_TB_PKG IS$/;"	P
+BMG_TB_PKG	ipcore_dir/fpga_ram/simulation/bmg_tb_pkg.vhd	/^PACKAGE BODY BMG_TB_PKG IS$/;"	P
+BMG_TB_PKG	ipcore_dir/hex_font_rom/simulation/bmg_tb_pkg.vhd	/^PACKAGE BMG_TB_PKG IS$/;"	P
+BMG_TB_PKG	ipcore_dir/hex_font_rom/simulation/bmg_tb_pkg.vhd	/^PACKAGE BODY BMG_TB_PKG IS$/;"	P
+BMG_TB_PKG	ipcore_dir/test_case_rom/simulation/bmg_tb_pkg.vhd	/^PACKAGE BMG_TB_PKG IS$/;"	P
+BMG_TB_PKG	ipcore_dir/test_case_rom/simulation/bmg_tb_pkg.vhd	/^PACKAGE BODY BMG_TB_PKG IS$/;"	P
+BMG_TB_TOP	ipcore_dir/fpga_ram/simulation/bmg_tb_top.vhd	/^ENTITY BMG_TB_TOP IS$/;"	e
+BMG_TB_TOP	ipcore_dir/hex_font_rom/simulation/bmg_tb_top.vhd	/^ENTITY BMG_TB_TOP IS$/;"	e
+BMG_TB_TOP	ipcore_dir/test_case_rom/simulation/bmg_tb_top.vhd	/^ENTITY BMG_TB_TOP IS$/;"	e
+CHECKER	ipcore_dir/fpga_ram/simulation/checker.vhd	/^ENTITY CHECKER IS$/;"	e
+CLK	rtl/common/DRAM16XN.v	/^input CLK;$/;"	p
+CTRLTOKEN0	rtl/tx/encode.v	/^  parameter CTRLTOKEN0 = 10'b1101010100;$/;"	c
+CTRLTOKEN1	rtl/tx/encode.v	/^  parameter CTRLTOKEN1 = 10'b0010101011;$/;"	c
+CTRLTOKEN2	rtl/tx/encode.v	/^  parameter CTRLTOKEN2 = 10'b0101010100;$/;"	c
+CTRLTOKEN3	rtl/tx/encode.v	/^  parameter CTRLTOKEN3 = 10'b1010101011;$/;"	c
+Cont_15_0	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	/^static void Cont_15_0(char *t0)$/;"	f	file:
+Cont_21_0	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static void Cont_21_0(char *t0)$/;"	f	file:
+Cont_29_1	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static void Cont_29_1(char *t0)$/;"	f	file:
+Cont_48_1	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static void Cont_48_1(char *t0)$/;"	f	file:
+Cont_49_2	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static void Cont_49_2(char *t0)$/;"	f	file:
+Cont_50_3	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static void Cont_50_3(char *t0)$/;"	f	file:
+DATA_GEN	ipcore_dir/fpga_ram/simulation/data_gen.vhd	/^ENTITY DATA_GEN IS$/;"	e
+DATA_IN	rtl/common/DRAM16XN.v	/^input [data_width-1:0]DATA_IN;$/;"	p
+DATA_PART_CNT	ipcore_dir/fpga_ram/simulation/checker.vhd	/^  CONSTANT DATA_PART_CNT: INTEGER:= DIVROUNDUP(WRITE_WIDTH,READ_WIDTH);$/;"	c
+DATA_PART_CNT_A	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT DATA_PART_CNT_A     : INTEGER:= DIVROUNDUP(32,32);$/;"	c
+DATA_PART_CNT_B	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT DATA_PART_CNT_B     : INTEGER:= DIVROUNDUP(32,32);$/;"	c
+DEFAULT_DATA	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^CONSTANT DEFAULT_DATA  : STD_LOGIC_VECTOR(31 DOWNTO 0):= hex_to_std_logic_vector("0",32);$/;"	c
+DEFAULT_DATA	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^CONSTANT DEFAULT_DATA  : STD_LOGIC_VECTOR(67 DOWNTO 0):= hex_to_std_logic_vector("0",68);$/;"	c
+DIVROUNDUP	ipcore_dir/fpga_ram/simulation/bmg_tb_pkg.vhd	/^ FUNCTION DIVROUNDUP ($/;"	f
+DIVROUNDUP	ipcore_dir/hex_font_rom/simulation/bmg_tb_pkg.vhd	/^ FUNCTION DIVROUNDUP ($/;"	f
+DIVROUNDUP	ipcore_dir/test_case_rom/simulation/bmg_tb_pkg.vhd	/^ FUNCTION DIVROUNDUP ($/;"	f
+DRAM16XN	rtl/common/DRAM16XN.v	/^module DRAM16XN #(parameter data_width = 20)$/;"	m
+FP	register.v	/^`define FP 5'd30$/;"	c
+FRAME_ADDRESS	gpu.v	/^`define FRAME_ADDRESS 31'd8192$/;"	c
+GO	rtl/common/dcmspi.v	/^    input  GO,                 \/\/Go programme the M and D value into DCM(1 cycle pulse)$/;"	p
+GP	register.v	/^`define GP 5'd28$/;"	c
+HBKPRCH_HDTV720P	main.v	/^	parameter HBKPRCH_HDTV720P = 11'd216;  \/\/Horizontal Front Portch$/;"	c
+HBKPRCH_SVGA	main.v	/^	parameter HBKPRCH_SVGA = 11'd88;  \/\/Horizontal Front Portch$/;"	c
+HBKPRCH_SXGA	main.v	/^	parameter HBKPRCH_SXGA = 11'd248;  \/\/Horizontal Front Portch$/;"	c
+HBKPRCH_VGA	main.v	/^	parameter HBKPRCH_VGA = 11'd48;  \/\/Horizontal Front Portch$/;"	c
+HBKPRCH_XGA	main.v	/^	parameter HBKPRCH_XGA = 11'd160;  \/\/Horizontal Front Portch$/;"	c
+HFNPRCH_HDTV720P	main.v	/^	parameter HFNPRCH_HDTV720P = 11'd72;   \/\/Horizontal Front Portch$/;"	c
+HFNPRCH_SVGA	main.v	/^	parameter HFNPRCH_SVGA = 11'd40;  \/\/Horizontal Front Portch$/;"	c
+HFNPRCH_SXGA	main.v	/^	parameter HFNPRCH_SXGA = 11'd48;   \/\/Horizontal Front Portch$/;"	c
+HFNPRCH_VGA	main.v	/^	parameter HFNPRCH_VGA = 11'd16;  \/\/Horizontal Front Portch$/;"	c
+HFNPRCH_XGA	main.v	/^	parameter HFNPRCH_XGA = 11'd24;   \/\/Horizontal Front Portch$/;"	c
+HPIXELS_HDTV720P	main.v	/^	parameter HPIXELS_HDTV720P = 11'd1280; \/\/Horizontal Live Pixels$/;"	c
+HPIXELS_SVGA	main.v	/^	parameter HPIXELS_SVGA = 11'd800; \/\/Horizontal Live Pixels$/;"	c
+HPIXELS_SXGA	main.v	/^	parameter HPIXELS_SXGA = 11'd1280; \/\/Horizontal Live Pixels$/;"	c
+HPIXELS_VGA	main.v	/^	parameter HPIXELS_VGA = 11'd640; \/\/Horizontal Live Pixels$/;"	c
+HPIXELS_XGA	main.v	/^	parameter HPIXELS_XGA = 11'd1024; \/\/Horizontal Live Pixels$/;"	c
+HSYNCPW_HDTV720P	main.v	/^	parameter HSYNCPW_HDTV720P = 11'd80;  \/\/HSYNC Pulse Width$/;"	c
+HSYNCPW_SVGA	main.v	/^	parameter HSYNCPW_SVGA = 11'd128; \/\/HSYNC Pulse Width$/;"	c
+HSYNCPW_SXGA	main.v	/^	parameter HSYNCPW_SXGA = 11'd112;  \/\/HSYNC Pulse Width$/;"	c
+HSYNCPW_VGA	main.v	/^	parameter HSYNCPW_VGA = 11'd96;  \/\/HSYNC Pulse Width$/;"	c
+HSYNCPW_XGA	main.v	/^	parameter HSYNCPW_XGA = 11'd136;  \/\/HSYNC Pulse Width$/;"	c
+IF_THEN_ELSE	ipcore_dir/fpga_ram/simulation/bmg_tb_pkg.vhd	/^    FUNCTION IF_THEN_ELSE ($/;"	f
+IF_THEN_ELSE	ipcore_dir/fpga_ram/simulation/bmg_tb_pkg.vhd	/^  FUNCTION IF_THEN_ELSE ($/;"	f
+IF_THEN_ELSE	ipcore_dir/hex_font_rom/simulation/bmg_tb_pkg.vhd	/^    FUNCTION IF_THEN_ELSE ($/;"	f
+IF_THEN_ELSE	ipcore_dir/hex_font_rom/simulation/bmg_tb_pkg.vhd	/^  FUNCTION IF_THEN_ELSE ($/;"	f
+IF_THEN_ELSE	ipcore_dir/test_case_rom/simulation/bmg_tb_pkg.vhd	/^    FUNCTION IF_THEN_ELSE ($/;"	f
+IF_THEN_ELSE	ipcore_dir/test_case_rom/simulation/bmg_tb_pkg.vhd	/^  FUNCTION IF_THEN_ELSE ($/;"	f
+INITIALIZE	rtl/common/synchro.v	/^  parameter          INITIALIZE = "LOGIC0"$/;"	c
+Initial_31_0	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static void Initial_31_0(char *t0)$/;"	f	file:
+Initial_31_0	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static void Initial_31_0(char *t0)$/;"	f	file:
+Initial_31_2	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static void Initial_31_2(char *t0)$/;"	f	file:
+Initial_52_4	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static void Initial_52_4(char *t0)$/;"	f	file:
+Initial_60_5	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static void Initial_60_5(char *t0)$/;"	f	file:
+K0	register.v	/^`define K0 5'd26$/;"	c
+K1	register.v	/^`define K1 5'd27$/;"	c
+LOG2ROUNDUP	ipcore_dir/fpga_ram/simulation/bmg_tb_pkg.vhd	/^  FUNCTION LOG2ROUNDUP ($/;"	f
+LOG2ROUNDUP	ipcore_dir/hex_font_rom/simulation/bmg_tb_pkg.vhd	/^  FUNCTION LOG2ROUNDUP ($/;"	f
+LOG2ROUNDUP	ipcore_dir/test_case_rom/simulation/bmg_tb_pkg.vhd	/^  FUNCTION LOG2ROUNDUP ($/;"	f
+LOOP_COUNT	ipcore_dir/fpga_ram/simulation/data_gen.vhd	/^  CONSTANT LOOP_COUNT     : INTEGER   := DIVROUNDUP(DATA_GEN_WIDTH,8);$/;"	c
+M	rtl/common/dcmspi.v	/^    input  [7:0] M,            \/\/DCM M value$/;"	p
+MAX_FRAME_COUNT	debugging_rig.v	/^`define MAX_FRAME_COUNT 15$/;"	c
+MAX_WIDTH	ipcore_dir/fpga_ram/simulation/checker.vhd	/^  CONSTANT MAX_WIDTH: INTEGER:= IF_THEN_ELSE((WRITE_WIDTH>READ_WIDTH),WRITE_WIDTH,READ_WIDTH);$/;"	c
+NetDecl_16_0	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static void NetDecl_16_0(char *t0)$/;"	f	file:
+OP_ADD	alu_op_codes.v	/^`define OP_ADD 4'b0101$/;"	c
+OP_AND	alu_op_codes.v	/^`define OP_AND 4'b0000$/;"	c
+OP_NOR	alu_op_codes.v	/^`define OP_NOR 4'b0011$/;"	c
+OP_OR	alu_op_codes.v	/^`define OP_OR  4'b0001$/;"	c
+OP_SLL	alu_op_codes.v	/^`define OP_SLL 4'b1001$/;"	c
+OP_SLT	alu_op_codes.v	/^`define OP_SLT 4'b0111$/;"	c
+OP_SRA	alu_op_codes.v	/^`define OP_SRA 4'b1010$/;"	c
+OP_SRL	alu_op_codes.v	/^`define OP_SRL 4'b1000$/;"	c
+OP_SUB	alu_op_codes.v	/^`define OP_SUB 4'b0110$/;"	c
+OP_XOR	alu_op_codes.v	/^`define OP_XOR 4'b0010$/;"	c
+O_DATA_OUT	rtl/common/DRAM16XN.v	/^output [data_width-1:0]O_DATA_OUT;$/;"	p
+O_DATA_OUT_DP	rtl/common/DRAM16XN.v	/^output [data_width-1:0]O_DATA_OUT_DP;$/;"	p
+PC	cpu_rtl/test_mips.v	/^	wire [31:0] PC;$/;"	n
+PC	main.v	/^	wire [31:0] PC;$/;"	n
+PROGDONE	rtl/common/dcmspi.v	/^    input  PROGDONE,           \/\/DCM is ready to take next command$/;"	p
+RA	register.v	/^`define RA 5'd31$/;"	c
+RANDOM	ipcore_dir/fpga_ram/simulation/random.vhd	/^ENTITY RANDOM IS$/;"	e
+RANDOM	ipcore_dir/hex_font_rom/simulation/random.vhd	/^ENTITY RANDOM IS$/;"	e
+RANDOM	ipcore_dir/test_case_rom/simulation/random.vhd	/^ENTITY RANDOM IS$/;"	e
+READ_CNT_A	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT READ_CNT_A : integer := 6;$/;"	c
+READ_CNT_B	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT READ_CNT_B : integer := 4;$/;"	c
+REGISTER_LOGIC_SROM	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^ENTITY REGISTER_LOGIC_SROM IS$/;"	e
+REGISTER_LOGIC_SROM	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^ENTITY REGISTER_LOGIC_SROM IS$/;"	e
+REGISTER_LOGIC_TDP	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^ENTITY REGISTER_LOGIC_TDP IS$/;"	e
+RST	rtl/common/dcmspi.v	/^    input  RST,                \/\/Synchronous Reset$/;"	p
+RSTBTN	main.v	/^	wire RSTBTN;$/;"	n
+S0	register.v	/^`define S0 5'd16$/;"	c
+S1	register.v	/^`define S1 5'd17$/;"	c
+S2	register.v	/^`define S2 5'd18$/;"	c
+S3	register.v	/^`define S3 5'd19$/;"	c
+S4	register.v	/^`define S4 5'd20$/;"	c
+S5	register.v	/^`define S5 5'd21$/;"	c
+S6	register.v	/^`define S6 5'd22$/;"	c
+S7	register.v	/^`define S7 5'd23$/;"	c
+SP	register.v	/^`define SP 5'd29$/;"	c
+SW	main.v	/^	wire [3:0] SW, sws_sync;$/;"	n
+SW_HDTV720P	main.v	/^	`define   SW_HDTV720P  4'b0010$/;"	c
+SW_SVGA	main.v	/^	`define   SW_SVGA      4'b0001$/;"	c
+SW_SXGA	main.v	/^	`define   SW_SXGA      4'b1000$/;"	c
+SW_VGA	main.v	/^	`define   SW_VGA       4'b0000$/;"	c
+SW_XGA	main.v	/^	`define   SW_XGA       4'b0011$/;"	c
+SignImm	sign_extend_test.v	/^	wire [31:0] SignImm;$/;"	n
+SrcA	cpu.v	/^	reg [31:0] SrcA, SrcB;$/;"	r
+SrcA	cpu_rtl/mips.v	/^	reg [31:0] SrcA, SrcB;$/;"	r
+SrcB	cpu.v	/^	reg [31:0] SrcA, SrcB;$/;"	r
+SrcB	cpu_rtl/mips.v	/^	reg [31:0] SrcA, SrcB;$/;"	r
+T0	register.v	/^`define T0 5'd7$/;"	c
+T1	register.v	/^`define T1 5'd8$/;"	c
+T2	register.v	/^`define T2 5'd9$/;"	c
+T3	register.v	/^`define T3 5'd10$/;"	c
+T4	register.v	/^`define T4 5'd11$/;"	c
+T5	register.v	/^`define T5 5'd12$/;"	c
+T6	register.v	/^`define T6 5'd13$/;"	c
+T7	register.v	/^`define T7 5'd14$/;"	c
+T8	register.v	/^`define T8 5'd24$/;"	c
+T9	register.v	/^`define T9 5'd25$/;"	c
+TCQ	rtl/common/dcmspi.v	/^parameter TCQ = 1;$/;"	c
+V0	register.v	/^`define V0 5'd1$/;"	c
+V1	register.v	/^`define V1 5'd2$/;"	c
+VBKPRCH_HDTV720P	main.v	/^	parameter VBKPRCH_HDTV720P = 11'd22;   \/\/Vertical Front Portch$/;"	c
+VBKPRCH_SVGA	main.v	/^	parameter VBKPRCH_SVGA = 11'd23;  \/\/Vertical Front Portch$/;"	c
+VBKPRCH_SXGA	main.v	/^	parameter VBKPRCH_SXGA = 11'd38;   \/\/Vertical Front Portch$/;"	c
+VBKPRCH_VGA	main.v	/^	parameter VBKPRCH_VGA = 11'd31;  \/\/Vertical Front Portch$/;"	c
+VBKPRCH_XGA	main.v	/^	parameter VBKPRCH_XGA = 11'd29;   \/\/Vertical Front Portch$/;"	c
+VFNPRCH_HDTV720P	main.v	/^	parameter VFNPRCH_HDTV720P = 11'd3;    \/\/Vertical Front Portch$/;"	c
+VFNPRCH_SVGA	main.v	/^	parameter VFNPRCH_SVGA = 11'd1;   \/\/Vertical Front Portch$/;"	c
+VFNPRCH_SXGA	main.v	/^	parameter VFNPRCH_SXGA = 11'd1;    \/\/Vertical Front Portch$/;"	c
+VFNPRCH_VGA	main.v	/^	parameter VFNPRCH_VGA = 11'd11;  \/\/Vertical Front Portch$/;"	c
+VFNPRCH_XGA	main.v	/^	parameter VFNPRCH_XGA = 11'd3;    \/\/Vertical Front Portch$/;"	c
+VGA_HSYNC	main.v	/^	reg VGA_HSYNC, VGA_VSYNC;$/;"	r
+VGA_HSYNC_INT	main.v	/^	wire VGA_HSYNC_INT, VGA_VSYNC_INT;$/;"	n
+VGA_VSYNC	main.v	/^	reg VGA_HSYNC, VGA_VSYNC;$/;"	r
+VGA_VSYNC_INT	main.v	/^	wire VGA_HSYNC_INT, VGA_VSYNC_INT;$/;"	n
+VLINES_HDTV720P	main.v	/^	parameter VLINES_HDTV720P  = 11'd720;  \/\/Vertical Live ines$/;"	c
+VLINES_SVGA	main.v	/^	parameter VLINES_SVGA  = 11'd600; \/\/Vertical Live ines$/;"	c
+VLINES_SXGA	main.v	/^	parameter VLINES_SXGA = 11'd1024;  \/\/Vertical Live ines$/;"	c
+VLINES_VGA	main.v	/^	parameter VLINES_VGA  = 11'd480; \/\/Vertical Live ines$/;"	c
+VLINES_XGA	main.v	/^	parameter VLINES_XGA  = 11'd768;  \/\/Vertical Live ines$/;"	c
+VSYNCPW_HDTV720P	main.v	/^	parameter VSYNCPW_HDTV720P = 11'd5;    \/\/VSYNC Pulse Width$/;"	c
+VSYNCPW_SVGA	main.v	/^	parameter VSYNCPW_SVGA = 11'd4;   \/\/VSYNC Pulse Width$/;"	c
+VSYNCPW_SXGA	main.v	/^	parameter VSYNCPW_SXGA = 11'd3;    \/\/VSYNC Pulse Width$/;"	c
+VSYNCPW_VGA	main.v	/^	parameter VSYNCPW_VGA = 11'd2;   \/\/VSYNC Pulse Width$/;"	c
+VSYNCPW_XGA	main.v	/^	parameter VSYNCPW_XGA = 11'd6;    \/\/VSYNC Pulse Width$/;"	c
+WRITE_CNT_A	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT WRITE_CNT_A : integer := 6;$/;"	c
+WRITE_CNT_B	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT WRITE_CNT_B : integer := 4;$/;"	c
+WRITE_EN	rtl/common/DRAM16XN.v	/^input WRITE_EN;$/;"	p
+XSI_HIDE_SYMBOL_SPEC	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	15;"	d	file:
+XSI_HIDE_SYMBOL_SPEC	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	15;"	d	file:
+XSI_HIDE_SYMBOL_SPEC	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	15;"	d	file:
+XSI_HIDE_SYMBOL_SPEC	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	15;"	d	file:
+XSI_HIDE_SYMBOL_SPEC	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	15;"	d	file:
+ZERO	ipcore_dir/fpga_ram/simulation/bmg_stim_gen.vhd	/^CONSTANT ZERO                : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');$/;"	c
+ZERO	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^CONSTANT ZERO : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');$/;"	c
+ZERO	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^CONSTANT ZERO : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');$/;"	c
+ZERO	register.v	/^`define ZERO 5'b0$/;"	c
+Zero	cpu.v	/^	wire Zero;$/;"	n
+Zero	cpu_rtl/mips.v	/^	wire Zero;$/;"	n
+a0	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+a1	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+a1	register_test.v	/^	reg [4:0] a1, a2, a3;$/;"	r
+a2	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+a2	register_test.v	/^	reg [4:0] a1, a2, a3;$/;"	r
+a3	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+a3	register_test.v	/^	reg [4:0] a1, a2, a3;$/;"	r
+active	main.v	/^	wire gopclk, active;$/;"	n
+active_q	main.v	/^	reg active_q;$/;"	r
+addra	ipcore_dir/fpga_ram.v	/^input [11 : 0] addra;$/;"	p
+addra	ipcore_dir/hex_font_rom.v	/^input [8 : 0] addra;$/;"	p
+addra	ipcore_dir/test_case_rom.v	/^input [5 : 0] addra;$/;"	p
+addrb	ipcore_dir/fpga_ram.v	/^input [11 : 0] addrb;$/;"	p
+alloca	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	22;"	d	file:
+alloca	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	22;"	d	file:
+alloca	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	22;"	d	file:
+alloca	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	22;"	d	file:
+alloca	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	22;"	d	file:
+at	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+background_color	debugging_rig.v	/^	reg [23:0] background_color;$/;"	r
+behavioural_alu	behavioural_alu.v	/^module behavioural_alu(X,Y,op_code, Z, zero, overflow, equal);$/;"	m
+bit_to_sl	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^  FUNCTION bit_to_sl(input: BIT) RETURN STD_LOGIC IS$/;"	f
+bit_to_sl	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^  FUNCTION bit_to_sl(input: BIT) RETURN STD_LOGIC IS$/;"	f
+blue	rtl/tx/dvi_encoder.v	/^wire 	[9:0]	blue ;$/;"	n
+blue_data	main.v	/^	wire [7:0] red_data, green_data, blue_data;$/;"	n
+bmg_wrapper	ipcore_dir/fpga_ram/example_design/bmg_wrapper.vhd	/^ENTITY bmg_wrapper IS$/;"	e
+bmg_wrapper	ipcore_dir/hex_font_rom/example_design/bmg_wrapper.vhd	/^ENTITY bmg_wrapper IS$/;"	e
+bmg_wrapper	ipcore_dir/test_case_rom/example_design/bmg_wrapper.vhd	/^ENTITY bmg_wrapper IS$/;"	e
+bufpll_lock	main.v	/^	wire bufpll_lock;$/;"	n
+busy	main.v	/^	wire busy;$/;"	n
+byte_select	debugging_rig.v	/^	wire [2:0] byte_select;$/;"	n
+byte_select	gpu.v	/^	wire [2:0] byte_select;$/;"	n
+c0_q	rtl/tx/encode.v	/^  reg       c0_q, c1_q;$/;"	r
+c0_reg	rtl/tx/encode.v	/^  reg       c0_reg, c1_reg;$/;"	r
+c1	rtl/tx/encode.v	/^  input            c1,       \/\/ c1 input$/;"	p
+c1_q	rtl/tx/encode.v	/^  reg       c0_q, c1_q;$/;"	r
+c1_reg	rtl/tx/encode.v	/^  reg       c0_reg, c1_reg;$/;"	r
+c_init	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^constant c_init : mem_type := init_memory(0,$/;"	c
+c_init	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^constant c_init : mem_type := init_memory(1,$/;"	c
+cascade_di	rtl/tx/serdes_n_to_1.v	/^wire		cascade_di ;		\/\/$/;"	n
+cascade_do	rtl/tx/serdes_n_to_1.v	/^wire		cascade_do ;		\/\/$/;"	n
+cascade_ti	rtl/tx/serdes_n_to_1.v	/^wire		cascade_ti ;		\/\/$/;"	n
+cascade_to	rtl/tx/serdes_n_to_1.v	/^wire		cascade_to ;		\/\/$/;"	n
+cell_birth	mips_synth.asm	/^cell_birth:			addi $t2, $0, 1$/;"	l
+cell_death	mips_synth.asm	/^cell_death:			sw $0, 0($s3)$/;"	l
+cell_mem_addr	gpu.v	/^	wire [31:0] cell_mem_addr;$/;"	n
+char_to_std_logic	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^     function char_to_std_logic ($/;"	f
+char_to_std_logic	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^     function char_to_std_logic ($/;"	f
+check_cell_alive	mips_synth.asm	/^check_cell_alive:	slti $t0, $s5, 2		#if sum < 2$/;"	l
+check_cell_dead	mips_synth.asm	/^check_cell_dead:	addi $t0, $s5, -3$/;"	l
+check_neighbor	mips_synth.asm	/^check_neighbor:		lw $t1, 0($s4)$/;"	l
+clk	cpu_rtl/test_mips.v	/^	reg clk;$/;"	r
+clk	register_test.v	/^	reg rst, clk, write_enable;$/;"	r
+clk50m	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+clk50m_bufg	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+clka	ipcore_dir/fpga_ram.v	/^input clka;$/;"	p
+clka	ipcore_dir/hex_font_rom.v	/^input clka;$/;"	p
+clka	ipcore_dir/test_case_rom.v	/^input clka;$/;"	p
+clkb	ipcore_dir/fpga_ram.v	/^input clkb;$/;"	p
+clkfbout	main.v	/^	wire clkfbout;$/;"	n
+clkfx	main.v	/^	wire          clkfx, pclk;$/;"	n
+clkin	rtl/tx/encode.v	/^  input            clkin,    \/\/ pixel clock input$/;"	p
+cnt	rtl/tx/encode.v	/^  reg [4:0] cnt; \/\/disparity counter, MSB is the sign bit$/;"	r
+convert_30to15_fifo	rtl/tx/convert_30to15_fifo.v	/^module convert_30to15_fifo($/;"	m
+cpu	cpu.v	/^module cpu(     );$/;"	m
+cpu_clk	cpu_rtl/memory.v	/^	input cpu_clk, cpu_mem_wr_ena;$/;"	p
+cpu_clk	main.v	/^	wire cpu_clk, gpu_clk;$/;"	n
+cpu_mem_addr	cpu_rtl/memory.v	/^	input [31:0] cpu_mem_addr, cpu_mem_wr_data;$/;"	p
+cpu_mem_addr	main.v	/^	wire [31:0] cpu_mem_rd_data, cpu_mem_wr_data, cpu_mem_addr;$/;"	n
+cpu_mem_rd_data	cpu_rtl/memory.v	/^	output [31:0] cpu_mem_rd_data;$/;"	p
+cpu_mem_rd_data	main.v	/^	wire [31:0] cpu_mem_rd_data, cpu_mem_wr_data, cpu_mem_addr;$/;"	n
+cpu_mem_wr_data	cpu_rtl/memory.v	/^	input [31:0] cpu_mem_addr, cpu_mem_wr_data;$/;"	p
+cpu_mem_wr_data	main.v	/^	wire [31:0] cpu_mem_rd_data, cpu_mem_wr_data, cpu_mem_addr;$/;"	n
+cpu_mem_wr_ena	cpu_rtl/memory.v	/^	input cpu_clk, cpu_mem_wr_ena;$/;"	p
+cpu_mem_wr_ena	main.v	/^	wire cpu_mem_wr_ena;$/;"	n
+current_word	debugging_rig.v	/^	reg  [31:0] current_word;$/;"	r
+datain	rtl/tx/serdes_n_to_1.v	/^input 	[SF-1 : 0]	datain ;  	\/\/ Data for output$/;"	p
+dataint	rtl/tx/convert_30to15_fifo.v	/^  wire  [29:0]  dataint;  \/\/ RAM output$/;"	n
+db	rtl/tx/convert_30to15_fifo.v	/^  wire [29:0] db;$/;"	n
+dcmspi	rtl/common/dcmspi.v	/^module dcmspi ($/;"	m
+ddone	rtl/common/dcmspi.v	/^wire ddone;$/;"	n
+de	main.v	/^	reg de;$/;"	r
+de_q	rtl/tx/encode.v	/^  reg       de_q, de_reg;$/;"	r
+de_reg	rtl/tx/encode.v	/^  reg       de_q, de_reg;$/;"	r
+debugging_rig	debugging_rig.v	/^module debugging_rig(clk, rstb, x, y, vsync, r, g, b, in0, in1, in2, in3, in4, in5, in6, in7, in8, in9, in10, in11, in12, in13, in14, in15, in16, in17, in18, in19, in20, in21, in22, in23, in24, in25, in26, in27, in28, in29, in30, in31);$/;"	m
+decision1	rtl/tx/encode.v	/^  wire decision1;$/;"	n
+decision2	rtl/tx/encode.v	/^  wire decision2, decision3;$/;"	n
+decision3	rtl/tx/encode.v	/^  wire decision2, decision3;$/;"	n
+dfslckd_q	rtl/common/dcmspi.v	/^reg dfslckd_q;$/;"	r
+dfslckd_rising	rtl/common/dcmspi.v	/^reg dfslckd_rising;$/;"	r
+din	rtl/tx/encode.v	/^  input      [7:0] din,      \/\/ data inputs: expect registered$/;"	p
+din_q	rtl/tx/encode.v	/^  reg [7:0] din_q;$/;"	r
+dina	ipcore_dir/fpga_ram.v	/^input [31 : 0] dina;$/;"	p
+dinb	ipcore_dir/fpga_ram.v	/^input [31 : 0] dinb;$/;"	p
+douta	ipcore_dir/fpga_ram.v	/^output [31 : 0] douta;$/;"	p
+douta	ipcore_dir/hex_font_rom.v	/^output [31 : 0] douta;$/;"	p
+douta	ipcore_dir/test_case_rom.v	/^output [67 : 0] douta;$/;"	p
+doutb	ipcore_dir/fpga_ram.v	/^output [31 : 0] doutb;$/;"	p
+dump	cpu_rtl/memory.v	/^	task dump;$/;"	t
+dval	rtl/common/dcmspi.v	/^wire [9:0] dval = {D, 1'b0, 1'b1}; \/\/D command: 10,D0-D7$/;"	n
+dvi_encoder	rtl/tx/dvi_encoder.v	/^module dvi_encoder ($/;"	m
+encode	rtl/tx/encode.v	/^module encode ($/;"	m
+end_of_loop	mips_synth.asm	/^end_of_loop:		addi $s2, $s2, 4$/;"	l
+file	cpu_rtl/memory.v	/^	integer ii, file;$/;"	r
+findRtfPath	ipcore_dir/create_fpga_ram.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/create_hex_font_rom.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/create_test_case_rom.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/edit_fpga_ram.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/edit_hex_font_rom.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/edit_test_case_rom.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/gen_hex_font_rom.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+findRtfPath	ipcore_dir/gen_test_case_rom.tcl	/^proc findRtfPath { relativePath } {$/;"	p
+fp	register.v	/^reg [31:0] gp, sp, fp, ra;$/;"	r
+fpga_ram	ipcore_dir/fpga_ram.v	/^module fpga_ram($/;"	m
+fpga_ram_top	ipcore_dir/fpga_ram/example_design/fpga_ram_top.vhd	/^ENTITY fpga_ram_top IS$/;"	e
+frame_count	debugging_rig.v	/^	reg [31:0] frame_count;$/;"	r
+frame_count	gpu.v	/^	reg [31:0] frame_count;$/;"	r
+frame_pacer	gpu.v	/^	reg [31:0] frame_pacer;$/;"	r
+gclk	rtl/tx/serdes_n_to_1.v	/^input 			gclk ;		\/\/ Global clock$/;"	p
+gocmd	rtl/common/dcmspi.v	/^wire gocmd;$/;"	n
+gopclk	main.v	/^	wire gopclk, active;$/;"	n
+gp	register.v	/^reg [31:0] gp, sp, fp, ra;$/;"	r
+gpu	gpu.v	/^module gpu($/;"	m
+gpu_clk	cpu_rtl/memory.v	/^	input gpu_clk, gpu_mem_wr_ena;$/;"	p
+gpu_clk	main.v	/^	wire cpu_clk, gpu_clk;$/;"	n
+gpu_mem_addr	cpu_rtl/memory.v	/^	input [31:0] gpu_mem_addr, gpu_mem_wr_data;$/;"	p
+gpu_mem_addr	main.v	/^	wire [31:0] gpu_mem_rd_data, gpu_mem_wr_data, gpu_mem_addr;$/;"	n
+gpu_mem_rd_data	cpu_rtl/memory.v	/^	output [31:0] gpu_mem_rd_data;$/;"	p
+gpu_mem_rd_data	main.v	/^	wire [31:0] gpu_mem_rd_data, gpu_mem_wr_data, gpu_mem_addr;$/;"	n
+gpu_mem_wr_data	cpu_rtl/memory.v	/^	input [31:0] gpu_mem_addr, gpu_mem_wr_data;$/;"	p
+gpu_mem_wr_data	main.v	/^	wire [31:0] gpu_mem_rd_data, gpu_mem_wr_data, gpu_mem_addr;$/;"	n
+gpu_mem_wr_ena	cpu_rtl/memory.v	/^	input gpu_clk, gpu_mem_wr_ena;$/;"	p
+gpu_mem_wr_ena	main.v	/^	wire gpu_mem_wr_ena;$/;"	n
+green	rtl/tx/dvi_encoder.v	/^wire 	[9:0]	green ;$/;"	n
+green_data	main.v	/^	wire [7:0] red_data, green_data, blue_data;$/;"	n
+half_byte_mux	half_byte_mux.v	/^module half_byte_mux(x, byte_select, y);$/;"	m
+hblnk	main.v	/^	wire hblnk, vblnk;$/;"	n
+hex_font_rom	ipcore_dir/hex_font_rom.v	/^module hex_font_rom($/;"	m
+hex_font_rom_top	ipcore_dir/hex_font_rom/example_design/hex_font_rom_top.vhd	/^ENTITY hex_font_rom_top IS$/;"	e
+hex_to_std_logic_vector	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^    FUNCTION hex_to_std_logic_vector($/;"	f
+hex_to_std_logic_vector	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^    FUNCTION hex_to_std_logic_vector($/;"	f
+hpos_clr	rtl/common/timing.v	/^  wire          hpos_clr;$/;"	n
+hpos_cnt	rtl/common/timing.v	/^  reg    [10:0] hpos_cnt = 0;$/;"	r
+hpos_ena	rtl/common/timing.v	/^  wire          hpos_ena;$/;"	n
+hsync	main.v	/^	reg vsync, hsync;$/;"	r
+hvsync_polarity	main.v	/^	reg hvsync_polarity; \/\/1-Negative, 0-Positive$/;"	r
+ii	cpu_rtl/memory.v	/^	integer ii, file;$/;"	r
+in_file	cpu_rtl/memory.v	/^	parameter in_file = "in.machine";$/;"	c
+in_grid	gpu.v	/^	wire in_grid, on_border, in_regfile, in_pc;$/;"	n
+in_pc	gpu.v	/^	wire in_grid, on_border, in_regfile, in_pc;$/;"	n
+in_regfile	gpu.v	/^	wire in_grid, on_border, in_regfile, in_pc;$/;"	n
+incr	sign_extend_test.v	/^	reg [31:0] incr;$/;"	r
+init_memory	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^impure FUNCTION init_memory( C_USE_DEFAULT_DATA : INTEGER;$/;"	f
+init_memory	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^impure FUNCTION init_memory( C_USE_DEFAULT_DATA : INTEGER;$/;"	f
+input	rtl/common/dcmspi.v	/^    input  DFSLCKD,$/;"	p
+input	rtl/common/dcmspi.v	/^    input  PROGCLK,            \/\/SPI clock$/;"	p
+input	rtl/common/dcmspi.v	/^    input  [7:0] D,            \/\/DCM D value$/;"	p
+input	rtl/common/synchro.v	/^  input  wire        clk,$/;"	c
+input	rtl/tx/encode.v	/^  input            c0,       \/\/ c0 input$/;"	p
+input	rtl/tx/encode.v	/^  input            de,       \/\/ de input$/;"	p
+input	rtl/tx/encode.v	/^  input            rstin,    \/\/ async. reset input (active high)$/;"	p
+instr	sign_extend_test.v	/^	reg [15:0] instr;$/;"	r
+integer	rtl/tx/serdes_n_to_1.v	/^parameter integer SF = 8 ;   		\/\/ Parameter to set the serdes factor 1..8$/;"	c
+iob_data_out	rtl/tx/serdes_n_to_1.v	/^output 			iob_data_out ;	\/\/ output data$/;"	p
+ioclk	rtl/tx/serdes_n_to_1.v	/^input 			ioclk ;		\/\/ IO Clock network$/;"	p
+j	register_test.v	/^	reg [31:0] j;$/;"	r
+k0	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+k1	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+last_y	debugging_rig.v	/^	reg [11:0] last_y;$/;"	r
+latch0	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch1	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch10	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch11	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch12	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch13	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch14	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch15	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch16	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch17	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch18	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch19	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch2	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch20	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch21	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch22	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch23	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch24	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch25	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch26	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch27	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch28	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch29	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch3	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch30	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch31	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch4	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch5	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch6	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch7	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch8	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+latch9	debugging_rig.v	/^	reg [31:0] latch0, latch1, latch2, latch3, latch4, latch5, latch6, latch7, latch8, latch9, latch10, latch11, latch12, latch13, latch14, latch15, latch16, latch17, latch18, latch19, latch20, latch21, latch22, latch23, latch24, latch25, latch26, latch27, latch28, latch29, latch30, latch31;$/;"	r
+ldm	rtl/common/dcmspi.v	/^wire ldm;$/;"	n
+locked	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+loop	mips_synth.asm	/^loop:				beq $s2, $t7, reset		#jump to reset if the counter is too big$/;"	l
+main	isim/test_mips_isim_beh.exe.sim/work/test_mips_isim_beh.exe_main.c	/^int main(int argc, char **argv)$/;"	f
+main	main.v	/^module main($/;"	m
+main	mips_synth.asm	/^main:				addi $s0, $0, 256		#set loop max to 256$/;"	l
+mdatain	rtl/tx/serdes_n_to_1.v	/^wire	[8:0]	mdatain ;		\/\/$/;"	n
+mdone	rtl/common/dcmspi.v	/^wire mdone;$/;"	n
+mem_addr	cpu_rtl/test_mips.v	/^	wire [31:0] mem_addr;$/;"	n
+mem_rd_data	cpu_rtl/test_mips.v	/^	wire [31:0] mem_rd_data;$/;"	n
+mem_type	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^type mem_type is array (511 downto 0) of std_logic_vector(31 downto 0);$/;"	t
+mem_type	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^type mem_type is array (35 downto 0) of std_logic_vector(67 downto 0);$/;"	t
+mem_wr_data	cpu_rtl/test_mips.v	/^	wire [31:0] mem_wr_data;$/;"	n
+mem_wr_ena	cpu_rtl/test_mips.v	/^	wire mem_wr_ena;$/;"	n
+memory	cpu_rtl/memory.v	/^module memory($/;"	m
+mips	cpu_rtl/mips.v	/^module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);$/;"	m
+mux	rtl/tx/convert_30to15_fifo.v	/^  wire [14:0] mux;$/;"	n
+mval	rtl/common/dcmspi.v	/^wire [9:0] mval = {M, 1'b1, 1'b1}; \/\/M command: 11,M0-M7$/;"	n
+n0q_m	rtl/tx/encode.v	/^  reg [3:0] n1q_m, n0q_m; \/\/ number of 1s and 0s for q_m$/;"	r
+n1d	rtl/tx/encode.v	/^  reg [3:0] n1d; \/\/number of 1s in din$/;"	r
+n1q_m	rtl/tx/encode.v	/^  reg [3:0] n1q_m, n0q_m; \/\/ number of 1s and 0s for q_m$/;"	r
+neighbor_alive	mips_synth.asm	/^neighbor_alive:		addi $s5, $s5, 1$/;"	l
+new_frame	mips_synth.asm	/^new_frame:			add $a0, $t8, $0        #frame_count = new frame_count$/;"	l
+ng0	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static const char *ng0 = "C:\/Users\/brownell\/Downloads\/mips_stub\/mips_stub\/mips_stub\/cpu_rtl\/test_mips.v";$/;"	v	file:
+ng0	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static const char *ng0 = "C:\/Users\/brownell\/Downloads\/mips_stub\/mips_stub\/mips_stub\/cpu_rtl\/test_mips.v";$/;"	v	file:
+ng0	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	/^static const char *ng0 = "C:\/Users\/brownell\/Downloads\/mips_stub\/mips_stub\/mips_stub\/cpu_rtl\/mips.v";$/;"	v	file:
+ng0	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static const char *ng0 = "C:\/Xilinx\/13.4\/ISE_DS\/ISE\/verilog\/src\/glbl.v";$/;"	v	file:
+ng0	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static const char *ng0 = "C:\/Users\/brownell\/Downloads\/mips_stub\/mips_stub\/mips_stub\/cpu_rtl\/memory.v";$/;"	v	file:
+ng1	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static int ng1[] = {0, 0};$/;"	v	file:
+ng1	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static int ng1[] = {0, 0};$/;"	v	file:
+ng1	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	/^static int ng1[] = {0, 0};$/;"	v	file:
+ng1	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static unsigned int ng1[] = {1U, 0U};$/;"	v	file:
+ng1	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static const char *ng1 = "out.machine";$/;"	v	file:
+ng2	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static int ng2[] = {5, 0};$/;"	v	file:
+ng2	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static int ng2[] = {5, 0};$/;"	v	file:
+ng2	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^static unsigned int ng2[] = {0U, 0U};$/;"	v	file:
+ng2	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static const char *ng2 = "w";$/;"	v	file:
+ng3	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static int ng3[] = {1, 0};$/;"	v	file:
+ng3	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static int ng3[] = {1, 0};$/;"	v	file:
+ng3	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static int ng3[] = {0, 0};$/;"	v	file:
+ng4	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^static int ng4[] = {100, 0};$/;"	v	file:
+ng4	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^static int ng4[] = {100, 0};$/;"	v	file:
+ng4	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static int ng4[] = {4096, 0};$/;"	v	file:
+ng5	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static const char *ng5 = "%h\\n";$/;"	v	file:
+ng6	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static int ng6[] = {1, 0};$/;"	v	file:
+ng7	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static unsigned int ng7[] = {0U, 0U};$/;"	v	file:
+ng8	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static int ng8[] = {1751740005, 0, 778920291, 0, 26990, 0};$/;"	v	file:
+on_border	gpu.v	/^	wire in_grid, on_border, in_regfile, in_pc;$/;"	n
+out_file	cpu_rtl/memory.v	/^	parameter out_file = "out.machine";$/;"	c
+output	rtl/common/dcmspi.v	/^    output reg BUSY,$/;"	p
+pc_b	gpu.v	/^	wire [7:0] pc_r, pc_g, pc_b;$/;"	n
+pc_g	gpu.v	/^	wire [7:0] pc_r, pc_g, pc_b;$/;"	n
+pc_r	gpu.v	/^	wire [7:0] pc_r, pc_g, pc_b;$/;"	n
+pclk	main.v	/^	wire          clkfx, pclk;$/;"	n
+pclk_D	main.v	/^	reg [7:0] pclk_M, pclk_D;$/;"	r
+pclk_M	main.v	/^	reg [7:0] pclk_M, pclk_D;$/;"	r
+pclk_lckd	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+pclkx10	main.v	/^	wire pclkx2, pclkx10, pll_lckd;$/;"	n
+pclkx2	main.v	/^	wire pclkx2, pclkx10, pll_lckd;$/;"	n
+physical_address	cpu_rtl/memory.v	/^	wire [11:0] physical_address;$/;"	n
+physical_memory	cpu_rtl/memory.v	/^	reg [31:0] physical_memory [0:4095];$/;"	r
+pixel_x	main.v	/^	wire   [10:0] pixel_x;$/;"	n
+pixel_y	main.v	/^	wire   [10:0] pixel_y;$/;"	n
+pll_lckd	main.v	/^	wire pclkx2, pclkx10, pll_lckd;$/;"	n
+pllclk0	main.v	/^	wire pllclk0, pllclk1, pllclk2;$/;"	n
+pllclk1	main.v	/^	wire pllclk0, pllclk1, pllclk2;$/;"	n
+pllclk2	main.v	/^	wire pllclk0, pllclk1, pllclk2;$/;"	n
+progdata	main.v	/^	wire progdone, progen, progdata;$/;"	n
+progdone	main.v	/^	wire progdone, progen, progdata;$/;"	n
+progen	main.v	/^	wire progdone, progen, progdata;$/;"	n
+pwrup	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+q_m	rtl/tx/encode.v	/^  wire [8:0] q_m;$/;"	n
+q_m_reg	rtl/tx/encode.v	/^  reg [8:0] q_m_reg;$/;"	r
+ra	register.v	/^reg [31:0] gp, sp, fp, ra;$/;"	r
+ra	rtl/tx/convert_30to15_fifo.v	/^  wire  [3:0]   ra;       \/\/ RAM read address$/;"	n
+ra_d	rtl/tx/convert_30to15_fifo.v	/^  reg   [3:0]   ra_d;     \/\/ RAM read address$/;"	r
+read_data1	register_test.v	/^	wire [31:0] read_data1, read_data2;$/;"	n
+read_data2	register_test.v	/^	wire [31:0] read_data1, read_data2;$/;"	n
+read_data_reg	cpu_rtl/memory.v	/^	reg [31:0] read_data_reg;$/;"	r
+red	rtl/tx/dvi_encoder.v	/^wire 	[9:0]	red ;$/;"	n
+red_data	main.v	/^	wire [7:0] red_data, green_data, blue_data;$/;"	n
+reg	behavioural_alu.v	/^	output reg  [31:0] Z;$/;"	p
+reg	behavioural_alu.v	/^	output reg overflow;$/;"	p
+reg	cpu_rtl/mips.v	/^	output reg [31:0] PC;$/;"	p
+reg	cpu_rtl/mips.v	/^	output reg mem_wr_ena;$/;"	p
+reg	debugging_rig.v	/^	output reg [7:0] r, g, b;$/;"	p
+reg	gpu.v	/^	output reg [7:0] red, green, blue;$/;"	p
+reg	half_byte_mux.v	/^	output reg  [3:0] y;$/;"	p
+reg	register.v	/^	output reg [31:0] read_data1, read_data2$/;"	p
+reg	rtl/common/dcmspi.v	/^    output reg PROGDATA        \/\/CommandData$/;"	p
+reg	rtl/common/dcmspi.v	/^    output reg PROGEN,         \/\/SlaveSelect,$/;"	p
+reg	rtl/tx/encode.v	/^  output reg [9:0] dout      \/\/ data outputs$/;"	p
+regfile_b	gpu.v	/^	wire [7:0] regfile_r, regfile_g, regfile_b;$/;"	n
+regfile_g	gpu.v	/^	wire [7:0] regfile_r, regfile_g, regfile_b;$/;"	n
+regfile_r	gpu.v	/^	wire [7:0] regfile_r, regfile_g, regfile_b;$/;"	n
+regfile_x	gpu.v	/^	wire [11:0] regfile_x, regfile_y;$/;"	n
+regfile_y	gpu.v	/^	wire [11:0] regfile_x, regfile_y;$/;"	n
+register	register.v	/^module register($/;"	m
+register_test	register_test.v	/^module register_test;$/;"	m
+registers	register.v	/^reg [31:0] registers [0:31];$/;"	r
+reset	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+reset	mips_synth.asm	/^reset:				add  $s1, $s7, $0 		#set the current frame$/;"	l
+reset	rtl/tx/serdes_n_to_1.v	/^input 			reset ;		\/\/ Reset$/;"	p
+resolution	main.v	/^	parameter resolution = `SW_HDTV720P;$/;"	c
+rom	ipcore_dir/hex_font_rom/simulation/bmg_stim_gen.vhd	/^constant rom : mem_type := c_init;$/;"	c
+rom	ipcore_dir/test_case_rom/simulation/bmg_stim_gen.vhd	/^constant rom : mem_type := c_init;$/;"	c
+rom_addr	debugging_rig.v	/^	wire [8:0] rom_addr;$/;"	n
+rom_addr	gpu.v	/^	wire [8:0] rom_addr;$/;"	n
+rom_data	debugging_rig.v	/^	wire [31:0] rom_data;$/;"	n
+rom_data	gpu.v	/^	wire [31:0] rom_data;$/;"	n
+rst	register_test.v	/^	reg rst, clk, write_enable;$/;"	r
+rstb	cpu_rtl/test_mips.v	/^	reg rstb;$/;"	r
+rstp	rtl/tx/convert_30to15_fifo.v	/^  wire rstsync, rstsync_q, rstp;$/;"	n
+rstsync	rtl/tx/convert_30to15_fifo.v	/^  wire rstsync, rstsync_q, rstp;$/;"	n
+rstsync_q	rtl/tx/convert_30to15_fifo.v	/^  wire rstsync, rstsync_q, rstp;$/;"	n
+s0	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s1	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s2	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s3	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s4	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s5	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s6	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s7	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+s_data	rtl/tx/dvi_encoder.v	/^wire [29:0] s_data = {red[9:5], green[9:5], blue[9:5],$/;"	n
+serdes_n_to_1	rtl/tx/serdes_n_to_1.v	/^module serdes_n_to_1 (ioclk, serdesstrobe, reset, gclk, datain, iob_data_out) ;$/;"	m
+serdes_rst	main.v	/^	wire serdes_rst;$/;"	n
+serdesstrobe	main.v	/^	wire serdesstrobe;$/;"	n
+serdesstrobe	rtl/tx/serdes_n_to_1.v	/^input 			serdesstrobe ;	\/\/ Parallel data capture strobe$/;"	p
+sign_extend	sign_extend.v	/^module sign_extend($/;"	m
+sign_extend_test	sign_extend_test.v	/^module sign_extend_test;$/;"	m
+signed	behavioural_alu.v	/^	reg signed [31:0] sum_diff;$/;"	r
+signed	behavioural_alu.v	/^	wire signed [31:0] X_s, Y_s, sra;$/;"	n
+sndd	rtl/common/dcmspi.v	/^reg sndd = 1'b0;$/;"	r
+sndm	rtl/common/dcmspi.v	/^reg sndm = 1'b0;$/;"	r
+sndval	rtl/common/dcmspi.v	/^reg [9:0] sndval;$/;"	r
+sp	register.v	/^reg [31:0] gp, sp, fp, ra;$/;"	r
+sp_dump	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^static int sp_dump(char *t1, char *t2)$/;"	f	file:
+sw0_rdy	main.v	/^	wire sw0_rdy, sw1_rdy, sw2_rdy, sw3_rdy;$/;"	n
+sw1_rdy	main.v	/^	wire sw0_rdy, sw1_rdy, sw2_rdy, sw3_rdy;$/;"	n
+sw2_rdy	main.v	/^	wire sw0_rdy, sw1_rdy, sw2_rdy, sw3_rdy;$/;"	n
+sw3_rdy	main.v	/^	wire sw0_rdy, sw1_rdy, sw2_rdy, sw3_rdy;$/;"	n
+sws_sync	main.v	/^	wire [3:0] SW, sws_sync;$/;"	n
+sws_sync_q	main.v	/^	reg [3:0] sws_sync_q;$/;"	r
+sync	rtl/tx/convert_30to15_fifo.v	/^  wire sync;$/;"	n
+synchro	rtl/common/synchro.v	/^module synchro$/;"	m
+sysclk	main.v	/^	wire locked, reset, clk50m, clk50m_bufg, pwrup, sysclk, pclk_lckd;$/;"	n
+t0	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t1	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t2	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t3	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t4	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t5	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t6	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t7	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+t8	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+t9	register.v	/^reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;$/;"	r
+tc_heblnk	main.v	/^	reg [10:0] tc_heblnk;$/;"	r
+tc_hesync	main.v	/^	reg [10:0] tc_hesync;$/;"	r
+tc_hsblnk	main.v	/^	reg [10:0] tc_hsblnk;$/;"	r
+tc_hssync	main.v	/^	reg [10:0] tc_hssync;$/;"	r
+tc_veblnk	main.v	/^	reg [10:0] tc_veblnk;$/;"	r
+tc_vesync	main.v	/^	reg [10:0] tc_vesync;$/;"	r
+tc_vsblnk	main.v	/^	reg [10:0] tc_vsblnk;$/;"	r
+tc_vssync	main.v	/^	reg [10:0] tc_vssync;$/;"	r
+temp	rtl/common/synchro.v	/^  wire        temp;$/;"	n
+test_case_rom	ipcore_dir/test_case_rom.v	/^module test_case_rom($/;"	m
+test_case_rom_top	ipcore_dir/test_case_rom/example_design/test_case_rom_top.vhd	/^ENTITY test_case_rom_top IS$/;"	e
+test_mips	cpu_rtl/test_mips.v	/^module test_mips;$/;"	m
+timing	rtl/common/timing.v	/^module timing$/;"	m
+tmds_data0	main.v	/^	wire [4:0] tmds_data0, tmds_data1, tmds_data2;$/;"	n
+tmds_data1	main.v	/^	wire [4:0] tmds_data0, tmds_data1, tmds_data2;$/;"	n
+tmds_data2	main.v	/^	wire [4:0] tmds_data0, tmds_data1, tmds_data2;$/;"	n
+tmdsclk	main.v	/^	wire tmdsclk;$/;"	n
+tmdsclkint	main.v	/^	reg [4:0] tmdsclkint = 5'b00000;$/;"	r
+tmdsint	main.v	/^	wire [2:0] tmdsint;$/;"	n
+toggle	main.v	/^	reg toggle = 1'b0;$/;"	r
+v0	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+v1	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r
+vblnk	main.v	/^	wire hblnk, vblnk;$/;"	n
+vpos_clr	rtl/common/timing.v	/^  wire          vpos_clr;$/;"	n
+vpos_cnt	rtl/common/timing.v	/^  reg    [10:0] vpos_cnt = 0;$/;"	r
+vpos_ena	rtl/common/timing.v	/^  wire          vpos_ena;$/;"	n
+vsync	main.v	/^	reg vsync, hsync;$/;"	r
+vsync	mips_synth.asm	/^vsync:				addi $t0, $0, 8192      #frame counter address is 8192,$/;"	l
+wa	rtl/tx/convert_30to15_fifo.v	/^  wire  [3:0]   wa;       \/\/ RAM read address$/;"	n
+wa_d	rtl/tx/convert_30to15_fifo.v	/^  reg   [3:0]   wa_d;     \/\/ RAM read address$/;"	r
+wea	ipcore_dir/fpga_ram.v	/^input [0 : 0] wea;$/;"	p
+web	ipcore_dir/fpga_ram.v	/^input [0 : 0] web;$/;"	p
+wire	behavioural_alu.v	/^	input  wire [31:0] X,Y;$/;"	p
+wire	behavioural_alu.v	/^	input  wire [3:0] op_code;$/;"	p
+wire	behavioural_alu.v	/^	output wire zero, equal;$/;"	p
+wire	cpu_rtl/mips.v	/^	input wire [31:0] mem_rd_data;             $/;"	p
+wire	cpu_rtl/mips.v	/^	input wire clk, rstb;$/;"	p
+wire	cpu_rtl/mips.v	/^	output wire [31:0] mem_wr_data, mem_addr;$/;"	p
+wire	debugging_rig.v	/^	input wire [11:0] x,y;$/;"	p
+wire	debugging_rig.v	/^	input wire [31:0] in0, in1, in2, in3, in4, in5, in6, in7, in8, in9, in10, in11, in12, in13, in14, in15, in16, in17, in18, in19, in20, in21, in22, in23, in24, in25, in26, in27, in28, in29, in30, in31;$/;"	p
+wire	debugging_rig.v	/^	input wire clk, rstb, vsync;$/;"	p
+wire	gpu.v	/^	input wire [10:0] x;$/;"	p
+wire	gpu.v	/^	input wire [10:0] y;$/;"	p
+wire	gpu.v	/^	input wire [31:0] dbg0, dbg1, dbg2, dbg3, dbg4, dbg5, dbg6, dbg7, dbg8, dbg9, dbg10, dbg11, dbg12, dbg13, dbg14, dbg15, dbg16, dbg17, dbg18, dbg19, dbg20, dbg21, dbg22, dbg23, dbg24, dbg25, dbg26, dbg27, dbg28, dbg29, dbg30, dbg31;$/;"	p
+wire	gpu.v	/^	input wire [31:0] mem_rd_data, PC;$/;"	p
+wire	gpu.v	/^	input wire cclk, pclk, rstb, vsync;$/;"	p
+wire	gpu.v	/^	output wire [31:0] mem_addr, mem_wr_data;$/;"	p
+wire	gpu.v	/^	output wire mem_wr_ena;$/;"	p
+wire	half_byte_mux.v	/^	input  wire [2:0] byte_select;$/;"	p
+wire	half_byte_mux.v	/^	input  wire [31:0] x;$/;"	p
+wire	main.v	/^	input  wire SYS_CLK,$/;"	p
+wire	main.v	/^	input  wire rstb, button_left, button_right,$/;"	p
+wire	main.v	/^	output wire [3:0] TMDS,$/;"	p
+wire	main.v	/^	output wire [3:0] TMDSB$/;"	p
+wire	register.v	/^	input wire [31:0] write_data,$/;"	p
+wire	register.v	/^	input wire [4:0] address1, address2, address3,$/;"	p
+wire	register.v	/^	input wire rst, clk, write_ena,$/;"	p
+wire	rtl/common/synchro.v	/^  output wire        sync$/;"	p
+wire	rtl/common/timing.v	/^  input  wire        clk$/;"	p
+wire	rtl/common/timing.v	/^  input  wire        restart,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_heblnk,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_hesync,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_hsblnk,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_hssync,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_veblnk,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_vesync,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_vsblnk,$/;"	p
+wire	rtl/common/timing.v	/^  input  wire [10:0] tc_vssync,$/;"	p
+wire	rtl/common/timing.v	/^  output wire        hblnk,$/;"	p
+wire	rtl/common/timing.v	/^  output wire        hsync,$/;"	p
+wire	rtl/common/timing.v	/^  output wire        vblnk,$/;"	p
+wire	rtl/common/timing.v	/^  output wire        vsync,$/;"	p
+wire	rtl/common/timing.v	/^  output wire [10:0] hcount,$/;"	p
+wire	rtl/common/timing.v	/^  output wire [10:0] vcount,$/;"	p
+wire	rtl/tx/convert_30to15_fifo.v	/^  input  wire [29:0] datain,   \/\/ input data for 2:1 serialisation$/;"	p
+wire	rtl/tx/convert_30to15_fifo.v	/^  input  wire clk,   \/\/ clock input$/;"	p
+wire	rtl/tx/convert_30to15_fifo.v	/^  input  wire clkx2, \/\/ 2x clock input$/;"	p
+wire	rtl/tx/convert_30to15_fifo.v	/^  input  wire rst,   \/\/ reset$/;"	p
+wire	rtl/tx/convert_30to15_fifo.v	/^  output wire [14:0] dataout); \/\/ 5-bit data out$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire       clkin,          \/\/ pixel clock$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire       clkx2in,        \/\/ pixel clock x2$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire       de,             \/\/ data enable$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire       hsync,          \/\/ hsync data$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire       rstin,          \/\/ reset$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire       vsync,          \/\/ vsync data$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire [7:0] blue_din,       \/\/ Blue data in$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire [7:0] green_din,      \/\/ Green data in$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^input  wire [7:0] red_din,        \/\/ Red data in$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^output wire [4:0]	tmds_data2);		\/\/ 5-bit busses converted from 10-bit$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^output wire [4:0] tmds_data0,$/;"	p
+wire	rtl/tx/dvi_encoder.v	/^output wire [4:0] tmds_data1,$/;"	p
+wire	sign_extend.v	/^	input wire [15:0] instr,$/;"	p
+wire	sign_extend.v	/^	output wire [31:0] SignImm$/;"	p
+work_m_00000000000228065848_0116314407_init	isim/test_mips_isim_beh.exe.sim/work/m_00000000000228065848_0116314407.c	/^extern void work_m_00000000000228065848_0116314407_init()$/;"	f
+work_m_00000000000789600982_0116314407_init	isim/test_mips_isim_beh.exe.sim/work/m_00000000000789600982_0116314407.c	/^extern void work_m_00000000000789600982_0116314407_init()$/;"	f
+work_m_00000000003564441937_3877310806_init	isim/test_mips_isim_beh.exe.sim/work/m_00000000003564441937_3877310806.c	/^extern void work_m_00000000003564441937_3877310806_init()$/;"	f
+work_m_00000000004134447467_2073120511_init	isim/test_mips_isim_beh.exe.sim/work/m_00000000004134447467_2073120511.c	/^extern void work_m_00000000004134447467_2073120511_init()$/;"	f
+work_m_00000000004165586116_2381739659_init	isim/test_mips_isim_beh.exe.sim/work/m_00000000004165586116_2381739659.c	/^extern void work_m_00000000004165586116_2381739659_init()$/;"	f
+write_data	register_test.v	/^	reg [31:0] write_data;$/;"	r
+write_enable	register_test.v	/^	reg rst, clk, write_enable;$/;"	r
+xsi_info	isim/test_mips_isim_beh.exe.sim/work/test_mips_isim_beh.exe_main.c	/^struct XSI_INFO xsi_info;$/;"	v	typeref:struct:XSI_INFO
+zero	register.v	/^reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;$/;"	r

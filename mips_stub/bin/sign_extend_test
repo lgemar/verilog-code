@@ -1,0 +1,64 @@
+#! /usr/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x8f075b8 .scope module, "sign_extend_test" "sign_extend_test" 2 2;
+ .timescale -9 -12;
+RS_0x8f2a094 .resolv tri, L_0x8f4df30, L_0x8f4e070, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>, C4<zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz>;
+v0x8f4ddf0_0 .net8 "SignImm", 31 0, RS_0x8f2a094; 2 drivers
+v0x8f4de70_0 .var "incr", 31 0;
+v0x8f4dec0_0 .var "instr", 15 0;
+S_0x8f07638 .scope module, "uut" "sign_extend" 2 12, 3 3, S_0x8f075b8;
+ .timescale -9 -12;
+L_0x8f4dfb8 .functor BUFZ 16, v0x8f4dec0_0, C4<0000000000000000>, C4<0000000000000000>, C4<0000000000000000>;
+v0x8f076b8_0 .alias "SignImm", 31 0, v0x8f4ddf0_0;
+v0x8f4dc68_0 .net *"_s3", 15 0, L_0x8f4dfb8; 1 drivers
+v0x8f4dcc8_0 .net *"_s7", 0 0, L_0x8f4e0c0; 1 drivers
+v0x8f4dd28_0 .net *"_s8", 15 0, L_0x8f4e110; 1 drivers
+v0x8f4dd90_0 .net "instr", 15 0, v0x8f4dec0_0; 1 drivers
+L_0x8f4df30 .part/pv L_0x8f4dfb8, 0, 16, 32;
+L_0x8f4e070 .part/pv L_0x8f4e110, 16, 16, 32;
+L_0x8f4e0c0 .part v0x8f4dec0_0, 15, 1;
+LS_0x8f4e110_0_0 .concat [ 1 1 1 1], L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0;
+LS_0x8f4e110_0_4 .concat [ 1 1 1 1], L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0;
+LS_0x8f4e110_0_8 .concat [ 1 1 1 1], L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0;
+LS_0x8f4e110_0_12 .concat [ 1 1 1 1], L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0, L_0x8f4e0c0;
+L_0x8f4e110 .concat [ 4 4 4 4], LS_0x8f4e110_0_0, LS_0x8f4e110_0_4, LS_0x8f4e110_0_8, LS_0x8f4e110_0_12;
+    .scope S_0x8f075b8;
+T_0 ;
+    %vpi_call 2 19 "$dumpfile", "sign_extend_test.vcd";
+    %vpi_call 2 20 "$dumpvars", 1'sb0, S_0x8f075b8;
+    %movi 8, 8, 32;
+    %set/v v0x8f4de70_0, 8, 32;
+    %delay 100000, 0;
+    %set/v v0x8f4dec0_0, 0, 16;
+T_0.0 ;
+    %load/v 8, v0x8f4dec0_0, 16;
+    %mov 24, 0, 1;
+   %cmpi/u 8, 2, 17;
+    %mov 8, 5, 1;
+    %mov 9, 0, 4;
+    %movi 13, 15, 5;
+    %xor 8, 13, 5;
+    %or/r 8, 8, 5;
+    %jmp/0xz T_0.1, 8;
+    %delay 100000, 0;
+    %vpi_call 2 31 "$display", "Inputs: %16b ; Output: %32b", v0x8f4dec0_0, v0x8f4ddf0_0;
+    %load/v 8, v0x8f4dec0_0, 16;
+    %mov 24, 0, 16;
+    %load/v 40, v0x8f4de70_0, 32;
+    %add 8, 40, 32;
+    %set/v v0x8f4dec0_0, 8, 16;
+    %jmp T_0.0;
+T_0.1 ;
+    %vpi_call 2 33 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "sign_extend_test.v";
+    ".//sign_extend.v";
