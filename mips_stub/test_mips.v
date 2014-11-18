@@ -40,8 +40,8 @@ module test_mips;
 		//reset
 		repeat (5) @(posedge clk);
 		rstb = 1;
-		//run for some clocks
-		repeat(100) @(posedge clk);
+		//run for some clocks, Avi said to run more than 100
+		repeat(1000) @(posedge clk);
       //dump the memory
 		MEMORY.dump();
 		$finish;

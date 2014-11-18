@@ -3,7 +3,7 @@
 
 module register(
 	input wire rst, clk, write_ena,
-	input wire [4:0] address1, address2, address3,
+	input wire [4:0] address1, address2, address3,	// TODO: rename address3 to write_reg
 	input wire [31:0] write_data,
 	output reg [31:0] read_data1, read_data2
 );
