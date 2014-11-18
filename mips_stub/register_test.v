@@ -3,13 +3,13 @@
 module register_test;
 
 	// UUT inputs and outputs
-	reg rst, clk, write_ena;
+	reg rst, clk, write_enable;
 	reg [4:0] a1, a2, a3;
 	reg [31:0] write_data;
 	wire [31:0] read_data1, read_data2;
 	
 	// Test modules variables
-	reg [31:0] i, j;
+	reg [31:0] j;
 	
 
 	// Instantiate the Unit Under Test (UUT)
@@ -30,23 +30,27 @@ module register_test;
 	// Change the read values
 	always @(posedge clk) begin
 		// Reset the read addresses every 32nd clock cycle
-		if(i % 32 == 0) begin
+		if(j % 17 == 0) begin
 			a1 <= 5'd0;
 			a2 <= 5'd0;
+			a3 <= j;
 		end
 		else begin
 			a1 <= a1 + 1;
 			a2 <= a2 - 1;
+			a3 <= j;
 		end
 	end
 
 	always @(posedge clk) begin
 		// Update the write addresses every 32nd clk cycle
-		if(j % 32 == 0) begin
-			write_ena <= 1;
+		if(j % 17 == 0) begin
+			write_enable <= 1;
+			write_data = j;
+			j <= j + 1;
 		end
 		else begin
-			write_ena <= 0;
+			write_enable <= 0;
 			write_data <= j;
 			j <= j + 1;
 		end
@@ -59,12 +63,13 @@ module register_test;
 
 
 		// Initialize test bench vars
-		i = 0;
+		j = 0;
 
 		// Initialize UUT inputs
 		rst = 1;
 		clk = 0;
-		write_ena = 0;
+		write_enable = 0;
+		write_data = 0;
 		a1 = 0;
 		a2 = 0;
 		a3 = 0;
