@@ -25,22 +25,32 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.state(ctrl_state),
 		.inst(inst_reg),
 
-		.pc_write(ctrl_pcwr),
-		.i_or_d(ctrl_iord),
-		.mem_read(ctrl_memrd),
-		.mem_write(ctrl_memwr),
-		.mem_to_reg(ctrl_memtoreg),
+		// TODO: hook up branch wire to complete the register enables
 		.ir_write(ctrl_iregwr),
+		.mem_write(ctrl_memwr),
+		.pc_write(ctrl_pcwr),
 		.reg_write(ctrl_regrw),
 
-		.alu_src_a(ctrl_alusrca),
-		.alu_src_b(ctrl_alusrcb),
+		// Multiplexer selects
+		.mem_to_reg(ctrl_memtoreg),
 		.regdst(ctrl_regdst),
+		.i_or_d(ctrl_iord),
 		.pc_source(ctrl_pcsrc),
+		.alu_src_b(ctrl_alusrcb),
+		.alu_src_a(ctrl_alusrca),
+
+		.mem_read(ctrl_memrd),
+
 		.pc_wr_cond(ctrl_pcwrcond),
 		.alu_op(ctrl_aluop),
 
 		.next_state(ctrl_state)
+	)
+
+	alu_decoder ALUCTR (
+		.ALUop(ctrl_aluop), 
+		.Funct(inst_reg[5:0]), 
+		.ALUControl(ctrl_state)
 	)
 
 	// Instantiate ALU control with inputs and outputs
