@@ -6,21 +6,16 @@ module control_unit(
 	input wire [31:0] Instr;
 
 	// Multiplexer selects
-	// TODO: change the wires width to the inputs that I'm sending. My logic
-	// mips.v takes into account all instructions, I think.
+	// TODO: PCSrc - 2 bits, ALUSrcA - 2 bits, RegDst - 2 bits
 	output reg MemtoReg, RegDst, IorD, PCSrc, ALUSrcA;
 	output reg [1:0] ALUSrcB; 
 
-	// TODO: do we need MemRead signal?
-	// TODO: add outputs ALUSrcB[1:0] and PCWriteCond[1:0] - we'll discuss the
-	// logic tonight for branch and jump
-	// TODO: remove Branch, add ExtOp (depending on the type of itype
-	// instructions, we need either sign extend or zero extend).
+	// TODO: extend Branch 2 bits (MSB - bne logic, LSB - beq logic)
 	output reg IRWrite, MemWrite, PCWrite, Branch, RegWrite;
+	// TODO: add ExtOp (depending on the type of itype instructions, we need 
+	// either sign extend or zero extend). ORI, XORI, ANDI are zero extended,
+	// ADDI, SLTI, BEQ, BNE, LW, SW
 
-	// TODO: Let's factor out decoder into a separate module, I'm calling the
-	// decoder in mips to get the ALUControl. Send me back only ALUOp, don't
-	// decode it here into ALUControl
 	output wire [2:0] ALUControl;
 );
 
@@ -51,7 +46,8 @@ module control_unit(
 	`define ITYPE_EXECUTE 4'd9
 	`define ITYPE_WRITEBACK 4'd10
 	`define JUMP 4'd11
-
+	// TODO: we also need JAL and probably a NOP for nop instr
+	
 	// Instruction Opcode Defines: current operations supported by controller
 	// R-type opcodes
 	`define R_TYPE 6'd0

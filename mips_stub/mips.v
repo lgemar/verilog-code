@@ -16,7 +16,6 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire ctrl_pcwr, ctrl_iord, ctrl_memrd, ctrl_memwr, 
 		 ctrl_memtoreg, ctrl_iregwr, ctrl_regwr, ctrl_extop;
 	wire [1:0] ctrl_pcwrcond, ctrl_pcsrc, ctrl_alusrca, ctrl_alusrcb, ctrl_regdst;
-	wire [2:0] ctrl_aluop;
 	wire [3:0] ctrl_state;
 	
 	control_unit CONTROL (
@@ -28,36 +27,26 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.MemWrite(ctrl_memwr),
 		.PCWrite(ctrl_pcwr),
 		.RegWrite(ctrl_regrw),
-
-		// Multiplexer selects
 		.MemtoReg(ctrl_memtoreg),
 		.RegDst(ctrl_regdst),
 		.IorD(ctrl_iord),
 		.ALUSrcA(ctrl_alusrca),
 		.PCSrc(ctrl_pcsrc),
-		.alu_src_b(ctrl_alusrcb),
-		.mem_read(ctrl_memrd),
-		.pc_wr_cond(ctrl_pcwrcond),
+		.ALUSrcB(ctrl_alusrcb),
+		.MemRead(ctrl_memrd),
+		.Branch(ctrl_pcwrcond),
 		.ExtOp(ctrl_ctrl_extop),
-		.ALUOp(ctrl_aluop),
-	)
-
-	// Instantiate ALU control with inputs and outputs
-	reg [3:0] ALUControl;	// output from the ALU_CONTROL
-	alu_control ALU_CONTROL (
-		.alu_op(ctrl_aluop),		// Output of CONTROL
-		.opcode(inst_reg[31:26]),
-		.func(inst_reg[5:0]),
-
-		.alu_ctrl(ALUControl)
+		.ALUControl(ctrl_aluop),
+		.ExtOp(ctrl_extop)
 	)
 
 	// Instantiate ALU component with inputs and outputs
 	// ALU inputs
+	reg [3:0] ALUControl;	// output from the ALU_CONTROL
 	wire [31:0] SrcA, SrcB;	// output from two MUX
 	assign SrcA = ctrl_alusrca[1] ? inst_reg[10:6] : (ctrl_alusrca[0] ? reg_a : PC);
 	assign SrcB = ctrl_alusrcb[2] 
-				? (ctrl_alusrcb[1] ? {s_ext_out[29:0], 2'b0} : {16b'0, inst_reg[15:0]})
+				? (ctrl_alusrcb[1] ? {ext_out[29:0], 2'b0} : ext_out)
 				: (ctrl_alusrcb[0] ? 32'd4 : reg_b);
 
 	// ALU outputs
@@ -80,16 +69,14 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// Register Outputs
 	wire [31:0] rd1, rd2;
 	// Assign and initialize inputs
-	assign addr1 = inst_reg[25:21];
-	assign addr2 = inst_reg[20:16];
 	assign waddr = ctrl_dst[1] ? 5'd31 : (ctrl_dst[0] ? inst_reg[15:11] : inst_reg[20:16]);
 	assign wdata = ctrl_dst[1] ? PC : (ctrl_memtoreg ? mem_rd_data : ALUResult);
 	
 	register REG (
 		.rst(rstb),						// reset (directly)
 		.clk(clk),						// clock (directly)
-		.address1(addr1),				// addrA (directly from inst_reg)
-		.address2(addr2),				// addrB (directly from inst_reg)
+		.address1(inst_reg[25:21]),		// addrA (directly from inst_reg)
+		.address2(inst_reg[20:16]),		// addrB (directly from inst_reg)
 		.address3(waddr),				// write addr (from MUX)
 		.write_data(wdata),				// write data (from MUX)
 		.write_ena(ctrl_regwr),			// RegWrite from Control
@@ -99,11 +86,12 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	);
 
 	// Instantiate sign extension unit
-	wire [31:0] s_ext_out;
+	// Outputs
+	wire [31:0] ext_out;
 	sign_extender SIGN_EXTENDER (
 		.in(inst_reg[15:0]),
 		.zero(ctrl_extop),
-		.out(s_ext_out)
+		.out(ext_out)
 	)
 
 	// MIPS outputs assignment, PC will be assigned in FSM
@@ -111,8 +99,6 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign mem_wr_data = reg_b;
 	assign mem_wr_ena = ctrl_memwr;
 
-	/** FSM Logic **/
-	
 	// MIPS internal registers for FSM
 	reg [31:0] mem_data_reg, inst_reg, reg_a, reg_b, alu_out;
 
