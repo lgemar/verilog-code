@@ -16,7 +16,8 @@ module control_unit(
 	// either sign extend or zero extend). ORI, XORI, ANDI are zero extended,
 	// ADDI, SLTI, BEQ, BNE, LW, SW
 
-	output wire [2:0] ALUControl;
+	// TODO: ALU has 16bit mux, so 4bits for control, not 3
+	output wire [3:0] ALUControl;
 );
 
 	// Internal Vars
