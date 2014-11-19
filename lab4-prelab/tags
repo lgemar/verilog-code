@@ -7,22 +7,30 @@
 Branchtype	lukas.cpp	/^static string_map Branchtype = { {"beq", 4}, {"bne", 5} };$/;"	v	file:
 CC	Makefile	/^CC=clang++$/;"	m
 CFLAGS	Makefile	/^CFLAGS=-ggdb3 -Wall -Werror -std=c++11 -O0$/;"	m
-Itype	lukas.cpp	/^static string_map Itype = {{"addi", 8}, {"andi", 12}, {"ori", 13}, $/;"	v	file:
-JMASK	ivan.cpp	14;"	d	file:
-Jtype	lukas.cpp	/^static string_map Jtype = {{"j", 2}, {"jal", 3}, {"jr", 8}};$/;"	v	file:
+Itype	lukas.cpp	/^static string_map Itype = {$/;"	v	file:
+JMASK	ivan.cpp	15;"	d	file:
+JMASK	lukas.cpp	8;"	d	file:
+Jtype	lukas.cpp	/^static string_map Jtype = {{"j", 2}, {"jal", 3}};$/;"	v	file:
 MemoryOps	lukas.cpp	/^static string_map MemoryOps = { {"lw", 35}, {"sw", 43} };$/;"	v	file:
 PC	lukas.cpp	/^static unsigned PC = 0;$/;"	v	file:
 Rtype	lukas.cpp	/^static string_map Rtype = {$/;"	v	file:
 SHIFT_OFFSET	ivan.cpp	/^       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };$/;"	e	enum:__anon1	file:
+SHIFT_OFFSET	lukas.cpp	/^       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };$/;"	e	enum:__anon2	file:
 SHIFT_OP	ivan.cpp	/^enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, $/;"	e	enum:__anon1	file:
+SHIFT_OP	lukas.cpp	/^enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, $/;"	e	enum:__anon2	file:
 SHIFT_RD	ivan.cpp	/^       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };$/;"	e	enum:__anon1	file:
+SHIFT_RD	lukas.cpp	/^       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };$/;"	e	enum:__anon2	file:
 SHIFT_RS	ivan.cpp	/^enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, $/;"	e	enum:__anon1	file:
+SHIFT_RS	lukas.cpp	/^enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, $/;"	e	enum:__anon2	file:
 SHIFT_RT	ivan.cpp	/^enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, $/;"	e	enum:__anon1	file:
+SHIFT_RT	lukas.cpp	/^enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, $/;"	e	enum:__anon2	file:
 SHIFT_SHMT	ivan.cpp	/^       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };$/;"	e	enum:__anon1	file:
+SHIFT_SHMT	lukas.cpp	/^       SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };$/;"	e	enum:__anon2	file:
 Shifttype	lukas.cpp	/^static string_map Shifttype =  { {"sll", 0}, {"sra", 3}, {"srl", 2} };$/;"	v	file:
 Str2Reg	lukas.cpp	/^static string_map Str2Reg = {$/;"	v	file:
-TEXT_START	ivan.cpp	15;"	d	file:
-WHITESPACE	ivan.cpp	12;"	d	file:
+TEXT_START	ivan.cpp	16;"	d	file:
+TEXT_START	lukas.cpp	9;"	d	file:
+WHITESPACE	ivan.cpp	13;"	d	file:
 assemble	ivan.cpp	/^int assemble(ifstream& asmfile, ofstream& machine) {$/;"	f
 build_branch	lukas.cpp	/^unsigned build_branch(string_array s) {$/;"	f
 build_i	lukas.cpp	/^unsigned build_i(string_array s) {$/;"	f
@@ -33,7 +41,7 @@ build_shift	lukas.cpp	/^unsigned build_shift(string_array s) {$/;"	f
 error	ivan.cpp	/^static int error;$/;"	v	file:
 extract_code	ivan.cpp	/^string extract_code(string const line) {$/;"	f
 extract_comma	ivan.cpp	/^string extract_comma(string reg) {$/;"	f
-fhex	ivan.cpp	13;"	d	file:
+fhex	ivan.cpp	14;"	d	file:
 flush_commands	lukas.cpp	/^void flush_commands(std::ofstream& output) {$/;"	f
 get_keys	ivan.cpp	/^set<string> get_keys(map<string, int> m) {$/;"	f
 get_labels	ivan.cpp	/^void get_labels(ifstream& asmfile) {$/;"	f
@@ -63,6 +71,7 @@ parse_command	lukas.cpp	/^string_array parse_command(std::string line) {$/;"	f
 pc	ivan.cpp	/^static unsigned pc = TEXT_START;$/;"	v	file:
 process_instr	ivan.cpp	/^int process_instr(string instr, string rest) {$/;"	f
 process_label	ivan.cpp	/^pair<string, int> process_label(string const line) {$/;"	f
+shorten	lukas.cpp	/^void shorten(unsigned& num) {$/;"	f
 split	ivan.cpp	/^vector<string> split(string rest) {$/;"	f
 string_array	lukas.cpp	/^typedef typename std::vector<std::string> string_array;$/;"	t	file:
 string_map	lukas.cpp	/^typedef typename std::map<std::string, unsigned> string_map;$/;"	t	file:
