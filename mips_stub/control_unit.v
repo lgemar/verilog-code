@@ -9,10 +9,16 @@ module control_unit(
 	output reg MemtoReg, RegDst, IorD, PCSrc, ALUSrcA;
 	output reg [1:0] ALUSrcB; 
 
-	// Register enables ( note: branch is not hooked up in mips.v ) 
+	// TODO: do we need MemRead signal?
+	// TODO: add outputs ALUSrcB[1:0] and PCWriteCond[1:0] - we'll discuss the
+	// logic tonight for branch and jump
+	// TODO: remove Branch, add ExtOp (depending on the type of itype
+	// instructions, we need either sign extend or zero extend).
 	output reg IRWrite, MemWrite, PCWrite, Branch, RegWrite;
 
-	// ALUControl Var
+	// TODO: Let's factor out decoder into a separate module, I'm calling the
+	// decoder in mips to get the ALUControl. Send me back only ALUOp, don't
+	// decode it here into ALUControl
 	output wire [2:0] ALUControl;
 );
 
