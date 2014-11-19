@@ -6,6 +6,8 @@ module control_unit(
 	input wire [31:0] Instr;
 
 	// Multiplexer selects
+	// TODO: change the wires width to the inputs that I'm sending. My logic
+	// mips.v takes into account all instructions, I think.
 	output reg MemtoReg, RegDst, IorD, PCSrc, ALUSrcA;
 	output reg [1:0] ALUSrcB; 
 
