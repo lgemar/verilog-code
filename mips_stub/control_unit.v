@@ -30,8 +30,21 @@ module control_unit(
 	assign Opcode = Instr[31:26];
 	assign Funct = Instr[5:0];
 
+	reg [5:0] ALUFunctCode;
+
+	always @(*) begin
+		case(state)
+			`PRE_FETCH, `FETCH, `EXECUTE, `ALU_WRITEBACK: ALUFunctCode <= Funct;
+			`ITYPE_EXECUTE, `ITYPE_WRITEBACK: begin
+				case(Opcode)
+					ALUFunctCode <= Opcode;
+				endcase
+			end
+		endcase
+	end
+
 	alu_decoder ALU_DECODER (
-		.Funct(Funct), 
+		.Funct(ALUFunctCode), 
 		.ALUOp(ALUOp), 
 		.ALUControl(ALUControl)
 	);
