@@ -6,7 +6,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 
 	input wire clk, rstb;
 	input wire [31:0] mem_rd_data;  // Instuction & MDR
-	output reg mem_wr_ena;			// reading or writing from memory
+	output wire mem_wr_ena;			// reading or writing from memory
 	output wire [31:0] mem_wr_data, mem_addr;	// data to write to memory at mem_addr
 	output reg [31:0] PC;			// new PC
 		
@@ -15,22 +15,22 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// Control Unit out wires
 	wire ctrl_pcwr, ctrl_iord, ctrl_memrd, ctrl_memwr, 
 		 ctrl_memtoreg, ctrl_iregwr, ctrl_regwr, ctrl_ext;
-	wire [1:0] ctrl_branch, ctrl_pcsrc, ctrl_alusrca, ctrl_alusrcb, ctrl_regdst;
+	wire [1:0] ctrl_branch, ctrl_pcsrc, ctrl_alusrca, ctrl_alusrcb, ctrl_rdst;
 	wire [3:0] ctrl_state;
-	reg [3:0] alu_control;	// output from the ALU_CONTROL
+	wire [3:0] alu_control;	// output from the ALU_CONTROL
 	
 	control_unit CONTROL (
 		.cclk(clk),
 		.rstb(rstb),
 		.Instr(inst_reg),
 
-		// .MemRead(ctrl_memrd),
+		//.MemRead(ctrl_memrd),
 		.MemWrite(ctrl_memwr),
 		.IRWrite(ctrl_iregwr),
 		.PCWrite(ctrl_pcwr),
-		.RegWrite(ctrl_regrw),
+		.RegWrite(ctrl_regwr),
 		.MemtoReg(ctrl_memtoreg),
-		.RegDst(ctrl_regdst),
+		.RegDst(ctrl_rdst),
 		.IorD(ctrl_iord),
 		.ALUSrcA(ctrl_alusrca),
 		.ALUSrcB(ctrl_alusrcb),
@@ -42,7 +42,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 
 	// Instantiate ALU component with inputs and outputs
 	// ALU inputs
-	wire [31:0] SrcA, SrcB;	// output from two MUX
+	reg [31:0] SrcA, SrcB;	// output from two MUX
 	always @(*) begin
 		case (ctrl_alusrca) 
 			2'b00 : SrcA = reg_a;
@@ -74,8 +74,9 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// Instantiate register File
 	// Register Inputs
 	// clk, rstb are already instantiated
-	wire [4:0] addr1, addr2, waddr;
-	wire [31:0] wdata;
+	wire [4:0] addr1, addr2;
+	reg [4:0] waddr;
+	reg [31:0] wdata;
 	// Register Outputs
 	wire [31:0] rd1, rd2;
 	// Assign and initialize inputs
