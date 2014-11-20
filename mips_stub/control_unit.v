@@ -2,22 +2,24 @@
 `default_nettype none
 
 module control_unit(
-	input wire cclk, rstb; // clock and reset pins
-	input wire [31:0] Instr;
+	input wire cclk, rstb, // clock and reset pins
+	input wire [31:0] Instr,
 
 	// Multiplexer selects
-	output reg MemtoReg, IorD;
-	output reg [1:0] RegDst, PCSrc, ALUSrcA;
-	output reg [1:0] ALUSrcB; 
+	output reg MemtoReg, IorD,
+	output reg [1:0] RegDst, PCSrc, ALUSrcA,
+	output reg [1:0] ALUSrcB, 
 
 	// TODO: extend Branch 2 bits (MSB - bne logic, LSB - beq logic)
-	output reg IRWrite, MemWrite, PCWrite, Branch, RegWrite;
+	output reg IRWrite, MemWrite, PCWrite, RegWrite,
+	output reg [1:0] Branch,
 	// TODO: add ExtOp (depending on the type of itype instructions, we need 
 	// either sign extend or zero extend). ORI, XORI, ANDI are zero extended,
 	// ADDI, SLTI, BEQ, BNE, LW, SW
+	output wire ExtOp,
 
 	// TODO: ALU has 16bit mux, so 4bits for control, not 3
-	output wire [3:0] ALUControl;
+	output wire [3:0] ALUControl
 );
 
 	// Internal Vars
@@ -30,7 +32,7 @@ module control_unit(
 
 	alu_decoder ALU_DECODER (
 		.Funct(Funct), 
-		.Opcode(ALUOp), 
+		.ALUOp(ALUOp), 
 		.ALUControl(ALUControl)
 	);
 
@@ -65,7 +67,7 @@ module control_unit(
 	// Internal Vars
 	reg [3:0] state;
 
-	always @(posedge clk) begin
+	always @(posedge cclk) begin
 		if(~rstb) begin
 			// State reset, same as fetch
 			state <= `DECODE;

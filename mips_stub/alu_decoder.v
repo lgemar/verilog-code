@@ -1,9 +1,9 @@
 `timescale 1ns/1ps
 `default_nettype none
 module alu_decoder(
-	input wire [5:0] Funct;
-	input wire [1:0] ALUOp;
-	output reg [2:0] ALUControl;
+	input wire [5:0] Funct,
+	input wire [1:0] ALUOp,
+	output reg [3:0] ALUControl
 );
 
 	// Function Enumeration 
@@ -14,11 +14,11 @@ module alu_decoder(
 	`define FUNCT_SLT 6'b101010
 
 	// Opcode enumeration 
-	`define ALU_ADD 3'b010
-	`define ALU_SUBTRACT 3'b110
-	`define ALU_AND 3'b000
-	`define ALU_OR 3'b001
-	`define ALU_SLT 3'b111
+	`define ALU_ADD 4'b0010
+	`define ALU_SUBTRACT 4'b0110
+	`define ALU_AND 4'b0000
+	`define ALU_OR 4'b0001
+	`define ALU_SLT 4'b0111
 
 	always @(*) begin
 		if (ALUOp == 2'b00) begin
