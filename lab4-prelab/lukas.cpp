@@ -236,28 +236,35 @@ void flush_commands(std::ofstream& output) {
 		std::string command = (*it)[0];
 		PC += 4;
 		if( command == "nop" ) {
-			output << "nop-type: "; result = 0;
+			// output << "nop-type: "; 
+			result = 0;
 		}
 		else if( Rtype.find(command) != Rtype.end() ) {
-			output << "r-type: "; result = build_r( *it );
+			// output << "r-type: "; 
+			result = build_r( *it );
 		}
 		else if( Shifttype.find(command) != Shifttype.end() ) {
-			output << "shift-type: "; result = build_shift( *it );
+			// output << "shift-type: "; 
+			result = build_shift( *it );
 		}
 		else if( Itype.find(command) != Itype.end() ) {
-			output << "i-type: "; result = build_i( *it );
+			// output << "i-type: "; 
+			result = build_i( *it );
 		}
 		else if( MemoryOps.find(command) != MemoryOps.end() ) {
-			output << "memory-type: "; result = build_memoryop( *it );
+			// output << "memory-type: "; 
+			result = build_memoryop( *it );
 		}
 		else if ( Branchtype.find(command) != Branchtype.end() ) {
-			output << "branch-type: "; result = build_branch( *it );
+			// output << "branch-type: "; 
+			result = build_branch( *it );
 		}
 		else if( Jtype.find(command) != Jtype.end() ) {
-			output << "j-type: "; result = build_jump( *it );
+			// output << "j-type: "; 
+			result = build_jump( *it );
 		}
 		else
 			output << "There was an error in the assembly" << std::endl;
-		output << std::dec << PC << ": " << std::hex << result << std::endl;
+		output << std::hex << result << std::endl;
 	}
 }
