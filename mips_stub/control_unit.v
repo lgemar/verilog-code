@@ -16,10 +16,10 @@ module control_unit(
 	// TODO: add ExtOp (depending on the type of itype instructions, we need 
 	// either sign extend or zero extend). ORI, XORI, ANDI are zero extended,
 	// ADDI, SLTI, BEQ, BNE, LW, SW
-	output wire ExtOp,
+	output reg ExtOp,
 
 	// TODO: ALU has 16bit mux, so 4bits for control, not 3
-	output wire [3:0] ALUControl
+	output reg [3:0] ALUControl
 );
 
 	// Internal Vars
@@ -66,6 +66,33 @@ module control_unit(
 
 	// Internal Vars
 	reg [3:0] state;
+
+	always @(*) begin
+		case (`FETCH) 
+		endcase
+		case (`DECODE) 
+		endcase
+		case (`MEM_ADR) 
+		endcase
+		case (`MEM_READ) 
+		endcase
+		case (`MEM_WRITEBACK) 
+		endcase
+		case (`MEM_WRITE) 
+		endcase
+		case (`EXECUTE) 
+		endcase
+		case (`ALU_WRITEBACK) 
+		endcase
+		case (`BRANCH) 
+		endcase
+		case (`ITYPE_EXECUTE) 
+		endcase
+		case (`ITYPE_WRITEBACK) 
+		endcase
+		case (`JUMP) 
+		endcase
+	end
 
 	always @(posedge cclk) begin
 		if(~rstb) begin
