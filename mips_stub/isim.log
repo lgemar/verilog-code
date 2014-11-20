@@ -1,6 +1,6 @@
 ISim log file
-Running: C:\Users\brownell\Downloads\mips_stub\mips_stub\mips_stub\test_mips_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/brownell/Downloads/mips_stub/mips_stub/mips_stub/test_mips_isim_beh.wdb 
-ISim O.87xd (signature 0xc3576ebc)
+Running: /home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/test_mips_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/test_mips_isim_beh.wdb 
+ISim P.20131013 (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
@@ -11,13 +11,5 @@ Time resolution is 1 ps
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-ISim O.87xd (signature 0xc3576ebc)
-WARNING: A WEBPACK license was found.
-WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
 # run all
-Stopped at time : 1045 ns : File "C:/Users/brownell/Downloads/mips_stub/mips_stub/mips_stub/cpu_rtl/test_mips.v" Line 43
+Stopped at time : 10045 ns : File "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/test_mips.v" Line 47

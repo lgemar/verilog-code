@@ -133,7 +133,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 
 	always@(posedge clk) begin
 		if(~rstb) begin
-			PC <= 32'h4000;
+			PC <= 32'b0;
 			mem_data_reg <= 32'b0;
 			inst_reg <= 32'b0;
 			reg_a <= 32'b0;
