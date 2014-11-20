@@ -70,7 +70,7 @@ module control_unit(
 	always @(posedge cclk) begin
 		if(~rstb) begin
 			// State reset, same as fetch
-			state <= `DECODE;
+			state <= `FETCH;
 			// Multiplexer selects
 			MemtoReg <= 1'b0; // x
 			RegDst <= 2'b0; // x
@@ -120,6 +120,7 @@ module control_unit(
 					ALUSrcA <= 2'd0;
 					ALUSrcB <= 2'b11;
 					// Register Enables
+					IRWrite <= 1'b0;
 					// ALU Op
 					ALUOp <= 2'b00;
 				end
