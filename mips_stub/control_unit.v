@@ -11,7 +11,8 @@ module control_unit(
 	output reg [1:0] ALUSrcB, 
 
 	// TODO: extend Branch 2 bits (MSB - bne logic, LSB - beq logic)
-	output reg IRWrite, MemWrite, PCWrite, Branch, RegWrite,
+	output reg [1:0] Branch,
+	output reg IRWrite, MemWrite, PCWrite, RegWrite,
 	// TODO: add ExtOp (depending on the type of itype instructions, we need 
 	// either sign extend or zero extend). ORI, XORI, ANDI are zero extended,
 	// ADDI, SLTI, BEQ, BNE, LW, SW
