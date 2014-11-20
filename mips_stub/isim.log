@@ -13,3 +13,4 @@ Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 # run all
 Stopped at time : 10045 ns : File "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/test_mips.v" Line 47
+# exit 0
