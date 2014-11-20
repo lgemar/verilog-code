@@ -119,7 +119,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	wire [31:0] ext_out;
 	extender EXTENDER (
 		.in(inst_reg[15:0]),
-		.zero(1'b0),
+		.zero(ctrl_ext),
 		.out(ext_out)
 	);
 

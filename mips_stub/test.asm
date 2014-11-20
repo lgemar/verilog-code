@@ -7,21 +7,26 @@ main:   lw	$t0, 0($zero)
 	sw	$t2, 88($zero)
 
 	# Test R-type instructions
-	and $s0, $t0, $zero
-	or $s1, $t0, $zero
-	sw $s1, 96($zero) # out = $t0
-	add $s2, $t0, $zero
-	sw $s2, 100($zero) # out = $t0
-	beq $s1, $s2, dest2
+	addi $t3, $zero, 3
+	addi $t4, $zero, 7
+	and $s0, $t3, $t4
+	sw $s0, 92($zero) # out = 3
+	or $s1, $t3, $t4
+	sw $s1, 96($zero) # out = 7
+	add $s2, $t3, $t4
+	sw $s2, 100($zero) # out = 10
+	beq $s0, $s0, dest2
 
-dest1: nor $s5, $t0, $t0
-	sw $s5, 112($zero) # out = !$t0
-	beq $s1, $s2, finish # always true
+	# I-type instructions
 
-dest2: sub $s3, $t0, $t0
-	sw $s3, 104($zero) # out = 0
-	xor $s4, $t0, $t0
-	sw $s4, 108($zero) # out = 0
-	beq $s3, $s4, dest1
+dest1: nor $s5, $t3, $t4
+   sw $s5, 112($zero) # out = something crazy
+   beq $s5, $s5, finish # always true
+
+dest2: sub $s3, $t4, $t3
+	sw $s3, 104($zero) # out = 4
+	xor $s4, $t3, $t4
+	sw $s4, 108($zero) # out = 4
+	beq $s4, $s4, dest1
 
 finish: add $zero, $zero, $zero #dummy instruction

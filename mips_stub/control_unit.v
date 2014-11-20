@@ -62,6 +62,11 @@ module control_unit(
 	`define BEQ 6'd4
 	// Itype opcodes
 	`define ADDI 6'd8
+	`define SLTI 6'hA
+	`define ANDI 6'hC
+	`define ORI 6'hD
+	`define XORI 6'hE
+	`define LUI 6'hF
 	// J-type opcodes
 	`define J_TYPE 6'd2
 
@@ -86,6 +91,8 @@ module control_unit(
 				RegWrite <= 1'b0; // x
 				// ALU Op
 				ALUOp <= 2'b00;
+				// Sign Extension Code
+				ExtOp <= 1'b0;
 			end
 			`FETCH: begin
 				// Multiplexer selects
@@ -176,13 +183,15 @@ module control_unit(
 				// Register Enables
 				// ALU Op
 				ALUOp <= 2'b00;
+				// Sign Extension Code
+				ExtOp <= 1'b1;
 			end
 			`ITYPE_WRITEBACK: begin
 				// Multiplexer selects
-				MemtoReg <= 1'b0; // x
-				RegDst <= 2'd1; // x
+				MemtoReg <= 1'b0;
+				RegDst <= 2'd0;
 				// Register Enables
-				RegWrite <= 1'b1; // x
+				RegWrite <= 1'b1;
 				// ALU Op
 			end
 			`JUMP: begin
@@ -229,7 +238,9 @@ module control_unit(
 						`LW, `SW: state <= `MEM_ADR;
 						`R_TYPE: state <= `EXECUTE;
 						`BEQ: state <= `BRANCH;
-						`ADDI: state <= `ITYPE_EXECUTE;
+						`ADDI, `ANDI, `ORI, `XORI, `SLTI, `LUI: begin
+							state <= `ITYPE_EXECUTE;
+						end
 						`J_TYPE: state <= `JUMP;
 					endcase
 				end
