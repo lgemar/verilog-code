@@ -5,17 +5,17 @@ module register(
 	input wire rst, clk, write_ena,
 	input wire [4:0] address1, address2, address3,	// TODO: rename address3 to write_reg
 	input wire [31:0] write_data,
-	output reg [31:0] read_data1, read_data2
+	output wire [31:0] read_data1, read_data2
 );
 
 reg [31:0] registers [0:31];
+reg [31:0] i;
 
 assign read_data1 = registers[address1];
 assign read_data2 = registers[address2];
 
 always @(posedge clk) begin
 	if(~rst) begin
-		integer i;
 		for (i = 0; i < 31; i = i + 1) registers[i] <= 32'b0;
 	end
 	else begin

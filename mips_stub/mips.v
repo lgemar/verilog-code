@@ -24,17 +24,17 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.rstb(rstb),
 		.Instr(inst_reg),
 
-		.IRWrite(ctrl_iregwr),
+		.MemRead(ctrl_memrd),
 		.MemWrite(ctrl_memwr),
+		.IRWrite(ctrl_iregwr),
 		.PCWrite(ctrl_pcwr),
 		.RegWrite(ctrl_regrw),
 		.MemtoReg(ctrl_memtoreg),
 		.RegDst(ctrl_regdst),
 		.IorD(ctrl_iord),
 		.ALUSrcA(ctrl_alusrca),
-		.PCSrc(ctrl_pcsrc),
 		.ALUSrcB(ctrl_alusrcb),
-		.MemRead(ctrl_memrd),
+		.PCSrc(ctrl_pcsrc),
 		.Branch(ctrl_branch),
 		.ExtOp(ctrl_ext),
 		.ALUControl(alu_control)
@@ -116,7 +116,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 			alu_out <= ALUResult;
 			if (ctrl_memtoreg) mem_data_reg <= mem_rd_data;	// update MDR if MemToReg is set
 			if (ctrl_iregwr) inst_reg <= mem_rd_data;
-			if (ctrl_pcwr || ctrl_branch[0] & Zero || ctrl_branch[1] & ~Zero) begin
+			if (ctrl_pcwr || ctrl_branch[0] & Zero || ctrl_branch[1] & ~Zero) begin	// PCEnable
 				case (ctrl_pcsrc)
 					2'b00: PC <= ALUResult;
 					2'b01: PC <= alu_out;
