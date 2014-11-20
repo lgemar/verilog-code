@@ -130,6 +130,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 
 	// MIPS internal registers for FSM
 	reg [31:0] mem_data_reg, inst_reg, reg_a, reg_b, alu_out;
+	wire PCEn;
+	assign PCEn = ctrl_pcwr || ctrl_branch[0] & Zero || ctrl_branch[1] & ~Zero;
 
 	always@(posedge clk) begin
 		if(~rstb) begin
@@ -146,12 +148,11 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 			alu_out <= ALUResult;
 			if (ctrl_memtoreg) mem_data_reg <= mem_rd_data;	// update MDR if MemToReg is set
 			if (ctrl_iregwr) inst_reg <= mem_rd_data;
-			if (ctrl_pcwr || ctrl_branch[0] & Zero || ctrl_branch[1] & ~Zero) begin	// PCEnable
+			if (PCEn) begin	// PCEnable
 				case (ctrl_pcsrc)
 					2'b00: PC <= alu_out;
 					2'b01: PC <= ALUResult;
 					2'b10: PC <= { PC[31:28], inst_reg[25:0], 2'b0 }; 
-					// TODO: is there forth case ? Ask Avi
 				endcase
 			end
 		end

@@ -14,7 +14,7 @@ module alu_decoder(
 	`define FUNCT_SLT 6'b101010
 
 	// Opcode enumeration 
-	`define ALU_ADD 4'b0010
+	`define ALU_ADD 4'b0101
 	`define ALU_SUBTRACT 4'b0110
 	`define ALU_AND 4'b0000
 	`define ALU_OR 4'b0001
