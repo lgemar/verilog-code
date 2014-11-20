@@ -43,10 +43,21 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// Instantiate ALU component with inputs and outputs
 	// ALU inputs
 	wire [31:0] SrcA, SrcB;	// output from two MUX
-	assign SrcA = ctrl_alusrca[1] ? inst_reg[10:6] : (ctrl_alusrca[0] ? reg_a : PC);
-	assign SrcB = ctrl_alusrcb[2] 
-				? (ctrl_alusrcb[1] ? {ext_out[29:0], 2'b0} : ext_out)
-				: (ctrl_alusrcb[0] ? 32'd4 : reg_b);
+	always @(*) begin
+		case (ctrl_alusrca) 
+			2'b00 : SrcA = reg_a;
+			2'b01 : SrcA = PC; 
+			2'b10 : SrcA = inst_reg[10:6];
+			//2'b11 : 
+		endcase
+		
+		case (ctrl_alusrcb) 
+			2'b00: SrcB = reg_b;
+			2'b01: SrcB = ext_out;
+			2'b10: SrcB = 32'd4;
+			2'b11: SrcB = {ext_out[29:0], 2'b0};
+		endcase
+	end
 
 	// ALU outputs
 	wire [31:0] ALUResult;
@@ -68,8 +79,26 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// Register Outputs
 	wire [31:0] rd1, rd2;
 	// Assign and initialize inputs
-	assign waddr = ctrl_dst[1] ? 5'd31 : (ctrl_dst[0] ? inst_reg[15:11] : inst_reg[20:16]);
-	assign wdata = ctrl_dst[1] ? PC : (ctrl_memtoreg ? mem_rd_data : ALUResult);
+	//assign waddr = ctrl_rdst[1] ? 5'd31 : (ctrl_rdst[0] ? inst_reg[15:11] : inst_reg[20:16]);
+	//assign wdata = ctrl_rdst[1] ? PC : (ctrl_memtoreg ? mem_rd_data : ALUResult);
+
+	always @(*) begin
+		case (ctrl_rdst) 
+			2'b00 : begin
+					waddr = inst_reg[20:16];								
+					wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
+					end
+			2'b01 : begin 
+					waddr = inst_reg[15:11];
+					wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
+					end
+			2'b10 : begin
+					waddr = 5'd31;
+					wdata = PC;
+					end
+			//2'b11 : impossible
+		endcase
+	end
 	
 	register REG (
 		.rst(rstb),						// reset (directly)

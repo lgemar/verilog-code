@@ -48,7 +48,7 @@ module control_unit(
 	`define ITYPE_EXECUTE 4'd9
 	`define ITYPE_WRITEBACK 4'd10
 	`define JUMP 4'd11
-	// TODO: we also need JAL and probably a NOP for nop instr
+	// TODO: we also need JAL and probably 
 	
 	// Instruction Opcode Defines: current operations supported by controller
 	// R-type opcodes
