@@ -19,7 +19,7 @@ module control_unit(
 	output reg ExtOp,
 
 	// TODO: ALU has 16bit mux, so 4bits for control, not 3
-	output reg [3:0] ALUControl
+	output wire [3:0] ALUControl
 );
 
 	// Internal Vars
@@ -67,7 +67,6 @@ module control_unit(
 	// Internal Vars
 	reg [3:0] state;
 
-<<<<<<< HEAD
 	always@(*) begin
 		case(state)
 			`FETCH: begin
@@ -245,6 +244,7 @@ module control_unit(
 				end
 				`JUMP: begin
 					state <= `FETCH;
+				end
 			endcase
 		end
 	end
