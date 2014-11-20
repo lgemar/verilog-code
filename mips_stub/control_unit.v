@@ -24,7 +24,7 @@ module control_unit(
 
 	// Internal Vars
 	// ALU communication
-	output reg [1:0] ALUOp;
+	reg [1:0] ALUOp;
 	// Opcodes and Funct codes
 	wire [5:0] Opcode, Funct;
 	assign Opcode = Instr[31:26];
