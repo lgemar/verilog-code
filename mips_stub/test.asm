@@ -1,6 +1,7 @@
-main:   lw	$t5, 0($t2)
-	sw	$t4, 24($t2)
-	lw	$t5, 4($t2)
-	sw	$t4, 28($t2)
-	lw	$t5, 8($t2)
-	sw	$t4, 32($t2)
+main:   lw	$t0, 0($zero)
+	sw	$t0, 24($zero)
+	lw	$t1, 4($zero)
+	sw	$t1, 28($zero)
+	lw	$t2, 8($zero)
+	sw	$t2, 32($zero)
+	

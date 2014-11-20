@@ -37,6 +37,7 @@ module control_unit(
 	);
 
 	// Internal State Defines
+	`define PRE_FETCH 4'd12
 	`define FETCH 4'd0
 	`define DECODE 4'd1
 	`define MEM_ADR 4'd2
@@ -69,7 +70,7 @@ module control_unit(
 
 	always@(*) begin
 		case(state)
-			`FETCH: begin
+			`PRE_FETCH: begin
 				// Multiplexer selects
 				MemtoReg <= 1'b0; // x
 				RegDst <= 2'd0; // x
@@ -81,6 +82,23 @@ module control_unit(
 				IRWrite <= 1'b1;
 				MemWrite <= 1'b0; // x
 				PCWrite <= 1'b1;
+				Branch <= 1'b0; // x
+				RegWrite <= 1'b0; // x
+				// ALU Op
+				ALUOp <= 2'b00;
+			end
+			`FETCH: begin
+				// Multiplexer selects
+				MemtoReg <= 1'b0; // x
+				RegDst <= 2'd0; // x
+				IorD <= 1'b0;
+				PCSrc <= 2'b00; 
+				ALUSrcA <= 2'd0;
+				ALUSrcB <= 2'b01;
+				// Register Enables
+				IRWrite <= 1'b1;
+				MemWrite <= 1'b0; // x
+				PCWrite <= 1'b0;
 				Branch <= 1'b0; // x
 				RegWrite <= 1'b0; // x
 				// ALU Op
@@ -120,7 +138,7 @@ module control_unit(
 			end
 			`MEM_WRITE: begin
 				// Multiplexer selects
-				IorD <= 1'b0;
+				IorD <= 1'b1;
 				// Register Enables
 				MemWrite <= 1'b1; // x
 				// ALU Op
@@ -180,7 +198,7 @@ module control_unit(
 	always @(posedge cclk) begin
 		if(~rstb) begin
 			// State reset, same as fetch
-			state <= `FETCH;
+			state <= `PRE_FETCH;
 			// Multiplexer selects
 			MemtoReg <= 1'b0; // x
 			RegDst <= 2'b0; // x
@@ -199,6 +217,9 @@ module control_unit(
 		end 
 		else begin
 			case(state)
+				`PRE_FETCH: begin
+					state <= `FETCH;
+				end
 				`FETCH: begin
 					// State update
 					state <= `DECODE;
@@ -222,28 +243,28 @@ module control_unit(
 					state <= `MEM_WRITEBACK;
 				end
 				`MEM_WRITEBACK: begin
-					state <= `FETCH;
+					state <= `PRE_FETCH;
 				end
 				`MEM_WRITE: begin
-					state <= `FETCH;
+					state <= `PRE_FETCH;
 				end
 				`EXECUTE: begin
 					state <= `ALU_WRITEBACK;
 				end
 				`ALU_WRITEBACK: begin
-					state <= `FETCH;
+					state <= `PRE_FETCH;
 				end
 				`BRANCH: begin
-					state <= `FETCH;
+					state <= `PRE_FETCH;
 				end
 				`ITYPE_EXECUTE: begin
 					state <= `ITYPE_WRITEBACK;
 				end
 				`ITYPE_WRITEBACK: begin
-					state <= `FETCH;
+					state <= `PRE_FETCH;
 				end
 				`JUMP: begin
-					state <= `FETCH;
+					state <= `PRE_FETCH;
 				end
 			endcase
 		end
