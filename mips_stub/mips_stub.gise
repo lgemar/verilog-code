@@ -31,11 +31,13 @@
     <transform xil_pn:end_ts="1416338732" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1416338731">
       <status xil_pn:value="SuccessfullyRun"/>
     </transform>
-    <transform xil_pn:end_ts="1416338732" xil_pn:in_ck="3948731025372215175" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1416338732">
+    <transform xil_pn:end_ts="1416447946" xil_pn:in_ck="-4735182349928585842" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1416447946">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="alu_op_codes.v"/>
       <outfile xil_pn:name="behavioural_alu.v"/>
+      <outfile xil_pn:name="control_unit.v"/>
+      <outfile xil_pn:name="extender.v"/>
       <outfile xil_pn:name="memory.v"/>
       <outfile xil_pn:name="mips.v"/>
       <outfile xil_pn:name="register.v"/>

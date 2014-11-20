@@ -24,7 +24,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.rstb(rstb),
 		.Instr(inst_reg),
 
-		.MemRead(ctrl_memrd),
+		//.MemRead(ctrl_memrd),
 		.MemWrite(ctrl_memwr),
 		.IRWrite(ctrl_iregwr),
 		.PCWrite(ctrl_pcwr),
