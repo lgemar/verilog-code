@@ -150,8 +150,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 			if (ctrl_iregwr) inst_reg <= mem_rd_data;
 			if (PCEn) begin	// PCEnable
 				case (ctrl_pcsrc)
-					2'b00: PC <= alu_out;
-					2'b01: PC <= ALUResult;
+					2'b00: PC <= ALUResult;
+					2'b01: PC <= alu_out;
 					2'b10: PC <= { PC[31:28], inst_reg[25:0], 2'b0 }; 
 				endcase
 			end
