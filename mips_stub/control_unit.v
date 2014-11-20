@@ -6,8 +6,8 @@ module control_unit(
 	input wire [31:0] Instr;
 
 	// Multiplexer selects
-	// TODO: PCSrc - 2 bits, ALUSrcA - 2 bits, RegDst - 2 bits
-	output reg MemtoReg, RegDst, IorD, PCSrc, ALUSrcA;
+	output reg MemtoReg, IorD;
+	output reg [1:0] RegDst, PCSrc, ALUSrcA;
 	output reg [1:0] ALUSrcB; 
 
 	// TODO: extend Branch 2 bits (MSB - bne logic, LSB - beq logic)
@@ -71,10 +71,10 @@ module control_unit(
 			state <= `DECODE;
 			// Multiplexer selects
 			MemtoReg <= 1'b0; // x
-			RegDst <= 1'b0; // x
+			RegDst <= 2'b0; // x
 			IorD <= 1'b0;
 			PCSrc <= 2'b00;
-			ALUSrcA <= 1'b0;
+			ALUSrcA <= 2'd0;
 			ALUSrcB <= 2'b01;
 			// Register Enables
 			IRWrite <= 1'b1;
@@ -92,10 +92,10 @@ module control_unit(
 					state <= `DECODE;
 					// Multiplexer selects
 					MemtoReg <= 1'b0; // x
-					RegDst <= 1'b0; // x
+					RegDst <= 2'd0; // x
 					IorD <= 1'b0;
 					PCSrc <= 2'b00; 
-					ALUSrcA <= 1'b0;
+					ALUSrcA <= 2'd0;
 					ALUSrcB <= 2'b01;
 					// Register Enables
 					IRWrite <= 1'b1;
@@ -115,7 +115,7 @@ module control_unit(
 						`J_TYPE: state <= `JUMP;
 					endcase
 					// Multiplexer selects
-					ALUSrcA <= 1'b0;
+					ALUSrcA <= 2'd0;
 					ALUSrcB <= 2'b11;
 					// Register Enables
 					// ALU Op
@@ -127,7 +127,7 @@ module control_unit(
 						`SW: state <= `MEM_WRITE;
 					endcase
 					// Multiplexer selects
-					ALUSrcA <= 1'b1;
+					ALUSrcA <= 2'd1;
 					ALUSrcB <= 2'b10;
 					// Register Enables
 					// ALU Op
@@ -144,7 +144,7 @@ module control_unit(
 					state <= `FETCH;
 					// Multiplexer selects
 					MemtoReg <= 1'b1;
-					RegDst <= 1'b0;
+					RegDst <= 2'd0;
 					// Register Enables
 					RegWrite <= 1'b1; // x
 					// ALU Op
@@ -160,7 +160,7 @@ module control_unit(
 				`EXECUTE: begin
 					state <= `ALU_WRITEBACK;
 					// Multiplexer selects
-					ALUSrcA <= 1'b1;
+					ALUSrcA <= 2'd1;
 					ALUSrcB <= 2'b00;
 					// Register Enables
 					// ALU Op
@@ -170,7 +170,7 @@ module control_unit(
 					state <= `FETCH;
 					// Multiplexer selects
 					MemtoReg <= 1'b0;
-					RegDst <= 1'b1;
+					RegDst <= 2'd1;
 					// Register Enables
 					// ALU Op
 				end
@@ -178,7 +178,7 @@ module control_unit(
 					state <= `FETCH;
 					// Multiplexer selects
 					PCSrc <= 2'b01;
-					ALUSrcA <= 1'b1;
+					ALUSrcA <= 2'd1;
 					ALUSrcB <= 2'b00;
 					// Register Enables
 					Branch <= 1'b1;
@@ -188,7 +188,7 @@ module control_unit(
 				`ITYPE_EXECUTE: begin
 					state <= `ITYPE_WRITEBACK;
 					// Multiplexer selects
-					ALUSrcA <= 1'b1;
+					ALUSrcA <= 2'd1;
 					ALUSrcB <= 2'b10;
 					// Register Enables
 					// ALU Op
@@ -198,7 +198,7 @@ module control_unit(
 					state <= `FETCH;
 					// Multiplexer selects
 					MemtoReg <= 1'b0; // x
-					RegDst <= 1'b1; // x
+					RegDst <= 2'd1; // x
 					// Register Enables
 					RegWrite <= 1'b1; // x
 					// ALU Op
