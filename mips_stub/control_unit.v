@@ -55,8 +55,8 @@ module control_unit(
 	// R-type opcodes
 	`define R_TYPE 6'd0
 	// Memory opcodes
-	`define SW 6'd34
-	`define LW 6'd43
+	`define SW 6'd43
+	`define LW 6'd35
 	// Branch opcodes
 	`define BEQ 6'd4
 	// Itype opcodes
@@ -111,7 +111,7 @@ module control_unit(
 				`DECODE: begin
 					case(Opcode)
 						`LW, `SW: state <= `MEM_ADR;
-						`R_TYPE: state <= `EXECUTE;
+						// `R_TYPE: state <= `EXECUTE;
 						`BEQ: state <= `BRANCH;
 						`ADDI: state <= `ITYPE_EXECUTE;
 						`J_TYPE: state <= `JUMP;

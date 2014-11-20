@@ -24,7 +24,7 @@ module test_mips;
 		.PC(PC)
 	);
 	
-	memory #(.in_file("in.machine"), .out_file("out.machine")) 
+	memory #(.in_file("in2.machine"), .out_file("out.machine")) 
 	MEMORY (
 		.cpu_clk(clk), .cpu_mem_addr(mem_addr), .cpu_mem_wr_ena(mem_wr_ena), .cpu_mem_wr_data(mem_wr_data), .cpu_mem_rd_data(mem_rd_data)
 	);
