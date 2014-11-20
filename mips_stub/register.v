@@ -34,20 +34,21 @@ reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;
 reg [31:0] gp, sp, fp, ra;
 
 `define ZERO 5'b0
-`define V0 5'd1
-`define V1 5'd2
-`define A0 5'd3
-`define A1 5'd4
-`define A2 5'd5
-`define A3 5'd6
-`define T0 5'd7
-`define T1 5'd8
-`define T2 5'd9
-`define T3 5'd10
-`define T4 5'd11
-`define T5 5'd12
-`define T6 5'd13
-`define T7 5'd14
+`define AT 5'd1
+`define V0 5'd2
+`define V1 5'd3
+`define A0 5'd4
+`define A1 5'd5
+`define A2 5'd6
+`define A3 5'd7
+`define T0 5'd8
+`define T1 5'd9
+`define T2 5'd10
+`define T3 5'd11
+`define T4 5'd12
+`define T5 5'd13
+`define T6 5'd14
+`define T7 5'd15
 `define S0 5'd16
 `define S1 5'd17
 `define S2 5'd18
@@ -69,6 +70,7 @@ always@(*) begin
 	if(write_ena) begin
 		case(address3) 
 			`ZERO: zero <= 32'b0;
+			`AT: at <= write_data;
 			`V0: v0 <= write_data;
 			`V1: v1 <= write_data;
 			`A0: a0 <= write_data;
@@ -105,6 +107,7 @@ always@(*) begin
 	// Put correct output on read_data1
 	case(address1)
 		`ZERO: read_data1 <= 32'b0;
+		`AT: at <= write_data;
 		`V0: read_data1 <= v0;
 		`V1: read_data1 <= v1;
 		`A0: read_data1 <= a0;
@@ -140,6 +143,7 @@ always@(*) begin
 	// Put correct output on read_data2
 	case(address2)
 		`ZERO: read_data2 <= 32'b0;
+		`AT: at <= at;
 		`V0: read_data2 <= v0;
 		`V1: read_data2 <= v1;
 		`A0: read_data2 <= a0;
@@ -181,6 +185,7 @@ always @(posedge clk) begin
 
 		// Set internal registers to a known state
 		zero <= 32'b0;
+		at <= 32'd0;
 		v0 <= 32'd0;
 		v1 <= 32'd0;
 		a0 <= 32'd0;

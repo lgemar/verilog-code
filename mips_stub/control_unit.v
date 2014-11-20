@@ -152,11 +152,11 @@ module control_unit(
 				ALUOp <= 2'b10;
 			end
 			`ALU_WRITEBACK: begin
-				state <= `FETCH;
 				// Multiplexer selects
 				MemtoReg <= 1'b0;
 				RegDst <= 2'd1;
 				// Register Enables
+				RegWrite <= 1'b1;
 				// ALU Op
 			end
 			`BRANCH: begin
@@ -227,7 +227,7 @@ module control_unit(
 				`DECODE: begin
 					case(Opcode)
 						`LW, `SW: state <= `MEM_ADR;
-						// `R_TYPE: state <= `EXECUTE;
+						`R_TYPE: state <= `EXECUTE;
 						`BEQ: state <= `BRANCH;
 						`ADDI: state <= `ITYPE_EXECUTE;
 						`J_TYPE: state <= `JUMP;
