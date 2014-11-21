@@ -19,6 +19,14 @@ module alu_decoder(
 	`define FUNCT_SRA 6'd3
 	`define FUNCT_JR 6'd8
 	
+	// I-type Opcodes
+	`define ADDI 6'h8
+	`define SLTI 6'ha
+	`define ANDI 6'hc
+	`define ORI  6'hd
+	`define XORI 6'he
+	`define LUI  6'hf
+
 	// Opcode enumeration 
 	`define ALU_AND 4'b0000
 	`define ALU_OR  4'b0001
@@ -32,25 +40,33 @@ module alu_decoder(
 	`define ALU_SRA 4'b1010
 
 	always @(*) begin
-		if (ALUOp == 2'b00) begin
-			ALUControl <= `ALU_ADD;
-		end
-		else if (ALUOp[0]) begin
-			ALUControl <= `ALU_SUB;
-		end
+		case(ALUOp)
+			2'b00: ALUControl <= `ALU_ADD;
+			2'b01: ALUControl <= `ALU_SUB;
+			2'b10: 
+				case(Funct)
+					`FUNCT_ADD: ALUControl <= `ALU_ADD;
+					`FUNCT_SUB: ALUControl <= `ALU_SUB;
+					`FUNCT_AND: ALUControl <= `ALU_AND;
+					`FUNCT_OR : ALUControl <= `ALU_OR;
+					`FUNCT_SLT: ALUControl <= `ALU_SLT;
+					`FUNCT_XOR: ALUControl <= `ALU_XOR;
+					`FUNCT_NOR: ALUControl <= `ALU_NOR;
+					`FUNCT_SLL: ALUControl <= `ALU_SLL;
+					`FUNCT_SRL: ALUControl <= `ALU_SRL;
+					`FUNCT_SRA: ALUControl <= `ALU_SRA;
+				endcase
+			2'b11: 
+				case(Funct)
+					`ADDI: ALUControl <= `ALU_ADD;
+					`SLTI: ALUControl <= `ALU_SLT;
+					`ANDI: ALUControl <= `ALU_AND;
+					`ORI : ALUControl <= `ALU_OR;
+					`XORI: ALUControl <= `ALU_XOR;
+					`LUI : ALUControl <= `ALU_SLL;
+				endcase
+		endcase
 		else begin
-			case(Funct)
-				`FUNCT_ADD: ALUControl <= `ALU_ADD;
-				`FUNCT_SUB: ALUControl <= `ALU_SUB;
-				`FUNCT_AND: ALUControl <= `ALU_AND;
-				`FUNCT_OR : ALUControl <= `ALU_OR;
-				`FUNCT_SLT: ALUControl <= `ALU_SLT;
-				`FUNCT_XOR: ALUControl <= `ALU_XOR;
-				`FUNCT_NOR: ALUControl <= `ALU_NOR;
-				`FUNCT_SLL: ALUControl <= `ALU_SLL;
-				`FUNCT_SRL: ALUControl <= `ALU_SRL;
-				`FUNCT_SRA: ALUControl <= `ALU_SRA;
-			endcase
 		end
 	end
 endmodule

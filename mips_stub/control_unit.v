@@ -35,11 +35,7 @@ module control_unit(
 	always @(*) begin
 		case(state)
 			`PRE_FETCH, `FETCH, `EXECUTE, `ALU_WRITEBACK: ALUFunctCode <= Funct;
-			`ITYPE_EXECUTE, `ITYPE_WRITEBACK: begin
-				case(Opcode)
-					ALUFunctCode <= Opcode;
-				endcase
-			end
+			`ITYPE_EXECUTE, `ITYPE_WRITEBACK: ALUFunctCode <= Opcode;
 		endcase
 	end
 
@@ -195,7 +191,7 @@ module control_unit(
 				ALUSrcB <= 2'b10;
 				// Register Enables
 				// ALU Op
-				ALUOp <= 2'b00;
+				ALUOp <= 2'b11;
 				// Sign Extension Code
 				ExtOp <= 1'b1;
 			end
