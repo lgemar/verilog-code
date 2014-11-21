@@ -34,8 +34,8 @@ main: addi $sp, $zero, 200
 	sw $s7, 40($sp) # out = 1
 
 	# Test branches
-	bne $s0, $s0, finish
-	beq $s0, $s0, dest2
+	beq $s0, $s0, finish
+	bne $s0, $s0, dest1
 
 dest1: nor $s5, $t3, $t4
    sw $s5, 52($sp) # out = something crazy
@@ -46,6 +46,13 @@ dest2: sub $s3, $t4, $t3
 	sw $s3, 44($sp) # out = 4
 	xor $s4, $t3, $t4
 	sw $s4, 48($sp) # out = 4
-	beq $s4, $s4, dest1
+	jr $ra
+	#beq $s4, $s4, dest1
 
-finish: add $zero, $zero, $zero #dummy instruction
+finish: jal dest2
+	addi $t3, $zero, 3
+	addi $t4, $zero, 7
+	and $s0, $t3, $t4
+	sw $s0, 56($sp) # out = 3
+	add $zero, $zero, $zero #dummy instruction
+
