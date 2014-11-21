@@ -64,6 +64,18 @@ module control_unit(
 	// Instruction Opcode Defines: current operations supported by controller
 	// R-type opcodes
 	`define R_TYPE 6'd0
+	`define ADD 6'd32
+	`define SUB 6'd34
+	`define AND 6'd36
+	`define OR 6'd37
+	`define XOR 6'd38
+	`define NOR 6'd39
+	`define SLT 6'd42
+	`define SLL 6'd0
+	`define SRL 6'd2
+	`define SRA 6'd3
+	`define JR 6'd8
+		
 	// Memory opcodes
 	`define SW 6'd43
 	`define LW 6'd35
@@ -162,7 +174,10 @@ module control_unit(
 			end
 			`EXECUTE: begin
 				// Multiplexer selects
-				ALUSrcA <= 2'd1;
+				case(Funct)
+					`ADD, `SUB, `AND, `OR, `XOR, `NOR, `SLT: ALUSrcA <= 2'd1;
+					`SLL, `SRA, `SRL: ALUSrcA <= 2'd2;
+				endcase
 				ALUSrcB <= 2'b00;
 				// Register Enables
 				// ALU Op

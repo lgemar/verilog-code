@@ -48,4 +48,10 @@ dest2: sub $s3, $t4, $t3
 	sw $s4, 48($sp) # out = 4
 	beq $s4, $s4, dest1
 
-finish: add $zero, $zero, $zero #dummy instruction
+finish: addi $t0, $zero, 32
+		sll $t1, $t0, 2
+	    sw $t1, 56($sp) # out = 128
+		srl $t2, $t0, 2
+   		sw $t2, 60($sp) # out = 8
+		sra $t3, $t0, 2
+   		sw $t3, 64($sp) # out = 8
