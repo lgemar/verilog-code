@@ -18,21 +18,27 @@ main: addi $sp, $zero, 200
 	sw $s2, 20($sp) # out = 10
 
 	# I-type instructions
-	lui $s7, 291
-	ori $s7, $s3, 43981
+	#lui $s7, 291
+	ori $s7, $s2, 5
 	sw $s7, 24($sp)
+
+	xori $s7, $s2, 5
+	sw $s7, 28($sp)
+
+	andi $s7, $s2, 5
+	sw $s7, 32($sp)
 
 	# Test branches
 	beq $s0, $s0, dest2
 
 dest1: nor $s5, $t3, $t4
-   sw $s5, 36($sp) # out = something crazy
+   sw $s5, 44($sp) # out = something crazy
    beq $s5, $s5, finish # always true
 
 dest2: sub $s3, $t4, $t3
-	sw $s3, 28($sp) # out = 4
+	sw $s3, 36($sp) # out = 4
 	xor $s4, $t3, $t4
-	sw $s4, 32($sp) # out = 4
+	sw $s4, 40($sp) # out = 4
 	beq $s4, $s4, dest1
 
 finish: add $zero, $zero, $zero #dummy instruction
