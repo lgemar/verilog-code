@@ -51,16 +51,16 @@ dest2: sub $s3, $t4, $t3
 	#beq $s4, $s4, dest1
 
 finish: jal dest2
-	addi $t3, $zero, 3
-	addi $t4, $zero, 7
+	addi $t3, $zero, 8
+	addi $t4, $zero, 8
 	and $s0, $t3, $t4
-	sw $s0, 56($sp) # out = 3
+	sw $s0, 56($sp) # out = 8
 	add $zero, $zero, $zero #dummy instruction
 
 finish2: addi $t0, $zero, 32
       	sll $t1, $t0, 2
-		sw $t1, 56($sp) # out = 128
+		sw $t1, 60($sp) # out = 128
 		srl $t2, $t0, 2
-		sw $t2, 60($sp) # out = 8
+		sw $t2, 64($sp) # out = 8
 		sra $t3, $t0, 2
-		sw $t3, 64($sp) # out = 8
+		sw $t3, 68($sp) # out = 8

@@ -90,8 +90,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 						wdata <= ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
 			2'b01 : begin 
-						waddr <= inst_reg[15:11];
-						wdata <= ctrl_memtoreg ? mem_rd_data : ALUResult;
+						waddr = inst_reg[15:11];
+						wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
 			2'b10 : begin	// JAL
 						waddr <= 5'd31;
@@ -153,6 +153,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 					2'b00: PC <= ALUResult;
 					2'b01: PC <= alu_out;
 					2'b10: PC <= { PC[31:28], inst_reg[25:0], 2'b0 }; 
+					2'b11: PC <= reg_a;
 				endcase
 			end
 		end

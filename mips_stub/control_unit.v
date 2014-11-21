@@ -309,7 +309,7 @@ module control_unit(
 				`EXECUTE: begin
 					case(Funct)
 						`JR: state <= `JR_STATE;
-						`ADD, `SUB, `AND, `OR, `XOR, `NOR, `SLL, `SRL, `SRA, SLT: 
+						`ADD, `SUB, `AND, `OR, `XOR, `NOR, `SLL, `SRL, `SRA, `SLT: 
 							state <= `ALU_WRITEBACK;
 					endcase
 				end

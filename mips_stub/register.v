@@ -107,7 +107,7 @@ always@(*) begin
 	// Put correct output on read_data1
 	case(address1)
 		`ZERO: read_data1 <= 32'b0;
-		`AT: at <= write_data;
+		`AT: read_data1 <= at;
 		`V0: read_data1 <= v0;
 		`V1: read_data1 <= v1;
 		`A0: read_data1 <= a0;
@@ -143,7 +143,7 @@ always@(*) begin
 	// Put correct output on read_data2
 	case(address2)
 		`ZERO: read_data2 <= 32'b0;
-		`AT: at <= at;
+		`AT: read_data2 <= at;
 		`V0: read_data2 <= v0;
 		`V1: read_data2 <= v1;
 		`A0: read_data2 <= a0;
