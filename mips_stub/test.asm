@@ -1,5 +1,5 @@
 # Test load words and store words
-main: addi $sp, $zero, 200
+main: addi $sp, $zero, 300
 	lw	$t0, 0($zero)
 	sw	$t0, 0($sp)
 	lw	$t1, 4($zero)
@@ -46,6 +46,7 @@ dest2: sub $s3, $t4, $t3
 	sw $s3, 44($sp) # out = 4
 	xor $s4, $t3, $t4
 	sw $s4, 48($sp) # out = 4
+	sw $ra, 52($sp) # out = the return adddress
 	jr $ra
 	#beq $s4, $s4, dest1
 
@@ -58,8 +59,8 @@ finish: jal dest2
 
 finish2: addi $t0, $zero, 32
       	sll $t1, $t0, 2
-	sw $t1, 56($sp) # out = 128
-	$t2, $t0, 2
-   	$t2, 60($sp) # out = 8
-	$t3, $t0, 2
-   	$t3, 64($sp) # out = 8
+		sw $t1, 56($sp) # out = 128
+		srl $t2, $t0, 2
+		sw $t2, 60($sp) # out = 8
+		sra $t3, $t0, 2
+		sw $t3, 64($sp) # out = 8

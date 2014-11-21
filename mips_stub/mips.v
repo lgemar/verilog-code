@@ -45,17 +45,17 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	reg [31:0] SrcA, SrcB;	// output from two MUX
 	always @(*) begin
 		case (ctrl_alusrca) 
-			2'b00 : SrcA = PC; 
-			2'b01 : SrcA = reg_a;
-			2'b10 : SrcA = { 27'b0, inst_reg[10:6] };
+			2'b00 : SrcA <= PC; 
+			2'b01 : SrcA <= reg_a;
+			2'b10 : SrcA <= { 27'b0, inst_reg[10:6] };
 			//2'b11 : 
 		endcase
 		
 		case (ctrl_alusrcb) 
-			2'b00: SrcB = reg_b;
-			2'b01: SrcB = 32'd4;
-			2'b10: SrcB = ext_out;
-			2'b11: SrcB = {ext_out[29:0], 2'b0};
+			2'b00: SrcB <= reg_b;
+			2'b01: SrcB <= 32'd4;
+			2'b10: SrcB <= ext_out;
+			2'b11: SrcB <= {ext_out[29:0], 2'b0};
 		endcase
 	end
 
@@ -86,16 +86,16 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	always @(*) begin
 		case (ctrl_rdst) 
 			2'b00 : begin
-						waddr = inst_reg[20:16];								
-						wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
+						waddr <= inst_reg[20:16];								
+						wdata <= ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
 			2'b01 : begin 
-						waddr = inst_reg[15:11];
-						wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
+						waddr <= inst_reg[15:11];
+						wdata <= ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
 			2'b10 : begin	// JAL
-						waddr = 5'd31;
-						wdata = PC;
+						waddr <= 5'd31;
+						wdata <= PC;
 					end
 			//2'b11 : impossible
 		endcase

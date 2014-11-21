@@ -228,7 +228,7 @@ module control_unit(
 				// Multiplexer selects
 				PCSrc <= 2'b10;
 				// Register Enables
-				PCWrite <= 1'b1;
+				PCWrite <= 2'b01;
 				// ALU Op
 			end
 			`JR_STATE: begin
