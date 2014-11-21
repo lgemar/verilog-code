@@ -37,7 +37,7 @@ module behavioural_alu(X,Y,op_code, Z, zero, overflow, equal);
 			`OP_SLT : Z = {31'b0, (X_s < Y_s)};
 			`OP_SRL : Z = Y >> X;
 			`OP_SLL : Z = Y << X;
-			`OP_SRA : Z = (|Y[31:5]) ? 32'h0 : sra;
+			`OP_SRA : Z = (|X[31:5]) ? 32'h0 : sra;
 			default : Z = 0;
 		endcase
 	end
