@@ -307,9 +307,10 @@ module control_unit(
 					state <= `PRE_FETCH;
 				end
 				`EXECUTE: begin
-					case(Opcode)
+					case(Funct)
 						`JR: state <= `JR_STATE;
-						default: state <= `ALU_WRITEBACK;
+						`ADD, `SUB, `AND, `OR, `XOR, `NOR, `SLL, `SRL, `SRA, SLT: 
+							state <= `ALU_WRITEBACK;
 					endcase
 				end
 				`ALU_WRITEBACK: begin
