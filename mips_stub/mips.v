@@ -95,7 +95,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 					end
 			2'b10 : begin	// JAL
 					waddr = 5'd31;
-					wdata = PC;
+					wdata = PC + 4;
 					end
 			//2'b11 : impossible
 		endcase
