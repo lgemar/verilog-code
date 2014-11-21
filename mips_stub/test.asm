@@ -35,12 +35,11 @@ main: addi $sp, $zero, 300
 
 	# Test branches
 	beq $s0, $s0, finish
-	bne $s0, $s0, dest1
 
 dest1: nor $s5, $t3, $t4
-   sw $s5, 52($sp) # out = something crazy
+   sw $s5, 60($sp) # out = something crazy
 	# Jump to the finish
-   j finish
+   j finish2
 
 dest2: sub $s3, $t4, $t3
 	sw $s3, 44($sp) # out = 4
@@ -48,19 +47,18 @@ dest2: sub $s3, $t4, $t3
 	sw $s4, 48($sp) # out = 4
 	sw $ra, 52($sp) # out = the return adddress
 	jr $ra
-	#beq $s4, $s4, dest1
 
 finish: jal dest2
 	addi $t3, $zero, 8
 	addi $t4, $zero, 8
 	and $s0, $t3, $t4
 	sw $s0, 56($sp) # out = 8
-	add $zero, $zero, $zero #dummy instruction
+	bne $s1, $s0, dest1
 
 finish2: addi $t0, $zero, 32
-      	sll $t1, $t0, 2
-		sw $t1, 60($sp) # out = 128
-		srl $t2, $t0, 2
-		sw $t2, 64($sp) # out = 8
-		sra $t3, $t0, 2
-		sw $t3, 68($sp) # out = 8
+       sll $t1, $t0, 2
+       sw $t1, 64($sp) # out = 128
+       srl $t2, $t0, 2
+       sw $t2, 68($sp) # out = 8
+       sra $t3, $t0, 2
+       sw $t3, 72($sp) # out = 8
