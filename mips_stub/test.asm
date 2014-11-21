@@ -56,3 +56,10 @@ finish: jal dest2
 	sw $s0, 56($sp) # out = 3
 	add $zero, $zero, $zero #dummy instruction
 
+finish2: addi $t0, $zero, 32
+      	sll $t1, $t0, 2
+	sw $t1, 56($sp) # out = 128
+	$t2, $t0, 2
+   	$t2, 60($sp) # out = 8
+	$t3, $t0, 2
+   	$t3, 64($sp) # out = 8
