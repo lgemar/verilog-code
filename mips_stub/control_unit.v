@@ -33,7 +33,7 @@ module control_unit(
 	reg [5:0] ALUFunctCode;
 
 	// Internal State Defines
-	`define PRE_FETCH 4'd12
+	`define PRE_FETCH 4'd14
 	`define FETCH 4'd0
 	`define DECODE 4'd1
 	`define MEM_ADR 4'd2
@@ -46,8 +46,9 @@ module control_unit(
 	`define ITYPE_EXECUTE 4'd9
 	`define ITYPE_WRITEBACK 4'd10
 	`define JUMP 4'd11
-	// TODO: we also need JAL and probably 
-	
+	`define JR_STATE 4'd12
+	`define JAL_STATE 4'd13
+
 	always @(*) begin
 		case(state)
 			`PRE_FETCH, `FETCH, `EXECUTE, `ALU_WRITEBACK: ALUFunctCode <= Funct;
@@ -91,9 +92,10 @@ module control_unit(
 	`define LUI 6'hF
 	// J-type opcodes
 	`define J_TYPE 6'd2
-
+	`define JAL 6'd3
+	`define JR 6'd8
 	// Internal Vars
-	reg [3:0] state;
+	reg [4:0] state;
 
 	always@(*) begin
 		case(state)
@@ -229,6 +231,22 @@ module control_unit(
 				PCWrite <= 1'b1;
 				// ALU Op
 			end
+			`JR_STATE: begin
+				// Multiplexer selects
+				PCSrc <= 2'b01;
+				PCWrite <= 2'b01;
+				// Register Enables
+				// ALU Op
+			end
+			`JAL_STATE: begin
+				// Multiplexer selects
+				PCSrc <= 2'b10;
+				PCWrite <= 2'b01;
+				RegDst <= 2'b10;
+				RegWrite <= 1'b1;
+				// Register Enables
+				// ALU Op
+			end
 		endcase
 	end
 
@@ -270,6 +288,7 @@ module control_unit(
 							state <= `ITYPE_EXECUTE;
 						end
 						`J_TYPE: state <= `JUMP;
+						`JAL: state <= `JAL_STATE;
 					endcase
 				end
 				`MEM_ADR: begin
@@ -288,7 +307,10 @@ module control_unit(
 					state <= `PRE_FETCH;
 				end
 				`EXECUTE: begin
-					state <= `ALU_WRITEBACK;
+					case(Opcode)
+						`JR: state <= `JR_STATE;
+						default: state <= `ALU_WRITEBACK;
+					endcase
 				end
 				`ALU_WRITEBACK: begin
 					state <= `PRE_FETCH;
@@ -303,6 +325,12 @@ module control_unit(
 					state <= `PRE_FETCH;
 				end
 				`JUMP: begin
+					state <= `PRE_FETCH;
+				end
+				`JR_STATE: begin
+					state <= `PRE_FETCH;
+				end
+				`JAL_STATE: begin
 					state <= `PRE_FETCH;
 				end
 			endcase
