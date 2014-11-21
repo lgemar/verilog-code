@@ -66,8 +66,6 @@ module alu_decoder(
 					`LUI : ALUControl <= `ALU_SLL;
 				endcase
 		endcase
-		else begin
-		end
 	end
 endmodule
 `default_nettype wire

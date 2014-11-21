@@ -32,19 +32,6 @@ module control_unit(
 
 	reg [5:0] ALUFunctCode;
 
-	always @(*) begin
-		case(state)
-			`PRE_FETCH, `FETCH, `EXECUTE, `ALU_WRITEBACK: ALUFunctCode <= Funct;
-			`ITYPE_EXECUTE, `ITYPE_WRITEBACK: ALUFunctCode <= Opcode;
-		endcase
-	end
-
-	alu_decoder ALU_DECODER (
-		.Funct(ALUFunctCode), 
-		.ALUOp(ALUOp), 
-		.ALUControl(ALUControl)
-	);
-
 	// Internal State Defines
 	`define PRE_FETCH 4'd12
 	`define FETCH 4'd0
@@ -61,6 +48,19 @@ module control_unit(
 	`define JUMP 4'd11
 	// TODO: we also need JAL and probably 
 	
+	always @(*) begin
+		case(state)
+			`PRE_FETCH, `FETCH, `EXECUTE, `ALU_WRITEBACK: ALUFunctCode <= Funct;
+			`ITYPE_EXECUTE, `ITYPE_WRITEBACK: ALUFunctCode <= Opcode;
+		endcase
+	end
+
+	alu_decoder ALU_DECODER (
+		.Funct(ALUFunctCode), 
+		.ALUOp(ALUOp), 
+		.ALUControl(ALUControl)
+	);
+
 	// Instruction Opcode Defines: current operations supported by controller
 	// R-type opcodes
 	`define R_TYPE 6'd0
