@@ -33,15 +33,14 @@ main: addi $sp, $zero, 200
 	slti $s7, $s2, 15
 	sw $s7, 40($sp) # out = 1
 
-	# Jump to the finish
-	j dest1
-
 	# Test branches
+	bne $s0, $s0, finish
 	beq $s0, $s0, dest2
 
 dest1: nor $s5, $t3, $t4
    sw $s5, 52($sp) # out = something crazy
-   beq $s5, $s5, finish # always true
+	# Jump to the finish
+   j finish
 
 dest2: sub $s3, $t4, $t3
 	sw $s3, 44($sp) # out = 4

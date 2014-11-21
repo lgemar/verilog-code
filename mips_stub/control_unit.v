@@ -69,6 +69,7 @@ module control_unit(
 	`define LW 6'd35
 	// Branch opcodes
 	`define BEQ 6'd4
+	`define BNE 6'd5
 	// Itype opcodes
 	`define ADDI 6'd8
 	`define SLTI 6'hA
@@ -96,7 +97,7 @@ module control_unit(
 				IRWrite <= 1'b1;
 				MemWrite <= 1'b0; // x
 				PCWrite <= 1'b1;
-				Branch <= 1'b0; // x
+				Branch <= 2'b00; // x
 				RegWrite <= 1'b0; // x
 				// ALU Op
 				ALUOp <= 2'b00;
@@ -115,7 +116,7 @@ module control_unit(
 				IRWrite <= 1'b1;
 				MemWrite <= 1'b0; // x
 				PCWrite <= 1'b0;
-				Branch <= 1'b0; // x
+				Branch <= 2'b00; // x
 				RegWrite <= 1'b0; // x
 				// ALU Op
 				ALUOp <= 2'b00;
@@ -181,7 +182,10 @@ module control_unit(
 				ALUSrcA <= 2'd1;
 				ALUSrcB <= 2'b00;
 				// Register Enables
-				Branch <= 1'b1;
+				case(Opcode)
+					`BEQ: Branch <= 2'b01;
+					`BNE: Branch <= 2'b10;
+				endcase
 				// ALU Op
 				ALUOp <= 2'b01;
 			end
@@ -228,7 +232,7 @@ module control_unit(
 			IRWrite <= 1'b1;
 			MemWrite <= 1'b0; // x
 			PCWrite <= 1'b1;
-			Branch <= 1'b0; // x
+			Branch <= 2'b00; // x
 			RegWrite <= 1'b0; // x
 			// ALU Op
 			ALUOp <= 2'b00;
@@ -246,7 +250,7 @@ module control_unit(
 					case(Opcode)
 						`LW, `SW: state <= `MEM_ADR;
 						`R_TYPE: state <= `EXECUTE;
-						`BEQ: state <= `BRANCH;
+						`BEQ, `BNE: state <= `BRANCH;
 						`ADDI, `ANDI, `ORI, `XORI, `SLTI, `LUI: begin
 							state <= `ITYPE_EXECUTE;
 						end
