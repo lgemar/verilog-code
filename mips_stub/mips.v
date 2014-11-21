@@ -47,7 +47,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		case (ctrl_alusrca) 
 			2'b00 : SrcA = PC; 
 			2'b01 : SrcA = reg_a;
-			2'b10 : SrcA = inst_reg[10:6];
+			2'b10 : SrcA = { 27'b0, inst_reg[10:6] };
 			//2'b11 : 
 		endcase
 		
