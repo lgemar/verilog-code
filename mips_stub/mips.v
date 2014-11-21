@@ -93,7 +93,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 					waddr = inst_reg[15:11];
 					wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
-			2'b10 : begin
+			2'b10 : begin	// JAL
 					waddr = 5'd31;
 					wdata = PC;
 					end
