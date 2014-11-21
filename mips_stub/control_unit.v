@@ -233,8 +233,8 @@ module control_unit(
 			end
 			`JR_STATE: begin
 				// Multiplexer selects
-				PCSrc <= 2'b00;
-				PCWrite <= 2'b11;
+				PCSrc <= 2'b11;
+				PCWrite <= 2'b01;
 				// Register Enables
 				// ALU Op
 			end
@@ -307,7 +307,7 @@ module control_unit(
 					state <= `PRE_FETCH;
 				end
 				`EXECUTE: begin
-					case(Opcode)
+					case(Funct)
 						`JR: state <= `JR_STATE;
 						default: state <= `ALU_WRITEBACK;
 					endcase
