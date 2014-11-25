@@ -101,7 +101,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		endcase
 	end
 	
-	register REG (
+	my_register REG (
 		.rst(rstb),						// reset (directly)
 		.clk(clk),						// clock (directly)
 		.address1(inst_reg[25:21]),		// addrA (directly from inst_reg)

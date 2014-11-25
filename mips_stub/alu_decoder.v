@@ -20,12 +20,12 @@ module alu_decoder(
 	`define FUNCT_JR 6'd8
 	
 	// I-type Opcodes
-	`define ADDI 6'h8
-	`define SLTI 6'ha
-	`define ANDI 6'hc
-	`define ORI  6'hd
-	`define XORI 6'he
-	`define LUI  6'hf
+	`define D_ADDI 6'h8
+	`define D_SLTI 6'ha
+	`define D_ANDI 6'hc
+	`define D_ORI  6'hd
+	`define D_XORI 6'he
+	`define D_LUI  6'hf
 
 	// Opcode enumeration 
 	`define ALU_AND 4'b0000
@@ -58,12 +58,12 @@ module alu_decoder(
 				endcase
 			2'b11: 
 				case(Funct)
-					`ADDI: ALUControl <= `ALU_ADD;
-					`SLTI: ALUControl <= `ALU_SLT;
-					`ANDI: ALUControl <= `ALU_AND;
-					`ORI : ALUControl <= `ALU_OR;
-					`XORI: ALUControl <= `ALU_XOR;
-					`LUI : ALUControl <= `ALU_SLL;
+					`D_ADDI: ALUControl <= `ALU_ADD;
+					`D_SLTI: ALUControl <= `ALU_SLT;
+					`D_ANDI: ALUControl <= `ALU_AND;
+					`D_ORI : ALUControl <= `ALU_OR;
+					`D_XORI: ALUControl <= `ALU_XOR;
+					`D_LUI : ALUControl <= `ALU_SLL;
 				endcase
 		endcase
 	end
