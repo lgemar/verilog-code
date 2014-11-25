@@ -99,8 +99,6 @@ module control_unit(
 
 	always@(*) begin
 		if(~rstb) begin
-			// State reset, same as fetch
-			state <= `PRE_FETCH;
 			// Multiplexer selects
 			MemtoReg <= 1'b0; // x
 			RegDst <= 2'b0; // x
@@ -272,7 +270,11 @@ module control_unit(
 	end
 
 	always @(posedge cclk) begin
-		if( rstb ) begin // not reset state
+		if( ~rstb ) begin
+			// State reset, same as fetch
+			state <= `PRE_FETCH;
+		end
+		else begin // not reset state
 			case(state)
 				`PRE_FETCH: begin
 					state <= `FETCH;
