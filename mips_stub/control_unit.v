@@ -98,159 +98,6 @@ module control_unit(
 	reg [4:0] state;
 
 	always@(*) begin
-		case(state)
-			`PRE_FETCH: begin
-				// Multiplexer selects
-				MemtoReg <= 1'b0; // x
-				RegDst <= 2'd0; // x
-				IorD <= 1'b0;
-				PCSrc <= 2'b00; 
-				ALUSrcA <= 2'd0;
-				ALUSrcB <= 2'b01;
-				// Register Enables
-				IRWrite <= 1'b1;
-				MemWrite <= 1'b0; // x
-				PCWrite <= 1'b1;
-				Branch <= 2'b00; // x
-				RegWrite <= 1'b0; // x
-				// ALU Op
-				ALUOp <= 2'b00;
-				// Sign Extension Code
-				ExtOp <= 1'b0;
-			end
-			`FETCH: begin
-				// Multiplexer selects
-				MemtoReg <= 1'b0; // x
-				RegDst <= 2'd0; // x
-				IorD <= 1'b0;
-				PCSrc <= 2'b00; 
-				ALUSrcA <= 2'd0;
-				ALUSrcB <= 2'b01;
-				// Register Enables
-				IRWrite <= 1'b1;
-				MemWrite <= 1'b0; // x
-				PCWrite <= 1'b0;
-				Branch <= 2'b00; // x
-				RegWrite <= 1'b0; // x
-				// ALU Op
-				ALUOp <= 2'b00;
-			end
-			`DECODE: begin
-				// Multiplexer selects
-				ALUSrcA <= 2'd0;
-				ALUSrcB <= 2'b11;
-				// Register Enables
-				IRWrite <= 1'b0;
-				PCWrite <= 1'b0;
-				// ALU Op
-				ALUOp <= 2'b00;
-			end
-			`MEM_ADR: begin
-				// Multiplexer selects
-				ALUSrcA <= 2'd1;
-				ALUSrcB <= 2'b10;
-				// Register Enables
-				// ALU Op
-				ALUOp <= 2'b00;
-			end
-			`MEM_READ: begin
-				// Multiplexer selects
-				IorD <= 1'b1;
-				// Register Enables
-				// ALU Op
-			end
-			`MEM_WRITEBACK: begin
-				// Multiplexer selects
-				MemtoReg <= 1'b1;
-				RegDst <= 2'd0;
-				// Register Enables
-				RegWrite <= 1'b1; // x
-				// ALU Op
-			end
-			`MEM_WRITE: begin
-				// Multiplexer selects
-				IorD <= 1'b1;
-				// Register Enables
-				MemWrite <= 1'b1; // x
-				// ALU Op
-			end
-			`EXECUTE: begin
-				// Multiplexer selects
-				case(Funct)
-					`ADD, `SUB, `AND, `OR, `XOR, `NOR, `SLT: ALUSrcA <= 2'd1;
-					`SLL, `SRA, `SRL: ALUSrcA <= 2'd2;
-				endcase
-				ALUSrcB <= 2'b00;
-				// Register Enables
-				// ALU Op
-				ALUOp <= 2'b10;
-			end
-			`ALU_WRITEBACK: begin
-				// Multiplexer selects
-				MemtoReg <= 1'b0;
-				RegDst <= 2'd1;
-				// Register Enables
-				RegWrite <= 1'b1;
-				// ALU Op
-			end
-			`BRANCH: begin
-				// Multiplexer selects
-				PCSrc <= 2'b01;
-				ALUSrcA <= 2'd1;
-				ALUSrcB <= 2'b00;
-				// Register Enables
-				case(Opcode)
-					`BEQ: Branch <= 2'b01;
-					`BNE: Branch <= 2'b10;
-				endcase
-				// ALU Op
-				ALUOp <= 2'b01;
-			end
-			`ITYPE_EXECUTE: begin
-				// Multiplexer selects
-				ALUSrcA <= 2'd1;
-				ALUSrcB <= 2'b10;
-				// Register Enables
-				// ALU Op
-				ALUOp <= 2'b11;
-				// Sign Extension Code
-				ExtOp <= 1'b1;
-			end
-			`ITYPE_WRITEBACK: begin
-				// Multiplexer selects
-				MemtoReg <= 1'b0;
-				RegDst <= 2'd0;
-				// Register Enables
-				RegWrite <= 1'b1;
-				// ALU Op
-			end
-			`JUMP: begin
-				// Multiplexer selects
-				PCSrc <= 2'b10;
-				// Register Enables
-				PCWrite <= 2'b01;
-				// ALU Op
-			end
-			`JR_STATE: begin
-				// Multiplexer selects
-				PCSrc <= 2'b11;
-				PCWrite <= 2'b01;
-				// Register Enables
-				// ALU Op
-			end
-			`JAL_STATE: begin
-				// Multiplexer selects
-				PCSrc <= 2'b10;
-				PCWrite <= 2'b01;
-				RegDst <= 2'b10;
-				RegWrite <= 1'b1;
-				// Register Enables
-				// ALU Op
-			end
-		endcase
-	end
-
-	always @(posedge cclk) begin
 		if(~rstb) begin
 			// State reset, same as fetch
 			state <= `PRE_FETCH;
@@ -271,6 +118,161 @@ module control_unit(
 			ALUOp <= 2'b00;
 		end 
 		else begin
+			case(state)
+				`PRE_FETCH: begin
+					// Multiplexer selects
+					MemtoReg <= 1'b0; // x
+					RegDst <= 2'd0; // x
+					IorD <= 1'b0;
+					PCSrc <= 2'b00; 
+					ALUSrcA <= 2'd0;
+					ALUSrcB <= 2'b01;
+					// Register Enables
+					IRWrite <= 1'b1;
+					MemWrite <= 1'b0; // x
+					PCWrite <= 1'b1;
+					Branch <= 2'b00; // x
+					RegWrite <= 1'b0; // x
+					// ALU Op
+					ALUOp <= 2'b00;
+					// Sign Extension Code
+					ExtOp <= 1'b0;
+				end
+				`FETCH: begin
+					// Multiplexer selects
+					MemtoReg <= 1'b0; // x
+					RegDst <= 2'd0; // x
+					IorD <= 1'b0;
+					PCSrc <= 2'b00; 
+					ALUSrcA <= 2'd0;
+					ALUSrcB <= 2'b01;
+					// Register Enables
+					IRWrite <= 1'b1;
+					MemWrite <= 1'b0; // x
+					PCWrite <= 1'b0;
+					Branch <= 2'b00; // x
+					RegWrite <= 1'b0; // x
+					// ALU Op
+					ALUOp <= 2'b00;
+				end
+				`DECODE: begin
+					// Multiplexer selects
+					ALUSrcA <= 2'd0;
+					ALUSrcB <= 2'b11;
+					// Register Enables
+					IRWrite <= 1'b0;
+					PCWrite <= 1'b0;
+					// ALU Op
+					ALUOp <= 2'b00;
+				end
+				`MEM_ADR: begin
+					// Multiplexer selects
+					ALUSrcA <= 2'd1;
+					ALUSrcB <= 2'b10;
+					// Register Enables
+					// ALU Op
+					ALUOp <= 2'b00;
+				end
+				`MEM_READ: begin
+					// Multiplexer selects
+					IorD <= 1'b1;
+					// Register Enables
+					// ALU Op
+				end
+				`MEM_WRITEBACK: begin
+					// Multiplexer selects
+					MemtoReg <= 1'b1;
+					RegDst <= 2'd0;
+					// Register Enables
+					RegWrite <= 1'b1; // x
+					// ALU Op
+				end
+				`MEM_WRITE: begin
+					// Multiplexer selects
+					IorD <= 1'b1;
+					// Register Enables
+					MemWrite <= 1'b1; // x
+					// ALU Op
+				end
+				`EXECUTE: begin
+					// Multiplexer selects
+					case(Funct)
+						`ADD, `SUB, `AND, `OR, `XOR, `NOR, `SLT: ALUSrcA <= 2'd1;
+						`SLL, `SRA, `SRL: ALUSrcA <= 2'd2;
+					endcase
+					ALUSrcB <= 2'b00;
+					// Register Enables
+					// ALU Op
+					ALUOp <= 2'b10;
+				end
+				`ALU_WRITEBACK: begin
+					// Multiplexer selects
+					MemtoReg <= 1'b0;
+					RegDst <= 2'd1;
+					// Register Enables
+					RegWrite <= 1'b1;
+					// ALU Op
+				end
+				`BRANCH: begin
+					// Multiplexer selects
+					PCSrc <= 2'b01;
+					ALUSrcA <= 2'd1;
+					ALUSrcB <= 2'b00;
+					// Register Enables
+					case(Opcode)
+						`BEQ: Branch <= 2'b01;
+						`BNE: Branch <= 2'b10;
+					endcase
+					// ALU Op
+					ALUOp <= 2'b01;
+				end
+				`ITYPE_EXECUTE: begin
+					// Multiplexer selects
+					ALUSrcA <= 2'd1;
+					ALUSrcB <= 2'b10;
+					// Register Enables
+					// ALU Op
+					ALUOp <= 2'b11;
+					// Sign Extension Code
+					ExtOp <= 1'b1;
+				end
+				`ITYPE_WRITEBACK: begin
+					// Multiplexer selects
+					MemtoReg <= 1'b0;
+					RegDst <= 2'd0;
+					// Register Enables
+					RegWrite <= 1'b1;
+					// ALU Op
+				end
+				`JUMP: begin
+					// Multiplexer selects
+					PCSrc <= 2'b10;
+					// Register Enables
+					PCWrite <= 2'b01;
+					// ALU Op
+				end
+				`JR_STATE: begin
+					// Multiplexer selects
+					PCSrc <= 2'b11;
+					PCWrite <= 2'b01;
+					// Register Enables
+					// ALU Op
+				end
+				`JAL_STATE: begin
+					// Multiplexer selects
+					PCSrc <= 2'b10;
+					PCWrite <= 2'b01;
+					RegDst <= 2'b10;
+					RegWrite <= 1'b1;
+					// Register Enables
+					// ALU Op
+				end
+			endcase
+		end
+	end
+
+	always @(posedge cclk) begin
+		if( rstb ) begin // not reset state
 			case(state)
 				`PRE_FETCH: begin
 					state <= `FETCH;

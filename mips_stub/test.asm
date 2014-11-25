@@ -1,11 +1,13 @@
 # Test load words and store words
 main: addi $sp, $zero, 300
+ 	nop
 	lw	$t0, 0($zero)
 	sw	$t0, 0($sp)
 	lw	$t1, 4($zero)
 	sw	$t1, 4($sp)
 	lw	$t2, 8($zero)
 	sw	$t2, 8($sp)
+ 
 
 	# Test R-type instructions
 	addi $t3, $zero, 3
