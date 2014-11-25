@@ -86,16 +86,16 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	always @(*) begin
 		case (ctrl_rdst) 
 			2'b00 : begin
-						waddr <= inst_reg[20:16];								
-						wdata <= ctrl_memtoreg ? mem_rd_data : ALUResult;
+						waddr = inst_reg[20:16];								
+						wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
 			2'b01 : begin 
 						waddr = inst_reg[15:11];
 						wdata = ctrl_memtoreg ? mem_rd_data : ALUResult;
 					end
 			2'b10 : begin	// JAL
-						waddr <= 5'd31;
-						wdata <= PC;
+						waddr = 5'd31;
+						wdata = PC;
 					end
 			//2'b11 : impossible
 		endcase
