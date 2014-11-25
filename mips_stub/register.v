@@ -1,7 +1,7 @@
 `timescale 1 ps / 1 ps
 `default_nettype none
 
-module register(
+module my_register(
 	input wire rst, clk, write_ena,
 	input wire [4:0] address1, address2, address3,	// TODO: rename address3 to write_reg
 	input wire [31:0] write_data,
