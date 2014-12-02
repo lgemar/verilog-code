@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="synthesis_rig" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/Automatic `includes</ClosedNode>
+         <ClosedNode>/main |home|avinash|src|hdl|mips|synthesis_rig|main.v/TOUCH - touchpad_controller</ClosedNode>
+         <ClosedNode>/main |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|main.v/DEBUGGER - mips_debugger</ClosedNode>
+         <ClosedNode>/main |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|main.v/TOUCH - touchpad_controller</ClosedNode>
+         <ClosedNode>/register_file |home|avinash|src|hdl|mips|synthesis_rig|cpu_src|register_file.v</ClosedNode>
+         <ClosedNode>/register_file |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|cpu_src|register_file.v</ClosedNode>
+         <ClosedNode>/test_mips_debugger |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_mips_debugger.v</ClosedNode>
+         <ClosedNode>/test_mips_debugger |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|debugger_src|test_mips_debugger.v</ClosedNode>
+         <ClosedNode>/test_tft |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_tft.v</ClosedNode>
+         <ClosedNode>/test_tft |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|debugger_src|test_tft.v</ClosedNode>
+         <ClosedNode>/test_tft_addr_gen |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_tft_addr_gen.v</ClosedNode>
+         <ClosedNode>/test_tft_addr_gen |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|debugger_src|test_tft_addr_gen.v</ClosedNode>
+         <ClosedNode>/test_touch |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_touch.v</ClosedNode>
+         <ClosedNode>/test_touch |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|debugger_src|test_touch.v</ClosedNode>
+         <ClosedNode>/touchpad_controller_fast |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|touchpad_controller_fast.v</ClosedNode>
+         <ClosedNode>/touchpad_controller_fast |home|jharvard|Dropbox|dev|courses|cs141|synthesis_rig|debugger_src|touchpad_controller_fast.v</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>main (/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000201000000020000000000000000000000000200000064ffffffff000000810000000300000002000002010000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>main (/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001cc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001cc0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>test_mips_debugger.v</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >5</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000029c000000040101000100000000000000000000000064ffffffff000000810000000000000004000000970000000100000000000000290000000100000000000000840000000100000000000001580000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>test_mips_debugger.v</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000125000000010001000100000000000000000000000064ffffffff000000810000000000000001000001250000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Design Utilities</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+         <ClosedNode>User Constraints</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Generate Programming File</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001d2000000010000000100000000000000000000000064ffffffff000000810000000000000001000001d20000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Generate Programming File</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/main |home|avinash|src|hdl|mips|synthesis_rig|main.v</ClosedNode>
+         <ClosedNode>/test_mips_debugger |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_mips_debugger.v</ClosedNode>
+         <ClosedNode>/test_tft |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_tft.v</ClosedNode>
+         <ClosedNode>/test_tft_addr_gen |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_tft_addr_gen.v</ClosedNode>
+         <ClosedNode>/test_touch |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|test_touch.v</ClosedNode>
+         <ClosedNode>/touchpad_controller_fast |home|avinash|src|hdl|mips|synthesis_rig|debugger_src|touchpad_controller_fast.v</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Unassigned User Library Modules</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000201000000020000000000000000000000000200000064ffffffff000000810000000300000002000002010000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>Unassigned User Library Modules</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities/Compile HDL Simulation Libraries</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Design Utilities</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001cc000000010000000100000000000000000000000064ffffffff000000810000000000000001000001cc0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Design Utilities</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>ISim Simulator</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f1000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f10000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_XCO" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>CORE Generator</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f1000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f10000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <SourceProcessView>000000ff0000000000000002000001490000012001000000060100000002</SourceProcessView>
+   <CurrentView>Implementation</CurrentView>
+</Project>

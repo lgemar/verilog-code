@@ -1,0 +1,2 @@
+verilog work "cpu_src/synth_dual_port_memory.v"
+verilog work "ipcore_dir/clock_generator/example_design/clock_generator_exdes.v"

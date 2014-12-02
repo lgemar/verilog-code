@@ -1,0 +1,2 @@
+verilog work ../../clock_generator.v
+verilog work ../example_design/clock_generator_exdes.v
