@@ -6,7 +6,8 @@ Command Line: /home/jharvard/14.7/ISE_DS/ISE/bin/lin/unwrapped/ngdbuild
 xc6slx45-csg324-3 main.ngc main.ngd
 
 Reading NGO file
-"/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.ngc" ...
+"/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.ngc"
+...
 Gathering constraint information from source properties...
 Done.
 
@@ -28,10 +29,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 112336 kilobytes
+Total memory usage is 113044 kilobytes
 
 Writing NGD file "main.ngd" ...
 Total REAL time to NGDBUILD completion:  5 sec
-Total CPU time to NGDBUILD completion:   4 sec
+Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "main.bld"...

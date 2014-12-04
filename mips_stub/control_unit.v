@@ -4,7 +4,8 @@
 module control_unit(
 	input wire cclk, rstb, // clock and reset pins
 	input wire [31:0] Instr,
-
+	input wire ena,
+	
 	// Multiplexer selects
 	output reg MemtoReg, IorD,
 	output reg [1:0] RegDst, PCSrc, ALUSrcA,
@@ -281,7 +282,9 @@ module control_unit(
 				end
 				`FETCH: begin
 					// State update
-					state <= `DECODE;
+					if (ena) begin 
+						state <= `DECODE;
+					end
 				end
 				`DECODE: begin
 					case(Opcode)

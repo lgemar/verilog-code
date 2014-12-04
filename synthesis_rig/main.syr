@@ -4,15 +4,15 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> 
 Reading design: main.prj
@@ -113,6 +113,10 @@ Cores Search Directories           : {"ipcore_dir"  }
 =========================================================================
 Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/alu_decoder.v" into library work
 Parsing module <alu_decoder>.
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/nibble_to_char.v" into library work
+Parsing module <nibble_to_char>.
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/averager.v" into library work
+Parsing module <averager>.
 Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/register.v" into library work
 Parsing module <my_register>.
 Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/extender.v" into library work
@@ -122,39 +126,35 @@ Parsing module <control_unit>.
 Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/behavioural_alu.v" into library work
 Parsing verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/alu_op_codes.v" included at line 9.
 Parsing module <behavioural_alu>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/nibble_to_char.v" into library work
-Parsing module <nibble_to_char>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/averager.v" into library work
-Parsing module <averager>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" into library work
-Parsing module <mips>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator.v" into library work
 Parsing module <clock_generator>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator/example_design/clock_generator_exdes.v" into library work
+Parsing module <clock_generator_exdes>.
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" into library work
 Parsing module <touchpad_controller>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/tft_driver.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/tft_driver.v" into library work
 Parsing verilog file "tft_defines.v" included at line 3.
 Parsing module <tft_driver>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/one_shot.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/one_shot.v" into library work
 Parsing module <one_shot>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/mips_debugger.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/mips_debugger.v" into library work
 Parsing module <mips_debugger>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/debouncer.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/debouncer.v" into library work
 Parsing module <debouncer>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/cpu_src/synth_dual_port_memory.v" into library work
-Parsing verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/cpu_src/mips_memory_space_defines.v" included at line 4.
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/cpu_src/synth_dual_port_memory.v" into library work
+Parsing verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/cpu_src/mips_memory_space_defines.v" included at line 4.
 Parsing module <synth_dual_port_memory>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" into library work
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" into library work
+Parsing module <mips>.
+Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" into library work
 Parsing verilog file "tft_defines.v" included at line 5.
 Parsing module <main>.
-Analyzing Verilog file "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator/example_design/clock_generator_exdes.v" into library work
-Parsing module <clock_generator_exdes>.
 
 =========================================================================
 *                            HDL Elaboration                            *
 =========================================================================
-WARNING:HDLCompiler:1016 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 36: Port R is not connected to this instance
-WARNING:HDLCompiler:1016 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 44: Port error is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" Line 36: Port R is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" Line 44: Port error is not connected to this instance
 
 Elaborating module <main>.
 
@@ -165,10 +165,10 @@ Elaborating module <clock_generator>.
 Elaborating module <IBUFG>.
 
 Elaborating module <PLL_BASE(BANDWIDTH="OPTIMIZED",CLK_FEEDBACK="CLKFBOUT",COMPENSATION="SYSTEM_SYNCHRONOUS",DIVCLK_DIVIDE=1,CLKFBOUT_MULT=9,CLKFBOUT_PHASE=0.0,CLKOUT0_DIVIDE=9,CLKOUT0_PHASE=0.0,CLKOUT0_DUTY_CYCLE=0.5,CLKOUT1_DIVIDE=100,CLKOUT1_PHASE=0.0,CLKOUT1_DUTY_CYCLE=0.5,CLKOUT2_DIVIDE=100,CLKOUT2_PHASE=180.0,CLKOUT2_DUTY_CYCLE=0.5,CLKIN_PERIOD=10.0,REF_JITTER=0.01)>.
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator.v" Line 124: Assignment to clkout3_unused ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator.v" Line 125: Assignment to clkout4_unused ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator.v" Line 126: Assignment to clkout5_unused ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator.v" Line 127: Assignment to locked_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator.v" Line 124: Assignment to clkout3_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator.v" Line 125: Assignment to clkout4_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator.v" Line 126: Assignment to clkout5_unused ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator.v" Line 127: Assignment to locked_unused ignored, since the identifier is never used
 
 Elaborating module <BUFG>.
 
@@ -176,13 +176,13 @@ Elaborating module <ODDR2>.
 
 Elaborating module <synth_dual_port_memory(N=32,I_LENGTH=256,D_LENGTH=513,I_WIDTH=8,D_WIDTH=10)>.
 Reading initialization file \"i_synth.memh\".
-WARNING:HDLCompiler:1670 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/cpu_src/synth_dual_port_memory.v" Line 130: Signal <IMEM> in initial block is partially initialized.
+WARNING:HDLCompiler:1670 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/cpu_src/synth_dual_port_memory.v" Line 132: Signal <IMEM> in initial block is partially initialized.
 Reading initialization file \"d_synth.memh\".
 
 Elaborating module <debouncer(CYCLES=10000000,COUNTER_WIDTH=32,RESET_VALUE=1'b1)>.
 
 Elaborating module <one_shot(PULSE_WIDTH=1,DEAD_TIME=50000000,COUNTER_WIDTH=32)>.
-WARNING:HDLCompiler:1016 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" Line 65: Port overflow is not connected to this instance
+WARNING:HDLCompiler:1016 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" Line 69: Port overflow is not connected to this instance
 
 Elaborating module <mips>.
 
@@ -193,54 +193,51 @@ Elaborating module <alu_decoder>.
 Elaborating module <behavioural_alu>.
 
 Elaborating module <my_register>.
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/register.v" Line 48: Assignment to zero ignored, since the identifier is never used
 
 Elaborating module <extender>.
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" Line 136: Assignment to mem_data_reg ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" Line 141: Assignment to mem_data_reg ignored, since the identifier is never used
 
 Elaborating module <mips_debugger>.
 Reading initialization file \"char_rom_8x16.memh\".
 
 Elaborating module <nibble_to_char>.
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/mips_debugger.v" Line 80: Result of 9-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/mips_debugger.v" Line 80: Result of 9-bit expression is truncated to fit in 5-bit target.
 
 Elaborating module <tft_driver>.
 
 Elaborating module <touchpad_controller>.
 
 Elaborating module <averager(N=9,M=8)>.
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/averager.v" Line 27: Result of 9-bit expression is truncated to fit in 8-bit target.
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 65: Assignment to z_filtered ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 105: Result of 6-bit expression is truncated to fit in 5-bit target.
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 113: Result of 10-bit expression is truncated to fit in 9-bit target.
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 123: Result of 32-bit expression is truncated to fit in 9-bit target.
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 131: Result of 10-bit expression is truncated to fit in 9-bit target.
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 158: Result of 32-bit expression is truncated to fit in 9-bit target.
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" Line 84: Assignment to touch_tx_done ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 142: Assignment to touch_x ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 143: Assignment to touch_y ignored, since the identifier is never used
-WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 144: Assignment to touch_z ignored, since the identifier is never used
-WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 148: Result of 8-bit expression is truncated to fit in 7-bit target.
-WARNING:HDLCompiler:634 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" Line 78: Net <full_register_file[1023]> does not have a driver.
-WARNING:Xst:2972 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" line 65. All outputs of instance <FILTER_Z> of block <averager> are unconnected in block <touchpad_controller>. Underlying logic will be removed.
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/averager.v" Line 27: Result of 9-bit expression is truncated to fit in 8-bit target.
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 65: Assignment to z_filtered ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 105: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 113: Result of 10-bit expression is truncated to fit in 9-bit target.
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 123: Result of 32-bit expression is truncated to fit in 9-bit target.
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 131: Result of 10-bit expression is truncated to fit in 9-bit target.
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 158: Result of 32-bit expression is truncated to fit in 9-bit target.
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" Line 84: Assignment to touch_tx_done ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" Line 142: Assignment to touch_x ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" Line 143: Assignment to touch_y ignored, since the identifier is never used
+WARNING:HDLCompiler:1127 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" Line 144: Assignment to touch_z ignored, since the identifier is never used
+WARNING:HDLCompiler:413 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" Line 148: Result of 8-bit expression is truncated to fit in 7-bit target.
+WARNING:Xst:2972 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" line 65. All outputs of instance <FILTER_Z> of block <averager> are unconnected in block <touchpad_controller>. Underlying logic will be removed.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <main>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v".
         N = 32
 WARNING:Xst:647 - Input <switch<6:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_up> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_down> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_right> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <button_left> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" line 50: Output port <error> of the instance <MEMORY> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" line 136: Output port <x> of the instance <TOUCH> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" line 136: Output port <y> of the instance <TOUCH> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/main.v" line 136: Output port <z> of the instance <TOUCH> is unconnected or connected to loadless signal.
-WARNING:Xst:653 - Signal <full_register_file> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" line 50: Output port <error> of the instance <MEMORY> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" line 136: Output port <x> of the instance <TOUCH> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" line 136: Output port <y> of the instance <TOUCH> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/main.v" line 136: Output port <z> of the instance <TOUCH> is unconnected or connected to loadless signal.
     Found 7-bit adder for signal <led<6:0>> created at line 148.
     Summary:
 	inferred   1 Adder/Subtractor(s).
@@ -248,7 +245,7 @@ WARNING:Xst:653 - Signal <full_register_file> is used but never assigned. This s
 Unit <main> synthesized.
 
 Synthesizing Unit <debouncer_1>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/debouncer.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/debouncer.v".
         CYCLES = 25000000
         RESET_VALUE = 1'b0
         COUNTER_WIDTH = 32
@@ -264,13 +261,13 @@ Synthesizing Unit <debouncer_1>.
 Unit <debouncer_1> synthesized.
 
 Synthesizing Unit <clock_generator>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/ipcore_dir/clock_generator.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/ipcore_dir/clock_generator.v".
     Summary:
 	no macro.
 Unit <clock_generator> synthesized.
 
 Synthesizing Unit <synth_dual_port_memory>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/cpu_src/synth_dual_port_memory.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/cpu_src/synth_dual_port_memory.v".
         N = 32
         I_LENGTH = 256
         I_WIDTH = 8
@@ -298,7 +295,7 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <DMEM>, 
 Unit <synth_dual_port_memory> synthesized.
 
 Synthesizing Unit <debouncer_2>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/debouncer.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/debouncer.v".
         CYCLES = 10000000
         RESET_VALUE = 1'b1
         COUNTER_WIDTH = 32
@@ -315,7 +312,7 @@ Synthesizing Unit <debouncer_2>.
 Unit <debouncer_2> synthesized.
 
 Synthesizing Unit <one_shot>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/one_shot.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/one_shot.v".
         PULSE_WIDTH = 1
         DEAD_TIME = 50000000
         COUNTER_WIDTH = 32
@@ -334,8 +331,8 @@ Unit <one_shot> synthesized.
 
 Synthesizing Unit <mips>.
     Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v".
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" line 65: Output port <overflow> of the instance <ALU> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" line 65: Output port <equal> of the instance <ALU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" line 69: Output port <overflow> of the instance <ALU> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/mips.v" line 69: Output port <equal> of the instance <ALU> is unconnected or connected to loadless signal.
     Found 32-bit register for signal <PC>.
     Found 32-bit register for signal <inst_reg>.
     Found 32-bit register for signal <reg_a>.
@@ -343,45 +340,45 @@ INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub
     Found 32-bit register for signal <alu_out>.
     Found 4x1-bit Read Only RAM for signal <ctrl_alusrca[1]_GND_45_o_Mux_3_o>
     Found 4x1-bit Read Only RAM for signal <ctrl_rdst[1]_GND_79_o_Mux_39_o>
-    Found 32-bit 4-to-1 multiplexer for signal <SrcB> created at line 54.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[4]_Mux_38_o> created at line 87.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[3]_Mux_40_o> created at line 87.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[2]_Mux_42_o> created at line 87.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[1]_Mux_44_o> created at line 87.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[0]_Mux_46_o> created at line 87.
-    Found 32-bit 4-to-1 multiplexer for signal <ctrl_pcsrc[1]_reg_a[31]_wide_mux_117_OUT> created at line 152.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<31>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<30>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<29>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<28>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<27>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<26>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<25>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<24>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<23>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<22>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<21>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<20>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<19>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<18>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<17>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<16>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<15>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<14>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<13>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<12>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<11>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<10>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<9>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<8>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<7>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<6>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<5>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<4>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<3>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<2>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<1>> created at line 46.
-    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<0>> created at line 46.
+    Found 32-bit 4-to-1 multiplexer for signal <SrcB> created at line 58.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[4]_Mux_38_o> created at line 91.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[3]_Mux_40_o> created at line 91.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[2]_Mux_42_o> created at line 91.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[1]_Mux_44_o> created at line 91.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_rdst[1]_waddr[0]_Mux_46_o> created at line 91.
+    Found 32-bit 4-to-1 multiplexer for signal <ctrl_pcsrc[1]_reg_a[31]_wide_mux_117_OUT> created at line 157.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<31>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<30>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<29>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<28>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<27>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<26>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<25>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<24>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<23>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<22>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<21>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<20>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<19>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<18>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<17>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<16>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<15>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<14>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<13>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<12>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<11>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<10>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<9>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<8>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<7>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<6>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<5>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<4>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<3>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<2>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<1>> created at line 50.
+    Found 1-bit 3-to-1 multiplexer for signal <ctrl_alusrca[1]_SrcA[31]_wide_mux_0_OUT<0>> created at line 50.
 WARNING:Xst:737 - Found 1-bit latch for signal <SrcA<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <SrcA<29>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <SrcA<28>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -465,8 +462,8 @@ WARNING:Xst:647 - Input <Instr<25:6>> is never used. This port will be preserved
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 15                                             |
-    | Transitions        | 41                                             |
-    | Inputs             | 27                                             |
+    | Transitions        | 42                                             |
+    | Inputs             | 28                                             |
     | Outputs            | 30                                             |
     | Clock              | cclk (rising_edge)                             |
     | Reset              | rstb_INV_44_o (positive)                       |
@@ -544,9 +541,11 @@ Unit <behavioural_alu> synthesized.
 Synthesizing Unit <my_register>.
     Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/mips_stub/register.v".
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-    Found 32x31-bit Read Only RAM for signal <_n1360>
-    Found 32-bit 32-to-1 multiplexer for signal <address1[4]_ra[31]_wide_mux_64_OUT> created at line 128.
-    Found 32-bit 32-to-1 multiplexer for signal <address2[4]_ra[31]_wide_mux_65_OUT> created at line 164.
+    Found 32x32-bit Read Only RAM for signal <_n1399>
+    Found 32-bit 32-to-1 multiplexer for signal <address1[4]_ra[31]_wide_mux_65_OUT> created at line 130.
+    Found 32-bit 32-to-1 multiplexer for signal <address2[4]_ra[31]_wide_mux_66_OUT> created at line 166.
+WARNING:Xst:737 - Found 1-bit latch for signal <zero<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <at<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <at<30>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <at<29>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <at<28>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1023,7 +1022,6 @@ WARNING:Xst:737 - Found 1-bit latch for signal <t7<6>>. Latches may be generated
 WARNING:Xst:737 - Found 1-bit latch for signal <t7<5>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <t7<4>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <t7<3>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <t7<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <t7<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <t7<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <s0<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1538,10 +1536,10 @@ WARNING:Xst:737 - Found 1-bit latch for signal <ra<3>>. Latches may be generated
 WARNING:Xst:737 - Found 1-bit latch for signal <ra<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <ra<1>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <ra<0>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-WARNING:Xst:737 - Found 1-bit latch for signal <at<31>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <t7<2>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
 	inferred   1 RAM(s).
-	inferred 992 Latch(s).
+	inferred 993 Latch(s).
 	inferred   4 Multiplexer(s).
 Unit <my_register> synthesized.
 
@@ -1552,7 +1550,7 @@ Synthesizing Unit <extender>.
 Unit <extender> synthesized.
 
 Synthesizing Unit <mips_debugger>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/mips_debugger.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/mips_debugger.v".
 WARNING:Xst:647 - Input <mem_rd_data<31:24>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <core_ena> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:2999 - Signal 'CHAR_ROM', unconnected in block 'mips_debugger', is tied to its initial value.
@@ -1561,10 +1559,12 @@ WARNING:Xst:3035 - Index value(s) does not match array range for signal <CHAR_RO
     Found 32-bit register for signal <mem_wr_data>.
     Found 3-bit subtractor for signal <rom_data_index> created at line 74.
     Found 9-bit subtractor for signal <char_rom_rel_y> created at line 78.
+    Found 6-bit adder for signal <n0175[5:0]> created at line 80.
     Found 31-bit adder for signal <n0177[30:0]> created at line 167.
-    Found 32-bit adder for signal <mem_wr_data[31]_GND_1110_o_add_69_OUT> created at line 217.
+    Found 32-bit adder for signal <mem_wr_data[31]_GND_1143_o_add_69_OUT> created at line 217.
     Found 8-bit subtractor for signal <char_rom_rel_x<7:0>> created at line 24.
     Found 4-bit 8-to-1 multiplexer for signal <current_nibble> created at line 100.
+    Found 32-bit 32-to-1 multiplexer for signal <GND_1143_o_full_register_file[1023]_wide_mux_37_OUT> created at line 121.
     Found 1-bit 8-to-1 multiplexer for signal <rom_data_index[2]_char_rom_data[7]_Mux_43_o> created at line 168.
 WARNING:Xst:737 - Found 1-bit latch for signal <color_fg<23>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 1-bit latch for signal <color_fg<16>>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1580,32 +1580,32 @@ WARNING:Xst:737 - Found 1-bit latch for signal <color_bg<16>>. Latches may be ge
     Found 10-bit comparator lessequal for signal <n0022> created at line 68
     Summary:
 	inferred   1 RAM(s).
-	inferred   5 Adder/Subtractor(s).
+	inferred   6 Adder/Subtractor(s).
 	inferred  32 D-type flip-flop(s).
 	inferred   4 Latch(s).
 	inferred   8 Comparator(s).
-	inferred  13 Multiplexer(s).
+	inferred  19 Multiplexer(s).
 Unit <mips_debugger> synthesized.
 
 Synthesizing Unit <nibble_to_char>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/nibble_to_char.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/nibble_to_char.v".
     Found 16x7-bit Read Only RAM for signal <char>
     Summary:
 	inferred   1 RAM(s).
 Unit <nibble_to_char> synthesized.
 
 Synthesizing Unit <tft_driver>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/tft_driver.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/tft_driver.v".
     Register <tft_display> equivalent to <tft_vdd> has been removed
     Found 1-bit register for signal <tft_vdd>.
     Found 10-bit register for signal <x>.
     Found 9-bit register for signal <y>.
-    Found 10-bit adder for signal <x[9]_GND_1187_o_add_12_OUT> created at line 44.
-    Found 9-bit adder for signal <y[8]_GND_1187_o_add_14_OUT> created at line 49.
+    Found 10-bit adder for signal <x[9]_GND_1220_o_add_12_OUT> created at line 44.
+    Found 9-bit adder for signal <y[8]_GND_1220_o_add_14_OUT> created at line 49.
     Found 10-bit comparator lessequal for signal <n0007> created at line 27
     Found 9-bit comparator lessequal for signal <n0009> created at line 27
-    Found 10-bit comparator greater for signal <x[9]_PWR_1146_o_LessThan_12_o> created at line 43
-    Found 9-bit comparator lessequal for signal <y[8]_PWR_1146_o_LessThan_14_o> created at line 48
+    Found 10-bit comparator greater for signal <x[9]_PWR_1178_o_LessThan_12_o> created at line 43
+    Found 9-bit comparator lessequal for signal <y[8]_PWR_1178_o_LessThan_14_o> created at line 48
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  20 D-type flip-flop(s).
@@ -1614,8 +1614,8 @@ Synthesizing Unit <tft_driver>.
 Unit <tft_driver> synthesized.
 
 Synthesizing Unit <touchpad_controller>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v".
-INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/touchpad_controller.v" line 65: Output port <averaged> of the instance <FILTER_Z> is unconnected or connected to loadless signal.
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v".
+INFO:Xst:3210 - "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/touchpad_controller.v" line 65: Output port <averaged> of the instance <FILTER_Z> is unconnected or connected to loadless signal.
 WARNING:Xst:653 - Signal <z> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 2-bit register for signal <channel>.
     Found 12-bit register for signal <x_raw>.
@@ -1636,24 +1636,24 @@ WARNING:Xst:653 - Signal <z> is used but never assigned. This sourceless signal 
     | Inputs             | 5                                              |
     | Outputs            | 5                                              |
     | Clock              | cclk (rising_edge)                             |
-    | Reset              | rstb_INV_242_o (positive)                      |
+    | Reset              | rstb_INV_243_o (positive)                      |
     | Reset type         | synchronous                                    |
     | Reset State        | 00                                             |
     | Encoding           | auto                                           |
     | Implementation     | LUT                                            |
     -----------------------------------------------------------------------
-    Found 12-bit subtractor for signal <x_raw[11]_GND_1188_o_sub_11_OUT> created at line 53.
-    Found 12-bit subtractor for signal <y_raw[11]_GND_1188_o_sub_14_OUT> created at line 54.
-    Found 10-bit subtractor for signal <GND_1188_o_GND_1188_o_sub_45_OUT> created at line 132.
+    Found 12-bit subtractor for signal <x_raw[11]_GND_1221_o_sub_11_OUT> created at line 53.
+    Found 12-bit subtractor for signal <y_raw[11]_GND_1221_o_sub_14_OUT> created at line 54.
+    Found 10-bit subtractor for signal <GND_1221_o_GND_1221_o_sub_45_OUT> created at line 132.
     Found 9-bit adder for signal <n0239> created at line 57.
-    Found 5-bit adder for signal <clk_div_counter[4]_GND_1188_o_add_28_OUT> created at line 105.
-    Found 9-bit adder for signal <tx_count[8]_GND_1188_o_add_31_OUT> created at line 113.
-    Found 9-bit adder for signal <rx_count[8]_GND_1188_o_add_43_OUT> created at line 131.
-    Found 3-bit adder for signal <channel_switch_count[2]_GND_1188_o_add_52_OUT> created at line 139.
-    Found 12-bit comparator greater for signal <GND_1188_o_x_raw[11]_LessThan_10_o> created at line 53
-    Found 12-bit comparator greater for signal <GND_1188_o_y_raw[11]_LessThan_13_o> created at line 54
-    Found 9-bit comparator greater for signal <PWR_1147_o_x_scaled[8]_LessThan_18_o> created at line 59
-    Found 9-bit comparator greater for signal <PWR_1147_o_y_scaled[8]_LessThan_20_o> created at line 60
+    Found 5-bit adder for signal <clk_div_counter[4]_GND_1221_o_add_28_OUT> created at line 105.
+    Found 9-bit adder for signal <tx_count[8]_GND_1221_o_add_31_OUT> created at line 113.
+    Found 9-bit adder for signal <rx_count[8]_GND_1221_o_add_43_OUT> created at line 131.
+    Found 3-bit adder for signal <channel_switch_count[2]_GND_1221_o_add_52_OUT> created at line 139.
+    Found 12-bit comparator greater for signal <GND_1221_o_x_raw[11]_LessThan_10_o> created at line 53
+    Found 12-bit comparator greater for signal <GND_1221_o_y_raw[11]_LessThan_13_o> created at line 54
+    Found 9-bit comparator greater for signal <PWR_1179_o_x_scaled[8]_LessThan_18_o> created at line 59
+    Found 9-bit comparator greater for signal <PWR_1179_o_y_scaled[8]_LessThan_20_o> created at line 60
     Found 9-bit comparator lessequal for signal <n0034> created at line 112
     Found 32-bit comparator lessequal for signal <n0054> created at line 132
     Found 9-bit comparator lessequal for signal <n0101> created at line 158
@@ -1666,14 +1666,14 @@ WARNING:Xst:653 - Signal <z> is used but never assigned. This sourceless signal 
 Unit <touchpad_controller> synthesized.
 
 Synthesizing Unit <averager>.
-    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/synthesis_rig/debugger_src/averager.v".
+    Related source file is "/home/jharvard/Dropbox/dev/courses/cs141/verilog-code/synthesis_rig/debugger_src/averager.v".
         N = 9
         M = 8
     Found 8-bit register for signal <counter>.
     Found 9-bit register for signal <averaged>.
     Found 17-bit register for signal <sum>.
-    Found 17-bit adder for signal <sum[16]_GND_1189_o_add_1_OUT> created at line 26.
-    Found 8-bit adder for signal <counter[7]_GND_1189_o_add_2_OUT> created at line 27.
+    Found 17-bit adder for signal <sum[16]_GND_1222_o_add_1_OUT> created at line 26.
+    Found 8-bit adder for signal <counter[7]_GND_1222_o_add_2_OUT> created at line 27.
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  34 D-type flip-flop(s).
@@ -1687,10 +1687,10 @@ Macro Statistics
  1520x8-bit single-port Read Only RAM                  : 1
  16x7-bit single-port Read Only RAM                    : 1
  256x32-bit dual-port RAM                              : 1
- 32x31-bit single-port Read Only RAM                   : 1
+ 32x32-bit single-port Read Only RAM                   : 1
  4x1-bit single-port Read Only RAM                     : 2
  513x32-bit dual-port RAM                              : 1
-# Adders/Subtractors                                   : 26
+# Adders/Subtractors                                   : 27
  10-bit adder                                          : 1
  10-bit subtractor                                     : 1
  12-bit subtractor                                     : 2
@@ -1701,6 +1701,7 @@ Macro Statistics
  32-bit adder                                          : 5
  32-bit subtractor                                     : 2
  5-bit adder                                           : 1
+ 6-bit adder                                           : 1
  7-bit adder                                           : 1
  8-bit adder                                           : 2
  8-bit subtractor                                      : 1
@@ -1717,8 +1718,8 @@ Macro Statistics
  5-bit register                                        : 1
  8-bit register                                        : 2
  9-bit register                                        : 6
-# Latches                                              : 1094
- 1-bit latch                                           : 1094
+# Latches                                              : 1095
+ 1-bit latch                                           : 1095
 # Comparators                                          : 24
  10-bit comparator greater                             : 1
  10-bit comparator lessequal                           : 6
@@ -1728,8 +1729,8 @@ Macro Statistics
  32-bit comparator lessequal                           : 1
  9-bit comparator greater                              : 2
  9-bit comparator lessequal                            : 7
-# Multiplexers                                         : 192
- 1-bit 2-to-1 multiplexer                              : 102
+# Multiplexers                                         : 198
+ 1-bit 2-to-1 multiplexer                              : 107
  1-bit 3-to-1 multiplexer                              : 40
  1-bit 4-to-1 multiplexer                              : 4
  1-bit 8-to-1 multiplexer                              : 1
@@ -1738,7 +1739,7 @@ Macro Statistics
  24-bit 2-to-1 multiplexer                             : 7
  32-bit 13-to-1 multiplexer                            : 1
  32-bit 2-to-1 multiplexer                             : 20
- 32-bit 32-to-1 multiplexer                            : 2
+ 32-bit 32-to-1 multiplexer                            : 3
  32-bit 4-to-1 multiplexer                             : 2
  4-bit 8-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 3
@@ -1764,6 +1765,7 @@ WARNING:Xst:1290 - Hierarchical block <FILTER_Y> is unconnected in block <TOUCH>
    It will be removed from the design.
 WARNING:Xst:1710 - FF/Latch <color_fg_16> (without init value) has a constant value of 1 in block <DEBUGGER>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <color_bg_23> (without init value) has a constant value of 0 in block <DEBUGGER>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <zero_30> (without init value) has a constant value of 0 in block <REG>. This FF/Latch will be trimmed during the optimization process.
 
 Synthesizing (advanced) Unit <averager>.
 The following registers are absorbed into accumulator <sum>: 1 register on signal <sum>.
@@ -1819,12 +1821,12 @@ INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_CHAR_ROM> will be implemented on LUT
 Unit <mips_debugger> synthesized (advanced).
 
 Synthesizing (advanced) Unit <my_register>.
-INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n1360> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram__n1399> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
     -----------------------------------------------------------------------
     | ram_type           | Distributed                         |          |
     -----------------------------------------------------------------------
     | Port A                                                              |
-    |     aspect ratio   | 32-word x 31-bit                    |          |
+    |     aspect ratio   | 32-word x 32-bit                    |          |
     |     weA            | connected to signal <GND>           | high     |
     |     addrA          | connected to signal <address3>      |          |
     |     diA            | connected to signal <GND>           |          |
@@ -1921,19 +1923,21 @@ Macro Statistics
  1520x8-bit single-port distributed Read Only RAM      : 1
  16x7-bit single-port distributed Read Only RAM        : 1
  256x32-bit dual-port block RAM                        : 1
- 32x31-bit single-port distributed Read Only RAM       : 1
+ 32x32-bit single-port distributed Read Only RAM       : 1
  4x1-bit single-port distributed Read Only RAM         : 2
  513x32-bit dual-port block RAM                        : 1
-# Adders/Subtractors                                   : 13
+# Adders/Subtractors                                   : 14
  10-bit subtractor                                     : 1
  12-bit subtractor                                     : 2
  3-bit subtractor                                      : 1
  31-bit adder                                          : 1
  32-bit adder                                          : 2
  32-bit subtractor                                     : 2
+ 5-bit adder                                           : 1
  7-bit adder                                           : 1
- 8-bit subtractor                                      : 2
+ 8-bit subtractor                                      : 1
  9-bit adder                                           : 1
+ 9-bit subtractor                                      : 1
 # Counters                                             : 11
  10-bit up counter                                     : 1
  3-bit up counter                                      : 1
@@ -1954,8 +1958,8 @@ Macro Statistics
  32-bit comparator lessequal                           : 1
  9-bit comparator greater                              : 2
  9-bit comparator lessequal                            : 7
-# Multiplexers                                         : 314
- 1-bit 2-to-1 multiplexer                              : 133
+# Multiplexers                                         : 321
+ 1-bit 2-to-1 multiplexer                              : 139
  1-bit 3-to-1 multiplexer                              : 40
  1-bit 32-to-1 multiplexer                             : 64
  1-bit 4-to-1 multiplexer                              : 36
@@ -1965,6 +1969,7 @@ Macro Statistics
  24-bit 2-to-1 multiplexer                             : 7
  32-bit 13-to-1 multiplexer                            : 1
  32-bit 2-to-1 multiplexer                             : 18
+ 32-bit 32-to-1 multiplexer                            : 1
  32-bit 4-to-1 multiplexer                             : 1
  4-bit 8-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 3
@@ -1985,6 +1990,7 @@ Macro Statistics
 =========================================================================
 WARNING:Xst:1710 - FF/Latch <color_fg_16> (without init value) has a constant value of 1 in block <mips_debugger>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <color_bg_23> (without init value) has a constant value of 0 in block <mips_debugger>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <zero_30> (without init value) has a constant value of 0 in block <my_register>. This FF/Latch will be trimmed during the optimization process.
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <TOUCH/FSM_1> on signal <channel[1:2]> with user encoding.
 -------------------
@@ -2171,7 +2177,7 @@ INFO:Xst:2261 - The FF/Latch <TOUCH/tx_count_8> in Unit <main> is equivalent to 
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 10.
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 11.
 FlipFlop CORE/inst_reg_15 has been replicated 3 time(s)
 FlipFlop TFT/tft_vdd has been replicated 1 time(s) to handle iob=true attribute.
 
@@ -2205,17 +2211,17 @@ Top Level Output File Name         : main.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2862
+# BELS                             : 3235
 #      GND                         : 1
 #      INV                         : 50
 #      LUT1                        : 156
-#      LUT2                        : 97
-#      LUT3                        : 156
+#      LUT2                        : 98
+#      LUT3                        : 161
 #      LUT4                        : 159
-#      LUT5                        : 286
-#      LUT6                        : 1268
+#      LUT5                        : 292
+#      LUT6                        : 1596
 #      MUXCY                       : 311
-#      MUXF7                       : 103
+#      MUXF7                       : 136
 #      VCC                         : 1
 #      XORCY                       : 274
 # FlipFlops/Latches                : 1446
@@ -2225,10 +2231,11 @@ Primitive and Black Box Usage:
 #      FDS                         : 4
 #      LD                          : 79
 #      LDC                         : 15
-#      LDCE                        : 992
+#      LDCE                        : 990
 #      LDCE_1                      : 1
 #      LDE                         : 1
 #      LDP                         : 3
+#      LDPE                        : 2
 #      LDPE_1                      : 1
 #      ODDR2                       : 1
 # RAMS                             : 3
@@ -2250,15 +2257,15 @@ Selected Device : 6slx45csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:            1444  out of  54576     2%  
- Number of Slice LUTs:                 2172  out of  27288     7%  
-    Number used as Logic:              2172  out of  27288     7%  
+ Number of Slice LUTs:                 2512  out of  27288     9%  
+    Number used as Logic:              2512  out of  27288     9%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3179
-   Number with an unused Flip Flop:    1735  out of   3179    54%  
-   Number with an unused LUT:          1007  out of   3179    31%  
-   Number of fully used LUT-FF pairs:   437  out of   3179    13%  
-   Number of unique control sets:        61
+ Number of LUT Flip Flop pairs used:   3263
+   Number with an unused Flip Flop:    1819  out of   3263    55%  
+   Number with an unused LUT:           751  out of   3263    23%  
+   Number of fully used LUT-FF pairs:   693  out of   3263    21%  
+   Number of unique control sets:        62
 
 IO Utilization: 
  Number of IOs:                          65
@@ -2292,24 +2299,24 @@ Clock Information:
 ----------------------------------------------------------------------------------------------------------------+-----------------------------------------------+-------+
 Clock Signal                                                                                                    | Clock buffer(FF name)                         | Load  |
 ----------------------------------------------------------------------------------------------------------------+-----------------------------------------------+-------+
-CLOCK_GEN/pll_base_inst/CLKOUT1                                                                                 | BUFG                                          | 22    |
+CLOCK_GEN/pll_base_inst/CLKOUT1                                                                                 | BUFG                                          | 236   |
 CLOCK_GEN/pll_base_inst/CLKOUT2                                                                                 | BUFG                                          | 1     |
-CLOCK_GEN/pll_base_inst/CLKOUT0                                                                                 | BUFG                                          | 335   |
-DEBUGGER/Mmux_current_nibble13(DEBUGGER/in_line1:O)                                                             | NONE(*)(DEBUGGER/color_bg_16)                 | 2     |
+CLOCK_GEN/pll_base_inst/CLKOUT0                                                                                 | BUFG                                          | 121   |
+DEBUGGER/in_line(DEBUGGER/in_line1:O)                                                                           | NONE(*)(DEBUGGER/color_bg_16)                 | 2     |
 CORE/Mram_ctrl_rdst[1]_GND_79_o_Mux_39_o(CORE/Mram_ctrl_rdst[1]_GND_79_o_Mux_39_o11:O)                          | BUFG(*)(CORE/wdata_1)                         | 37    |
 CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o(CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o11:O)                      | BUFG(*)(CORE/SrcA_5)                          | 32    |
 CORE/CONTROL/state[4]_PWR_49_o_Select_93_o(CORE/CONTROL/state_state[4]_PWR_49_o_Select_93_o1:O)                 | NONE(*)(CORE/CONTROL/Branch_1)                | 2     |
 CORE/CONTROL/state[4]_PWR_40_o_Select_84_o(CORE/CONTROL/state_state[4]_PWR_40_o_Select_84_o1:O)                 | NONE(*)(CORE/CONTROL/ALUSrcA_1)               | 2     |
-CORE/CONTROL/_n0576(CORE/CONTROL/state__n05761:O)                                                               | NONE(*)(CORE/CONTROL/ALUSrcB_0)               | 4     |
+CORE/CONTROL/_n0578(CORE/CONTROL/state__n05781:O)                                                               | NONE(*)(CORE/CONTROL/ALUSrcB_0)               | 4     |
 DEBOUNCE_RSTB/debounced                                                                                         | NONE(CORE/CONTROL/ExtOp)                      | 1     |
-CORE/CONTROL/_n0610(CORE/CONTROL/state__n06101:O)                                                               | NONE(*)(CORE/CONTROL/MemWrite)                | 1     |
-CORE/CONTROL/_n0543(CORE/CONTROL/state__n05431:O)                                                               | NONE(*)(CORE/CONTROL/PCSrc_0)                 | 2     |
-CORE/CONTROL/_n0541(CORE/CONTROL/_n05411:O)                                                                     | NONE(*)(CORE/CONTROL/RegDst_0)                | 3     |
-CORE/CONTROL/_n0608(CORE/CONTROL/state__n06081:O)                                                               | NONE(*)(CORE/CONTROL/MemtoReg)                | 1     |
-CORE/CONTROL/_n0353(CORE/CONTROL/state__n03531:O)                                                               | NONE(*)(CORE/CONTROL/ALUFunctCode_0)          | 6     |
-CORE/CONTROL/_n0611(CORE/CONTROL/state__n06111:O)                                                               | NONE(*)(CORE/CONTROL/PCWrite)                 | 1     |
-CORE/CONTROL/_n0609(CORE/CONTROL/_n06091:O)                                                                     | NONE(*)(CORE/CONTROL/IRWrite)                 | 1     |
-CORE/CONTROL/_n0321(CORE/CONTROL/state__n03211:O)                                                               | NONE(*)(CORE/CONTROL/IorD)                    | 1     |
+CORE/CONTROL/_n0612(CORE/CONTROL/state__n06121:O)                                                               | NONE(*)(CORE/CONTROL/MemWrite)                | 1     |
+CORE/CONTROL/_n0545(CORE/CONTROL/state__n05451:O)                                                               | NONE(*)(CORE/CONTROL/PCSrc_0)                 | 2     |
+CORE/CONTROL/_n0543(CORE/CONTROL/_n05431:O)                                                                     | NONE(*)(CORE/CONTROL/RegDst_0)                | 3     |
+CORE/CONTROL/_n0610(CORE/CONTROL/state__n06101:O)                                                               | NONE(*)(CORE/CONTROL/MemtoReg)                | 1     |
+CORE/CONTROL/_n0355(CORE/CONTROL/state__n03551:O)                                                               | NONE(*)(CORE/CONTROL/ALUFunctCode_0)          | 6     |
+CORE/CONTROL/_n0613(CORE/CONTROL/state__n06131:O)                                                               | NONE(*)(CORE/CONTROL/PCWrite)                 | 1     |
+CORE/CONTROL/_n0611(CORE/CONTROL/_n06111:O)                                                                     | NONE(*)(CORE/CONTROL/IRWrite)                 | 1     |
+CORE/CONTROL/_n0323(CORE/CONTROL/state__n03231:O)                                                               | NONE(*)(CORE/CONTROL/IorD)                    | 1     |
 CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o(CORE/CONTROL/ALU_DECODER/Mmux_ALUOp[1]_Funct[5]_Mux_23_o1:O)| NONE(*)(CORE/CONTROL/ALU_DECODER/ALUControl_3)| 4     |
 CORE/CONTROL/RegWrite                                                                                           | BUFG                                          | 992   |
 ----------------------------------------------------------------------------------------------------------------+-----------------------------------------------+-------+
@@ -2328,8 +2335,8 @@ Speed Grade: -3
 
    Minimum period: 9.865ns (Maximum Frequency: 101.367MHz)
    Minimum input arrival time before clock: 4.038ns
-   Maximum output required time after clock: 21.767ns
-   Maximum combinational path delay: 7.395ns
+   Maximum output required time after clock: 22.397ns
+   Maximum combinational path delay: 6.986ns
 
 Timing Details:
 ---------------
@@ -2337,14 +2344,39 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT0'
+  Clock period: 5.899ns (frequency: 169.510MHz)
+  Total number of paths / destination ports: 19682 / 255
+-------------------------------------------------------------------------
+Delay:               5.899ns (Levels of Logic = 4)
+  Source:            ONESHOT/counter_19 (FF)
+  Destination:       ONESHOT/counter_31 (FF)
+  Source Clock:      CLOCK_GEN/pll_base_inst/CLKOUT0 rising
+  Destination Clock: CLOCK_GEN/pll_base_inst/CLKOUT0 rising
+
+  Data Path: ONESHOT/counter_19 to ONESHOT/counter_31
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              5   0.447   1.079  ONESHOT/counter_19 (ONESHOT/counter_19)
+     LUT6:I0->O            1   0.203   0.924  ONESHOT/counter[31]_GND_10_o_equal_2_o<31>2 (ONESHOT/counter[31]_GND_10_o_equal_2_o<31>1)
+     LUT6:I1->O            4   0.203   0.912  ONESHOT/counter[31]_GND_10_o_equal_2_o<31>7 (ONESHOT/counter[31]_GND_10_o_equal_2_o)
+     LUT4:I1->O           31   0.205   1.622  ONESHOT/Mmux_GND_10_o_GND_10_o_mux_11_OUT1021 (ONESHOT/Mmux_GND_10_o_GND_10_o_mux_11_OUT102)
+     LUT5:I0->O            1   0.203   0.000  ONESHOT/Mmux_GND_10_o_GND_10_o_mux_11_OUT91 (ONESHOT/GND_10_o_GND_10_o_mux_11_OUT<17>)
+     FDR:D                     0.102          ONESHOT/counter_17
+    ----------------------------------------
+    Total                      5.899ns (1.363ns logic, 4.536ns route)
+                                       (23.1% logic, 76.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT1'
   Clock period: 9.865ns (frequency: 101.367MHz)
-  Total number of paths / destination ports: 242906 / 841
+  Total number of paths / destination ports: 225097 / 488
 -------------------------------------------------------------------------
 Delay:               9.865ns (Levels of Logic = 9)
   Source:            CORE/reg_b_6 (FF)
   Destination:       CORE/PC_31 (FF)
-  Source Clock:      CLOCK_GEN/pll_base_inst/CLKOUT0 rising
-  Destination Clock: CLOCK_GEN/pll_base_inst/CLKOUT0 rising
+  Source Clock:      CLOCK_GEN/pll_base_inst/CLKOUT1 rising
+  Destination Clock: CLOCK_GEN/pll_base_inst/CLKOUT1 rising
 
   Data Path: CORE/reg_b_6 to CORE/PC_31
                                 Gate     Net
@@ -2353,10 +2385,10 @@ Delay:               9.865ns (Levels of Logic = 9)
      FDR:C->Q              5   0.447   0.943  CORE/reg_b_6 (CORE/reg_b_6)
      LUT5:I2->O           11   0.205   1.130  CORE/Mmux_SrcB291 (CORE/SrcB<6>)
      LUT6:I2->O            7   0.203   1.002  CORE/ALU/Sh1991 (CORE/ALU/Sh199)
-     LUT6:I3->O            1   0.205   0.684  CORE/ALU/Mmux_Z202_SW0 (N153)
+     LUT6:I3->O            1   0.205   0.684  CORE/ALU/Mmux_Z202_SW0 (N151)
      LUT6:I4->O            1   0.203   0.580  CORE/ALU/Mmux_Z204 (CORE/ALU/Mmux_Z202)
      LUT6:I5->O            4   0.205   0.912  CORE/ALU/Mmux_Z207 (CORE/ALUResult<19>)
-     LUT6:I3->O            1   0.205   0.580  CORE/ALU/zero<31>1_SW0 (N237)
+     LUT6:I3->O            1   0.205   0.580  CORE/ALU/zero<31>1_SW0 (N235)
      LUT6:I5->O            2   0.205   0.617  CORE/ALU/zero<31>3 (CORE/ALU/zero<31>2)
      LUT6:I5->O           17   0.205   1.028  CORE/PCEn1 (CORE/PCEn)
      LUT3:I2->O            1   0.205   0.000  CORE/PC_31_rstpot (CORE/PC_31_rstpot)
@@ -2364,30 +2396,6 @@ Delay:               9.865ns (Levels of Logic = 9)
     ----------------------------------------
     Total                      9.865ns (2.390ns logic, 7.475ns route)
                                        (24.2% logic, 75.8% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT1'
-  Clock period: 5.574ns (frequency: 179.400MHz)
-  Total number of paths / destination ports: 416 / 47
--------------------------------------------------------------------------
-Delay:               5.574ns (Levels of Logic = 3)
-  Source:            TFT/x_3 (FF)
-  Destination:       TFT/y_0 (FF)
-  Source Clock:      CLOCK_GEN/pll_base_inst/CLKOUT1 rising
-  Destination Clock: CLOCK_GEN/pll_base_inst/CLKOUT1 rising
-
-  Data Path: TFT/x_3 to TFT/y_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDR:C->Q             18   0.447   1.297  TFT/x_3 (TFT/x_3)
-     LUT5:I1->O            2   0.203   0.981  TFT/x[9]_PWR_1146_o_LessThan_12_o1_SW0 (N58)
-     LUT6:I0->O            2   0.203   0.981  TFT/x[9]_PWR_1146_o_LessThan_12_o1 (TFT/x[9]_PWR_1146_o_LessThan_12_o)
-     LUT6:I0->O            9   0.203   0.829  TFT/Mcount_y_val1 (TFT/Mcount_y_val)
-     FDRE:R                    0.430          TFT/y_0
-    ----------------------------------------
-    Total                      5.574ns (1.486ns logic, 4.088ns route)
-                                       (26.7% logic, 73.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT0'
@@ -2412,94 +2420,101 @@ Offset:              4.038ns (Levels of Logic = 3)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT0'
-  Total number of paths / destination ports: 4739731 / 35
+  Total number of paths / destination ports: 5 / 4
 -------------------------------------------------------------------------
-Offset:              18.612ns (Levels of Logic = 29)
-  Source:            CORE/PC_2 (FF)
-  Destination:       tft_red<7> (PAD)
+Offset:              5.151ns (Levels of Logic = 2)
+  Source:            ONESHOT/one_shot (FF)
+  Destination:       led<7> (PAD)
   Source Clock:      CLOCK_GEN/pll_base_inst/CLKOUT0 rising
 
-  Data Path: CORE/PC_2 to tft_red<7>
+  Data Path: ONESHOT/one_shot to led<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             13   0.447   0.932  CORE/PC_2 (CORE/PC_2)
-     INV:I->O              1   0.206   0.000  DEBUGGER/Madd_n0177[30:0]_lut<0>1_INV_0 (DEBUGGER/Madd_n0177[30:0]_lut<0>1)
-     MUXCY:S->O            1   0.172   0.000  DEBUGGER/Madd_n0177[30:0]_cy<0> (DEBUGGER/Madd_n0177[30:0]_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<1> (DEBUGGER/Madd_n0177[30:0]_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<2> (DEBUGGER/Madd_n0177[30:0]_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<3> (DEBUGGER/Madd_n0177[30:0]_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<4> (DEBUGGER/Madd_n0177[30:0]_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<5> (DEBUGGER/Madd_n0177[30:0]_cy<5>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<6> (DEBUGGER/Madd_n0177[30:0]_cy<6>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<7> (DEBUGGER/Madd_n0177[30:0]_cy<7>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<8> (DEBUGGER/Madd_n0177[30:0]_cy<8>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<9> (DEBUGGER/Madd_n0177[30:0]_cy<9>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<10> (DEBUGGER/Madd_n0177[30:0]_cy<10>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<11> (DEBUGGER/Madd_n0177[30:0]_cy<11>)
-     MUXCY:CI->O           1   0.019   0.000  DEBUGGER/Madd_n0177[30:0]_cy<12> (DEBUGGER/Madd_n0177[30:0]_cy<12>)
-     XORCY:CI->O           1   0.180   0.684  DEBUGGER/Madd_n0177[30:0]_xor<13> (DEBUGGER/n0177[30:0]<13>)
-     LUT3:I1->O            1   0.203   0.580  DEBUGGER/Mmux_current_nibble24 (DEBUGGER/Mmux_current_nibble23)
-     LUT6:I5->O            1   0.205   0.684  DEBUGGER/Mmux_current_nibble25 (DEBUGGER/Mmux_current_nibble24)
-     LUT6:I4->O            6   0.203   0.992  DEBUGGER/Mmux_current_nibble27 (DEBUGGER/current_nibble<1>)
-     LUT4:I0->O          163   0.203   2.384  DEBUGGER/CHARACTER_GENERATOR/Mram_char111 (DEBUGGER/CHARACTER_GENERATOR/Mram_char1)
-     LUT6:I0->O            1   0.203   0.827  DEBUGGER_Mram_CHAR_ROM1461 (DEBUGGER_Mram_CHAR_ROM146)
-     LUT5:I1->O            1   0.203   0.827  DEBUGGER_Mram_CHAR_ROM1591_91 (DEBUGGER_Mram_CHAR_ROM1591_91)
-     LUT6:I2->O            1   0.203   0.000  DEBUGGER_Mram_CHAR_ROM1591_41 (DEBUGGER_Mram_CHAR_ROM1591_4)
-     MUXF7:I0->O           1   0.131   0.827  DEBUGGER_Mram_CHAR_ROM1591_2_f7 (DEBUGGER/_n0186<6>)
-     LUT6:I2->O            1   0.203   0.000  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7_F (N329)
-     MUXF7:I0->O           4   0.131   1.028  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7 (DEBUGGER/rom_data_index[2]_char_rom_data[7]_Mux_43_o)
-     LUT5:I0->O           10   0.203   1.221  DEBUGGER/Mmux_color1111 (DEBUGGER/Mmux_color111)
-     LUT6:I0->O            6   0.203   0.745  DEBUGGER/Mmux_color1711 (DEBUGGER/Mmux_color171)
-     LUT4:I3->O            1   0.205   0.579  TFT/Mmux_tft_red21 (tft_red_1_OBUF)
-     OBUF:I->O                 2.571          tft_red_1_OBUF (tft_red<1>)
+     FD:C->Q              36   0.447   1.349  ONESHOT/one_shot (ONESHOT/one_shot)
+     LUT2:I1->O            1   0.205   0.579  led<7>1 (led_7_OBUF)
+     OBUF:I->O                 2.571          led_7_OBUF (led<7>)
     ----------------------------------------
-    Total                     18.612ns (6.303ns logic, 12.309ns route)
-                                       (33.9% logic, 66.1% route)
+    Total                      5.151ns (3.223ns logic, 1.928ns route)
+                                       (62.6% logic, 37.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT1'
-  Total number of paths / destination ports: 7370668 / 27
+  Total number of paths / destination ports: 29180975 / 34
 -------------------------------------------------------------------------
-Offset:              21.767ns (Levels of Logic = 17)
-  Source:            TFT/y_8 (FF)
+Offset:              22.397ns (Levels of Logic = 17)
+  Source:            TFT/y_4 (FF)
   Destination:       tft_red<7> (PAD)
   Source Clock:      CLOCK_GEN/pll_base_inst/CLKOUT1 rising
 
-  Data Path: TFT/y_8 to tft_red<7>
+  Data Path: TFT/y_4 to tft_red<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q            14   0.447   1.302  TFT/y_8 (TFT/y_8)
-     LUT6:I1->O           18   0.203   1.414  DEBUGGER/char_rom_x_offset<5>1 (DEBUGGER/char_rom_x_offset<5>)
-     LUT6:I0->O           15   0.203   1.086  DEBUGGER/_n0210 (DEBUGGER/char_rom_x_offset<3>)
-     LUT4:I2->O            8   0.203   1.147  DEBUGGER/Msub_char_rom_rel_x<7:0>_xor<5>12 (DEBUGGER/char_rom_rel_x<5>)
-     LUT6:I1->O            1   0.203   0.684  DEBUGGER/Mmux_current_nibble22 (DEBUGGER/Mmux_current_nibble21)
-     LUT6:I4->O            1   0.203   0.580  DEBUGGER/Mmux_current_nibble23 (DEBUGGER/Mmux_current_nibble22)
-     LUT6:I5->O            6   0.205   0.992  DEBUGGER/Mmux_current_nibble27 (DEBUGGER/current_nibble<1>)
+     FDRE:C->Q           261   0.447   2.172  TFT/y_4 (TFT/y_4)
+     LUT6:I4->O            6   0.203   0.745  DEBUGGER/_n021031 (DEBUGGER/_n02103)
+     LUT6:I5->O           15   0.205   1.229  DEBUGGER/_n02101 (DEBUGGER/char_rom_x_offset<3>)
+     LUT5:I1->O           12   0.203   1.253  DEBUGGER/Msub_char_rom_rel_x<7:0>_xor<5>12 (DEBUGGER/char_rom_rel_x<5>)
+     LUT6:I1->O            1   0.203   0.827  DEBUGGER/Mmux_current_nibble25 (DEBUGGER/Mmux_current_nibble24)
+     LUT5:I1->O            1   0.203   0.684  DEBUGGER/Mmux_current_nibble26 (DEBUGGER/Mmux_current_nibble25)
+     LUT6:I4->O            6   0.203   0.992  DEBUGGER/Mmux_current_nibble211 (DEBUGGER/current_nibble<1>)
      LUT4:I0->O          163   0.203   2.384  DEBUGGER/CHARACTER_GENERATOR/Mram_char111 (DEBUGGER/CHARACTER_GENERATOR/Mram_char1)
      LUT6:I0->O            1   0.203   0.827  DEBUGGER_Mram_CHAR_ROM1461 (DEBUGGER_Mram_CHAR_ROM146)
      LUT5:I1->O            1   0.203   0.827  DEBUGGER_Mram_CHAR_ROM1591_91 (DEBUGGER_Mram_CHAR_ROM1591_91)
      LUT6:I2->O            1   0.203   0.000  DEBUGGER_Mram_CHAR_ROM1591_41 (DEBUGGER_Mram_CHAR_ROM1591_4)
      MUXF7:I0->O           1   0.131   0.827  DEBUGGER_Mram_CHAR_ROM1591_2_f7 (DEBUGGER/_n0186<6>)
      LUT6:I2->O            1   0.203   0.000  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7_F (N329)
-     MUXF7:I0->O           4   0.131   1.028  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7 (DEBUGGER/rom_data_index[2]_char_rom_data[7]_Mux_43_o)
+     MUXF7:I0->O           2   0.131   0.961  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7 (DEBUGGER/rom_data_index[2]_char_rom_data[7]_Mux_43_o)
      LUT5:I0->O           10   0.203   1.221  DEBUGGER/Mmux_color1111 (DEBUGGER/Mmux_color111)
      LUT6:I0->O            6   0.203   0.745  DEBUGGER/Mmux_color1711 (DEBUGGER/Mmux_color171)
      LUT4:I3->O            1   0.205   0.579  TFT/Mmux_tft_red21 (tft_red_1_OBUF)
      OBUF:I->O                 2.571          tft_red_1_OBUF (tft_red<1>)
     ----------------------------------------
-    Total                     21.767ns (6.126ns logic, 15.641ns route)
-                                       (28.1% logic, 71.9% route)
+    Total                     22.397ns (6.126ns logic, 16.271ns route)
+                                       (27.4% logic, 72.6% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'DEBUGGER/Mmux_current_nibble13'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CORE/CONTROL/RegWrite'
+  Total number of paths / destination ports: 8623440 / 21
+-------------------------------------------------------------------------
+Offset:              18.650ns (Levels of Logic = 16)
+  Source:            CORE/REG/k1_17 (LATCH)
+  Destination:       tft_red<7> (PAD)
+  Source Clock:      CORE/CONTROL/RegWrite falling
+
+  Data Path: CORE/REG/k1_17 to tft_red<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCE:G->Q             3   0.498   0.898  CORE/REG/k1_17 (CORE/REG/k1_17)
+     LUT6:I2->O            1   0.203   0.827  DEBUGGER/Mmux_GND_1143_o_full_register_file[1023]_wide_mux_37_OUT_825 (DEBUGGER/Mmux_GND_1143_o_full_register_file[1023]_wide_mux_37_OUT_825)
+     LUT6:I2->O            1   0.203   0.000  DEBUGGER/Mmux_GND_1143_o_full_register_file[1023]_wide_mux_37_OUT_38 (DEBUGGER/Mmux_GND_1143_o_full_register_file[1023]_wide_mux_37_OUT_38)
+     MUXF7:I1->O           1   0.140   0.827  DEBUGGER/Mmux_GND_1143_o_full_register_file[1023]_wide_mux_37_OUT_2_f7_7 (DEBUGGER/GND_1143_o_full_register_file[1023]_wide_mux_37_OUT<17>)
+     LUT6:I2->O            1   0.203   0.827  DEBUGGER/Mmux_current_nibble22 (DEBUGGER/Mmux_current_nibble21)
+     LUT6:I2->O            6   0.203   0.992  DEBUGGER/Mmux_current_nibble211 (DEBUGGER/current_nibble<1>)
+     LUT4:I0->O          163   0.203   2.384  DEBUGGER/CHARACTER_GENERATOR/Mram_char111 (DEBUGGER/CHARACTER_GENERATOR/Mram_char1)
+     LUT6:I0->O            1   0.203   0.827  DEBUGGER_Mram_CHAR_ROM1461 (DEBUGGER_Mram_CHAR_ROM146)
+     LUT5:I1->O            1   0.203   0.827  DEBUGGER_Mram_CHAR_ROM1591_91 (DEBUGGER_Mram_CHAR_ROM1591_91)
+     LUT6:I2->O            1   0.203   0.000  DEBUGGER_Mram_CHAR_ROM1591_41 (DEBUGGER_Mram_CHAR_ROM1591_4)
+     MUXF7:I0->O           1   0.131   0.827  DEBUGGER_Mram_CHAR_ROM1591_2_f7 (DEBUGGER/_n0186<6>)
+     LUT6:I2->O            1   0.203   0.000  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7_F (N329)
+     MUXF7:I0->O           2   0.131   0.961  DEBUGGER/Mmux_rom_data_index[2]_char_rom_data[7]_Mux_43_o_2_f7 (DEBUGGER/rom_data_index[2]_char_rom_data[7]_Mux_43_o)
+     LUT5:I0->O           10   0.203   1.221  DEBUGGER/Mmux_color1111 (DEBUGGER/Mmux_color111)
+     LUT6:I0->O            6   0.203   0.745  DEBUGGER/Mmux_color1711 (DEBUGGER/Mmux_color171)
+     LUT4:I3->O            1   0.205   0.579  TFT/Mmux_tft_red21 (tft_red_1_OBUF)
+     OBUF:I->O                 2.571          tft_red_1_OBUF (tft_red<1>)
+    ----------------------------------------
+    Total                     18.650ns (5.909ns logic, 12.741ns route)
+                                       (31.7% logic, 68.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'DEBUGGER/in_line'
   Total number of paths / destination ports: 24 / 24
 -------------------------------------------------------------------------
 Offset:              7.138ns (Levels of Logic = 4)
   Source:            DEBUGGER/color_fg_23 (LATCH)
   Destination:       tft_red<7> (PAD)
-  Source Clock:      DEBUGGER/Mmux_current_nibble13 rising
+  Source Clock:      DEBUGGER/in_line rising
 
   Data Path: DEBUGGER/color_fg_23 to tft_red<7>
                                 Gate     Net
@@ -2518,22 +2533,21 @@ Offset:              7.138ns (Levels of Logic = 4)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 37 / 24
 -------------------------------------------------------------------------
-Delay:               7.395ns (Levels of Logic = 5)
+Delay:               6.986ns (Levels of Logic = 4)
   Source:            switch<0> (PAD)
-  Destination:       tft_blue<0> (PAD)
+  Destination:       tft_red<7> (PAD)
 
-  Data Path: switch<0> to tft_blue<0>
+  Data Path: switch<0> to tft_red<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             9   1.222   0.934  switch_0_IBUF (switch_0_IBUF)
-     LUT5:I3->O            3   0.203   0.898  DEBUGGER/Mmux_color281 (DEBUGGER/Mmux_color28)
-     LUT4:I0->O            1   0.203   0.580  TFT/Mmux_tft_blue1_SW0 (N64)
-     LUT5:I4->O            1   0.205   0.579  TFT/Mmux_tft_blue1 (tft_blue_0_OBUF)
-     OBUF:I->O                 2.571          tft_blue_0_OBUF (tft_blue<0>)
+     IBUF:I->O             9   1.222   1.077  switch_0_IBUF (switch_0_IBUF)
+     LUT6:I2->O           17   0.203   1.132  DEBUGGER/Mmux_color1121 (DEBUGGER/Mmux_color112)
+     LUT4:I2->O            1   0.203   0.579  TFT/Mmux_tft_green11 (tft_green_0_OBUF)
+     OBUF:I->O                 2.571          tft_green_0_OBUF (tft_green<0>)
     ----------------------------------------
-    Total                      7.395ns (4.404ns logic, 2.991ns route)
-                                       (59.6% logic, 40.4% route)
+    Total                      6.986ns (4.199ns logic, 2.787ns route)
+                                       (60.1% logic, 39.9% route)
 
 =========================================================================
 
@@ -2541,41 +2555,40 @@ Cross Clock Domains Report:
 --------------------------
 
 Clock to Setup on destination clock CLOCK_GEN/pll_base_inst/CLKOUT0
----------------------------------------------------+---------+---------+---------+---------+
-                                                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------------------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0                    |    9.865|         |         |         |
-CLOCK_GEN/pll_base_inst/CLKOUT1                    |    7.647|         |         |         |
-CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o|         |   10.299|         |         |
-CORE/CONTROL/RegWrite                              |         |    3.622|         |         |
-CORE/CONTROL/_n0321                                |         |    4.347|         |         |
-CORE/CONTROL/_n0543                                |         |    3.346|         |         |
-CORE/CONTROL/_n0576                                |         |   11.248|         |         |
-CORE/CONTROL/_n0609                                |         |    2.154|         |         |
-CORE/CONTROL/_n0610                                |         |    2.784|         |         |
-CORE/CONTROL/_n0611                                |         |    3.017|         |         |
-CORE/CONTROL/state[4]_PWR_49_o_Select_93_o         |         |    4.098|         |         |
-CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o         |         |   14.080|         |         |
-DEBOUNCE_RSTB/debounced                            |         |   10.850|         |         |
----------------------------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock CLOCK_GEN/pll_base_inst/CLKOUT1
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0|    3.792|         |         |         |
-CLOCK_GEN/pll_base_inst/CLKOUT1|    5.574|         |         |         |
+CLOCK_GEN/pll_base_inst/CLKOUT0|    5.899|         |         |         |
 -------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock CLOCK_GEN/pll_base_inst/CLKOUT1
+---------------------------------------------------+---------+---------+---------+---------+
+                                                   | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------------------------------------+---------+---------+---------+---------+
+CLOCK_GEN/pll_base_inst/CLKOUT0                    |    5.104|         |         |         |
+CLOCK_GEN/pll_base_inst/CLKOUT1                    |    9.865|         |         |         |
+CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o|         |   10.299|         |         |
+CORE/CONTROL/RegWrite                              |         |    3.656|         |         |
+CORE/CONTROL/_n0323                                |         |    4.347|         |         |
+CORE/CONTROL/_n0545                                |         |    3.346|         |         |
+CORE/CONTROL/_n0578                                |         |   11.248|         |         |
+CORE/CONTROL/_n0611                                |         |    2.154|         |         |
+CORE/CONTROL/_n0612                                |         |    2.784|         |         |
+CORE/CONTROL/_n0613                                |         |    3.017|         |         |
+CORE/CONTROL/state[4]_PWR_49_o_Select_93_o         |         |    4.098|         |         |
+CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o         |         |   14.080|         |         |
+DEBOUNCE_RSTB/debounced                            |         |   10.850|         |         |
+---------------------------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o
 -------------------+---------+---------+---------+---------+
                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------+---------+---------+---------+---------+
-CORE/CONTROL/_n0353|         |         |    2.696|         |
-CORE/CONTROL/_n0576|         |         |    1.817|         |
+CORE/CONTROL/_n0355|         |         |    2.696|         |
+CORE/CONTROL/_n0578|         |         |    1.817|         |
 -------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/RegWrite
@@ -2587,28 +2600,21 @@ CLOCK_GEN/pll_base_inst/CLKOUT0         |         |         |    5.104|         
 CORE/Mram_ctrl_rdst[1]_GND_79_o_Mux_39_o|         |         |    3.936|         |
 ----------------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock CORE/CONTROL/_n0321
+Clock to Setup on destination clock CORE/CONTROL/_n0323
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.565|         |
 -------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock CORE/CONTROL/_n0353
+Clock to Setup on destination clock CORE/CONTROL/_n0355
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    2.931|         |
--------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock CORE/CONTROL/_n0541
--------------------------------+---------+---------+---------+---------+
-                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
--------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    2.956|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/_n0543
@@ -2617,30 +2623,25 @@ Clock to Setup on destination clock CORE/CONTROL/_n0543
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.764|         |
 -------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock CORE/CONTROL/_n0576
+Clock to Setup on destination clock CORE/CONTROL/_n0545
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.632|         |
 -------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock CORE/CONTROL/_n0608
+Clock to Setup on destination clock CORE/CONTROL/_n0578
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
--------------------------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock CORE/CONTROL/_n0609
--------------------------------+---------+---------+---------+---------+
-                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
--------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.800|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/_n0610
@@ -2649,6 +2650,7 @@ Clock to Setup on destination clock CORE/CONTROL/_n0610
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.257|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/_n0611
@@ -2657,6 +2659,25 @@ Clock to Setup on destination clock CORE/CONTROL/_n0611
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.749|         |
+-------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock CORE/CONTROL/_n0612
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.257|         |
+-------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock CORE/CONTROL/_n0613
+-------------------------------+---------+---------+---------+---------+
+                               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+-------------------------------+---------+---------+---------+---------+
+CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    1.916|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/state[4]_PWR_40_o_Select_84_o
@@ -2665,6 +2686,7 @@ Clock to Setup on destination clock CORE/CONTROL/state[4]_PWR_40_o_Select_84_o
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    4.846|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/CONTROL/state[4]_PWR_49_o_Select_93_o
@@ -2673,6 +2695,7 @@ Clock to Setup on destination clock CORE/CONTROL/state[4]_PWR_49_o_Select_93_o
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
 CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    5.104|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    2.925|         |
 -------------------------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o
@@ -2680,7 +2703,7 @@ Clock to Setup on destination clock CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o
                                           | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                              |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ------------------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0           |         |         |    1.867|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1           |         |         |    1.867|         |
 CORE/CONTROL/state[4]_PWR_40_o_Select_84_o|         |         |    2.388|         |
 ------------------------------------------+---------+---------+---------+---------+
 
@@ -2689,11 +2712,11 @@ Clock to Setup on destination clock CORE/Mram_ctrl_rdst[1]_GND_79_o_Mux_39_o
                                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                                       |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------------------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0                    |         |         |    7.535|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1                    |         |         |    7.535|         |
 CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o|         |         |    7.711|         |
-CORE/CONTROL/_n0541                                |         |         |    2.459|         |
-CORE/CONTROL/_n0576                                |         |         |    8.934|         |
-CORE/CONTROL/_n0608                                |         |         |    2.260|         |
+CORE/CONTROL/_n0543                                |         |         |    2.459|         |
+CORE/CONTROL/_n0578                                |         |         |    8.934|         |
+CORE/CONTROL/_n0610                                |         |         |    2.260|         |
 CORE/Mram_ctrl_alusrca[1]_GND_45_o_Mux_3_o         |         |         |   11.192|         |
 DEBOUNCE_RSTB/debounced                            |         |         |    8.719|         |
 ---------------------------------------------------+---------+---------+---------+---------+
@@ -2703,27 +2726,27 @@ Clock to Setup on destination clock DEBOUNCE_RSTB/debounced
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT0|         |         |    2.535|         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|         |         |    2.535|         |
 -------------------------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock DEBUGGER/Mmux_current_nibble13
+Clock to Setup on destination clock DEBUGGER/in_line
 -------------------------------+---------+---------+---------+---------+
                                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 -------------------------------+---------+---------+---------+---------+
-CLOCK_GEN/pll_base_inst/CLKOUT1|    5.060|         |         |         |
+CLOCK_GEN/pll_base_inst/CLKOUT1|    5.180|         |         |         |
 -------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 34.00 secs
-Total CPU time to Xst completion: 24.32 secs
+Total REAL time to Xst completion: 36.00 secs
+Total CPU time to Xst completion: 24.67 secs
  
 --> 
 
 
-Total memory usage is 141648 kilobytes
+Total memory usage is 144692 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings : 1266 (   0 filtered)

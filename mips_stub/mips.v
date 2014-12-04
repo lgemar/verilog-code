@@ -2,10 +2,13 @@
 
 `default_nettype none
 
-module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
+module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, 
+			mem_wr_ena, PC, full_register_file, ena);
 
 	input wire clk, rstb;
 	input wire [31:0] mem_rd_data;  // Instuction & MDR
+	input wire ena;
+	output wire [32*32-1:0] full_register_file;
 	output wire mem_wr_ena;			// reading or writing from memory
 	output wire [31:0] mem_wr_data, mem_addr;	// data to write to memory at mem_addr
 	output reg [31:0] PC;			// new PC
@@ -13,16 +16,17 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	/** SubModules **/
 
 	// Control Unit out wires
-	wire ctrl_pcwr, ctrl_iord, ctrl_memrd, ctrl_memwr, 
+	wire ctrl_pcwr, ctrl_iord, ctrl_memwr, 
 		 ctrl_memtoreg, ctrl_iregwr, ctrl_regwr, ctrl_ext;
 	wire [1:0] ctrl_branch, ctrl_pcsrc, ctrl_alusrca, ctrl_alusrcb, ctrl_rdst;
-	wire [3:0] ctrl_state;
+
 	wire [3:0] alu_control;	// output from the ALU_CONTROL
 	
 	control_unit CONTROL (
 		.cclk(clk),
-		.rstb(rstb),
+		.rstb(~rstb),
 		.Instr(inst_reg),
+		.ena(ena),
 
 		//.MemRead(ctrl_memrd),
 		.MemWrite(ctrl_memwr),
@@ -74,7 +78,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	// Instantiate register File
 	// Register Inputs
 	// clk, rstb are already instantiated
-	wire [4:0] addr1, addr2;
+	//wire [4:0] addr1, addr2;
 	reg [4:0] waddr;
 	reg [31:0] wdata;
 	// Register Outputs
@@ -102,7 +106,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	end
 	
 	my_register REG (
-		.rst(rstb),						// reset (directly)
+		.rst(~rstb),						// reset (directly)
 		.clk(clk),						// clock (directly)
 		.address1(inst_reg[25:21]),		// addrA (directly from inst_reg)
 		.address2(inst_reg[20:16]),		// addrB (directly from inst_reg)
@@ -111,7 +115,8 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 		.write_ena(ctrl_regwr),			// RegWrite from Control
 
 		.read_data1(rd1),				// output data A (into SrcA MUX)
-		.read_data2(rd2)				// output data B (into SrcB MUX)
+		.read_data2(rd2),				// output data B (into SrcB MUX)
+		.full_register_file(full_register_file)
 	);
 
 	// Instantiate sign extension unit
@@ -134,7 +139,7 @@ module mips(clk, rstb, mem_wr_data, mem_addr, mem_rd_data, mem_wr_ena, PC);
 	assign PCEn = ctrl_pcwr || ctrl_branch[0] & Zero || ctrl_branch[1] & ~Zero;
 
 	always@(posedge clk) begin
-		if(~rstb) begin
+		if(rstb) begin
 			PC <= 32'b0;
 			mem_data_reg <= 32'b0;
 			inst_reg <= 32'b0;

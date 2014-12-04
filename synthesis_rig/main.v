@@ -48,7 +48,7 @@ synth_dual_port_memory #(
 	.I_WIDTH(8),
 	.D_WIDTH(10)
 ) MEMORY(
-	.clk(cclk),
+	.clk(tft_clk_buf),
 	.rstb(rstb),
 	.wr_ena0(mem_wr_ena0),
 	.addr0(mem_addr0),
@@ -79,20 +79,20 @@ wire [32*32-1:0] full_register_file;
 
 /* NOTE: CHANGE THE NAME OF YOUR CPU HERE */
 mips CORE (
-	.clk(cclk),
-	.rstb(rstb),
-	//.ena(core_ena),
+	.clk(tft_clk_buf),
+	.rstb(rst),
+	.ena(core_ena),
 	.PC(PC),
 	.mem_addr(mem_addr0),
 	.mem_rd_data(mem_rd_data0),
 	.mem_wr_data(mem_wr_data0),
-	.mem_wr_ena(mem_wr_ena0)
-	//.full_register_file(full_register_file)
+	.mem_wr_ena(mem_wr_ena0),
+	.full_register_file(full_register_file)
 );
 
 //mips debugger
 mips_debugger DEBUGGER(
-	.clk(cclk),
+	.clk(tft_clk_buf),
 	.rstb(rstb),
 	.PC(PC),
 	.full_register_file(full_register_file),

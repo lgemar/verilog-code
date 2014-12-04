@@ -1,7 +1,9 @@
 `default_nettype none
 `timescale 1ns/1ps
 
-module register_file(clk, rst, rd_addr0, rd_addr1, wr_addr, rd_data0, rd_data1, wr_data, wr_ena, full_register_file);
+module register_file(clk, rst, rd_addr0, rd_addr1, wr_addr, 
+							rd_data0, rd_data1, wr_data, wr_ena, 
+							full_register_file);
 
 parameter N = 32;
 input wire clk, rst;
@@ -10,7 +12,7 @@ output reg [N-1:0] rd_data0, rd_data1;
 input wire [N-1:0] wr_data;
 input wire wr_ena;
 
-reg [31:0] regfile [31:0];
+//reg [31:0] regfile [31:0];
 
 always @(posedge clk) begin
 	

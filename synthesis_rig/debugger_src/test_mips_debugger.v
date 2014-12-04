@@ -10,8 +10,8 @@ wire [32*32-1:0] full_register_file;
 reg [9:0] tft_x;
 reg [8:0] tft_y;
 wire [23:0] color;
-wire [31:0] mem_rd_data;
-wire [31:0] mem_rd_addr;
+//wire [31:0] f;
+//wire [31:0] mem_rd_addr;
 wire rst;
 assign rst = ~rstb;
 
@@ -45,9 +45,9 @@ assign core_ena = 1;
 assign single_step = 0;
 assign single_step_active = 0;
 
-mips_multicycle_vn CORE (
+mips CORE (
 	.clk(clk),
-	.rst(rst),
+	.rstb(rst),
 	.ena(core_ena),
 	.PC(PC),
 	.mem_addr(mem_addr0),
@@ -92,7 +92,7 @@ initial begin
 	repeat (2) @(posedge clk); rstb = 1;
 	
 	repeat(NUM_CYCLES) @(posedge clk);
-	CORE.REGISTER_FILE.print_hex;
+//	CORE.REG.print_hex;
 	$finish;
 end
 

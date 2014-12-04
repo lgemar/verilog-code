@@ -2,6 +2,7 @@
 `timescale 1ns/1ps
 
 `include "mips_memory_space_defines.v"
+
 /*
 	this memory is for a more von nuemann approach to CPU design that is made to synthesize appropriately
 	the instruction and data memory are still split up to allow for different address spaces
@@ -114,14 +115,15 @@ reg [8*100:0] INIT_DATA;
 initial begin
 	if(!$value$plusargs("INIT_INST=%s", INIT_INST)) begin
 		$display("no instruction file was supplied with +INIT_INST, quitting.");
-		$finish;
+		INIT_INST = "i_synth.memh";
+		//$finish;
 	end	
 	if(!$value$plusargs("INIT_DATA=%s", INIT_DATA)) begin
 		$display("no data file was supplied, using tests/zero.memh");
-		INIT_DATA = "tests/zero.memh";
+		INIT_DATA = "d_synth.memh";
 	end
 	$display("initializing %m's instruction memory from '%s' and data memory from '%s'", INIT_INST, INIT_DATA);
-	
+
 	$readmemh(INIT_INST, IMEM, 0, I_LENGTH-1);
 	$readmemh(INIT_DATA, DMEM, 0, D_LENGTH-1);
 end

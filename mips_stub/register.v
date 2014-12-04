@@ -5,9 +5,11 @@ module my_register(
 	input wire rst, clk, write_ena,
 	input wire [4:0] address1, address2, address3,	// TODO: rename address3 to write_reg
 	input wire [31:0] write_data,
-	output reg [31:0] read_data1, read_data2
+	output reg [31:0] read_data1, read_data2,
+	output wire [32*32-1:0] full_register_file
 );
 
+assign full_register_file = {ra,fp,sp,gp,k1,k0,t9,t8,s7,s6,s5,s4,s3,s2,s1,t7,t6,t5,t4,t3,t2,t1,t0,a3,a2,a1,a0,v1,v0,at,zero};
 
 reg [31:0] zero, at, v0, v1, a0, a1, a2, a3, t0, t1, t2, t3, t4, t5, t6, t7;
 reg [31:0] s0, s1, s2, s3, s4, s5, s6, s7, t8, t9, k0, k1;
@@ -67,7 +69,7 @@ always@(*) begin
 		t4 <= 32'd0;
 		t5 <= 32'd0;
 		t6 <= 32'd0;
-		t7 <= 32'd0;
+		t7 <= 32'd5;
 		s0 <= 32'd0;
 		s1 <= 32'd0;
 		s2 <= 32'd0;
