@@ -10,10 +10,12 @@ Target Device  : xc6slx45
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Thu Dec  4 14:21:19 2014
+Mapped Date    : Thu Dec  4 17:13:59 2014
 
-Interim Summary
----------------
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   14
 Slice Logic Utilization:
   Number of Slice Registers:                 1,443 out of  54,576    2%
     Number used as Flip Flops:                 351
@@ -33,11 +35,12 @@ Slice Logic Utilization:
       Number with other load:                    0
 
 Slice Logic Distribution:
+  Number of occupied Slices:                   888 out of   6,822   13%
   Number of MUXCYs used:                       340 out of  13,644    2%
-  Number of LUT Flip Flop pairs used:        3,301
-    Number with an unused Flip Flop:         1,892 out of   3,301   57%
-    Number with an unused LUT:               1,031 out of   3,301   31%
-    Number of fully used LUT-FF pairs:         378 out of   3,301   11%
+  Number of LUT Flip Flop pairs used:        2,831
+    Number with an unused Flip Flop:         1,422 out of   2,831   50%
+    Number with an unused LUT:                 561 out of   2,831   19%
+    Number of fully used LUT-FF pairs:         848 out of   2,831   29%
     Number of unique control sets:              62
     Number of slice register sites lost
       to control set restrictions:             149 out of  54,576    1%
@@ -84,3 +87,370 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
+Average Fanout of Non-Clock Nets:                4.46
+
+Peak Memory Usage:  312 MB
+Total REAL time to MAP completion:  1 mins 12 secs 
+Total CPU time to MAP completion:   53 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:PhysDesignRules:372 - Gated clock. Clock net DEBOUNCE_RSTB/debounced is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CORE/CONTROL/state[4]_PWR_49_o_Select_93_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CORE/CONTROL/state[4]_PWR_40_o_Select_84_o is sourced by a combinatorial pin.
+   This is not good design practice. Use the CE pin to control the loading of
+   data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0355 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net DEBUGGER/in_line is sourced
+   by a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0543 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0545 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0612 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0578 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0611 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0610 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0323 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0613 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network switch<6>_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 10 more times for the
+   following (max. 5 shown):
+   switch<5>_IBUF,
+   switch<4>_IBUF,
+   switch<3>_IBUF,
+   switch<2>_IBUF,
+   switch<1>_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  65 block(s) removed
+   2 block(s) optimized away
+  65 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "DEBUGGER_Mram_CHAR_ROM1791_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1791_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM167" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1671" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1791_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1791_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM170" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1701" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM169" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1691" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM168" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1681" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1591_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1591_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM146" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1461" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM144" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1441" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM145" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1451" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1591_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1591_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM148" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1481" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM150" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1501" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM149" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1491" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM147" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1471" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1351_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1351_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM120" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1201" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM122" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1221" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM121" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1211" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM119" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1191" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1351_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1351_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM124" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1241" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM126" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1261" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM125" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1251" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM123" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1231" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1101_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1101_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM95" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM951" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM97" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM971" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM96" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM961" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM94" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM941" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM1101_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM1101_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM99" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM991" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM101" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM10111" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM100" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM1001" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM98" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM981" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM851_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM851_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM70" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM701" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM72" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM721" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM71" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM711" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM69" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM691" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM851_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM851_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM74" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM741" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM76" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM761" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM75" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM751" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM73" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM731" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM601_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM601_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM45" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM451" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM47" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM471" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM46" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM461" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM44" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM441" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM601_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM601_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM49" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM491" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM51" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM511" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM50" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM501" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM48" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM481" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM351_91" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM351_91" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM20" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM201" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM22" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM221" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM21" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM211" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM19" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM191" (ROM) removed.
+The signal "DEBUGGER_Mram_CHAR_ROM351_10" is unused and has been removed.
+ Unused block "DEBUGGER_Mram_CHAR_ROM351_10" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM24" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM241" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM26" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM261" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM25" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM251" (ROM) removed.
+  The signal "DEBUGGER_Mram_CHAR_ROM23" is unused and has been removed.
+   Unused block "DEBUGGER_Mram_CHAR_ROM231" (ROM) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| JB<0>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<1>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<2>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<3>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<4>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<5>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<6>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| JB<7>                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| button_center                      | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| button_down                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| button_left                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| button_right                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| button_up                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| led<0>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<1>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<2>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<3>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<4>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<5>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<6>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| led<7>                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| rstb_button                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| switch<0>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<1>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<2>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<3>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<4>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<5>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<6>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| switch<7>                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| tft_backlight                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<0>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<1>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<2>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<3>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<4>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<5>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<6>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_blue<7>                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_clk                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST | ODDR         |          |          |
+| tft_data_ena                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_display                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST | OFF          |          |          |
+| tft_green<0>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<1>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<2>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<3>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<4>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<5>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<6>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_green<7>                       | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<0>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<1>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<2>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<3>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<4>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<5>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<6>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_red<7>                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| tft_vdd                            | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST | OFF          |          |          |
+| touch_busy                         | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| touch_clk                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| touch_csb                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| touch_data_in                      | IOB              | OUTPUT    | LVCMOS33             |       | 12       | FAST |              |          |          |
+| touch_data_out                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| unbuf_clk                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

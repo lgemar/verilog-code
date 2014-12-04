@@ -1,7 +1,7 @@
 Release 14.7 Drc P.20131013 (lin)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Thu Dec  4 14:19:46 2014
+Thu Dec  4 17:16:29 2014
 
 drc -z main.ncd main.pcf
 
@@ -22,13 +22,7 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0355 is
 WARNING:PhysDesignRules:372 - Gated clock. Clock net DEBUGGER/in_line is sourced
    by a combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0613 is
-   sourced by a combinatorial pin. This is not good design practice. Use the CE
-   pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0543 is
-   sourced by a combinatorial pin. This is not good design practice. Use the CE
-   pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0610 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0545 is
@@ -38,7 +32,7 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    CORE/CONTROL/ALU_DECODER/ALUOp[1]_Funct[5]_Mux_23_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0323 is
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0612 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0578 is
@@ -47,7 +41,13 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0578 is
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0611 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0612 is
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0610 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0323 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CORE/CONTROL/_n0613 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
 DRC detected 0 errors and 14 warnings.  Please see the previously displayed

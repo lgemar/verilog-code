@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="par" timeStamp="Tue Dec  2 18:19:05 2014">
+  <application stringID="par" timeStamp="Thu Dec  4 17:15:24 2014">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -51,12 +51,12 @@
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
-        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="42 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="37 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="46 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="40 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="0.000000"/>
-        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="43 secs "/>
-        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="38 secs "/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="48 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="41 secs "/>
       </section>
     </task>
     <task stringID="PAR_par">
@@ -2551,7 +2551,7 @@
     </task>
   </application>
 
-  <application stringID="Par" timeStamp="Tue Dec  2 18:19:06 2014">
+  <application stringID="Par" timeStamp="Thu Dec  4 17:15:24 2014">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -2618,14 +2618,14 @@
           <item dataType="int" stringID="PAR_NUM_LUT_RT_DRIVES_CARRY4" value="7"/>
           <item dataType="int" stringID="PAR_NUM_LUT_RT_DRIVES_OTHERS" value="0"/>
         </item>
-        <item AVAILABLE="6822" dataType="int" stringID="PAR_OCCUPIED_SLICES" value="893">
-          <item AVAILABLE="1809" dataType="int" stringID="PAR_NUM_SLICEL" value="214"/>
+        <item AVAILABLE="6822" dataType="int" stringID="PAR_OCCUPIED_SLICES" value="888">
+          <item AVAILABLE="1809" dataType="int" stringID="PAR_NUM_SLICEL" value="213"/>
           <item AVAILABLE="1602" dataType="int" stringID="PAR_NUM_SLICEM" value="0"/>
-          <item AVAILABLE="3411" dataType="int" stringID="PAR_NUM_SLICEX" value="679"/>
+          <item AVAILABLE="3411" dataType="int" stringID="PAR_NUM_SLICEX" value="675"/>
         </item>
-        <item dataType="int" stringID="PAR_OCCUPIED_LUT_AND_FF" value="2830">
+        <item dataType="int" stringID="PAR_OCCUPIED_LUT_AND_FF" value="2831">
           <item dataType="int" stringID="PAR_OCCUPIED_LUT_ONLY" value="1422"/>
-          <item dataType="int" stringID="PAR_OCCUPIED_FF_ONLY" value="560"/>
+          <item dataType="int" stringID="PAR_OCCUPIED_FF_ONLY" value="561"/>
           <item dataType="int" stringID="PAR_OCCUPIED_FF_AND_LUT" value="848"/>
         </item>
       </section>

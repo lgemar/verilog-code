@@ -2,6 +2,7 @@
 `timescale 1ns/1ps
 
 `include "mips_memory_space_defines.v"
+`define SYNTHESIS
 
 /*
 	this memory is for a more von nuemann approach to CPU design that is made to synthesize appropriately
@@ -115,8 +116,7 @@ reg [8*100:0] INIT_DATA;
 initial begin
 	if(!$value$plusargs("INIT_INST=%s", INIT_INST)) begin
 		$display("no instruction file was supplied with +INIT_INST, quitting.");
-		INIT_INST = "i_synth.memh";
-		//$finish;
+		$finish;
 	end	
 	if(!$value$plusargs("INIT_DATA=%s", INIT_DATA)) begin
 		$display("no data file was supplied, using tests/zero.memh");

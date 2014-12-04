@@ -6,7 +6,7 @@
 #include <vector>
 #include <assert.h>
 #define JMASK 0x03ffffff
-#define TEXT_START 0x000000
+#define TEXT_START 0x00000000
 
 enum { SHIFT_OP = 26, SHIFT_RS = 21, SHIFT_RT = 16, 
        SHIFT_RD = 11, SHIFT_SHMT = 6, SHIFT_OFFSET = 16 };

@@ -4,15 +4,15 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: main.prj
@@ -2066,7 +2066,7 @@ Optimizing unit <my_register> ...
 Optimizing unit <behavioural_alu> ...
 
 Optimizing unit <tft_driver> ...
-WARNING:Xst:1710 - FF/Latch <MEMORY/last_i1> (without init value) has a constant value of 1 in block <main>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <MEMORY/last_i1> (without init value) has a constant value of 0 in block <main>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <TOUCH/y_raw_11> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <TOUCH/y_raw_10> of sequential type is unconnected in block <main>.
 WARNING:Xst:2677 - Node <TOUCH/y_raw_9> of sequential type is unconnected in block <main>.
@@ -2226,9 +2226,9 @@ Primitive and Black Box Usage:
 #      XORCY                       : 274
 # FlipFlops/Latches                : 1446
 #      FD                          : 13
-#      FDR                         : 238
+#      FDR                         : 237
 #      FDRE                        : 98
-#      FDS                         : 4
+#      FDS                         : 5
 #      LD                          : 79
 #      LDC                         : 15
 #      LDCE                        : 990
@@ -2370,7 +2370,7 @@ Delay:               5.899ns (Levels of Logic = 4)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLOCK_GEN/pll_base_inst/CLKOUT1'
   Clock period: 9.865ns (frequency: 101.367MHz)
-  Total number of paths / destination ports: 225097 / 488
+  Total number of paths / destination ports: 225173 / 492
 -------------------------------------------------------------------------
 Delay:               9.865ns (Levels of Logic = 9)
   Source:            CORE/reg_b_6 (FF)
@@ -2740,13 +2740,13 @@ CLOCK_GEN/pll_base_inst/CLKOUT1|    5.180|         |         |         |
 =========================================================================
 
 
-Total REAL time to Xst completion: 36.00 secs
-Total CPU time to Xst completion: 24.67 secs
+Total REAL time to Xst completion: 35.00 secs
+Total CPU time to Xst completion: 24.29 secs
  
 --> 
 
 
-Total memory usage is 144692 kilobytes
+Total memory usage is 147172 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings : 1266 (   0 filtered)

@@ -4,7 +4,7 @@ import re
 import argparse
 import conversions
 
-STARTING_ADDRESS = 0x00400000 #mips starting program counter
+STARTING_ADDRESS = 0x00100000 #mips starting program counter
 
 DESCRIPTION = """converts mips assembly files into machine code
 	note: this script assumes python style comments ("#") and does not handle block comments or multiple instructions per line"""
@@ -111,30 +111,20 @@ if __name__ == "__main__":
 			else:
 				if(len(line['args']) != 3):
 					raise Exception("line %d : not right number of args"%line['line_number'])
+
 				if line['instruction'] in ['sll', 'srl', 'sra']:
-					rd, rs, shamt = line['args']
+					rd, rt, shamt = line['args']
 					shamt = conversions.bin2c(shamt, 5)
-					rt = '$0'
+					rs = '$0'
 				else:
 					rd, rs, rt = line['args']
 					shamt = '00000'
 			#machine = '000000' + registers[rs] + registers[rt] + registers[rd] + shamt + funct_codes[line['instruction']]
-			try:
-				#sys.stderr.write( "line %2d :: rs = %s, rt = %s, rd = %s\n"%(line['line_number'],rs,rt,rd) )
-				machine = "".join(['000000',registers[rs],registers[rt],registers[rd],shamt,funct_codes[line['instruction']]])
-			except:
-				raise Exception("parsing error on line %d"%line['line_number'])
+			machine = "".join(['000000',registers[rs],registers[rt],registers[rd],shamt,funct_codes[line['instruction']]])
 		else:
 			machine = op_codes[line['instruction']]
 			if line['instruction'] in ['jal', 'j']:
-				#machine += conversions.bin2c(labels[line['args'][0]], 26)
-				jump_address = labels[line['args'][0]]+ (args.start_address >> 2)
-				machine += conversions.bin2c(jump_address, 26)
-				sys.stderr.write("found jump on line %d, setting target to %d (%s)\n"%(
-					line['line_number'],
-					labels[line['args'][0]],
-					conversions.hex2c(jump_address,26)
-				))
+				machine += conversions.bin2c(labels[line['args'][0]]+args.start_address, 26)
 			elif line['instruction'] in ['sw', 'lw']:
 				rt, full_offset = line['args']
 				match = re_offset_address.match(full_offset)
@@ -160,17 +150,10 @@ if __name__ == "__main__":
 					offset = conversions.bin2c(offset, 16)
 					machine += rs + rt + offset #names are wrong but this is a quick fix
 				else:
-					try:
-						rt, rs, offset = line['args']
-					except:
-						raise Exception("could not extract 3 args on line %d"%line['line_number'])
+					rt, rs, offset = line['args']
 					rs = registers[rs]
 					rt = registers[rt]
-					try:
-						offset = conversions.bin2c(offset, 16)
-					except:
-						raise Exception("error with offset on line number: %d"%line['line_number'])
-					sys.stderr.write("line %d: offset = %d\n"%(line['line_number'], int(offset,2)))
+					offset = conversions.bin2c(offset, 16)
 					machine += rs + rt + offset
 		machine_code.append(machine)
 	if args.pad:
